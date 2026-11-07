@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>От нуля до профи — трекер обучения созданию сайтов</title>
+<meta name="description" content="124 урока по созданию сайтов: дизайн, HTML, CSS, JavaScript, WordPress, WooCommerce. Тесты по каждому уроку и большие тесты по главам.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<header class="top">
+  <h1>От нуля до профи <span>в создании сайтов</span></h1>
+  <p>11 глав · 124 урока · тест после каждого урока и большие тесты по главам</p>
+</header>
+
+<main class="wrap">
+  <section class="cards" id="cards"></section>
+
+  <section class="panel">
+    <div class="rowline"><span>Общий прогресс</span><b id="pctTxt">0%</b></div>
+    <div class="bar"><i id="mainBar"></i></div>
+  </section>
+
+  <section class="panel">
+    <div class="rowline"><span>Прогресс по главам</span></div>
+    <div id="chMini" class="chmini"></div>
+  </section>
+
+  <nav class="toolbar">
+    <button class="btn on" data-f="all">Все</button>
+    <button class="btn" data-f="0">Не начаты</button>
+    <button class="btn" data-f="1">В процессе</button>
+    <button class="btn" data-f="2">Пройдены</button>
+    <input type="text" id="search" placeholder="Поиск по уроку…">
+    <button class="btn" id="btnCsv">Экспорт в CSV</button>
+    <button class="btn danger" id="btnReset">Сбросить прогресс</button>
+  </nav>
+
+  <p class="hint">Клик по названию главы — свернуть или развернуть. Клик по названию урока — открыть материал и тест.</p>
+
+  <div id="list"></div>
+</main>
+
+<footer class="bottom">
+  Прогресс сохраняется в этом браузере. Регулярно нажимайте «Экспорт в CSV».
+</footer>
+
+<!-- Окно урока -->
+<div class="modal-bg" id="lessonBg">
+  <div class="modal">
+    <div class="modal-h">
+      <div class="mh">
+        <div class="crumb" id="mCrumb"></div>
+        <h2 id="mTitle"></h2>
+        <p class="goal" id="mGoal"></p>
+      </div>
+      <button class="modal-x" id="mClose" title="Закрыть (Esc)">✕</button>
+    </div>
+    <div class="modal-b" id="mBody"></div>
+    <div class="qz-wrap" id="quizWrap"></div>
+    <div class="modal-f">
+      <button class="btn" id="mPrev">← Предыдущий</button>
+      <span class="sp"></span>
+      <span class="cnt" id="mNum"></span>
+      <span class="sp"></span>
+      <button class="btn pri" id="mNext">Следующий →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Окно большого теста -->
+<div class="modal-bg" id="blockBg">
+  <div class="modal">
+    <div class="modal-h">
+      <div class="mh">
+        <div class="crumb" id="bCrumb"></div>
+        <h2 id="bTitle"></h2>
+        <p class="goal" id="bGoal"></p>
+      </div>
+      <button class="modal-x" id="bClose" title="Закрыть (Esc)">✕</button>
+    </div>
+    <div class="qz-wrap show" id="bWrap"></div>
+  </div>
+</div>
+
+<script src="assets/icons.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

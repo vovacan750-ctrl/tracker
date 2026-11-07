@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Уроки 119–124 · Расширенная теория</title>
+<style>
+:root{--bg:#eef1f6;--card:#fff;--line:#e4e8f0;--txt:#182031;--muted:#6d7789;--acc:#4f46e5;--ok:#15a34a;--proc:#e08c00;--code:#101828}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);font-size:14.5px;line-height:1.6}
+header{background:#101828;color:#fff;padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+header h1{margin:0;font-size:16px}header .sub{color:#98a2b3;font-size:12px}
+header .cnt{margin-left:auto;font-size:12px;color:#cbd5e1;font-weight:600}
+.wrap{max-width:900px;margin:0 auto;padding:20px 16px 70px}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:#fff;border-radius:7px;padding:5px 9px;font-size:12px;cursor:pointer;font-weight:600;color:var(--muted)}
+.tab:hover{border-color:#c7cfdd}.tab.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.lesson{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.lh{padding:20px 24px 14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fbfcfe,#fff)}
+.lh .num{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);font-weight:700}
+.lh h2{margin:4px 0 0;font-size:23px;letter-spacing:-.02em;line-height:1.25}
+.lh .goal{margin-top:6px;font-size:13px;color:var(--muted)}
+.lb{padding:4px 24px 24px}
+.lb h3{font-size:12.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);margin:24px 0 9px;font-weight:700;padding-bottom:5px;border-bottom:2px solid #eef2ff}
+.lb h4{font-size:15.5px;margin:18px 0 6px}
+.lb p{margin:0 0 12px;line-height:1.75}
+.lb ul,.lb ol{margin:0 0 13px;padding-left:21px}
+.lb li{margin-bottom:6px;line-height:1.68}
+.lb strong{color:#0f172a}
+.lb code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.87em;background:#f1f5f9;padding:1px 5px;border-radius:4px;color:#3730a3}
+.lb pre{background:var(--code);color:#e6edf7;padding:13px 15px;border-radius:9px;overflow-x:auto;font-size:12.2px;line-height:1.5;font-family:"SF Mono",Menlo,Consolas,monospace;margin:0 0 13px}
+.lb table{width:100%;border-collapse:collapse;margin:0 0 13px;font-size:12.8px}
+.lb th{background:#f8fafc;text-align:left;padding:8px 10px;border:1px solid var(--line);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.lb td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;line-height:1.5}
+figure{margin:0 0 16px}
+figure svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+figcaption{margin-top:6px;font-size:12.2px;color:var(--muted);line-height:1.5}
+figcaption b{color:#475467}
+.term{background:#f5f3ff;border-left:4px solid #8b5cf6;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px}
+.term-t{font-weight:700;font-size:12.5px;color:#6d28d9;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.term dl{margin:0}
+.term dt{font-weight:700;color:#4c1d95;font-size:13.5px;margin-top:6px}
+.term dd{margin:2px 0 0 0;font-size:13.5px;line-height:1.6;color:#5b21b6}
+.why{background:#eef2ff;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.why-t{font-weight:700;font-size:12.5px;color:#3730a3;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.life{background:#f0fdf4;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.life-t{font-weight:700;font-size:12.5px;color:#15803d;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.risk{background:#fef2f2;border-left:4px solid #b42318;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.risk-t{font-weight:700;font-size:12.5px;color:#b42318;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.task{background:#f8fafc;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:0 11px 11px 0;padding:13px 15px;margin:0 0 13px}
+.task-h{font-weight:700;font-size:14.5px;margin-bottom:4px}
+.task-why{font-size:12.8px;color:var(--muted);margin-bottom:9px;line-height:1.55}
+.steps{margin:0;padding-left:0;list-style:none;counter-reset:st}
+.steps li{position:relative;padding-left:32px;margin-bottom:8px;line-height:1.6;font-size:13.2px;counter-increment:st}
+.steps li::before{content:counter(st);position:absolute;left:0;top:0;width:21px;height:21px;background:var(--acc);color:#fff;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.task-r{margin-top:10px;padding-top:9px;border-top:1px dashed #d7dde6;font-size:12.8px;color:var(--ok);font-weight:600}
+.warn{background:#fffbeb;border-left:4px solid var(--proc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.warn-t{font-weight:700;font-size:12.5px;color:#b45309;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.warn ul{margin:0;padding-left:19px}.warn li{font-size:13.2px;margin-bottom:4px}
+.check{background:#f0fdf4;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.check-t{font-weight:700;font-size:12.5px;color:#15803d;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.check ol{margin:0;padding-left:19px}.check li{font-size:13.2px;margin-bottom:4px}
+.note{background:#eef2ff;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px;font-size:13.5px}
+.navb{display:flex;gap:9px;margin-top:16px}.navb .sp{flex:1}
+.btn{border:1px solid var(--line);background:#fff;padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600;font-family:inherit}
+.btn:hover{border-color:#c7cfdd}.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+@media(max-width:700px){.lh,.lb{padding-left:15px;padding-right:15px}.lh h2{font-size:20px}}
+</style>
+</head>
+<body>
+<header><h1>📚 Уроки 119–124 · Расширенная теория</h1><span class="sub">как · зачем · почему · терминология · примеры из жизни</span><span class="cnt" id="cnt"></span></header>
+<div class="wrap"><div class="tabs" id="tabs"></div><div id="out"></div>
+<div class="navb"><button class="btn" id="prev">← Предыдущий</button><span class="sp"></span><button class="btn pri" id="next">Следующий →</button></div></div>
+<script>
+var L=[
+{t:"ТЗ, смета и оценка часов",g:"Превратить бриф в план работ и цену.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>ТЗ</strong> — что делаем. <strong>Смета</strong> — сколько стоит. <strong>Оценка часов</strong> — основа сметы. Без этого вы работаете бесплатно, потому что «ещё чуть-чуть» никогда не заканчивается.</p>
+<p>Буфер 20–30% на правки — не жадность, а профессионализм.</p>
+
+<h3>Пример сметы на лендинг</h3>
+<table><tr><th>Этап</th><th>Часы</th><th>Ставка</th><th>Сумма</th></tr>
+<tr><td>Аналитика и дизайн (4+8+16+8+4)</td><td>40</td><td>2000 ₽</td><td>80 000 ₽</td></tr>
+<tr><td>Вёрстка (20+12+12)</td><td>44</td><td>2000 ₽</td><td>88 000 ₽</td></tr>
+<tr><td>Интеграции</td><td>16</td><td>2000 ₽</td><td>32 000 ₽</td></tr>
+<tr><td>Правки (буфер 22%)</td><td>22</td><td>2000 ₽</td><td>44 000 ₽</td></tr>
+<tr><td><strong>Итого</strong></td><td><strong>122</strong></td><td></td><td><strong>244 000 ₽</strong></td></tr></table>
+
+<h3>Правила оценки</h3>
+<ul>
+<li>Оценивайте диапазоном (36–48 ч), не «ровно 40»</li>
+<li>Всегда буфер 20–30% на правки</li>
+<li>Время ожидания клиента — тоже время</li>
+<li>Фиксируйте: что входит, что НЕ входит</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>ТЗ</dt><dd>Техническое задание.</dd>
+<dt>Смета</dt><dd>Расчёт стоимости работ.</dd>
+<dt>Ставка</dt><dd>Цена часа работы.</dd>
+<dt>Буфер</dt><dd>Запас времени на правки.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему буфер? Правки всегда есть, иначе часть работы делается бесплатно. Почему диапазон? «Ровно 40 часов» почти никогда не сбывается. Почему фиксировать объём? Чтобы клиент не потребовал «ещё вот это» бесплатно.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Смета — как расчёт стоимости ремонта: материалы, работа, запас на непредвиденное. Буфер — как запас на «а тут ещё и потолок»: без него бюджет лопнет. Ставка — как цена часа мастера: чем опытнее, тем дороже.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Нет буфера</strong> — работаете бесплатно. <strong>Оценка «ровно»</strong> — сорвёте срок. <strong>Не зафиксирован объём</strong> — бесконечные доработки.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Составить ТЗ и смету</div>
+<div class="task-why">Зачем: без этого невозможно работать с клиентами.</div>
+<ol class="steps">
+<li>Составь ТЗ на реальный лендинг (8 блоков, форма, выгрузка).</li>
+<li>Разбей на этапы с часами, добавь буфер 20%.</li>
+<li>Посчитай цену при ставке 1500, 2000 и 3000 ₽/час.</li>
+<li>Выпиши отдельно: что НЕ входит в объём.</li>
+<li>Проверь: можно ли по этому ТЗ принять работу?</li>
+</ol>
+<div class="task-r">Результат: рабочие ТЗ и смета.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Нет буфера.</strong> Бесплатная работа.</li>
+<li><strong>Оценка «ровно».</strong> Сорвёте срок.</li>
+<li><strong>Не зафиксирован объём.</strong> Бесконечные доработки.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Из чего состоит смета?</li>
+<li>Зачем буфер 20%?</li>
+<li>Почему оценка диапазоном?</li>
+<li>Что фиксировать в ТЗ?</li></ol></div>
+`},
+
+{t:"Договор, предоплата, этапы",g:"Защитить себя юридически и финансово.",c:`
+<h3>Зачем этот урок</h3>
+<p>Договор нужен не «для галочки». Он защищает от главных рисков: <strong>клиент исчез</strong>, <strong>клиент требует бесконечных правок</strong>, <strong>клиент не платит</strong>.</p>
+<p>Без предоплаты можно не получить оплату вообще; без финального платежа — после работы.</p>
+
+<h3>Девять обязательных разделов</h3>
+<ol>
+<li>Предмет — что делаем (ссылка на ТЗ)</li>
+<li>Стоимость и порядок оплаты (50/50)</li>
+<li>Сроки — даты этапов</li>
+<li>Приёмка — акт, срок ответа 5 дней</li>
+<li>Правки — 2 круга бесплатно, далее платно</li>
+<li>Интеллектуальная собственность</li>
+<li>Конфиденциальность</li>
+<li>Форс-мажор</li>
+<li>Реквизиты и подписи</li>
+</ol>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Предоплата</dt><dd>Платёж до начала работы.</dd>
+<dt>Акт приёмки</dt><dd>Документ о сдаче работы.</dd>
+<dt>Допсоглашение</dt><dd>Документ на дополнительные работы.</dd>
+<dt>Штраф</dt><dd>Неустойка за просрочку.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему 50/50? Без предоплаты клиент может исчезнуть; без финального платежа — не заплатить после сдачи. Почему фиксировать круги правок? Иначе клиент потребует бесконечных бесплатных доработок. Почему штраф? Чтобы платили вовремя.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Договор — как брачный контракт: неприятно думать заранее, но спасает при расставании. Предоплата — как задаток при бронировании: подтверждает серьёзность намерений. Штраф — как пеня за просрочку аренды: без него платят когда захотят.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Работа без предоплаты</strong> — «работал месяц, клиент пропал». <strong>Не указаны круги правок</strong> — бесконечная бесплатная работа. <strong>Нет штрафа</strong> — платят когда захотят.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Составить пакет документов</div>
+<div class="task-why">Зачем: защита денег и нервов.</div>
+<ol class="steps">
+<li>Составь шаблон договора на разработку сайта.</li>
+<li>Внеси разделы: предмет, оплата 50/50, правки (2 круга), штраф 0.5%/день (но не более 10% от суммы договора).</li>
+<li>Составь шаблон акта приёмки-передачи.</li>
+<li>Составь шаблон допсоглашения на дополнительные работы.</li>
+<li>Проверь: все ли риски закрыты?</li>
+</ol>
+<div class="task-r">Результат: юридическая защита проекта.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Без предоплаты.</strong> Клиент пропал.</li>
+<li><strong>Не указаны круги.</strong> Бесконечные правки.</li>
+<li><strong>Нет штрафа.</strong> Платят когда захотят.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови пять разделов договора.</li>
+<li>Почему 50/50?</li>
+<li>Зачем фиксировать круги правок?</li>
+<li>Что такое допсоглашение?</li></ol></div>
+`},
+
+{t:"Переговоры и работа с правками",g:"Говорить о деньгах и держать границы.",c:`
+<h3>Зачем этот урок</h3>
+<p>Две ситуации, в которых новички теряют деньги: <strong>первый созвон</strong> (не могут назвать цену) и <strong>правки</strong> (делают бесконечно бесплатно).</p>
+<p>Назвать цену диапазоном и сразу перевести разговор на бриф — работает лучше любой «точной» цифры.</p>
+
+<h3>Как назвать цену</h3>
+<pre>✗ «Ну… я не знаю… может быть… 50 тысяч?»
+  → клиент слышит «цена обсуждаема, можно сбить»
+
+✓ «По моему опыту проекты такого уровня —
+   от 150 до 250 тысяч. Чтобы назвать точную
+   цифру, нужно изучить задачу.»
+  + «Пришлю бриф и смету в течение двух дней»</pre>
+
+<h3>Правило «кругов правок»</h3>
+<p>Круг 1 и 2 — бесплатно по ТЗ. Круг 3+ — новая функциональность, оценивается отдельно.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Переговоры</dt><dd>Обсуждение условий.</dd>
+<dt>Возражение</dt><dd>Причина отказа.</dd>
+<dt>Круг правок</dt><dd>Цикл исправлений.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему диапазон? Точная цифра до изучения задачи — риск ошибиться. Почему не извиняться за цену? Клиент слышит «я сам не уверен в качестве». Почему фиксировать круги? Иначе правки бесконечны.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Назвать цену — как при покупке машины на рынке: колеблешься — торгуются. Круги правок — как гарантийный ремонт: первый раз бесплатно, за изменения платишь сам.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Назвать цену в первую минуту</strong> — ещё не знаете задачу. <strong>Извиняться за цену</strong> — теряете авторитет. <strong>Бесконечные бесплатные правки</strong> — теряете деньги.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Отработать три сценария</div>
+<div class="task-why">Зачем: переговоры — навык, а не талант.</div>
+<ol class="steps">
+<li>Отыграй с ИИ: «сделай как у Apple за 30 тыс.».</li>
+<li>Отыграй: «а можно ещё вот это?» (третий круг правок).</li>
+<li>Отыграй: «цена высокая».</li>
+<li>Напиши шаблон вежливого отказа от бесплатной доработки.</li>
+<li>Напиши шаблон ответа на «а можно подешевле?».</li>
+</ol>
+<div class="task-r">Результат: готовые формулировки для сложных разговоров.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Цена в первую минуту.</strong> Не знаете задачу.</li>
+<li><strong>Извинения за цену.</strong> Теряете авторитет.</li>
+<li><strong>Бесплатные правки.</strong> Теряете деньги.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Как назвать цену?</li>
+<li>Сколько кругов правок бесплатно?</li>
+<li>Что делать с «а можно ещё вот это»?</li>
+<li>Почему нельзя извиняться за цену?</li></ol></div>
+`},
+
+{t:"Ценообразование и защита цены",g:"Получать достойную оплату и не сдавать позиции.",c:`
+<h3>Зачем этот урок</h3>
+<p>Цена ≠ ваши затраты. Цена = <strong>ценность для клиента</strong>. Магазин, который приносит ему 500 000 ₽ в месяц, стоит дороже, чем 100 часов вашего времени.</p>
+<p>Пакеты цен продают лучше одной цены.</p>
+
+<h3>Три модели</h3>
+<ul>
+<li><strong>Почасовая</strong> — часы × ставка (поддержка, доработки)</li>
+<li><strong>Проектная</strong> — ценность результата (чёткое ТЗ)</li>
+<li><strong>Пакетная</strong> — 3 уровня (лендинги, типовые продукты)</li>
+</ul>
+
+<h3>Пример: три пакета на лендинг</h3>
+<table><tr><th>Пакет</th><th>Цена</th><th>Что входит</th></tr>
+<tr><td>СТАРТ</td><td>60 000 ₽</td><td>5 блоков, шаблонный дизайн, 2 раунда правок, 2 недели</td></tr>
+<tr><td>ОПТИМУМ ★</td><td>150 000 ₽</td><td>10 блоков, свой дизайн, 3 раунда, 4 недели, SEO-база</td></tr>
+<tr><td>МАКСИМУМ</td><td>350 000 ₽</td><td>12+ блоков, анимации, 3D, безлимит в рамках ТЗ, SEO+CRO</td></tr></table>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Пакет</dt><dd>Готовое предложение с фиксированным объёмом.</dd>
+<dt>Себестоимость</dt><dd>Затраты на проект.</dd>
+<dt>Защита цены</dt><dd>Аргументация стоимости.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему пакеты? Средний пакет выглядит оптимальным и выбирается чаще. Почему не скидывать без уменьшения объёма? Обучаете клиента торговаться. Почему повышать цены? Через год работаете за те же деньги.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Пакеты — как комплекты в автосалоне: базовая, средняя, полная. Больше всего покупают среднюю. Защита цены — как объяснить, почему чашка кофе стоит 300 ₽: не за кружку, за атмосферу и место.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Скидка без уменьшения объёма</strong> — обучаете торговаться. <strong>Не повышаете цены</strong> — через год работаете за те же деньги. <strong>Один средний ценник</strong> — нет якоря для сравнения.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Составить пакеты цен</div>
+<div class="task-why">Зачем: пакетная система продаж.</div>
+<ol class="steps">
+<li>Составь 3 пакета цен на лендинг и на магазин.</li>
+<li>Посчитай себестоимость каждого в часах.</li>
+<li>Выдели средний пакет визуально.</li>
+<li>Напиши 3 аргумента в защиту своей цены.</li>
+<li>Спланируй повышение: сейчас +20%, через 3 месяца +20%.</li>
+</ol>
+<div class="task-r">Результат: пакетная система продаж.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Скидка без объёма.</strong> Обучаете торгаться.</li>
+<li><strong>Не повышаете.</strong> Те же деньги.</li>
+<li><strong>Один ценник.</strong> Нет якоря.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови три модели ценообразования.</li>
+<li>Почему пакеты лучше одной цены?</li>
+<li>Как защищать цену?</li>
+<li>Когда повышать цены?</li></ol></div>
+`},
+
+{t:"Портфолио и кейсы",g:"Показывать результат, а не скриншоты.",c:`
+<h3>Зачем этот урок</h3>
+<p>Клиент покупает не «красивый сайт», а <strong>решение своей задачи</strong>. Поэтому кейс — не галерея скриншотов, а история: было → стало → сколько денег принесло.</p>
+<p>Цифры результата — главное отличие кейса от портфолио.</p>
+
+<h3>Пять блоков кейса</h3>
+<ol>
+<li>Клиент и задача (проблема в цифрах)</li>
+<li>Что сделано (3–5 конкретных действий)</li>
+<li>Результат в цифрах («Заявок +180%»)</li>
+<li>Технологии (показывает экспертизу)</li>
+<li>Ссылка на живой сайт + отзыв</li>
+</ol>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Кейс</dt><dd>История проекта с результатом.</dd>
+<dt>Портфолио</dt><dd>Набор лучших работ.</dd>
+<dt>Соцдоказательство</dt><dd>Доказательство результата.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему цифры? «Заявок +180%» доказывает ценность, фраза «сделал сайт» — нет. Почему живая ссылка? Доказательство, что работает. Почему технологии? Показывает экспертизу.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Кейс — как история похудения: «было 90 кг, стало 70 за полгода» вместо «я занимался спортом». Цифры убеждают, слова — нет. Живая ссылка — как фото «до/после»: видно результат.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Кейс без цифр</strong> — ни о чём. <strong>Только скриншоты</strong> — нет процесса и результата. <strong>Нет отзывов</strong> — нет доверия.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Оформить три кейса</div>
+<div class="task-why">Зачем: кейс продаёт вас, а не скриншот.</div>
+<ol class="steps">
+<li>Оформи 3 кейса из своих проектов по схеме из пяти блоков.</li>
+<li>В каждом укажи результат в цифрах.</li>
+<li>Сделай личный сайт-портфолио (сетка + страница кейса).</li>
+<li>Собери 2 отзыва от довольных клиентов.</li>
+<li>Выложи на Behance визуальные проекты.</li>
+</ol>
+<div class="task-r">Результат: портфолио, которое продаёт.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Кейс без цифр.</strong> Ни о чём.</li>
+<li><strong>Только скриншоты.</strong> Нет процесса.</li>
+<li><strong>Нет отзывов.</strong> Нет доверия.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови пять блоков кейса.</li>
+<li>Почему цифры важнее слов?</li>
+<li>Где показывать портфолио?</li>
+<li>Что делает кейс продающим?</li></ol></div>
+`},
+
+{t:"Первый клиент и дальнейшее развитие",g:"Начать зарабатывать и не остановиться.",c:`
+<h3>Зачем этот урок</h3>
+<p>Финальный урок программы. Здесь — как получить первого клиента и куда развиваться дальше.</p>
+<p>Без клиентов навыки не превращаются в деньги.</p>
+
+<h3>Шесть каналов</h3>
+<ul>
+<li><strong>Окружение</strong> — друзья, знакомые с бизнесом (первые 2–3 клиента)</li>
+<li><strong>Локальный бизнес</strong> — обойти 30 точек рядом с домом</li>
+<li><strong>Фриланс-биржи</strong> — Kwork, FL.ru (низкие цены, но поток)</li>
+<li><strong>Сообщества</strong> — Telegram-чаты маркетологов (будьте полезны)</li>
+<li><strong>Рефералы</strong> — «приведи клиента — 10% тебе» (лучший канал со временем)</li>
+<li><strong>Холодные письма</strong> — цель 20 писем в день (начать с 5 качественных), конкретное предложение</li>
+</ul>
+
+<h3>План первых 10 клиентов</h3>
+<ol>
+<li>Составить список 30 потенциальных клиентов</li>
+<li>Написать 3 шаблона писем</li>
+<li>Отправлять 5 качественных писем/день, цель — 20 после настройки шаблонов</li>
+<li>Обходить 2 точки/неделю</li>
+<li>3 ответа → 1 встреча → 1 клиент</li>
+</ol>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Реферал</dt><dd>Клиент, приведённый рекомендацией.</dd>
+<dt>Холодный контакт</dt><dd>Обращение без предварительного знакомства.</dd>
+<dt>Личный бренд</dt><dd>Репутация специалиста.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему начинать с окружения? Они конвертируются лучше всего. Почему реферальный лучший? Работает доверие рекомендации. Почему не ждать «идеального портфолио»? Первый клиент не проверит ваш GitHub.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Окружение — как первые покупатели у друга: поверят без отзывов. Локальный бизнес — как обход соседей: личный контакт убеждает. Реферал — как сарафанное радио: люди доверяют знакомым больше рекламы.</p></div>
+
+<h3>Куда развиваться</h3>
+<table><tr><th>Направление</th><th>Что изучать</th></tr>
+<tr><td>Техническая глубина</td><td>Next.js, TypeScript, Node.js/PHP, Docker, CI/CD, тесты, GraphQL</td></tr>
+<tr><td>Креативный потолок</td><td>Three.js, GLSL, Rive, Webflow, моушн, 3D (Blender)</td></tr>
+<tr><td>Брендинг</td><td>Логотипы, айдентика, гайдлайны, иллюстрация</td></tr>
+<tr><td>Продуктовое мышление</td><td>JTBD, custdev, CRO, A/B-тесты, аналитика</td></tr>
+<tr><td>SEO и скорость</td><td>Технический SEO, Schema, Core Web Vitals, WCAG</td></tr>
+<tr><td>Бизнес</td><td>Агентство, найм, консалтинг, шаблоны, SaaS</td></tr>
+<tr><td>Английский</td><td>B1 для чтения документации, B2 для зарубежных клиентов</td></tr></table>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Ждать «идеального портфолио»</strong> — клиенты не придут. <strong>Только биржи</strong> — низкие цены и нет роста. <strong>Забыть про рефералы</strong> — самый дешёвый канал потерян. <strong>Остановиться на достигнутом</strong> — рынок меняется каждый год.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Запустить поиск клиентов</div>
+<div class="task-why">Зачем: без клиентов навыки не превращаются в деньги.</div>
+<ol class="steps">
+<li>Составь список из 30 потенциальных клиентов.</li>
+<li>Напиши 3 персонализированных письма.</li>
+<li>Отправь 5 писем сегодня.</li>
+<li>Обойди 5 точек локального бизнеса на этой неделе.</li>
+<li>Предложи реферальную программу двум прошлым клиентам.</li>
+<li>Составь план развития на 12 месяцев (2–3 направления).</li>
+</ol>
+<div class="task-r">Результат: запущенный процесс поиска клиентов и план роста. Программа пройдена — вы профессионал.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Ждать идеального портфолио.</strong> Клиенты не придут.</li>
+<li><strong>Только биржи.</strong> Низкие цены.</li>
+<li><strong>Забыть рефералы.</strong> Дёшевый канал потерян.</li>
+<li><strong>Остановиться.</strong> Рынок меняется.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови шесть каналов поиска клиентов.</li>
+<li>Какой канал лучший со временем?</li>
+<li>С чего начать поиск первых клиентов?</li>
+<li>Назови три направления дальнейшего развития.</li></ol></div>
+`}
+];
+var cur=1;
+function render(){
+  var t=document.getElementById("tabs"); t.innerHTML="";
+  L.forEach(function(l,i){ var b=document.createElement("button");
+    b.className="tab"+(i+1===cur?" on":""); b.textContent=(i+119);
+    b.onclick=function(){cur=i+1;render();}; t.appendChild(b); });
+  var d=L[cur-1];
+  document.getElementById("out").innerHTML='<div class="lesson"><div class="lh"><div class="num">Урок '+(cur+118)+' · Глава 11 · Профессиональные навыки и бизнес · Расширенная версия</div><h2>'+d.t+'</h2><div class="goal">🎯 '+d.g+'</div></div><div class="lb">'+d.c+'</div></div>';
+  document.getElementById("cnt").textContent="Урок "+cur+" из "+L.length;
+  window.scrollTo(0,0);
+}
+document.getElementById("prev").onclick=function(){ if(cur>1){cur--;render();} };
+document.getElementById("next").onclick=function(){ if(cur<L.length){cur++;render();} };
+render();
+</script>
+</body>
+</html>
