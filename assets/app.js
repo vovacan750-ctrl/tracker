@@ -98,6 +98,229 @@ function render() {
   renderChapters();
   bindToolbar();
   bindDropdowns();
+  initAppShell();   // drawer, screens, mobile UI
+  // По умолчанию — все главы свёрнуты
+  document.querySelectorAll(".ch-card").forEach(c => c.classList.add("closed"));
+}
+
+/* ============ APP SHELL: drawer, screens, mobile ============ */
+let drawerOpen = false;
+let currentScreen = "home";
+
+function initAppShell() {
+  const hamburger = document.getElementById("hamburger");
+  const drawer = document.getElementById("drawer");
+  const overlay = document.getElementById("drawerOverlay");
+  const drawerClose = document.getElementById("drawerClose");
+
+  if (!hamburger || !drawer || !overlay) return;
+  if (hamburger.dataset.bound) return;
+  hamburger.dataset.bound = "1";
+
+  // Открыть/закрыть drawer
+  function openDrawer() {
+    drawer.classList.add("open");
+    overlay.classList.add("open");
+    drawerOpen = true;
+    renderDrawerStats();
+  }
+  function closeDrawer() {
+    drawer.classList.remove("open");
+    overlay.classList.remove("open");
+    drawerOpen = false;
+  }
+  function toggleDrawer() { drawerOpen ? closeDrawer() : openDrawer(); }
+
+  hamburger.addEventListener("click", toggleDrawer);
+  overlay.addEventListener("click", closeDrawer);
+  if (drawerClose) drawerClose.addEventListener("click", closeDrawer);
+
+  // Свайп вправо для открытия (с края экрана)
+  let touchStartX = 0, touchStartY = 0, swipeStarted = false;
+  document.addEventListener("touchstart", (e) => {
+    if (e.touches.length !== 1) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    swipeStarted = (touchStartX < 30 && !drawerOpen);
+  }, { passive: true });
+
+  document.addEventListener("touchend", (e) => {
+    if (!swipeStarted && !drawerOpen) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+    if (dy > 60) { swipeStarted = false; return; }
+    if (swipeStarted && dx > 80) openDrawer();
+    if (drawerOpen && dx < -80) closeDrawer();
+    swipeStarted = false;
+  }, { passive: true });
+
+  // Чипы фильтров
+  document.querySelectorAll(".chip[data-f]").forEach(chip => {
+    chip.addEventListener("click", () => {
+      document.querySelectorAll(".chip[data-f]").forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      filter = chip.dataset.f;
+      applyFilter();
+    });
+  });
+
+  // Поиск
+  const search = document.getElementById("search");
+  if (search) {
+    search.addEventListener("input", (e) => {
+      query = e.target.value;
+      applyFilter();
+    });
+  }
+
+  // Кнопки в drawer-actions (3 нижние кнопки)
+  document.querySelectorAll(".drawer-action-btn[data-action]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const action = btn.dataset.action;
+      handleDrawerAction(action);
+    });
+  });
+
+  // Кнопка "О приложении"
+  const aboutClose = document.getElementById("aboutClose");
+  const aboutBg = document.getElementById("aboutBg");
+  if (aboutClose) aboutClose.addEventListener("click", () => aboutBg.classList.remove("show"));
+  if (aboutBg) aboutBg.addEventListener("click", (e) => {
+    if (e.target === aboutBg) aboutBg.classList.remove("show");
+  });
+
+  // Escape закрывает всё
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeDrawer();
+  });
+
+  // Подзаголовок в app-bar
+  const sub = document.getElementById("appBarSub");
+  if (sub && DATA) {
+    sub.textContent = DATA.chapters.length + " глав · " + DATA.lessons.length + " уроков";
+  }
+
+  // Первичная отрисовка статистики в drawer
+  renderDrawerStats();
+}
+
+function switchScreen(name) {
+  currentScreen = name;
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  const screen = document.getElementById("screen-" + name);
+  if (screen) screen.classList.add("active");
+  if (name === "stats") renderStatsScreen();
+}
+
+function handleDrawerAction(action) {
+  if (action === "csv") {
+    exportCsv();
+  } else if (action === "reset") {
+    if (!confirm("Сбросить весь прогресс и результаты тестов?")) return;
+    state = {}; quizResults = {}; save(); render();
+  } else if (action === "about") {
+    const aboutBg = document.getElementById("aboutBg");
+    if (aboutBg) aboutBg.classList.add("show");
+  }
+}
+
+/* ============ INLINE-СТАТИСТИКА В DRAWER ============ */
+function renderDrawerStats() {
+  if (!DATA) return;
+  const body = document.getElementById("drawerBody");
+  if (!body) return;
+
+  let done = 0, proc = 0, tests = 0;
+  DATA.lessons.forEach((_, i) => {
+    const s = getLessonState(i + 1).s;
+    if (s === 2) done++;
+    if (s === 1) proc++;
+    if (quizPassed(i + 1)) tests++;
+  });
+  const total = DATA.lessons.length;
+  const pct = Math.round((done / total) * 1000) / 10;
+
+  // Собираем HTML
+  let html = '';
+
+  // Hero-процент
+  html += '<div class="drawer-hero">';
+  html += '<div class="pct">' + pct + '%</div>';
+  html += '<div class="label">Общий прогресс курса</div>';
+  html += '<div class="bar"><i style="width:' + pct + '%"></i></div>';
+  html += '</div>';
+
+  // 4 карточки
+  html += '<div class="drawer-stats-grid">';
+  html += '<div class="drawer-stat-card ok"><div class="k">Пройдено</div><div class="v">' + done + '</div></div>';
+  html += '<div class="drawer-stat-card proc"><div class="k">В процессе</div><div class="v">' + proc + '</div></div>';
+  html += '<div class="drawer-stat-card"><div class="k">Не начато</div><div class="v">' + (total - done - proc) + '</div></div>';
+  html += '<div class="drawer-stat-card acc"><div class="k">Тестов сдано</div><div class="v">' + tests + '</div></div>';
+  html += '</div>';
+
+  // Список глав
+  html += '<div class="drawer-section-title">Прогресс по главам</div>';
+  html += DATA.chapters.map((ch, ci) => {
+    const d = chapterDone(ci);
+    const pr = Math.round((d / ch.size) * 100);
+    const name = ch.name.replace(/^Глава\s*\d+\.\s*/, "");
+    return '<div class="drawer-chapter-row">' +
+      '<div class="rowline">' +
+        '<span class="name">' + name + '</span>' +
+        '<span class="num">' + d + '/' + ch.size + ' · ' + pr + '%</span>' +
+      '</div>' +
+      '<div class="bar"><i style="width:' + pr + '%"></i></div>' +
+    '</div>';
+  }).join("");
+
+  body.innerHTML = html;
+}
+
+/* ============ ЭКРАН СТАТИСТИКИ ============ */
+function renderStatsScreen() {
+  if (!DATA) return;
+  let done = 0, proc = 0, tests = 0;
+  DATA.lessons.forEach((_, i) => {
+    const s = getLessonState(i + 1).s;
+    if (s === 2) done++;
+    if (s === 1) proc++;
+    if (quizPassed(i + 1)) tests++;
+  });
+  const total = DATA.lessons.length;
+  const pct = Math.round((done / total) * 1000) / 10;
+
+  // Hero
+  const heroPct = document.getElementById("statHeroPct");
+  const heroBar = document.getElementById("statHeroBar");
+  if (heroPct) heroPct.textContent = pct + "%";
+  if (heroBar) heroBar.style.width = pct + "%";
+
+  // Карточки
+  const elDone = document.getElementById("statDone");
+  const elProc = document.getElementById("statProc");
+  const elNot = document.getElementById("statNotStarted");
+  const elTests = document.getElementById("statTests");
+  if (elDone) elDone.textContent = done;
+  if (elProc) elProc.textContent = proc;
+  if (elNot) elNot.textContent = (total - done - proc);
+  if (elTests) elTests.textContent = tests;
+
+  // Главы
+  const chContainer = document.getElementById("statChapters");
+  if (chContainer) {
+    chContainer.innerHTML = DATA.chapters.map((ch, ci) => {
+      const d = chapterDone(ci);
+      const pr = Math.round((d / ch.size) * 100);
+      const name = ch.name.replace(/^Глава\s*\d+\.\s*/, "");
+      return '<div class="stat-chapter-row">' +
+        '<div class="rowline">' +
+          '<span class="name">' + name + '</span>' +
+          '<span class="num">' + d + '/' + ch.size + ' · ' + pr + '%</span>' +
+        '</div>' +
+        '<div class="bar"><i style="width:' + pr + '%"></i></div>' +
+      '</div>';
+    }).join("");
+  }
 }
 
 function renderStats() {
@@ -307,6 +530,7 @@ function refreshAllCards() {
 }
 
 function bindToolbar() {
+  // Старые .btn[data-f] могут отсутствовать (теперь .chip), но привязки остались
   document.querySelectorAll(".btn[data-f]").forEach(b => {
     b.onclick = () => {
       document.querySelectorAll(".btn[data-f]").forEach(x => x.classList.remove("on"));
@@ -315,9 +539,17 @@ function bindToolbar() {
       applyFilter();
     };
   });
-  document.getElementById("search").oninput = e => { query = e.target.value; applyFilter(); };
-  document.getElementById("btnCsv").onclick = exportCsv;
-  document.getElementById("btnReset").onclick = () => {
+  // Поиск привязывается в initAppShell, но оставим запасной вариант
+  const search = document.getElementById("search");
+  if (search && !search.dataset.bound) {
+    search.dataset.bound = "1";
+    search.addEventListener("input", (e) => { query = e.target.value; applyFilter(); });
+  }
+  // Кнопки в старой панели могут отсутствовать — проверяем
+  const btnCsv = document.getElementById("btnCsv");
+  if (btnCsv) btnCsv.onclick = exportCsv;
+  const btnReset = document.getElementById("btnReset");
+  if (btnReset) btnReset.onclick = () => {
     if (!confirm("Сбросить весь прогресс и результаты тестов?")) return;
     state = {}; quizResults = {}; save(); render();
   };
@@ -334,6 +566,8 @@ function bindToolbar() {
 
 function applyFilter() {
   const q = query.trim().toLowerCase();
+  const hasFilter = (filter !== "all") || (q.length > 0);
+
   document.querySelectorAll(".l-card[data-n]").forEach(lc => {
     let ok = true;
     if (filter !== "all" && lc.dataset.s !== filter) ok = false;
@@ -346,7 +580,8 @@ function applyFilter() {
       if (!lc.classList.contains("hidden")) any = true;
     });
     card.classList.toggle("hidden", !any);
-    if (any) card.classList.remove("closed");
+    // При поиске/фильтре — разворачиваем карточки автоматически
+    if (any && hasFilter) card.classList.remove("closed");
   });
 }
 

@@ -1,0 +1,69 @@
+{
+  "name": "Сайт с 0 по созданию сайтов",
+  "short_name": "Сайт с 0",
+  "description": "135 уроков по созданию сайтов: дизайн, HTML, CSS, JavaScript, WordPress, WooCommerce, AI. Тесты и большие тесты по главам. Работает офлайн.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#1a1d23",
+  "theme_color": "#6b73e8",
+  "lang": "ru",
+  "dir": "ltr",
+  "categories": ["education", "productivity", "books"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "icons/splash-1242x2688.png",
+      "sizes": "1242x2688",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Главная страница курса"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Все уроки",
+      "short_name": "Уроки",
+      "description": "Открыть список всех уроков",
+      "url": "./?filter=all"
+    },
+    {
+      "name": "Не начаты",
+      "short_name": "Новые",
+      "description": "Уроки, которые ещё не начинали",
+      "url": "./?filter=0"
+    },
+    {
+      "name": "Пройденные",
+      "short_name": "Готово",
+      "description": "Пройденные уроки",
+      "url": "./?filter=2"
+    }
+  ]
+}

@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Уроки 1–16 · Расширенная теория</title>
+<style>
+:root{--bg:#eef1f6;--card:#fff;--line:#e4e8f0;--txt:#182031;--muted:#6d7789;--acc:#4f46e5;--ok:#15a34a;--proc:#e08c00;--code:#101828}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);font-size:14.5px;line-height:1.6}
+header{background:#101828;color:#fff;padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+header h1{margin:0;font-size:16px}header .sub{color:#98a2b3;font-size:12px}
+header .cnt{margin-left:auto;font-size:12px;color:#cbd5e1;font-weight:600}
+.wrap{max-width:900px;margin:0 auto;padding:20px 16px 70px}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:#fff;border-radius:7px;padding:5px 9px;font-size:12px;cursor:pointer;font-weight:600;color:var(--muted)}
+.tab:hover{border-color:#c7cfdd}.tab.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.lesson{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.lh{padding:20px 24px 14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fbfcfe,#fff)}
+.lh .num{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);font-weight:700}
+.lh h2{margin:4px 0 0;font-size:23px;letter-spacing:-.02em;line-height:1.25}
+.lh .goal{margin-top:6px;font-size:13px;color:var(--muted)}
+.lb{padding:4px 24px 24px}
+.lb h3{font-size:12.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);margin:24px 0 9px;font-weight:700;padding-bottom:5px;border-bottom:2px solid #eef2ff}
+.lb h4{font-size:15.5px;margin:18px 0 6px}
+.lb p{margin:0 0 12px;line-height:1.75}
+.lb ul,.lb ol{margin:0 0 13px;padding-left:21px}
+.lb li{margin-bottom:6px;line-height:1.68}
+.lb strong{color:#0f172a}
+.lb code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.87em;background:#f1f5f9;padding:1px 5px;border-radius:4px;color:#3730a3}
+.lb pre{background:var(--code);color:#e6edf7;padding:13px 15px;border-radius:9px;overflow-x:auto;font-size:12.2px;line-height:1.5;font-family:"SF Mono",Menlo,Consolas,monospace;margin:0 0 13px}
+.lb pre code{background:none;padding:0;color:inherit}
+.lb table{width:100%;border-collapse:collapse;margin:0 0 13px;font-size:12.8px}
+.lb th{background:#f8fafc;text-align:left;padding:8px 10px;border:1px solid var(--line);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.lb td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;line-height:1.5}
+figure{margin:0 0 16px}
+figure svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+figcaption{margin-top:6px;font-size:12.2px;color:var(--muted);line-height:1.5}
+figcaption b{color:#475467}
+.term{background:#f5f3ff;border-left:4px solid #8b5cf6;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px}
+.term-t{font-weight:700;font-size:12.5px;color:#6d28d9;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.term dl{margin:0}
+.term dt{font-weight:700;color:#4c1d95;font-size:13.5px;margin-top:6px}
+.term dd{margin:2px 0 0 0;font-size:13.5px;line-height:1.6;color:#5b21b6}
+.why{background:#eef2ff;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.why-t{font-weight:700;font-size:12.5px;color:#3730a3;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.life{background:#f0fdf4;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.life-t{font-weight:700;font-size:12.5px;color:#15803d;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.risk{background:#fef2f2;border-left:4px solid #b42318;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.risk-t{font-weight:700;font-size:12.5px;color:#b42318;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.task{background:#f8fafc;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:0 11px 11px 0;padding:13px 15px;margin:0 0 13px}
+.task-h{font-weight:700;font-size:14.5px;margin-bottom:4px}
+.task-why{font-size:12.8px;color:var(--muted);margin-bottom:9px;line-height:1.55}
+.steps{margin:0;padding-left:0;list-style:none;counter-reset:st}
+.steps li{position:relative;padding-left:32px;margin-bottom:8px;line-height:1.6;font-size:13.2px;counter-increment:st}
+.steps li::before{content:counter(st);position:absolute;left:0;top:0;width:21px;height:21px;background:var(--acc);color:#fff;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.task-r{margin-top:10px;padding-top:9px;border-top:1px dashed #d7dde6;font-size:12.8px;color:var(--ok);font-weight:600}
+.warn{background:#fffbeb;border-left:4px solid var(--proc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.warn-t{font-weight:700;font-size:12.5px;color:#b45309;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.warn ul{margin:0;padding-left:19px}.warn li{font-size:13.2px;margin-bottom:4px}
+.check{background:#f0fdf4;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.check-t{font-weight:700;font-size:12.5px;color:#15803d;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.check ol{margin:0;padding-left:19px}.check li{font-size:13.2px;margin-bottom:4px}
+.note{background:#eef2ff;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px;font-size:13.5px}
+.navb{display:flex;gap:9px;margin-top:16px}.navb .sp{flex:1}
+.btn{border:1px solid var(--line);background:#fff;padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600;font-family:inherit}
+.btn:hover{border-color:#c7cfdd}.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+@media(max-width:700px){.lh,.lb{padding-left:15px;padding-right:15px}.lh h2{font-size:20px}}
+</style>
+</head>
+<body>
+<header><h1>📚 Уроки 1–16 · Расширенная теория</h1><span class="sub">как · зачем · почему · терминология · примеры из жизни</span><span class="cnt" id="cnt"></span></header>
+<div class="wrap"><div class="tabs" id="tabs"></div><div id="out"></div>
+<div class="navb"><button class="btn" id="prev">← Предыдущий</button><span class="sp"></span><button class="btn pri" id="next">Следующий →</button></div></div>
+<script>
+var L=[
+{t:"Что происходит, когда ты открываешь сайт",g:"Понять полный путь от нажатия Enter до картинки на экране. Без этого всё остальное — гадание.",c:`
+<h3>Зачем этот урок</h3>
+<p>Каждый день ты открываешь десятки сайтов и ничего не знаешь о том, что при этом происходит. А между тем всё, что ты будешь делать дальше — вёрстка, настройка хостинга, подключение оплаты, ускорение, отладка — опирается на один процесс. Когда сайт не открывается, медленно грузится или не приходит письмо — в девяти случаях из десяти причина на одном из шагов, которые мы разберём. Поймёшь их один раз — будешь диагностировать за минуту.</p>
+<p>Сразу уберём заблуждение. Сайт — не программа, которую скачивают, и не картинка, которая где-то хранится. Сайт — <strong>набор текстовых файлов</strong>, который лежит на чужом компьютере и каждый раз заново приезжает к тебе в браузер. Браузер получает файлы, читает их и рисует страницу.</p>
+
+<h3>Простым языком</h3>
+<p><strong>Браузер — курьер.</strong> Он ничего не знает: не хранит сайты, не помнит, где что лежит. Его работа — сходить спросить и принести ответ. При нажатии Enter он формирует <strong>HTTP-запрос</strong>: «дай мне главную страницу google.com».</p>
+<p><strong>DNS — телефонная книга.</strong> Люди помнят имена, компьютеры понимают только числа. DNS переводит имя в <strong>IP-адрес</strong> — номер компьютера в сети. Аналогия: ты не помнишь номер друга, ты открываешь контакты и находишь его по имени. DNS — это контакты интернета, распределённые по тысячам серверов мира, поэтому запрос занимает 20–100 мс.</p>
+<p><strong>Сервер — склад файлов.</strong> Обычный компьютер, включённый круглосуточно. На нём лежат файлы сайта. Получив запрос, он отдаёт <code>index.html</code> (структура), <code>style.css</code> (оформление), <code>script.js</code> (поведение) и картинки. В ответе он указывает <strong>код статуса</strong>: 200 — хорошо, 404 — не найдено, 500 — сервер сломался.</p>
+<p><strong>Отрисовка.</strong> Браузер строит из HTML дерево страницы, накладывает CSS (красит, расставляет), запускает JS (реакции на клики). Результат — готовая страница, и это происходит заново при каждом обновлении.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>HTTP</dt><dd>HyperText Transfer Protocol — протокол, по которому браузер и сервер обмениваются сообщениями.</dd>
+<dt>Запрос / ответ</dt><dd>Сообщение от браузера к серверу и обратно.</dd>
+<dt>IP-адрес</dt><dd>Уникальный номер устройства в сети, например 142.250.185.78.</dd>
+<dt>Домен</dt><dd>Человекочитаемое имя, заменяющее IP-адрес.</dd>
+<dt>Код статуса</dt><dd>Трёхзначное число: 2xx успех, 3xx перенаправление, 4xx ошибка клиента, 5xx ошибка сервера.</dd>
+<dt>Отрисовка (rendering)</dt><dd>Превращение кода в пиксели на экране.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему нельзя запомнить IP и не спрашивать DNS? Потому что серверы переезжают и заменяются — IP меняются, а домен остаётся с тобой навсегда. Почему страница каждый раз пересобирается? Потому что контент меняется: цены, новости, товары. Единственный способ показать свежие данные — перезапросить файлы. Почему три технологии? У каждой одна задача: HTML — <em>что</em> есть, CSS — <em>как выглядит</em>, JS — <em>как ведёт себя</em>. Разделение позволяет менять внешний вид, не трогая структуру.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Заказ еды в ресторане. Ты (браузер) садишься за стол. Официант (DNS) подходит: «сейчас узнаю, на какой кухне готовят». Кухня (сервер) получает заказ, готовит блюдо, отдаёт официанту. Тот приносит тарелку. Но на столе ещё нет сервировки — салфетка (CSS) и музыка (JS). Только когда всё сошлось, ты можешь есть. «Столик не найден» = 404. «Кухня сгорит» = 500.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Схема пути запроса">
+<rect width="840" height="300" fill="#f8fafc"/>
+<rect x="20" y="30" width="180" height="110" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<circle cx="50" cy="56" r="13" fill="#4f46e5"/><text x="50" y="61" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Arial">1</text>
+<text x="105" y="62" text-anchor="middle" fill="#101828" font-size="13" font-weight="700" font-family="Arial">БРАУЗЕР</text>
+<text x="105" y="84" text-anchor="middle" fill="#6d7789" font-size="10.5" font-family="Arial">курьер: спрашивает</text>
+<text x="105" y="104" text-anchor="middle" fill="#6d7789" font-size="10.5" font-family="Arial">и рисует ответ</text>
+<line x1="200" y1="85" x2="245" y2="85" stroke="#4f46e5" stroke-width="2"/>
+<path d="M245,85 l-8,-4 v8 z" fill="#4f46e5"/>
+<text x="222" y="75" text-anchor="middle" fill="#4f46e5" font-size="9.5" font-weight="700" font-family="Arial">HTTP</text>
+<rect x="250" y="30" width="180" height="110" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<circle cx="280" cy="56" r="13" fill="#4f46e5"/><text x="280" y="61" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Arial">2</text>
+<text x="335" y="62" text-anchor="middle" fill="#101828" font-size="13" font-weight="700" font-family="Arial">DNS</text>
+<text x="335" y="84" text-anchor="middle" fill="#6d7789" font-size="10.5" font-family="Arial">телефонная книга</text>
+<text x="335" y="104" text-anchor="middle" fill="#4f46e5" font-size="10.5" font-weight="700" font-family="Arial">→ 142.250.185.78</text>
+<line x1="430" y1="85" x2="475" y2="85" stroke="#4f46e5" stroke-width="2"/>
+<path d="M475,85 l-8,-4 v8 z" fill="#4f46e5"/>
+<rect x="480" y="30" width="180" height="110" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<circle cx="510" cy="56" r="13" fill="#4f46e5"/><text x="510" y="61" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Arial">3</text>
+<text x="565" y="62" text-anchor="middle" fill="#101828" font-size="13" font-weight="700" font-family="Arial">СЕРВЕР</text>
+<text x="565" y="84" text-anchor="middle" fill="#6d7789" font-size="10.5" font-family="Arial">склад файлов</text>
+<text x="565" y="104" text-anchor="middle" fill="#6d7789" font-size="10.5" font-family="Arial">html · css · js</text>
+<line x1="660" y1="85" x2="705" y2="85" stroke="#98a2b3" stroke-width="2"/>
+<path d="M705,85 l-8,-4 v8 z" fill="#98a2b3"/>
+<text x="682" y="75" text-anchor="middle" fill="#6d7789" font-size="9.5" font-weight="700" font-family="Arial">200 OK</text>
+<rect x="710" y="30" width="110" height="110" rx="12" fill="#eef2ff" stroke="#c7d2fe"/>
+<circle cx="735" cy="56" r="13" fill="#4f46e5"/><text x="735" y="61" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Arial">4</text>
+<text x="765" y="92" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">ГОТОВАЯ</text>
+<text x="765" y="110" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">СТРАНИЦА</text>
+<rect x="20" y="165" width="800" height="115" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<text x="40" y="192" fill="#101828" font-size="12" font-weight="700" font-family="Arial">Браузер собирает страницу из трёх слоёв:</text>
+<rect x="40" y="205" width="240" height="60" rx="9" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="160" y="228" text-anchor="middle" fill="#101828" font-size="12" font-weight="700" font-family="Arial">HTML — каркас</text>
+<text x="160" y="248" text-anchor="middle" fill="#6d7789" font-size="10.5" font-family="Arial">какой контент и в каком порядке</text>
+<rect x="295" y="205" width="240" height="60" rx="9" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="415" y="228" text-anchor="middle" fill="#101828" font-size="12" font-weight="700" font-family="Arial">CSS — краска</text>
+<text x="415" y="248" text-anchor="middle" fill="#6d7789" font-size="10.5" font-family="Arial">цвета, шрифты, отступы</text>
+<rect x="550" y="205" width="240" height="60" rx="9" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="670" y="228" text-anchor="middle" fill="#101828" font-size="12" font-weight="700" font-family="Arial">JS — механика</text>
+<text x="670" y="248" text-anchor="middle" fill="#6d7789" font-size="10.5" font-family="Arial">реакция на действия</text>
+</svg><figcaption><b>Рис. 1.1.</b> Полный путь запроса: браузер спрашивает у DNS адрес сервера, получает файлы и собирает из них страницу.</figcaption></figure>
+
+<h3>Как посмотреть это вживую</h3>
+<p>Открой любой сайт, нажми <code>F12</code> и перейди на вкладку Network (Сеть). Обнови страницу <code>Ctrl+R</code>. Увидишь список файлов: первым идёт HTML, за ним стили, скрипты, шрифты, картинки. У каждого есть статус, размер и время загрузки. Хочешь убедиться, что сайт — просто текст? Нажми правой кнопкой → «Просмотр кода» — откроется обычный HTML.</p>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Сервер выключен</strong> — «Не удаётся получить доступ к сайту». <strong>DNS-запись неверная</strong> — браузер пойдёт не туда. <strong>HTML сломан</strong> — страница отрисуется криво. <strong>CSS не подключился</strong> — увидишь голый текст. <strong>JS с ошибкой</strong> — кнопки не нажимаются.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Проследить путь запроса в DevTools</div>
+<div class="task-why">Зачем: ты впервые увидишь изнутри то, что происходит при каждом открытии сайта.</div>
+<ol class="steps">
+<li>Открой любой новостной сайт в Chrome.</li>
+<li>Нажми <code>F12</code>, выбери вкладку Network.</li>
+<li>Нажми <code>Ctrl+R</code> — список файлов начнёт заполняться.</li>
+<li>Найди самую верхнюю строку — это HTML-документ, статус должен быть 200.</li>
+<li>Отсортируй столбец Size по убыванию — найди самый тяжёлый файл.</li>
+<li>Сложи время первых трёх файлов в столбце Time — это скорость отклика сервера.</li>
+</ol>
+<div class="task-r">Результат: знаешь, сколько файлов грузится и не было ли ошибок.</div></div>
+
+<div class="task"><div class="task-h">Задание 2. Убедиться, что сайт — это просто текст</div>
+<div class="task-why">Зачем: разрушить иллюзию, что сайты делаются магией.</div>
+<ol class="steps">
+<li>Нажми правой кнопкой на странице → «Просмотр кода».</li>
+<li>Найди тег <code>&lt;h1&gt;</code> — главный заголовок.</li>
+<li>Найди тег <code>&lt;p&gt;</code> — абзац текста.</li>
+<li>Найди тег <code>&lt;img&gt;</code> — обрати внимание на атрибут <code>src</code> с путём к файлу.</li>
+<li>Нажми <code>Ctrl+F</code>, введи <code>css</code> — найдёшь подключение стилей.</li>
+</ol>
+<div class="task-r">Результат: увидел структуру сайта — это тот же код, который будешь писать с Урока 21.</div></div>
+
+<div class="task"><div class="task-h">Задание 3. Найти IP-адрес трёх сайтов</div>
+<div class="task-why">Зачем: доказать, что домен — только имя, а за ним стоит конкретный компьютер.</div>
+<ol class="steps">
+<li>Открой командную строку (Windows: Win+R, cmd; Mac: Терминал).</li>
+<li>Введи <code>nslookup google.com</code>.</li>
+<li>Запиши полученный IP-адрес.</li>
+<li>Повтори для ya.ru и youtube.com.</li>
+<li>Введи один из адресов прямо в браузер — откроется тот же сайт.</li>
+</ol>
+<div class="task-r">Результат: доказал, что домен и IP — одно и то же, просто записаны по-разному.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Думать, что сайт хранится в интернете.</strong> Он лежит на конкретном сервере.</li>
+<li><strong>Путать браузер с поисковиком.</strong> Chrome — программа, Google — сервис поиска.</li>
+<li><strong>Считать, что правки не видны из-за кэша.</strong> Сначала проверь через Network.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем домен отличается от IP-адреса и зачем нужен посредник?</li>
+<li>Какой файл браузер получает первым и почему?</li>
+<li>Назови три ингредиента сайта и что отвечает каждый.</li>
+<li>Что означают коды 200, 404, 500?</li></ol></div>
+`},
+
+{t:"Домен, DNS и хостинг",g:"Понять, из чего физически состоит адрес сайта и где он лежит. Без этого нельзя запустить сайт.",c:`
+<h3>Зачем этот урок</h3>
+<p>Через несколько месяцев ты будешь сдавать клиентам готовые сайты. На запуске всегда возникают вопросы: куда залить файлы, как привязать домен, почему сайт не открывается, куда направить почту. Всё это — про три вещи: домен, DNS и хостинг. Разберёшь сейчас — запуск перестанет быть стрессом.</p>
+<p>Главная путаница новичка — смешать три понятия в одно. Давай разделим навсегда.</p>
+
+<h3>Простым языком</h3>
+<p><strong>Домен — имя, которое покупают.</strong> Не файл и не программа, а запись в реестре: «mysite.ru принадлежит такому-то человеку до такого-то числа». Покупается у регистратора на срок от года, 200–900 ₽. Ключевое свойство: домен можно перенаправить на другой сервер, поменяв одну DNS-запись. Поэтому «купить домен» и «купить хостинг» — независимые операции, лучше у разных провайдеров.</p>
+<p><strong>DNS — диспетчерская.</strong> Ты настраиваешь записи у регистратора, и они говорят всему интернету: «mysite.ru живёт по адресу 185.22.11.4». Изменения расходятся по миру от 15 минут до 24 часов — время распространения.</p>
+<p><strong>Хостинг — квартира.</strong> Компьютер, на котором физически лежат файлы сайта и база. Включён 24/7, защищён от отключений. Захотел переехать — забрал вещи, снял другую квартиру.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Регистратор</dt><dd>Компания, через которую покупают домен и управляют DNS.</dd>
+<dt>Хостинг-провайдер</dt><dd>Компания, предоставляющая сервер для файлов сайта.</dd>
+<dt>DNS-зона</dt><dd>Набор записей, описывающих домен.</dd>
+<dt>A-запись</dt><dd>Указывает IP-адрес, где лежит сайт.</dd>
+<dt>CNAME</dt><dd>Псевдоним: «это имя ведёт на другое имя».</dd>
+<dt>MX</dt><dd>Указывает почтовый сервер домена.</dd>
+<dt>TXT</dt><dd>Текстовая запись: проверка владельца, SPF.</dd>
+<dt>TTL</dt><dd>Секунды, сколько запись может жить в кэше.</dd>
+<dt>Shared / VPS</dt><dd>Общий сервер / виртуальный выделенный.</dd>
+<dt>FTP</dt><dd>Протокол загрузки файлов на сервер.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему домен и хостинг разделены? Это разные услуги с разными сроками: домен на годы, хостинг на месяцы. Разделил — сменил хостинг, не потеряв домен и посетителей. Почему DNS-изменения занимают до суток? Записи кэшируются на тысячах серверов мира, каждому нужно время узнать новое значение. Почему лучше у разных провайдеров? Если один заблокирует аккаунт или обанкротится, второй продолжит работать.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Домен — номер телефона: постоянный, его даёшь людям. Хостинг — офис: можешь переехать, но номер останется с тобой, если сам перенаправишь. DNS — телефонная станция: знает, что твой номер сейчас ведёт в новый офис. MX — «если звонят про письма, соединяй с почтовым отделением». CNAME — «если звонят на www, соединяй с основным номером».</p></div>
+
+<figure><svg viewBox="0 0 840 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Схема домена, DNS и хостинга">
+<rect width="840" height="380" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="13" font-weight="700" font-family="Arial">1. ДОМЕН — имя</text>
+<rect x="30" y="34" width="240" height="66" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<text x="150" y="60" text-anchor="middle" fill="#4f46e5" font-size="16" font-weight="700" font-family="Arial">mysite.ru</text>
+<text x="150" y="82" text-anchor="middle" fill="#6d7789" font-size="10.5" font-family="Arial">регистратор · 200–900 ₽/год</text>
+<text x="300" y="24" fill="#101828" font-size="13" font-weight="700" font-family="Arial">2. DNS — переводчик</text>
+<rect x="300" y="34" width="250" height="66" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<text x="425" y="60" text-anchor="middle" fill="#101828" font-size="12.5" font-weight="700" font-family="Arial">mysite.ru → 185.22.11.4</text>
+<text x="425" y="82" text-anchor="middle" fill="#6d7789" font-size="10.5" font-family="Arial">записи: A, CNAME, MX, TXT</text>
+<text x="580" y="24" fill="#101828" font-size="13" font-weight="700" font-family="Arial">3. ХОСТИНГ — квартира</text>
+<rect x="580" y="34" width="230" height="66" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<text x="695" y="60" text-anchor="middle" fill="#101828" font-size="12" font-weight="700" font-family="Arial">/var/www/mysite/</text>
+<text x="695" y="82" text-anchor="middle" fill="#6d7789" font-size="10.5" font-family="Arial">index.html · style.css · БД</text>
+<line x1="270" y1="67" x2="296" y2="67" stroke="#4f46e5" stroke-width="2"/>
+<path d="M296,67 l-8,-4 v8 z" fill="#4f46e5"/>
+<line x1="550" y1="67" x2="576" y2="67" stroke="#4f46e5" stroke-width="2"/>
+<path d="M576,67 l-8,-4 v8 z" fill="#4f46e5"/>
+<rect x="30" y="120" width="780" height="115" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<text x="50" y="144" fill="#101828" font-size="12" font-weight="700" font-family="Arial">Записи DNS — что и куда направлять</text>
+<rect x="50" y="155" width="175" height="68" rx="9" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="137" y="176" text-anchor="middle" fill="#4f46e5" font-size="12" font-weight="700" font-family="Arial">A</text>
+<text x="137" y="195" text-anchor="middle" fill="#101828" font-size="10.5" font-family="Arial">mysite.ru → IP</text>
+<text x="137" y="212" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">«сайт лежит здесь»</text>
+<rect x="237" y="155" width="175" height="68" rx="9" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="324" y="176" text-anchor="middle" fill="#4f46e5" font-size="12" font-weight="700" font-family="Arial">CNAME</text>
+<text x="324" y="195" text-anchor="middle" fill="#101828" font-size="10.5" font-family="Arial">www → mysite.ru</text>
+<text x="324" y="212" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">«это псевдоним»</text>
+<rect x="424" y="155" width="175" height="68" rx="9" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="511" y="176" text-anchor="middle" fill="#4f46e5" font-size="12" font-weight="700" font-family="Arial">MX</text>
+<text x="511" y="195" text-anchor="middle" fill="#101828" font-size="10.5" font-family="Arial">mail.mysite.ru</text>
+<text x="511" y="212" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">«куда слать почту»</text>
+<rect x="611" y="155" width="175" height="68" rx="9" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="698" y="176" text-anchor="middle" fill="#4f46e5" font-size="12" font-weight="700" font-family="Arial">TXT</text>
+<text x="698" y="195" text-anchor="middle" fill="#101828" font-size="10.5" font-family="Arial">v=spf1 include:…</text>
+<text x="698" y="212" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">«проверка, антиспам»</text>
+<text x="30" y="255" fill="#101828" font-size="12.5" font-weight="700" font-family="Arial">Два типа хостинга</text>
+<rect x="30" y="265" width="380" height="100" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<text x="50" y="290" fill="#101828" font-size="12" font-weight="700" font-family="Arial">SHARED — сервер на сотни клиентов</text>
+<text x="50" y="312" fill="#6d7789" font-size="11" font-family="Arial">150–500 ₽/мес · панель управления</text>
+<text x="50" y="332" fill="#6d7789" font-size="11" font-family="Arial">лендинги, магазины до 1000 товаров</text>
+<text x="50" y="352" fill="#6d7789" font-size="11" font-family="Arial">Timeweb, Beget</text>
+<rect x="430" y="265" width="380" height="100" rx="12" fill="#eef2ff" stroke="#c7d2fe"/>
+<text x="450" y="290" fill="#101828" font-size="12" font-weight="700" font-family="Arial">VPS — виртуальный сервер только твой</text>
+<text x="450" y="312" fill="#6d7789" font-size="11" font-family="Arial">300–1500 ₽/мес · настраиваешь сам</text>
+<text x="450" y="332" fill="#6d7789" font-size="11" font-family="Arial">высокая нагрузка, особые требования</text>
+<text x="450" y="352" fill="#6d7789" font-size="11" font-family="Arial">Selectel</text>
+</svg><figcaption><b>Рис. 2.1.</b> Домен указывает на хостинг через DNS-записи. Разные записи решают разные задачи: A — сайт, CNAME — зеркало, MX — почта, TXT — проверка и антиспам.</figcaption></figure>
+
+<h3>Как посмотреть это вживую</h3>
+<pre>nslookup google.com
+# или
+ping google.com</pre>
+<p>Увидишь IP-адрес — тот самый «номер дома». Введи его прямо в браузер: откроется тот же сайт. Это доказывает, что домен — просто удобное имя.</p>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>A-запись неверная</strong> — браузер пойдёт не туда. <strong>CNAME вместо A</strong> — многие хосты не поймут. <strong>MX не настроена</strong> — почта на домене не работает. <strong>Не продлить домен</strong> — через год сайт исчезнет. <strong>Shared с сотней соседей</strong> — один нагруженный сосед замедлит твой сайт.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Купить домен и изучить управление DNS</div>
+<div class="task-why">Зачем: поработаешь с реальной панелью регистратора.</div>
+<ol class="steps">
+<li>Зайди на reg.ru или namecheap.com.</li>
+<li>Введи желаемое имя — система покажет, свободно ли оно.</li>
+<li>Выбери зону .ru, оформи покупку на 1 год.</li>
+<li>В личном кабинете найди «DNS-серверы» или «Управление зоной».</li>
+<li>Изучи автоматически созданные записи, найди A-запись.</li>
+<li>Запиши в заметки, что означает каждая запись.</li>
+</ol>
+<div class="task-r">Результат: свой домен и понимание панели управления DNS.</div></div>
+
+<div class="task"><div class="task-h">Задание 2. Сравнить три хостинга</div>
+<div class="task-why">Зачем: через месяцы будешь выбирать хостинг для клиентских сайтов.</div>
+<ol class="steps">
+<li>Открой тарифные страницы Timeweb, Beget, Selectel.</li>
+<li>Заведи таблицу: цена, диск, сайтов, БД, PHP, поддержка, бэкап.</li>
+<li>Заполни для дешёвого и среднего тарифа каждого.</li>
+<li>Отметь, где включён бесплатный SSL и автобэкап.</li>
+<li>Выпиши, какой выберешь для лендинга, какой — для магазина на 5000 товаров.</li>
+</ol>
+<div class="task-r">Результат: таблица сравнения и понимание, за что платишь.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Домен и хостинг у одного провайдера.</strong> Заблокируют аккаунт — потеряешь всё.</li>
+<li><strong>Ждать мгновенного применения DNS.</strong> До 24 часов — это норма.</li>
+<li><strong>Путать A и CNAME.</strong> Часто прописывают CNAME вместо A — сайт не открывается.</li>
+<li><strong>Забывать продлевать домен.</strong> Заведи напоминание за месяц.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем домену A-запись и чем она отличается от CNAME?</li>
+<li>Почему нельзя купить сайт на хостинге, не купив домен?</li>
+<li>Сколько ждать после смены DNS и почему?</li>
+<li>Когда shared недостаточно и нужен VPS?</li></ol></div>
+`},
+
+{t:"Статический сайт, динамический сайт и CMS",g:"Понять три способа создания сайта и уметь выбрать правильный под задачу.",c:`
+<h3>Зачем этот урок</h3>
+<p>«Мне нужен сайт» — это не одна задача, а три разных проекта с разной ценой, сроками и инструментами. Твоя профессия — понять, какой тип нужен, ещё до того как назвал цену. Ошибка стоит дорого: можно взяться за сложный динамический сайт, когда клиенту хватило бы лендинга, или наоборот.</p>
+
+<h3>Простым языком</h3>
+<p><strong>Статика — как напечатанная листовка.</strong> Файлы готовы заранее, сервер просто отдаёт их, ничего не вычисляя. Отсюда: быстро, надёжно, дёшево в содержании. Минус один, но решающий: поменять текст можно только поправив файл кода. Клиент не зайдёт в админку и не заменит цену.</p>
+<p><strong>Динамика — как повар в ресторане.</strong> Сервер на каждый запрос лепит страницу заново, подставляя данные из базы. Заходишь в кабинет — сервер понимает, что это ты, и показывает твои заказы. Нужна программа на сервере (PHP, Node.js) и база данных. Это банки, соцсети, магазины. Сложнее, дороже, требует программиста.</p>
+<p><strong>CMS — готовая программа динамики.</strong> Закрывает сложную часть за тебя: программа уже написана, протестирована и бесплатно лежит в открытом доступе. Загрузил на хостинг, надел сверху свой дизайн — клиент сам добавляет товары и меняет тексты. Ты не повар, ты менеджер ресторана.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Статический сайт</dt><dd>Из заранее подготовленных файлов, отдаётся без изменений.</dd>
+<dt>Динамический сайт</dt><dd>Страницы генерируются на сервере под каждый запрос.</dd>
+<dt>CMS</dt><dd>Content Management System — система управления контентом.</dd>
+<dt>База данных (БД)</dt><dd>Хранилище данных: товары, пользователи, заказы.</dd>
+<dt>SQL</dt><dd>Structured Query Language — язык запросов к базе.</dd>
+<dt>Бэкенд / Фронтенд</dt><dd>Серверная часть / клиентская часть.</dd>
+<dt>Рендеринг</dt><dd>Формирование HTML из данных и шаблона.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему статика быстрее? Серверу не надо считать — он отдаёт готовый файл. Динамика на каждый запрос обращается к базе, собирает шаблон, подставляет данные — это время. Почему CMS бесплатна? Разработчики зарабатывают не на программе, а на плагинах, темах и поддержке вокруг неё. Почему WordPress покрывает 43% сайтов? Потому что закрывает самый частый сценарий: «клиент хочет сам управлять контентом, а мне нужно быстро сдать».</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Статика — рекламный буклет: напечатали тираж, раздаёте одинаковый. Динамика — ресторан: каждый заказ индивидуальный. CMS — сеть фастфуда: есть готовое меню, стандартные процессы и касса, нужно только нанять кассира и открыть точку. Ты не придумываешь рецепты — берёшь проверенную систему.</p></div>
+
+<figure><svg viewBox="0 0 840 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Три способа работы сайта">
+<rect width="840" height="340" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="12.5" font-weight="700" font-family="Arial">СТАТИКА — листовка</text>
+<rect x="30" y="34" width="210" height="52" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="135" y="56" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Готовый index.html</text>
+<text x="135" y="74" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">лежит на сервере</text>
+<line x1="240" y1="60" x2="280" y2="60" stroke="#15a34a" stroke-width="2"/>
+<path d="M280,60 l-8,-4 v8 z" fill="#15a34a"/>
+<text x="260" y="50" text-anchor="middle" fill="#15a34a" font-size="9.5" font-weight="700" font-family="Arial">как есть</text>
+<rect x="285" y="34" width="150" height="52" rx="10" fill="#f0fdf4" stroke="#bbf7d0"/>
+<text x="360" y="56" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Посетитель 1</text>
+<text x="360" y="74" text-anchor="middle" fill="#15a34a" font-size="10" font-family="Arial">тот же файл</text>
+<rect x="285" y="94" width="150" height="36" rx="10" fill="#f0fdf4" stroke="#bbf7d0"/>
+<text x="360" y="116" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">Посетитель 2 · 3 · 4 …</text>
+<text x="470" y="24" fill="#101828" font-size="12.5" font-weight="700" font-family="Arial">ДИНАМИКА — повар</text>
+<rect x="470" y="34" width="130" height="96" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="535" y="56" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Запрос</text>
+<text x="535" y="76" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">«мои заказы»</text>
+<text x="535" y="98" text-anchor="middle" fill="#4f46e5" font-size="10" font-weight="700" font-family="Arial">+ имя юзера</text>
+<line x1="600" y1="82" x2="640" y2="82" stroke="#4f46e5" stroke-width="2"/>
+<path d="M640,82 l-8,-4 v8 z" fill="#4f46e5"/>
+<rect x="645" y="34" width="160" height="96" rx="10" fill="#eef2ff" stroke="#c7d2fe"/>
+<text x="725" y="56" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Сервер + База</text>
+<text x="725" y="78" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">лепит страницу</text>
+<text x="725" y="98" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">под каждого</text>
+<line x1="725" y1="130" x2="725" y2="160" stroke="#4f46e5" stroke-width="2"/>
+<path d="M725,160 l-4,-8 h8 z" fill="#4f46e5"/>
+<rect x="645" y="162" width="160" height="34" rx="8" fill="#fff" stroke="#e4e8f0"/>
+<text x="725" y="183" text-anchor="middle" fill="#101828" font-size="10.5" font-weight="700" font-family="Arial">HTML на лету</text>
+<text x="30" y="150" fill="#101828" font-size="12.5" font-weight="700" font-family="Arial">CMS — сеть фастфуда</text>
+<rect x="30" y="160" width="140" height="100" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="100" y="184" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Админка</text>
+<text x="100" y="206" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">«+ Добавить</text>
+<text x="100" y="222" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">товар»</text>
+<text x="100" y="244" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">клиент сам правит</text>
+<line x1="170" y1="210" x2="205" y2="210" stroke="#4f46e5" stroke-width="2"/>
+<path d="M205,210 l-8,-4 v8 z" fill="#4f46e5"/>
+<rect x="210" y="160" width="140" height="100" rx="10" fill="#eef2ff" stroke="#c7d2fe"/>
+<text x="280" y="184" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">База данных</text>
+<text x="280" y="208" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">товары, страницы</text>
+<text x="280" y="246" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">WordPress · Tilda</text>
+<line x1="350" y1="210" x2="385" y2="210" stroke="#4f46e5" stroke-width="2"/>
+<path d="M385,210 l-8,-4 v8 z" fill="#4f46e5"/>
+<rect x="390" y="160" width="140" height="100" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="460" y="184" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Сервер</text>
+<text x="460" y="208" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">собирает из шаблона</text>
+<text x="460" y="246" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">PHP · Node.js</text>
+<line x1="530" y1="210" x2="565" y2="210" stroke="#4f46e5" stroke-width="2"/>
+<path d="M565,210 l-8,-4 v8 z" fill="#4f46e5"/>
+<rect x="570" y="160" width="240" height="100" rx="10" fill="#f0fdf4" stroke="#bbf7d0"/>
+<text x="690" y="184" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Готовый сайт</text>
+<text x="690" y="208" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">уникальный контент</text>
+<text x="690" y="246" text-anchor="middle" fill="#15a34a" font-size="10" font-weight="700" font-family="Arial">WooCommerce · Bitrix</text>
+<text x="30" y="290" fill="#b45309" font-size="11" font-weight="700" font-family="Arial">Вывод: если клиенту нужно самому обновлять контент (90% случаев) — сразу CMS. Статика — для визиток и промо.</text>
+</svg><figcaption><b>Рис. 3.1.</b> Три способа работы сайта. Статика отдаёт один файл всем, динамика собирает индивидуально, CMS делает динамику за тебя.</figcaption></figure>
+
+<table>
+<tr><th>Параметр</th><th>Статика</th><th>Динамика</th><th>CMS</th></tr>
+<tr><td>База данных</td><td>не нужна</td><td>нужна</td><td>нужна</td></tr>
+<tr><td>Обновить текст</td><td>правь HTML</td><td>правь код</td><td>жми в админке</td></tr>
+<tr><td>Скорость</td><td>очень высокая</td><td>зависит от кода</td><td>средняя (лечится кэшем)</td></tr>
+<tr><td>Кто делает</td><td>верстальщик</td><td>программист</td><td>настройщик CMS</td></tr>
+<tr><td>Клиент правит сам</td><td>нет</td><td>нет</td><td><strong>да</strong></td></tr>
+</table>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Магазин чистой статикой</strong> — клиент не добавит товар, будешь делать за него вечно. <strong>Динамика там, где хватит CMS</strong> — проект встанет в 3–5 раз дороже. <strong>CMS без учёта нагрузки</strong> — сайт ляжет под трафиком. <strong>Без кэша</strong> — динамика будет медленной.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Классифицировать три сайта</div>
+<div class="task-why">Зачем: научишься определять тип с первого взгляда — навык для каждого брифа.</div>
+<ol class="steps">
+<li>Возьми три сайта: портфолио фотографа, Википедию, ВКонтакте.</li>
+<li>Определи для каждого: статика, динамика или CMS.</li>
+<li>Обоснуй одним признаком: «в подвале WordPress — значит CMS».</li>
+<li>Проверь: открой код (Ctrl+U), поищи wp-content — маркер WordPress.</li>
+<li>Ответь: сможет ли фотограф сам добавить фото, не трогая код?</li>
+</ol>
+<div class="task-r">Результат: умеешь за 30 секунд определить, на чём сделан сайт.</div></div>
+
+<div class="task"><div class="task-h">Задание 2. Определить тип под три задачи</div>
+<div class="task-why">Зачем: подготовка к первому коммерческому разговору.</div>
+<ol class="steps">
+<li>Задача А: «страница для одной услуги, обновлять ничего не буду».</li>
+<li>Задача Б: «магазин, сам добавлю 50 товаров в месяц, меняю цены».</li>
+<li>Задача В: «личный кабинет с историей заказов и статусом доставки».</li>
+<li>Для каждой выбери тип и инструмент (ручная вёрстка / WordPress / WooCommerce / Bitrix).</li>
+<li>Напиши план, если клиент скажет: «хочу как у Apple, но чтобы самому цены менять».</li>
+</ol>
+<div class="task-r">Результат: алгоритм выбора инструмента под задачу.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Магазин чистой статикой.</strong> Клиент не сможет добавить товар.</li>
+<li><strong>Динамика там, где хватит CMS.</strong> В 3–5 раз дороже.</li>
+<li><strong>Считать WordPress несерьёзным.</strong> 43% сайтов мира. Серьёзность — в качестве работы.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем статика отличается от динамики по способу отдачи?</li>
+<li>Когда CMS бессмысленна, а нужна своя программа?</li>
+<li>Клиент может менять текст на статике? А на WordPress?</li>
+<li>Какой тип нужен магазину на 500 товаров и почему?</li></ol></div>
+`},
+
+{t:"Типы сайтов и их отличия",g:"Знать четыре основных типа сайтов, их назначение, инструменты и бюджеты.",c:`
+<h3>Зачем этот урок</h3>
+<p>«Сделайте сайт» — не одна задача, а четыре разные профессии. Лендинг за 60 000 ₽ и магазин за 400 000 ₽ — разные проекты, путать нельзя ни в разговоре, ни в обучении. Поймёшь различия — назовёшь цену правильно и не возьмёшься за невозможное.</p>
+
+<h3>Простым языком</h3>
+<p><strong>Лендинг — одна страница, одна цель.</strong> Ведёт по одному сценарию: зацепить → показать проблему → решение → доказать → продать. Никакой навигации, всё, что не ведёт к целевому действию, удаляется.</p>
+<p><strong>Корпоративный — информация и доверие.</strong> 5–15 страниц с меню. Задача не «продать сейчас», а «выглядеть надёжно».</p>
+<p><strong>Магазин — многократные продажи.</strong> Каталог, карточки, корзина, оплата, доставка, кабинет. Самый сложный: надо связать десяток сервисов.</p>
+<p><strong>Продвинутый — впечатление как продукт.</strong> Анимации, 3D, нестандартная типографика, звук. Для брендов, фильмов, запусков.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Лендинг</dt><dd>Landing page — посадочная страница с одним целевым действием.</dd>
+<dt>Корпоративный сайт</dt><dd>Многостраничник компании для представления.</dd>
+<dt>CTA</dt><dd>Call To Action — призыв к действию, кнопка цели.</dd>
+<dt>Витрина</dt><dd>Страница каталога с товарами.</dd>
+<dt>Чекаут</dt><dd>Страница оформления заказа.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему у лендинга нет меню? Любая ссылка — возможность уйти, задача — удержать до целевого действия. Почему у корпоративного есть меню? Люди приходят за разной информацией. Почему магазин дороже всего? Нужно связать платёжку, доставку, чеки, CRM, email — каждый элемент может сломаться. Почему продвинутые стоят миллионы? Редкие навыки: WebGL, шейдеры, сложные анимации.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Лендинг — продавец-консультант: подходит, ведёт по одной дорожке, доводит до покупки. Корпоративный — витрина офиса: заходишь, смотришь таблички, выбираешь кабинет. Магазин — супермаркет: тележки, кассы, склад, логистика. Продвинутый — шоу на стадионе: делают не чтобы продать билет, а чтобы впечатлить.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Четыре типа сайтов">
+<rect width="840" height="300" fill="#f8fafc"/>
+<rect x="20" y="20" width="190" height="260" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<text x="115" y="44" text-anchor="middle" fill="#4f46e5" font-size="12.5" font-weight="700" font-family="Arial">ЛЕНДИНГ</text>
+<text x="115" y="62" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">1 страница · заявка</text>
+<rect x="40" y="74" width="150" height="32" rx="6" fill="#eef2ff" stroke="#c7d2fe"/>
+<text x="115" y="94" text-anchor="middle" fill="#101828" font-size="9.5" font-weight="700" font-family="Arial">ЗАГОЛОВОК + КНОПКА</text>
+<rect x="40" y="112" width="150" height="20" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="115" y="126" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">проблема</text>
+<rect x="40" y="138" width="150" height="20" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="115" y="152" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">решение</text>
+<rect x="40" y="164" width="150" height="20" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="115" y="178" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">отзывы</text>
+<rect x="40" y="194" width="150" height="28" rx="6" fill="#4f46e5"/>
+<text x="115" y="212" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700" font-family="Arial">ФОРМА</text>
+<text x="115" y="244" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">30–150 тыс. ₽</text>
+<text x="115" y="262" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">1–3 недели</text>
+<rect x="225" y="20" width="190" height="260" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<text x="320" y="44" text-anchor="middle" fill="#4f46e5" font-size="12.5" font-weight="700" font-family="Arial">КОРПОРАТИВНЫЙ</text>
+<text x="320" y="62" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">5–15 страниц · доверие</text>
+<rect x="245" y="74" width="150" height="22" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="320" y="89" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">Главная</text>
+<rect x="245" y="102" width="72" height="22" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="281" y="117" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">О нас</text>
+<rect x="323" y="102" width="72" height="22" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="359" y="117" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">Услуги</text>
+<rect x="245" y="130" width="72" height="22" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="281" y="145" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">Блог</text>
+<rect x="323" y="130" width="72" height="22" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="359" y="145" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">Контакты</text>
+<rect x="245" y="164" width="150" height="22" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="320" y="179" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">+ вложенные страницы</text>
+<rect x="245" y="196" width="150" height="26" rx="6" fill="#4f46e5"/>
+<text x="320" y="213" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700" font-family="Arial">WordPress</text>
+<text x="320" y="244" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">50–200 тыс. ₽</text>
+<text x="320" y="262" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">2–6 недель</text>
+<rect x="430" y="20" width="190" height="260" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<text x="525" y="44" text-anchor="middle" fill="#4f46e5" font-size="12.5" font-weight="700" font-family="Arial">МАГАЗИН</text>
+<text x="525" y="62" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">каталог · продажи</text>
+<rect x="444" y="74" width="70" height="46" rx="5" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="479" y="101" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">фото</text>
+<rect x="522" y="74" width="70" height="46" rx="5" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="557" y="101" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">фото</text>
+<rect x="444" y="128" width="70" height="46" rx="5" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="479" y="155" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">фото</text>
+<rect x="522" y="128" width="70" height="46" rx="5" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="557" y="155" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">фото</text>
+<rect x="444" y="186" width="148" height="16" rx="4" fill="#eef2ff" stroke="#c7d2fe"/>
+<text x="518" y="198" text-anchor="middle" fill="#4f46e5" font-size="9" font-weight="700" font-family="Arial">КОРЗИНА</text>
+<rect x="444" y="208" width="148" height="16" rx="4" fill="#4f46e5"/>
+<text x="518" y="220" text-anchor="middle" fill="#fff" font-size="9" font-weight="700" font-family="Arial">ОПЛАТА</text>
+<text x="525" y="244" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">100–500 тыс. ₽</text>
+<text x="525" y="262" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">1–3 месяца</text>
+<rect x="635" y="20" width="185" height="260" rx="12" fill="#101828" stroke="#1e293b"/>
+<text x="727" y="44" text-anchor="middle" fill="#a5b4fc" font-size="12.5" font-weight="700" font-family="Arial">ПРОДВИНУТЫЙ</text>
+<text x="727" y="62" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Arial">впечатление</text>
+<rect x="650" y="74" width="155" height="46" rx="8" fill="#1e293b"/>
+<text x="727" y="101" text-anchor="middle" fill="#e0e7ff" font-size="10.5" font-weight="700" font-family="Arial">WebGL · 3D</text>
+<rect x="650" y="128" width="155" height="38" rx="8" fill="#1e293b"/>
+<text x="727" y="151" text-anchor="middle" fill="#e0e7ff" font-size="10.5" font-weight="700" font-family="Arial">Scroll-анимации</text>
+<rect x="650" y="174" width="155" height="38" rx="8" fill="#1e293b"/>
+<text x="727" y="197" text-anchor="middle" fill="#e0e7ff" font-size="10.5" font-weight="700" font-family="Arial">Кастомный курсор</text>
+<text x="727" y="244" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Arial">200 тыс.–1 млн ₽</text>
+<text x="727" y="262" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Arial">1–3 месяца</text>
+</svg><figcaption><b>Рис. 4.1.</b> Четыре типа сайтов. Чем сложнее тип, тем выше бюджет и срок.</figcaption></figure>
+
+<table>
+<tr><th>Параметр</th><th>Лендинг</th><th>Корпоративный</th><th>Магазин</th><th>Продвинутый</th></tr>
+<tr><td>Страниц</td><td>1</td><td>5–15</td><td>20–1000+</td><td>1–5</td></tr>
+<tr><td>Главное</td><td>конверсия</td><td>доверие</td><td>продажи</td><td>впечатление</td></tr>
+<tr><td>Инструмент</td><td>Тильда, вёрстка</td><td>WordPress</td><td>WooCommerce</td><td>Next.js + GSAP</td></tr>
+<tr><td>Клиент правит</td><td>иногда</td><td>да</td><td>да, постоянно</td><td>нет</td></tr>
+</table>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Из лендинга многостраничник</strong> — конверсия падает. <strong>Магазин без плана интеграций</strong> — застрянешь на месяцы. <strong>Продвинутый сайт для локального бизнеса</strong> — не окупится. <strong>Недооценить срок магазина</strong> — сорвёшь дедлайн.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать референсы каждого типа</div>
+<div class="task-why">Зачем: на глаз увидеть разницу. Референсы — база на годы.</div>
+<ol class="steps">
+<li>На land-book.com найди 3 лендинга: сильный герой, необычная навигация, лучший блок отзывов.</li>
+<li>Найди 2 корпоративных сайта с удобным меню.</li>
+<li>Найди 1 магазин с удобным фильтром.</li>
+<li>На awwwards.com найди 1 сайт уровня «вау».</li>
+<li>Создай папку «референсы» с подпапками по типам.</li>
+<li>Напротив каждого одной строкой запиши, что нравится.</li>
+</ol>
+<div class="task-r">Результат: библиотека из 7+ референсов — начало дизайн-вкуса.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Делать из лендинга многостраничник.</strong> Каждая ссылка — шанс уйти.</li>
+<li><strong>Браться за магазин без плана интеграций.</strong> Оплата, чеки, доставка, CRM — отдельные задачи.</li>
+<li><strong>Инструмент по моде, а не по задаче.</strong> Магазин на 5000 товаров на Tilda — мучение.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем лендинг отличается от корпоративного по цели?</li>
+<li>Какой тип требует больше всего интеграций?</li>
+<li>Назови три вещи, без которых магазин не работает.</li>
+<li>Почему продвинутый сайт не подходит локальному бизнесу?</li></ol></div>
+`},
+
+{t:"Рабочее место разработчика",g:"Настроить VS Code, расширения и структуру проекта так, чтобы работать удобно с первого дня.",c:`
+<h3>Зачем этот урок</h3>
+<p>Плохо настроенный редактор крадёт часы: ищешь файл, вручную выравниваешь отступы, перезагружаешь страницу после каждой правки. Хорошо настроенный экономит до 30% времени, а настраивается один раз — и работает годами.</p>
+
+<h3>Простым языком</h3>
+<p>Твой инструмент — <strong>VS Code</strong>. Это не Word: он подсвечивает, подсказывает, проверяет. Расширения делают его умнее:</p>
+<table><tr><th>Расширение</th><th>Зачем</th></tr>
+<tr><td>Prettier</td><td>сам расставляет отступы и кавычки</td></tr>
+<tr><td>Live Server</td><td>локальный сервер, страница обновляется сама</td></tr>
+<tr><td>Auto Rename Tag</td><td>меняешь открывающий тег — закрытый исправляется сам</td></tr>
+<tr><td>Emmet</td><td>встроен: <code>ul&gt;li*3</code> → готовый список</td></tr></table>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>IDE / редактор кода</dt><dd>Программа для написания кода с подсветкой и подсказками.</dd>
+<dt>Расширение</dt><dd>Плагин, добавляющий редактору возможности.</dd>
+<dt>Локальный сервер</dt><dd>Программа на твоём компьютере, отдающая файлы как настоящий сайт.</dd>
+<dt>DevTools</dt><dd>Инструменты разработчика в браузере для отладки.</dd>
+<dt>Emmet</dt><dd>Инструмент сокращённой записи HTML и CSS.</dd>
+<dt>Format On Save</dt><dd>Автоформатирование файла при сохранении.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему не Блокнот? Без подсветки и автодополнения потратишь втрое больше времени и будешь чаще ошибаться. Почему Live Server, а не просто открыть файл? При открытии файла напрямую браузер блокирует часть функций (модули, fetch) из-за правил безопасности. Почему Prettier? Ручное выравнивание отвлекает от главного — мысли о задаче.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Настройка редактора — организация рабочего места мастера. Можно класть инструмент куда попало и каждый раз искать молоток. А можно повесить каждый инструмент на своё место. Первые полчаса организации экономят годы.</p></div>
+
+<h3>Структура папки проекта</h3>
+<pre>my-first-site/
+├── index.html          ← главная страница
+├── about.html          ← вторая страница
+├── css/
+│   └── style.css       ← все стили
+├── js/
+│   └── main.js         ← весь код
+├── img/
+│   ├── logo.svg
+│   └── hero.webp
+└── favicon.ico         ← иконка во вкладке</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Файлы свалены в кучу</strong> — через месяц 30 файлов превратятся в свалку. <strong>Не включить Format On Save</strong> — код станет нечитаемым. <strong>Открывать HTML двойным щелчком</strong> — часть функций не заработает, будешь искать несуществующий баг. <strong>Не поставить Auto Rename Tag</strong> — будешь вручную чинить парные теги.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Установить VS Code и четыре расширения</div>
+<div class="task-why">Зачем: основной инструмент на ближайшие годы.</div>
+<ol class="steps">
+<li>Скачай VS Code с code.visualstudio.com и установи.</li>
+<li>Открой панель расширений: Ctrl+Shift+X.</li>
+<li>Найди и установи Prettier.</li>
+<li>Установи Live Server.</li>
+<li>Установи Auto Rename Tag.</li>
+<li>Нажми Ctrl+Shift+P, набери Format Document — проверь, что код выравнивается.</li>
+<li>В настройках (Ctrl+,) включи Format On Save.</li>
+</ol>
+<div class="task-r">Результат: редактор сам форматирует код, обновляет страницу, чинит теги.</div></div>
+
+<div class="task"><div class="task-h">Задание 2. Создать проект по правильной структуре</div>
+<div class="task-why">Зачем: заложить привычку. Проекты, начатые с бардака, редко из него вылезают.</div>
+<ol class="steps">
+<li>Создай папку my-first-site.</li>
+<li>Внутри создай папки: css, js, img.</li>
+<li>В VS Code открой папку: File → Open Folder.</li>
+<li>Создай index.html и вставь каркас.</li>
+<li>Создай пустые css/style.css и js/main.js.</li>
+<li>Подключи их в HTML через &lt;link&gt; и &lt;script&gt;.</li>
+<li>Правый клик по index.html → Open with Live Server.</li>
+<li>Измени текст в &lt;h1&gt;, сохрани — страница обновится сама.</li>
+</ol>
+<div class="task-r">Результат: рабочий проект с живым обновлением.</div></div>
+
+<div class="task"><div class="task-h">Задание 3. Отработать пять сокращений Emmet</div>
+<div class="task-why">Зачем: набор тегов — 20% времени. Emmet возвращает большую часть.</div>
+<ol class="steps">
+<li>Создай файл emmet-trenirovka.html.</li>
+<li>Набери ul.list&gt;li.item*5, нажми Tab.</li>
+<li>Набери nav&gt;ul&gt;li*4&gt;a, нажми Tab.</li>
+<li>Набери table&gt;tr*3&gt;td*2, нажми Tab.</li>
+<li>Набери form&gt;input:t+button:s, нажми Tab.</li>
+<li>Набери .card&gt;img+h3+p+button, нажми Tab.</li>
+<li>Выпиши пять сокращений в шпаргалку.</li>
+</ol>
+<div class="task-r">Результат: пять сокращений в мышечной памяти.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Открывать HTML двойным щелчком.</strong> Часть функций не заработает.</li>
+<li><strong>Не включать Format On Save.</strong> Код станет нечитаемым.</li>
+<li><strong>Файлы в корень «пока удобнее».</strong> Удобство длится до 30 файлов.</li>
+<li><strong>Игнорировать консоль.</strong> Красная строка объясняет лучше форума.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем нужен Format On Save в VS Code?</li>
+<li>Чем Live Server удобнее открытия файла двойным щелчком?</li>
+<li>Зачем проект разбивают на папки css/, js/, img/?</li>
+<li>Назови три расширения VS Code, экономящих время.</li>
+<li>Что делает сокращение ul&gt;li*3?</li></ol></div>
+`},
+
+{t:"Git и GitHub с первого дня",g:"Научиться сохранять историю проекта, откатываться назад и не потерять работу.",c:`
+<h3>Зачем этот урок</h3>
+<p>Ты целый день делаешь сайт, всё работает, и в 22:00 случайно удаляешь нужную папку. Без системы сохранений день исчезает. С ней — одна команда, и ты вернулся к состоянию «час назад». Git — <strong>машина времени для кода</strong>, нужна не «когда-нибудь», а с первой недели.</p>
+<p>Второе применение: GitHub — портфолио. Через год работодатель увидит историю всех проектов. «500 коммитов за год» убедительнее резюме.</p>
+
+<h3>Простым языком</h3>
+<p><strong>Коммит</strong> — снимок всех файлов в конкретный момент: что изменилось, кто, когда, с каким сообщением. Это не «сохранение файла» (это Ctrl+S), а «сохранение состояния всего проекта». Коммиты <strong>неизменяемы</strong>: не получится подправить старый, можно только создать новый.</p>
+<p><strong>Ветка</strong> — отдельная линия разработки. Без веток работаешь на одной линии: захотел попробовать фичу — сломаешь рабочий сайт. С ветками: создал линию, экспериментируешь, а когда работает — вливаешь в main. Не удался эксперимент — удалил ветку, main не тронут.</p>
+<p><strong>Локально и на GitHub.</strong> Git работает локально, без интернета. GitHub — облачное хранилище: сгорит компьютер — проект цел, работаешь с двух мест — история синхронизируется.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Репозиторий</dt><dd>Хранилище проекта с историей изменений.</dd>
+<dt>Коммит</dt><dd>Фиксация состояния файлов с сообщением.</dd>
+<dt>Ветка (branch)</dt><dd>Независимая линия разработки.</dd>
+<dt>main</dt><dd>Главная ветка, стабильная версия.</dd>
+<dt>Merge</dt><dd>Слияние одной ветки в другую.</dd>
+<dt>Clone</dt><dd>Копирование удалённого репозитория.</dd>
+<dt>Push / Pull</dt><dd>Отправка на сервер / получение с сервера.</dd>
+<dt>.gitignore</dt><dd>Файл со списком того, что не отслеживать.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему коммиты неизменяемы? Если можно менять историю, никто не доверял бы коду: «а вдруг в коммите было другое?». Почему ветки? Эксперименты и стабильность — разные задачи. Почему node_modules не коммитят? Сотни мегабайт чужих библиотек, восстанавливаются командой npm install. Почему сообщение важно? Через полгода не помнишь, что делал, а git log — твоя память.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Git — система сохранений в видеоигре. Каждый коммит — точка сохранения, сломались на боссе — загрузились с прошлой. Ветка — «новое прохождение другим персонажем»: экспериментируешь, основное не трогаешь. GitHub — облачные сохранения: сгорел компьютер, прогресс в облаке.</p></div>
+
+<figure><svg viewBox="0 0 840 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Граф коммитов">
+<rect width="840" height="220" fill="#f8fafc"/>
+<line x1="60" y1="70" x2="780" y2="70" stroke="#4f46e5" stroke-width="2.5"/>
+<circle cx="80" cy="70" r="9" fill="#4f46e5"/><circle cx="80" cy="70" r="3.5" fill="#fff"/>
+<circle cx="230" cy="70" r="9" fill="#4f46e5"/><circle cx="230" cy="70" r="3.5" fill="#fff"/>
+<circle cx="380" cy="70" r="9" fill="#4f46e5"/><circle cx="380" cy="70" r="3.5" fill="#fff"/>
+<circle cx="530" cy="70" r="9" fill="#4f46e5"/><circle cx="530" cy="70" r="3.5" fill="#fff"/>
+<circle cx="680" cy="70" r="9" fill="#4f46e5"/><circle cx="680" cy="70" r="3.5" fill="#fff"/>
+<circle cx="740" cy="70" r="11" fill="#101828"/>
+<text x="740" y="74" text-anchor="middle" fill="#fff" font-size="8.5" font-weight="700" font-family="Arial">HEAD</text>
+<text x="80" y="52" text-anchor="middle" fill="#101828" font-size="10" font-weight="700" font-family="Arial">Коммит 1</text>
+<text x="80" y="94" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">«начало»</text>
+<text x="230" y="52" text-anchor="middle" fill="#101828" font-size="10" font-weight="700" font-family="Arial">Коммит 2</text>
+<text x="230" y="94" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">«+шапка»</text>
+<text x="380" y="52" text-anchor="middle" fill="#101828" font-size="10" font-weight="700" font-family="Arial">Коммит 3</text>
+<text x="380" y="94" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">«+герой»</text>
+<text x="530" y="52" text-anchor="middle" fill="#101828" font-size="10" font-weight="700" font-family="Arial">Коммит 4</text>
+<text x="530" y="94" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">«+форма»</text>
+<text x="680" y="52" text-anchor="middle" fill="#101828" font-size="10" font-weight="700" font-family="Arial">Коммит 5</text>
+<text x="680" y="94" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">«фикс отступа»</text>
+<line x1="380" y1="80" x2="380" y2="130" stroke="#15a34a" stroke-width="2"/>
+<line x1="380" y1="130" x2="620" y2="130" stroke="#15a34a" stroke-width="2.5"/>
+<circle cx="470" cy="130" r="9" fill="#15a34a"/><circle cx="470" cy="130" r="3.5" fill="#fff"/>
+<circle cx="560" cy="130" r="9" fill="#15a34a"/><circle cx="560" cy="130" r="3.5" fill="#fff"/>
+<text x="470" y="156" text-anchor="middle" fill="#15803d" font-size="9.5" font-family="Arial">«новая корзина»</text>
+<text x="560" y="156" text-anchor="middle" fill="#15803d" font-size="9.5" font-family="Arial">«тесты»</text>
+<text x="332" y="122" fill="#15803d" font-size="10" font-weight="700" font-family="Arial">ветка feature/cart</text>
+<path d="M620,130 Q650,130 670,80" stroke="#15a34a" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+<path d="M668,86 l6,-8 l-2,9 z" fill="#15a34a"/>
+<text x="638" y="116" fill="#15803d" font-size="9.5" font-weight="700" font-family="Arial">merge</text>
+<rect x="60" y="175" width="720" height="34" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="80" y="196" fill="#101828" font-size="11" font-family="Arial"><tspan font-weight="700">Коммит = сохранение = точка возврата.</tspan> Ветка = отдельная линия: сломал — удалил, main не пострадал.</text>
+</svg><figcaption><b>Рис. 6.1.</b> Синяя линия — главная ветка, зелёная — экспериментальная, влитая обратно через merge.</figcaption></figure>
+
+<h3>Основные команды</h3>
+<pre>git init                          # создать репозиторий
+git status                        # что изменилось?
+git add .                         # подготовить ВСЁ к сохранению
+git commit -m "свёрстал блок героя, адаптировал под 390px"
+
+git remote add origin https://github.com/логин/my-site.git
+git branch -M main
+git push -u origin main           # первая загрузка
+git push                          # залить изменения
+
+git clone https://github.com/логин/my-site.git
+git pull                          # забрать свежее</pre>
+
+<table><tr><th>Плохое сообщение</th><th>Хорошее</th><th>Почему</th></tr>
+<tr><td>«файлы»</td><td>«свёрстал шапку с лого и меню»</td><td>через полгода поймёшь, что делал</td></tr>
+<tr><td>«фикс»</td><td>«исправил отступ в тарифах на мобиле»</td><td>можно найти поиском</td></tr>
+<tr><td>«обновление»</td><td>«добавил страницу „О нас“ и шрифт»</td><td>сообщение = мини-документация</td></tr></table>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Коммит раз в неделю один «большой»</strong> — не найти, когда сломалось. <strong>Закоммитить .env с паролями</strong> — и репозиторий публичный, ключи утекли. <strong>Нет .gitignore</strong> — закоммитишь node_modules на сотни МБ. <strong>Путаешь push и pull</strong> — ошибка и потеря времени.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Пройти интерактивный курс по веткам</div>
+<div class="task-why">Зачем: Git тяжело понять из текста — это про наглядные переходы.</div>
+<ol class="steps">
+<li>Открой learngitbranching.js.org.</li>
+<li>Выбери Introduction, пройди первые 4 уровня: коммиты, ветки, merge.</li>
+<li>На каждом уровне читай подсказку.</li>
+<li>Дойди до уровня с rebase.</li>
+<li>Вернись к уровню 1 и пройди заново.</li>
+</ol>
+<div class="task-r">Результат: прошёл создание коммитов, переключение ветвей и слияние на опыте.</div></div>
+
+<div class="task"><div class="task-h">Задание 2. Создать репозиторий и три коммита</div>
+<div class="task-why">Зачем: первый реальный коммит. После него Git перестаёт быть страшным.</div>
+<ol class="steps">
+<li>Установи Git с git-scm.com.</li>
+<li>Открой командную строку в папке my-first-site.</li>
+<li>Выполни git init.</li>
+<li>Выполни git config user.name "Твоё Имя" и git config user.email "почта@mail.ru".</li>
+<li>Создай .gitignore с таким содержимым:<br>node_modules/<br>.env<br>.DS_Store<br>*.log<br>.vscode/</li>
+<li>Выполни git add ., затем git commit -m "начало проекта + gitignore".</li>
+<li>Измени текст в index.html, повтори add и commit с сообщением «поменял заголовок».</li>
+<li>Добавь правило в style.css, сделай третий коммит.</li>
+<li>Выполни git log --oneline — увидишь историю.</li>
+</ol>
+<div class="task-r">Результат: три коммита с осмысленными сообщениями.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Коммит раз в неделю.</strong> Не найти, когда сломалось.</li>
+<li><strong>Сообщение «asdf».</strong> Через месяц не поймёшь историю.</li>
+<li><strong>.env с паролями в коммите.</strong> Ключи утекли.</li>
+<li><strong>Путать pull и push.</strong> pull — забрать, push — отправить.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем коммит отличается от сохранения файла?</li>
+<li>Что будет с main, если эксперимент в ветке провалится?</li>
+<li>Чем git add . отличается от git commit?</li>
+<li>Как восстановить удалённый файл из последнего коммита?</li>
+<li>Почему node_modules не кладут в репозиторий?</li></ol></div>
+`},
+
+{t:"Бриф: как вытащить задачу у заказчика",g:"Уметь превратить «хочу сайт» в чёткое задание, которое можно выполнить и оценить.",c:`
+<h3>Зачем этот урок</h3>
+<p>Заказчик почти никогда не знает, чего хочет. Он говорит «сделай красиво и современно» — и этим говорит всё и ничего. Если примешь эту фразу за задание, через месяц получишь бесконечные правки. И никто не будет виноват, потому что <strong>задача так и не была сформулирована</strong>.</p>
+<p>Бриф решает три задачи. Показывает, понимает ли заказчик собственный бизнес. Даёт материал для структуры страницы — каждый ответ становится блоком. И, главное, <strong>защищает тебя</strong>: через полгода откроете бриф и сверитесь с тем, что договаривались.</p>
+
+<h3>Простым языком</h3>
+<p>Бриф — перевод с языка «хочу» на язык «сделай вот это, тогда получится вот то». Без него вы оба говорите о разных вещах, не замечая этого.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Бриф</dt><dd>Анкета с вопросами для сбора требований.</dd>
+<dt>Стейкхолдер</dt><dd>Человек, чьё мнение влияет на проект.</dd>
+<dt>Целевая аудитория (ЦА)</dt><dd>Группа людей, для которых делается продукт.</dd>
+<dt>Целевое действие</dt><dd>Действие, которое пользователь должен совершить.</dd>
+<dt>Боли клиента</dt><dd>Проблемы, которые продукт решает.</dd>
+<dt>УТП</dt><dd>Уникальное торговое предложение.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему спрашивать «какую одну цель», а не «что вы хотите»? «Всё сразу» — это ни одной цели. Почему спрашивать о конкурентах? Рынок уже проверил, что работает, а что нет. Почему спрашивать про фото и тексты? 60% сорванных сроков — из-за того, что контент не был готов. Почему спрашивать бюджет? Можно месяц делать сайт, который не по карману.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Бриф — как заполнение медицинской карты. Можно сказать врачу «мне плохо», но он спросит: где болит, когда началось, что ели. Чем точнее ответы, тем точнее диагноз. Если поболтаете о погоде — лечение не начнётся.</p></div>
+
+<figure><svg viewBox="0 0 840 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Поток от запроса к задаче">
+<rect width="840" height="210" fill="#f8fafc"/>
+<rect x="30" y="40" width="140" height="76" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="100" y="68" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">ЗАПРОС</text>
+<text x="100" y="86" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">«хочу сайт,</text>
+<text x="100" y="100" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">красивый и</text>
+<text x="100" y="114" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">современный»</text>
+<line x1="170" y1="78" x2="205" y2="78" stroke="#4f46e5" stroke-width="2.5"/>
+<path d="M205,78 l-9,-5 v10 z" fill="#4f46e5"/>
+<rect x="210" y="40" width="200" height="140" rx="10" fill="#eef2ff" stroke="#c7d2fe"/>
+<text x="310" y="64" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">БРИФ</text>
+<text x="310" y="82" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">15–25 вопросов</text>
+<text x="225" y="102" fill="#101828" font-size="9.5" font-family="Arial">• кто клиент</text>
+<text x="225" y="118" fill="#101828" font-size="9.5" font-family="Arial">• какая цель</text>
+<text x="225" y="134" fill="#101828" font-size="9.5" font-family="Arial">• что обязательно</text>
+<text x="225" y="150" fill="#101828" font-size="9.5" font-family="Arial">• бюджет и срок</text>
+<text x="225" y="168" fill="#101828" font-size="9.5" font-family="Arial">• конкуренты</text>
+<line x1="410" y1="110" x2="445" y2="110" stroke="#4f46e5" stroke-width="2.5"/>
+<path d="M445,110 l-9,-5 v10 z" fill="#4f46e5"/>
+<rect x="450" y="40" width="170" height="140" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="535" y="64" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">СТРУКТУРА</text>
+<text x="535" y="82" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">ответ → блок</text>
+<rect x="470" y="92" width="130" height="15" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="535" y="103" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">герой</text>
+<rect x="470" y="112" width="130" height="15" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="535" y="123" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">проблема</text>
+<rect x="470" y="132" width="130" height="15" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="535" y="143" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">решение</text>
+<rect x="470" y="152" width="130" height="15" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="535" y="163" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">доказательство</text>
+<line x1="535" y1="180" x2="535" y2="200" stroke="#15a34a" stroke-width="2"/>
+<path d="M535,200 l-4,-9 h8 z" fill="#15a34a"/>
+<text x="640" y="196" fill="#15803d" font-size="10" font-weight="700" font-family="Arial">ПОНЯТНАЯ ЗАДАЧА</text>
+</svg><figcaption><b>Рис. 7.1.</b> Каждый ответ заказчика становится либо блоком на странице, либо строкой в смете.</figcaption></figure>
+
+<table><tr><th>Вопрос</th><th>Зачем</th></tr>
+<tr><td>Чем занимается компания? Одним предложением</td><td>Понимает ли заказчик сам себя</td></tr>
+<tr><td>Кто основной клиент?</td><td>Тон текстов, выбор фото, сложность интерфейса</td></tr>
+<tr><td>Какую одну цель должен решать сайт?</td><td>Без этого непонятно, что считать успехом</td></tr>
+<tr><td>Как сейчас приходят клиенты?</td><td>Стоит ли сайт этих денег</td></tr>
+<tr><td>Какие конкуренты нравятся и почему?</td><td>Визуальная цель</td></tr>
+<tr><td>Что обязательно? Что запрещено?</td><td>Рамки проекта</td></tr>
+<tr><td>Есть ли логотип, цвета, шрифты?</td><td>Объём дизайн-работы</td></tr>
+<tr><td>Есть ли фото/видео? Кто делает?</td><td>Частая причина срыва сроков</td></tr>
+<tr><td>Кто пишет тексты?</td><td>Тексты — 30% работы</td></tr>
+<tr><td>Какие функции нужны?</td><td>Цена и выбор инструмента</td></tr>
+<tr><td>На каких устройствах важнее?</td><td>Приоритеты в дизайне</td></tr>
+<tr><td>Бюджет и срок запуска?</td><td>Без этого нельзя начать</td></tr></table>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Не спросить цель</strong> — сделаешь сайт, который не продаёт. <strong>Не спросить про контент</strong> — сядешь в простой. <strong>Не спросить бюджет</strong> — месяц работы впустую. <strong>Не зафиксировать рамки</strong> — «а давайте ещё вот это» будет бесконечным.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Создать шаблон брифа</div>
+<div class="task-why">Зачем: один раз сделаешь — будешь использовать годы.</div>
+<ol class="steps">
+<li>Создай документ «Бриф на сайт».</li>
+<li>Добавь 12 вопросов из таблицы + 8 своих.</li>
+<li>Разбей на блоки: «О бизнесе», «О клиентах», «О сайте», «О содержании», «О бюджете».</li>
+<li>Добавь поля «Дата заполнения» и «Кто заполнял».</li>
+<li>Сохрани как шаблон.</li>
+</ol>
+<div class="task-r">Результат: бланк на 20 вопросов для каждого клиента.</div></div>
+
+<div class="task"><div class="task-h">Задание 2. Провести бриф для выдуманного клиента</div>
+<div class="task-why">Зачем: отработать технику. В первом реальном брифе будешь нервничать.</div>
+<ol class="steps">
+<li>Придумай клиента: сеть из трёх кофеен.</li>
+<li>Заполни бриф за него правдоподобно, не идеально.</li>
+<li>На вопрос «какая цель» напиши сначала плохой вариант, потом хороший.</li>
+<li>Назови двух реальных конкурентов и объясни, чем нравятся.</li>
+<li>Выпиши одной строкой: главную цель сайта и главное действие.</li>
+<li>Отдельно выпиши, что осталось непонятным.</li>
+</ol>
+<div class="task-r">Результат: заполненный бриф + список вопросов на уточнение.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Отправлять бриф и ждать ответа.</strong> Лучше созвониться и заполнить вместе.</li>
+<li><strong>Спрашивать «какой цвет нравится?».</strong> Это вопрос клиента к себе, не к тебе.</li>
+<li><strong>Не спрашивать про фото и тексты.</strong> 60% сорванных сроков.</li>
+<li><strong>Браться без ответа про бюджет.</strong> Можно месяц делать сайт не по карману.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Почему «кто ваш клиент» важнее «какой цвет нравится»?</li>
+<li>Что делать, если заказчик не знает бюджета?</li>
+<li>Зачем спрашивать о конкурентах?</li>
+<li>Как отличить хорошую цель от плохой?</li></ol></div>
+`},
+
+{t:"Целевая аудитория и конкурентный анализ",g:"Принимать дизайн-решения на основе конкретных людей и рынка, а не личного вкуса.",c:`
+<h3>Зачем этот урок</h3>
+<p>Самый дорогой способ делать сайты — на основе собственного вкуса. Ты любишь минимализм и тёмные темы, а клиенту нужен яркий сайт для женщин 45+, ищущих детские товары. Сайт получится «красивым» — и не будет продавать. Потому что ты делал его для себя.</p>
+<p>Правильный способ — представлять <strong>конкретного человека</strong> и принимать решения от его имени. Когда такой человек перед глазами, вопросы решаются сами: какие слова писать, какие возражения снимать, на какие кнопки давить, какие фото выбирать.</p>
+
+<h3>Простым языком</h3>
+<p>Портрет ЦА — не абстрактная «женщина 25–45», а конкретная Анна, 34 года, руководитель отдела из Москвы, которая ищет стоматологию с планом лечения и боится, что её «втянут в лишнее лечение». Когда держишь её в голове, понимаешь: ей нужен крупный телефон в первом экране, честная цена «от», отзывы с фото реальных людей и блок «почему не больно».</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Персона</dt><dd>Вымышленный представитель целевой аудитории.</dd>
+<dt>Сегментация</dt><dd>Деление аудитории на группы по признакам.</dd>
+<dt>Возражение</dt><dd>Причина, по которой клиент отказывается покупать.</dd>
+<dt>Триггер</dt><dd>Стимул, побуждающий к действию.</dd>
+<dt>CustDev</dt><dd>Исследование через разговоры с клиентами.</dd>
+<dt>JTBD</dt><dd>Jobs To Be Done — «работа», для выполнения которой «нанимают» продукт.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему «все от 18 до 55» — плохой портрет? Решения получаются неточными: не поймёшь тон, фото, размер кнопок. Почему в анализе конкурентов искать сходства? Там, где у всех одинаково, рынок отработал необходимость. Почему искать пробелы? Там, где у всех слабо, — твоя возможность выделиться. Почему возвращаться к портрету при спорном решении? Иначе решение будет случайным, а случайные не масштабируются.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Ты пригласил друга в ресторан. Знаешь, что он вегетарианец, — вечер получится. Выбрал стейк-хаус «потому что сам люблю мясо» — друг останется голодным. Знание конкретного человека меняет все решения: куда идти, что заказать.</p></div>
+
+<figure><svg viewBox="0 0 840 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Портрет ЦА">
+<rect width="840" height="340" fill="#f8fafc"/>
+<rect x="30" y="24" width="350" height="300" rx="16" fill="#fff" stroke="#e4e8f0"/>
+<circle cx="80" cy="70" r="28" fill="#eef2ff"/>
+<text x="80" y="77" text-anchor="middle" fill="#4f46e5" font-size="18" font-weight="700" font-family="Arial">А</text>
+<text x="122" y="64" fill="#101828" font-size="14" font-weight="700" font-family="Arial">Анна, 34 года</text>
+<text x="122" y="84" fill="#6d7789" font-size="10.5" font-family="Arial">Руководитель отдела, Москва</text>
+<text x="122" y="102" fill="#6d7789" font-size="10.5" font-family="Arial">Доход: 120 000 ₽/мес</text>
+<line x1="50" y1="120" x2="360" y2="120" stroke="#e4e8f0"/>
+<text x="50" y="142" fill="#4f46e5" font-size="10" font-weight="700" font-family="Arial">ЧТО НУЖНО</text>
+<text x="50" y="162" fill="#101828" font-size="11" font-family="Arial">Найти стоматологию рядом с домом</text>
+<text x="50" y="180" fill="#101828" font-size="11" font-family="Arial">с планом лечения и без боли</text>
+<text x="50" y="206" fill="#e08c00" font-size="10" font-weight="700" font-family="Arial">ЧТО МЕШАЕТ (страхи)</text>
+<text x="50" y="226" fill="#101828" font-size="11" font-family="Arial">«Втянут в лишнее лечение»</text>
+<text x="50" y="244" fill="#101828" font-size="11" font-family="Arial">«Дорого выйдет»</text>
+<text x="50" y="262" fill="#101828" font-size="11" font-family="Arial">«Будет больно»</text>
+<text x="50" y="288" fill="#15a34a" font-size="10" font-weight="700" font-family="Arial">ЧТО ЦЕПЛЯЕТ (триггеры)</text>
+<text x="50" y="308" fill="#101828" font-size="11" font-family="Arial">Отзывы с фото · цена «от» · лицензии</text>
+<rect x="400" y="24" width="410" height="300" rx="16" fill="#101828"/>
+<text x="420" y="50" fill="#a5b4fc" font-size="12.5" font-weight="700" font-family="Arial">ЧТО ЭТО ЗНАЧИТ ДЛЯ САЙТА</text>
+<line x1="420" y1="62" x2="790" y2="62" stroke="#1e293b"/>
+<text x="420" y="86" fill="#7dd3fc" font-size="10.5" font-weight="700" font-family="Arial">1. Телефон — крупным, в первом экране</text>
+<text x="420" y="104" fill="#cbd5e1" font-size="10" font-family="Arial">Ищет с телефона вечером, звонит быстрее</text>
+<text x="420" y="130" fill="#7dd3fc" font-size="10.5" font-weight="700" font-family="Arial">2. Кнопка «Записаться» — не «Узнать больше»</text>
+<text x="420" y="148" fill="#cbd5e1" font-size="10" font-family="Arial">Целевое действие конкретное</text>
+<text x="420" y="174" fill="#7dd3fc" font-size="10.5" font-weight="700" font-family="Arial">3. Честная цена «от» на видном месте</text>
+<text x="420" y="192" fill="#cbd5e1" font-size="10" font-family="Arial">Снимает страх «дорого выйдет»</text>
+<text x="420" y="218" fill="#7dd3fc" font-size="10.5" font-weight="700" font-family="Arial">4. Отзывы с реальными лицами</text>
+<text x="420" y="236" fill="#cbd5e1" font-size="10" font-family="Arial">Не логотипы, а фото людей</text>
+<text x="420" y="262" fill="#7dd3fc" font-size="10.5" font-weight="700" font-family="Arial">5. Блок «Почему не больно»</text>
+<text x="420" y="280" fill="#cbd5e1" font-size="10" font-family="Arial">Работаем с главным возражением</text>
+<text x="420" y="302" fill="#94a3b8" font-size="9.5" font-family="Arial">Каждый пункт — ответ на конкретный страх конкретного человека</text>
+</svg><figcaption><b>Рис. 8.1.</b> Портрет ЦА и его прямое следствие для дизайна.</figcaption></figure>
+
+<h3>Анализ конкурентов по блокам</h3>
+<table><tr><th>Блок</th><th>К1</th><th>К2</th><th>К3</th><th>Вывод</th></tr>
+<tr><td>Герой (заголовок)</td><td></td><td></td><td></td><td>что повторить</td></tr>
+<tr><td>Главный CTA</td><td></td><td></td><td></td><td>какое действие все предлагают</td></tr>
+<tr><td>Соцдоказательство</td><td></td><td></td><td></td><td>как все доказывают</td></tr>
+<tr><td>Тарифы</td><td></td><td></td><td></td><td>как подают цены</td></tr>
+<tr><td>Что раздражает</td><td></td><td></td><td></td><td>чего избегать</td></tr></table>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Портрет слишком широкий</strong> — решения неточные, сайт не цепляет никого. <strong>Копировать конкурента целиком</strong> — повторишь его ошибки. <strong>Не возвращаться к портрету</strong> — начнутся решения «по вкусу». <strong>Игнорировать анализ рынка</strong> — изобретёшь велосипед.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Составить портрет ЦА</div>
+<div class="task-why">Зачем: фундамент всех дизайн-решений.</div>
+<ol class="steps">
+<li>Выбери нишу: барбершоп, детский центр, доставка еды, стоматология.</li>
+<li>Заполни «КТО»: имя, возраст, роль, город, доход.</li>
+<li>Заполни «ЧТО НУЖНО» от первого лица: «мне нужно…».</li>
+<li>Заполни «ЧТО МЕШАЕТ»: 3–4 страха дословно, как говорит клиент.</li>
+<li>Заполни «ЧТО ЦЕПЛЯЕТ»: 3–4 триггера.</li>
+<li>Укажи КАНАЛ: откуда приходит и с какого устройства.</li>
+<li>Выпиши 5 следствий для сайта.</li>
+</ol>
+<div class="task-r">Результат: карточка портрета + пять требований к сайту.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Портрет абстрактный.</strong> Чем уже аудитория, тем точнее решения.</li>
+<li><strong>Копировать конкурента целиком.</strong> Бери стандарты, заполняй пробелы.</li>
+<li><strong>Анализ = посмотреть на картинки.</strong> Нужно разобрать логику.</li>
+<li><strong>Составить портрет и забыть.</strong> Возвращайся при спорных решениях.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови четыре вопроса портрета ЦА.</li>
+<li>Почему «все от 18 до 55» — плохо?</li>
+<li>Что искать в анализе конкурентов?</li>
+<li>Как страх клиента превращается в блок сайта?</li></ol></div>
+`},
+
+{t:"Структура страницы и пользовательский путь",g:"Выстраивать блоки в таком порядке, чтобы человек естественно дошёл до заявки.",c:`
+<h3>Зачем этот урок</h3>
+<p>Посетитель не читает страницу. Он <strong>сканирует</strong> её за 3–5 секунд и решает: остаться или закрыть вкладку. Всё, что он не понял за 5 секунд, для него не существует. Поэтому порядок блоков — вопрос выживания сайта.</p>
+<p>Порядок не придумывается: он отработан десятилетиями маркетинга. Новички его игнорируют, расставляют блоки «как красиво», и потом удивляются, почему сайт не продаёт.</p>
+
+<h3>Простым языком</h3>
+<pre>ВНИМАНИЕ → ПРОБЛЕМА → РЕШЕНИЕ → ДОКАЗАТЕЛЬСТВО → ОФФЕР → CTA</pre>
+<p>Каждый блок должен заканчиваться микро-решением: «дальше», «интересно», «верю». Пропустил «проблему» — человек не узнал себя и ушёл. Пропустил «доказательство» — не поверил и не купил.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Воронка</dt><dd>Путь пользователя от первого контакта до целевого действия.</dd>
+<dt>Герой</dt><dd>Первый экран с главным заголовком и CTA.</dd>
+<dt>Микро-конверсия</dt><dd>Маленькое действие, приближающее к главному.</dd>
+<dt>Отскок</dt><dd>Уход со страницы без действий.</dd>
+<dt>Скроллинг</dt><dd>Прокрутка контента.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему не начинать с «о компании»? Посетителю всё равно, сколько лет компании — он хочет решить задачу. Почему нельзя два равнозначных CTA рядом? Глаз не знает, куда нажать, и часто не нажимает никуда. Почему у блока должен быть заголовок? Без заголовка блок не несёт сообщения, значит, он лишний.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Структура лендинга — разговор с продавцом. Сначала цепляет внимание («красивая улыбка»), потом называет проблему («но тут кариес»), потом решение («поставим пломбу»), потом доказательство («400 довольных пациентов»), цена («от 3000 ₽») и финал: «записаться?». Если начнёт с «я работаю здесь с 2015 года» — вы уйдёте.</p></div>
+
+<figure><svg viewBox="0 0 840 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Формула лендинга">
+<rect width="840" height="230" fill="#f8fafc"/>
+<rect x="20" y="40" width="120" height="66" rx="10" fill="#eef2ff" stroke="#c7d2fe"/>
+<text x="80" y="68" text-anchor="middle" fill="#101828" font-size="10.5" font-weight="700" font-family="Arial">ВНИМАНИЕ</text>
+<text x="80" y="88" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">3 секунды</text>
+<line x1="140" y1="73" x2="175" y2="73" stroke="#4f46e5" stroke-width="2"/>
+<path d="M175,73 l-8,-4 v8 z" fill="#4f46e5"/>
+<rect x="180" y="40" width="120" height="66" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="240" y="68" text-anchor="middle" fill="#101828" font-size="10.5" font-weight="700" font-family="Arial">ПРОБЛЕМА</text>
+<text x="240" y="88" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">«это про меня»</text>
+<line x1="300" y1="73" x2="335" y2="73" stroke="#4f46e5" stroke-width="2"/>
+<path d="M335,73 l-8,-4 v8 z" fill="#4f46e5"/>
+<rect x="340" y="40" width="120" height="66" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="400" y="68" text-anchor="middle" fill="#101828" font-size="10.5" font-weight="700" font-family="Arial">РЕШЕНИЕ</text>
+<text x="400" y="88" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">как продукт решает</text>
+<line x1="460" y1="73" x2="495" y2="73" stroke="#4f46e5" stroke-width="2"/>
+<path d="M495,73 l-8,-4 v8 z" fill="#4f46e5"/>
+<rect x="500" y="40" width="130" height="66" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="565" y="68" text-anchor="middle" fill="#101828" font-size="10.5" font-weight="700" font-family="Arial">ДОКАЗАТЕЛЬСТВО</text>
+<text x="565" y="88" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">отзывы, цифры, кейсы</text>
+<line x1="630" y1="73" x2="665" y2="73" stroke="#4f46e5" stroke-width="2"/>
+<path d="M665,73 l-8,-4 v8 z" fill="#4f46e5"/>
+<rect x="670" y="40" width="150" height="66" rx="10" fill="#4f46e5"/>
+<text x="745" y="68" text-anchor="middle" fill="#fff" font-size="10.5" font-weight="700" font-family="Arial">ДЕЙСТВИЕ</text>
+<text x="745" y="88" text-anchor="middle" fill="#e0e7ff" font-size="9" font-family="Arial">оффер + кнопка + форма</text>
+<rect x="20" y="130" width="800" height="86" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<text x="40" y="154" fill="#101828" font-size="11.5" font-weight="700" font-family="Arial">Каждый блок заканчивается микро-решением:</text>
+<text x="40" y="176" fill="#6d7789" font-size="10.5" font-family="Arial">«дальше» → «интересно» → «верю» → «хочу» → «делаю»</text>
+<rect x="40" y="188" width="760" height="22" rx="5" fill="#fffbeb" stroke="#fde68a"/>
+<text x="52" y="203" fill="#b45309" font-size="10" font-weight="700" font-family="Arial">Если блок не двигает к следующему решению — он лишний. Убери его.</text>
+</svg><figcaption><b>Рис. 9.1.</b> Каждый блок обязан вести к следующему.</figcaption></figure>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Начать с «о компании»</strong> — посетитель уйдёт. <strong>Убрать отзывы «чтобы не было перегруза»</strong> — конверсия упадёт. <strong>Два равнозначных CTA рядом</strong> — глаз не знает, куда жать. <strong>Расставлять блоки «как красиво»</strong> — красота без логики не продаёт.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Составить 10 блоков с назначением</div>
+<div class="task-why">Зачем: это скелет лендинга. С ним верстка идёт втрое быстрее.</div>
+<ol class="steps">
+<li>Возьми нишу из Урока 8.</li>
+<li>Выпиши 10 блоков по формуле: шапка, герой, проблема, решение, преимущества, как работает, доказательство, тарифы, FAQ, финальный CTA.</li>
+<li>Напротив каждого напиши задачу одним предложением.</li>
+<li>Отметь главный элемент каждого блока: заголовок, картинка, цифра, кнопка.</li>
+<li>Отметь, в каких блоках стоит CTA. Обычно 2-й и 10-й.</li>
+<li>Прочитай задачи сверху вниз — складывается ли в рассказ?</li>
+</ol>
+<div class="task-r">Результат: структура лендинга, где каждый блок знает свою задачу.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Начинать с «О компании».</strong> Посетителю всё равно.</li>
+<li><strong>Два равнозначных CTA.</strong> Глаз не знает, куда нажать.</li>
+<li><strong>Убирать отзывы.</strong> Отзывы — снятие возражения.</li>
+<li><strong>Блоки «как красиво».</strong> Логика первой.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>За сколько секунд решают остаться или уйти?</li>
+<li>Назови формулу из шести этапов.</li>
+<li>Почему у блока должен быть заголовок?</li>
+<li>Как найти место, где теряются посетители?</li></ol></div>
+`},
+
+{t:"Прототипирование: блоки и логика",g:"Проверить структуру за 2 часа вместо 2 дней, потраченных на красивый макет.",c:`
+<h3>Зачем этот урок</h3>
+<p>Прототип — <strong>черновик из серых прямоугольников</strong>. Никаких цветов, шрифтов, картинок. Только блоки и расположение кнопок. Звучит скучно, но это самый выгодный инструмент: переделать серый прямоугольник — 2 минуты, красивый макет — 2 часа, свёрстанный сайт — день.</p>
+
+<h3>Простым языком</h3>
+<p>Правило профессионалов: не тратить минуты на красоту, пока не проверена логика. Новички делают наоборот — сразу рисуют красивый герой, вкладываются эмоционально, а потом выясняется, что структура не работает, и всё это надо выбрасывать.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Прототип</dt><dd>Упрощённая модель интерфейса для проверки логики.</dd>
+<dt>Вайрфрейм</dt><dd>Каркас страницы без оформления.</dd>
+<dt>Фрейм</dt><dd>Рабочая область под конкретный экран.</dd>
+<dt>Макет</dt><dd>Оформленный дизайн страницы.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему ошибка на прототипе дешевле? На прототипе меняешь положение прямоугольника, а на макете — ещё и перекрашивать, переставлять текст, пересчитывать отступы. Почему рисуют все кнопки? Расположение кнопок определяет поведение. Почему проверяют на трёх людях? Один может быть непоказателен, три дают устойчивую картину.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Прототип — планировка квартиры до ремонта. Можно сразу клеить обои, а потом узнать, что дверь открывается в стену. А можно на бумаге переставить перегородки десять раз за вечер — бесплатно. Профессиональный архитектор никогда не начнёт с обоев.</p></div>
+
+<figure><svg viewBox="0 0 840 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Три этапа">
+<rect width="840" height="210" fill="#f8fafc"/>
+<rect x="30" y="30" width="220" height="120" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<rect x="46" y="46" width="188" height="14" rx="3" fill="#e8ecf3" stroke="#cbd5e1"/>
+<rect x="46" y="66" width="188" height="44" rx="4" fill="#e8ecf3" stroke="#cbd5e1"/>
+<rect x="60" y="118" width="80" height="14" rx="3" fill="#e8ecf3" stroke="#cbd5e1"/>
+<rect x="150" y="118" width="80" height="14" rx="3" fill="#e8ecf3" stroke="#cbd5e1"/>
+<text x="140" y="162" text-anchor="middle" fill="#101828" font-size="11.5" font-weight="700" font-family="Arial">ПРОТОТИП</text>
+<text x="140" y="180" text-anchor="middle" fill="#15a34a" font-size="10" font-weight="700" font-family="Arial">2 ч · ошибка = минуты</text>
+<line x1="250" y1="90" x2="285" y2="90" stroke="#4f46e5" stroke-width="2"/>
+<path d="M285,90 l-8,-4 v8 z" fill="#4f46e5"/>
+<rect x="290" y="30" width="220" height="120" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<rect x="306" y="46" width="188" height="16" rx="4" fill="#101828"/>
+<text x="400" y="58" text-anchor="middle" fill="#fff" font-size="9" font-weight="700" font-family="Arial">ОСТРИЕ   МЕНЮ   Записаться</text>
+<rect x="306" y="68" width="188" height="44" rx="6" fill="#eef2ff" stroke="#c7d2fe"/>
+<text x="400" y="88" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Стрижка и борода</text>
+<rect x="345" y="116" width="110" height="16" rx="8" fill="#4f46e5"/>
+<text x="400" y="128" text-anchor="middle" fill="#fff" font-size="9" font-weight="700" font-family="Arial">ЗАПИСАТЬСЯ</text>
+<text x="400" y="162" text-anchor="middle" fill="#101828" font-size="11.5" font-weight="700" font-family="Arial">МАКЕТ</text>
+<text x="400" y="180" text-anchor="middle" fill="#e08c00" font-size="10" font-weight="700" font-family="Arial">1–3 дня · ошибка = часы</text>
+<line x1="510" y1="90" x2="545" y2="90" stroke="#4f46e5" stroke-width="2"/>
+<path d="M545,90 l-8,-4 v8 z" fill="#4f46e5"/>
+<rect x="550" y="30" width="250" height="120" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="675" y="54" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="monospace">&lt;section class="hero"&gt;</text>
+<text x="675" y="76" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="monospace">&lt;h1&gt;Стрижка…&lt;/h1&gt;</text>
+<text x="675" y="98" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="monospace">&lt;a class="btn"&gt;</text>
+<text x="675" y="120" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="monospace">&lt;/section&gt;</text>
+<text x="675" y="162" text-anchor="middle" fill="#101828" font-size="11.5" font-weight="700" font-family="Arial">САЙТ</text>
+<text x="675" y="180" text-anchor="middle" fill="#b42318" font-size="10" font-weight="700" font-family="Arial">1–2 нед · ошибка = дни</text>
+</svg><figcaption><b>Рис. 10.1.</b> Цена ошибки растёт: на прототипе минуты, на макете часы, на сайте дни.</figcaption></figure>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Пропустить прототип «я и так знаю»</strong> — узнаешь о проблеме, когда будет больно. <strong>Рисовать цвета на прототипе</strong> — влюбишься в картинку. <strong>Пропустить мобильную версию</strong> — потом выяснится, что блок нечитаем на телефоне. <strong>Отступы «на глаз»</strong> — макет неряшливый.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать прототип за 2 часа</div>
+<div class="task-why">Зачем: получить проверенную структуру до красоты.</div>
+<ol class="steps">
+<li>В Figma создай фрейм 1440×4000.</li>
+<li>Включи сетку: 12 колонок, отступ 30, поле 80.</li>
+<li>Нарисуй 10 блоков серыми прямоугольниками.</li>
+<li>Внутри — текст-заглушка: «Заголовок в 2 строки».</li>
+<li>Все кнопки — одинаковые прямоугольники.</li>
+<li>Отступы между блоками одинаковые (120 px).</li>
+<li>Ограничь контент 1200 px, выровняй по центру.</li>
+<li>Проверь: понятен ли сценарий без единого цвета?</li>
+</ol>
+<div class="task-r">Результат: проверенный скелет за 2 часа вместо 2 дней.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Рисовать цвета на прототипе.</strong> Влюбишься в картинку.</li>
+<li><strong>Пропускать прототип.</strong> Знаешь — до первого клиента с правками.</li>
+<li><strong>Забывать мобильную версию.</strong> Переделывать макет.</li>
+<li><strong>Отступы «на глаз».</strong> Неряшливый макет.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем прототип и почему его делают до макета?</li>
+<li>Сколько стоит ошибка на прототипе и на сайте?</li>
+<li>Что обязательно нарисовать в прототипе?</li>
+<li>Какие размеры фреймов создать?</li></ol></div>
+`},
+
+{t:"Композиция, сетки и визуальная иерархия",g:"Делать макеты, которые «читаются» сами, без подсказок.",c:`
+<h3>Зачем этот урок</h3>
+<p>Два сайта с одинаковым текстом — один выглядит «дорого», другой «дёшево». Разница не в бюджете, а в <strong>композиции</strong>: как элементы выровнены, какой размер, сколько воздуха вокруг.</p>
+<p>Глаз читает страницу за доли секунды и ищет подсказки: «что здесь важнее всего?». Если подсказок нет — глаз устаёт и уходит. Если есть — человек за 3 секунды понимает суть.</p>
+
+<h3>Простым языком</h3>
+<p>Сетка — невидимые линии для выравнивания. Без сетки элементы стоят «примерно»: один отступ 24 px, соседний 27, третий 19. Глаз этого не измеряет, но <strong>чувствует</strong> — и воспринимает макет как неряшливый.</p>
+<p>12 колонок — стандарт, потому что делится на 2, 3, 4 и 6 равных частей. Отсюда раскладки: 6+6, 4+4+4, 3+3+3+3, 8+4.</p>
+<p>Три инструмента иерархии: <strong>размер</strong> (больше = важнее), <strong>контраст</strong> (ярче = заметнее), <strong>пространство</strong> (больше воздуха вокруг = важнее).</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Композиция</dt><dd>Построение элементов на плоскости по законам гармонии.</dd>
+<dt>Сетка</dt><dd>Система невидимых линий для выравнивания.</dd>
+<dt>Визуальная иерархия</dt><dd>Порядок важности, заданный оформлением.</dd>
+<dt>Контраст</dt><dd>Различие элементов по размеру, цвету, весу.</dd>
+<dt>8-pt grid</dt><dd>Система отступов, кратная 8 пикселям.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему 12 колонок? Делится на 2, 3, 4, 6 — все типовые раскладки. Почему отступы кратны 8? 8 делится на 2 и 4 — типовые шаги раскладки, и даёт ровный ритм при масштабировании. Почему воздуха вокруг важного больше? Изолированный элемент притягивает внимание сильнее зажатого.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Сетка — расстановка мебели в комнате. Если диван, стол и стул стоят «примерно» вдоль стен, комната выглядит неряшливо. Если всё выровнено по линиям пола — продуманной. Воздух — расстояние между мебелью: если диван придвинут вплотную к стене, комната кажется тесной, хотя площадь та же.</p></div>
+
+<figure><svg viewBox="0 0 840 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Сетка и иерархия">
+<rect width="840" height="340" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="12.5" font-weight="700" font-family="Arial">Сетка: 12 колонок · отступ 30 px · контейнер 1200 px</text>
+<rect x="60" y="34" width="720" height="52" rx="4" fill="#eef2ff" stroke="#c7d2fe" stroke-dasharray="3 3"/>
+<line x1="60" y1="34" x2="60" y2="86" stroke="#4f46e5" stroke-width="2"/>
+<line x1="180" y1="34" x2="180" y2="86" stroke="#c7d2fe" stroke-width="1"/>
+<line x1="300" y1="34" x2="300" y2="86" stroke="#c7d2fe" stroke-width="1"/>
+<line x1="420" y1="34" x2="420" y2="86" stroke="#c7d2fe" stroke-width="1"/>
+<line x1="540" y1="34" x2="540" y2="86" stroke="#c7d2fe" stroke-width="1"/>
+<line x1="660" y1="34" x2="660" y2="86" stroke="#c7d2fe" stroke-width="1"/>
+<line x1="780" y1="34" x2="780" y2="86" stroke="#4f46e5" stroke-width="2"/>
+<text x="420" y="64" text-anchor="middle" fill="#4f46e5" font-size="11" font-weight="700" font-family="Arial">12 равных колонок по 60 px</text>
+<text x="30" y="116" fill="#101828" font-size="12" font-weight="700" font-family="Arial">Раскладки</text>
+<text x="30" y="140" fill="#6d7789" font-size="10" font-family="Arial">6+6</text>
+<rect x="80" y="146" width="180" height="26" rx="4" fill="#4f46e5"/><text x="170" y="163" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700" font-family="Arial">текст</text>
+<rect x="266" y="146" width="180" height="26" rx="4" fill="#e8ecf3" stroke="#cbd5e1"/><text x="356" y="163" text-anchor="middle" fill="#64748b" font-size="9.5" font-family="Arial">картинка</text>
+<text x="30" y="196" fill="#6d7789" font-size="10" font-family="Arial">4+4+4</text>
+<rect x="80" y="202" width="120" height="26" rx="4" fill="#4f46e5"/>
+<rect x="206" y="202" width="120" height="26" rx="4" fill="#4f46e5"/>
+<rect x="332" y="202" width="120" height="26" rx="4" fill="#4f46e5"/>
+<text x="480" y="116" fill="#101828" font-size="12" font-weight="700" font-family="Arial">Плохая vs хорошая иерархия</text>
+<rect x="480" y="128" width="160" height="150" rx="8" fill="#fff" stroke="#e4e8f0"/>
+<text x="560" y="154" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">Заголовок</text>
+<text x="560" y="178" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">какой-то текст</text>
+<text x="560" y="202" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">Подзаголовок</text>
+<rect x="520" y="218" width="80" height="20" rx="4" fill="#e8ecf3" stroke="#cbd5e1"/>
+<text x="560" y="232" text-anchor="middle" fill="#64748b" font-size="9" font-family="Arial">кнопка</text>
+<text x="560" y="262" text-anchor="middle" fill="#e08c00" font-size="9.5" font-weight="700" font-family="Arial">всё одного размера</text>
+<text x="560" y="278" text-anchor="middle" fill="#e08c00" font-size="9" font-family="Arial">глаз не знает, куда смотреть</text>
+<rect x="655" y="128" width="160" height="150" rx="8" fill="#fff" stroke="#e4e8f0"/>
+<text x="735" y="152" text-anchor="middle" fill="#101828" font-size="13" font-weight="700" font-family="Arial">ЗАГОЛОВОК</text>
+<text x="735" y="182" text-anchor="middle" fill="#475467" font-size="9.5" font-family="Arial">Подзаголовок мельче</text>
+<rect x="695" y="198" width="80" height="22" rx="5" fill="#4f46e5"/>
+<text x="735" y="213" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700" font-family="Arial">КНОПКА</text>
+<text x="735" y="254" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">текст мелким</text>
+<text x="735" y="278" text-anchor="middle" fill="#15a34a" font-size="9.5" font-weight="700" font-family="Arial">читается за 2 секунды</text>
+</svg><figcaption><b>Рис. 11.1.</b> Слева — 12-колоночная сетка. Справа — разница между плохой и хорошей иерархией.</figcaption></figure>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Отступы «на глаз» (23, 37 px)</strong> — макет неряшливый. <strong>Все элементы одного размера</strong> — нет иерархии, нет чтения. <strong>Мало воздуха вокруг важного</strong> — герой перестаёт быть героем. <strong>Сетка есть, но элементы висят «примерно»</strong> — полдела.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Наложить сетку и выровнять прототип</div>
+<div class="task-why">Зачем: выравнивание — самый быстрый способ сделать макет «дорогим».</div>
+<ol class="steps">
+<li>Возьми прототип из Урока 10.</li>
+<li>Нажми Shift+G, настрой: 12 колонок, отступ 30, поле 80.</li>
+<li>Натяни блоки на колонки: текст на 6, картинку на 6.</li>
+<li>Выровняй левые края по первой линии сетки.</li>
+<li>Выровняй правые края по последней линии.</li>
+<li>Проверь: ни один элемент не висит между колонками.</li>
+<li>Сравни «до» и «после».</li>
+</ol>
+<div class="task-r">Результат: макет мгновенно выглядит профессиональнее.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Отступы «на глаз».</strong> Глаз не измерит, но почувствует.</li>
+<li><strong>Все одного размера.</strong> Нет иерархии — нет чтения.</li>
+<li><strong>Мало воздуха вокруг важного.</strong> Герой перестаёт быть героем.</li>
+<li><strong>Сетка есть, элементы висят «примерно».</strong> Либо точно, либо никак.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови три инструмента иерархии.</li>
+<li>Почему 12 колонок — стандарт?</li>
+<li>Какие отступы внутри компонента и между блоками?</li>
+<li>Что будет, если всё одного размера?</li></ol></div>
+`},
+
+{t:"Правило третей, золотое сечение и воздух",g:"Использовать пропорции, которые мозг воспринимает как красивые.",c:`
+<h3>Зачем этот урок</h3>
+<p>Есть вещи, которые мозг считает красивыми независимо от культуры и эпохи. Они связаны с пропорциями — с тем, как соотносятся размеры и расстояния. Это не тренды, это свойства восприятия. Используешь их — макет выглядит гармоничным «сам по себе».</p>
+<p>Три инструмента: правило третей (куда ставить важное), золотое сечение (как делить пространство) и воздух (чего НЕ рисовать). Третий самый важный — потому что ошибка новичка всегда в одном: ему кажется, что на странице слишком мало элементов.</p>
+
+<h3>Простым языком</h3>
+<p><strong>Правило третей.</strong> Раздели кадр на девять равных частей двумя вертикальными и двумя горизонтальными линиями. Четыре <strong>точки пересечения</strong> — места, где глаз задерживается сам. Поставь туда заголовок, кнопку или главный объект — композиция оживает. Если важное в центре или в углу — картинка статичная.</p>
+<p><strong>Золотое сечение.</strong> Соотношение 1 : 1,618 — пропорция, которую человек воспринимает как гармоничную. Если ширина контента 1200 px, деление даёт 741 и 459 px: основной блок заметно больше второстепенного, но не в два раза — выглядит естественно.</p>
+<p><strong>Воздух.</strong> Расстояние между блоками важнее самих блоков. Ошибка новичка: «тут мало информации, добавим блок». Ошибка профи: «не хватило воздуха».</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Правило третей</dt><dd>Кадр делится на 9 частей, важное ставится на пересечения линий.</dd>
+<dt>Золотое сечение</dt><dd>Пропорция 1:1,618, воспринимается как гармоничная.</dd>
+<dt>Точка интереса</dt><dd>Место, куда глаз смотрит первым.</dd>
+<dt>White space</dt><dd>Свободное пространство между элементами.</dd>
+<dt>Композиционный баланс</dt><dd>Равновесие визуального веса элементов.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему точки пересечения линий сильнее центра кадра? Центр — точка покоя, а пересечения создают динамику: глаз двигается от точки к точке. Почему 1:1,618, а не 1:2? 1:2 — резкий контраст, воспринимается как удар, а 1:1,618 — мягкий переход, воспринимается как естественный. Почему воздух важнее контента? Воздух направляет внимание: изолированный элемент притягивает взгляд сильнее зажатого.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Правило третей — расставить картину на стене. Ровно по центру — комната скучна. Сместить чуть влево и повесить на уровне глаз — комната оживает. Золотое сечение — пропорции человека: отношение расстояния от макушки до плеч к расстоянию от плеч до пояса. Воздух — расстояние между мебелью: придвинуть всё к стенам — квартира кажется тесной, хотя метры те же.</p></div>
+
+<figure><svg viewBox="0 0 840 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Правило третей">
+<rect width="840" height="240" fill="#f8fafc"/>
+<rect x="30" y="30" width="470" height="175" rx="8" fill="#fff" stroke="#e4e8f0"/>
+<line x1="187" y1="30" x2="187" y2="205" stroke="#c7d2fe" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="343" y1="30" x2="343" y2="205" stroke="#c7d2fe" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="30" y1="88" x2="500" y2="88" stroke="#c7d2fe" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="30" y1="147" x2="500" y2="147" stroke="#c7d2fe" stroke-width="1" stroke-dasharray="4 3"/>
+<circle cx="187" cy="88" r="7" fill="#e08c00"/>
+<circle cx="343" cy="88" r="7" fill="#e08c00"/>
+<circle cx="187" cy="147" r="7" fill="#e08c00"/>
+<circle cx="343" cy="147" r="7" fill="#e08c00"/>
+<text x="200" y="82" fill="#b45309" font-size="9" font-weight="700" font-family="Arial">точка 1</text>
+<text x="356" y="82" fill="#b45309" font-size="9" font-weight="700" font-family="Arial">точка 2</text>
+<text x="200" y="165" fill="#b45309" font-size="9" font-weight="700" font-family="Arial">точка 3</text>
+<text x="356" y="165" fill="#b45309" font-size="9" font-weight="700" font-family="Arial">точка 4</text>
+<rect x="55" y="52" width="110" height="24" rx="5" fill="#4f46e5"/>
+<text x="110" y="68" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700" font-family="Arial">Заголовок</text>
+<rect x="55" y="100" width="180" height="13" rx="3" fill="#e8ecf3" stroke="#cbd5e1"/>
+<rect x="55" y="120" width="140" height="13" rx="3" fill="#e8ecf3" stroke="#cbd5e1"/>
+<rect x="55" y="148" width="90" height="24" rx="6" fill="#101828"/>
+<text x="100" y="164" text-anchor="middle" fill="#fff" font-size="9" font-weight="700" font-family="Arial">КНОПКА</text>
+<rect x="290" y="52" width="170" height="130" rx="8" fill="#eef2ff" stroke="#c7d2fe" stroke-dasharray="4 3"/>
+<text x="375" y="120" text-anchor="middle" fill="#4f46e5" font-size="10.5" font-weight="700" font-family="Arial">Фото продукта</text>
+<text x="525" y="30" fill="#101828" font-size="12.5" font-weight="700" font-family="Arial">Золотое сечение</text>
+<rect x="525" y="40" width="285" height="120" rx="8" fill="#fff" stroke="#e4e8f0"/>
+<line x1="698" y1="52" x2="698" y2="148" stroke="#4f46e5" stroke-width="2"/>
+<text x="611" y="82" text-anchor="middle" fill="#4f46e5" font-size="11" font-weight="700" font-family="Arial">741 px</text>
+<text x="611" y="100" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">основной</text>
+<text x="791" y="82" text-anchor="middle" fill="#6d7789" font-size="11" font-weight="700" font-family="Arial">459 px</text>
+<text x="791" y="100" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">второстепенный</text>
+<text x="667" y="128" text-anchor="middle" fill="#6d7789" font-size="9" font-family="Arial">1200 / 1,618 = 741</text>
+<text x="525" y="175" fill="#101828" font-size="12" font-weight="700" font-family="Arial">Правило воздуха</text>
+<rect x="525" y="185" width="285" height="45" rx="8" fill="#f0fdf4" stroke="#bbf7d0"/>
+<text x="667" y="205" text-anchor="middle" fill="#15803d" font-size="10.5" font-weight="700" font-family="Arial">много воздуха = дорого</text>
+<text x="667" y="222" text-anchor="middle" fill="#166534" font-size="10" font-family="Arial">всё вплотную = дёшево</text>
+</svg><figcaption><b>Рис. 12.1.</b> Правило третей с точками интереса и золотое сечение для деления пространства.</figcaption></figure>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Бояться пустоты</strong> — макет превратится в свалку. <strong>Ставить всё в центре</strong> — композиция станет статичной. <strong>Делить 50/50 везде</strong> — симметрия утомляет. <strong>«Красиво» = «много элементов»</strong> — делаешь сайт для себя.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Применить правило третей</div>
+<div class="task-why">Зачем: первый экран — самое дорогое место.</div>
+<ol class="steps">
+<li>Возьми макет первого экрана.</li>
+<li>Наложи сетку: 3 столбца × 3 строки.</li>
+<li>Найди четыре точки пересечения.</li>
+<li>Перенеси заголовок к верхней линии.</li>
+<li>Поставь кнопку рядом с точкой пересечения слева.</li>
+<li>Помести центр фото в правую верхнюю точку.</li>
+<li>Сравни с исходным — куда теперь идёт взгляд первым?</li>
+</ol>
+<div class="task-r">Результат: первый экран, где взгляд движется по предначертанному пути.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Бояться пустоты.</strong> Пустое место — инструмент, не дефект.</li>
+<li><strong>Ставить всё в центре.</strong> Центральная композиция статична.</li>
+<li><strong>Равное деление 50/50.</strong> Симметрия утомляет.</li>
+<li><strong>«Красиво» = много элементов.</strong> Красиво = пропорции и воздух.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Где четыре «точки интереса» по правилу третей?</li>
+<li>Чему равно золотое сечение?</li>
+<li>Почему воздух важнее контента?</li>
+<li>Что делать, когда кажется, что мало элементов?</li></ol></div>
+`},
+
+{t:"Типографика: основа",g:"Управлять чтением с помощью шрифта. Типографика — 80% веб-дизайна.",c:`
+<h3>Зачем этот урок</h3>
+<p>Сайт — это в основном текст. Люди приходят читать: что за услуга, сколько стоит, как заказать. Если текст плохо читается — не важно, какой классный фон ты сделал, человек за 10 секунд закроет вкладку. Поэтому типографика считается на 80% веб-дизайна.</p>
+<p>Новички тратят на типографику меньше всего времени: ставят «какой-то размер» и идут дальше. Профессионал наоборот — сначала выстраивает шкалу из 6 уровней, и потом решения принимаются мгновенно.</p>
+
+<h3>Простым языком</h3>
+<p>Четыре параметра управляют всем: <strong>кегль</strong> (размер), <strong>интерлиньяж</strong> (расстояние между строками), <strong>трекинг</strong> (расстояние между буквами), <strong>начертание</strong> (толщина линий).</p>
+<p>Интерлиньяж важен больше, чем кажется. При <code>line-height: 1</code> строки слипаются, и глаз цепляется за соседнюю строку. На абзаце из пяти строк начинаешь терять место. Для заголовков плотность допустима (1.1–1.2), для основного текста нужен воздух (1.5–1.7).</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Кегль</dt><dd>Размер шрифта, в px или pt.</dd>
+<dt>Интерлиньяж</dt><dd>Расстояние между базовыми линиями строк.</dd>
+<dt>Трекинг</dt><dd>Межбуквенное расстояние.</dd>
+<dt>Кернинг</dt><dd>Подгонка расстояния между парами букв.</dd>
+<dt>Начертание</dt><dd>Толщина линий: Regular, Medium, Bold.</dd>
+<dt>Гарнитура</dt><dd>Семейство шрифтов одного рисунка (например, Inter).</dd>
+<dt>Шкала</dt><dd>Система размеров для разных уровней текста.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему размеры шрифтов в переменных? Если нужно поменять базовый размер, меняешь одно значение, а не пятнадцать. Почему ограничивают ширину абзаца? Строка на 120 символов нечитаема: глаз теряет место при переносе. Почему заголовку можно плотный интерлиньяж? Он короткий и воспринимается как единый блок, а абзац нужно прокручивать построчно.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Типографика — расположение текста на визитке. Если всё одним кеглем и вплотную, визитку не читают. Если имя крупно, должность мелко, телефон чуть крупнее должности — взгляд находит нужное. Интерлиньяж — расстояние между строками в конспекте: писать вплотную — через месяц ничего не разберёшь.</p></div>
+
+<figure><svg viewBox="0 0 840 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Типографическая шкала">
+<rect width="840" height="360" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="12.5" font-weight="700" font-family="Arial">Типографическая шкала — шесть уровней</text>
+<line x1="290" y1="50" x2="290" y2="330" stroke="#e4e8f0"/>
+<text x="30" y="86" fill="#4f46e5" font-size="10.5" font-weight="700" font-family="Arial">H1</text>
+<text x="60" y="86" fill="#101828" font-size="32" font-weight="700" font-family="Arial">Стрижка за 40 минут</text>
+<text x="300" y="84" fill="#6d7789" font-size="10.5" font-family="Arial">48 px · line-height 1.1</text>
+<text x="300" y="100" fill="#6d7789" font-size="10.5" font-family="Arial">Bold 700 · один на страницу</text>
+<line x1="30" y1="106" x2="810" y2="106" stroke="#e4e8f0"/>
+<text x="30" y="134" fill="#4f46e5" font-size="10.5" font-weight="700" font-family="Arial">H2</text>
+<text x="60" y="136" fill="#101828" font-size="24" font-weight="600" font-family="Arial">Наши услуги</text>
+<text x="300" y="132" fill="#6d7789" font-size="10.5" font-family="Arial">36 px · line-height 1.2</text>
+<text x="300" y="148" fill="#6d7789" font-size="10.5" font-family="Arial">SemiBold 600 · разделы</text>
+<line x1="30" y1="154" x2="810" y2="154" stroke="#e4e8f0"/>
+<text x="30" y="182" fill="#4f46e5" font-size="10.5" font-weight="700" font-family="Arial">H3</text>
+<text x="60" y="183" fill="#101828" font-size="17" font-weight="600" font-family="Arial">Классическая стрижка</text>
+<text x="300" y="180" fill="#6d7789" font-size="10.5" font-family="Arial">24 px · line-height 1.3</text>
+<text x="300" y="196" fill="#6d7789" font-size="10.5" font-family="Arial">SemiBold 600 · подразделы</text>
+<line x1="30" y1="202" x2="810" y2="202" stroke="#e4e8f0"/>
+<text x="30" y="230" fill="#4f46e5" font-size="10.5" font-weight="700" font-family="Arial">LG</text>
+<text x="60" y="231" fill="#101828" font-size="18" font-family="Arial">Работаем с 2015 года</text>
+<text x="300" y="228" fill="#6d7789" font-size="10.5" font-family="Arial">20 px · line-height 1.6</text>
+<text x="300" y="244" fill="#6d7789" font-size="10.5" font-family="Arial">Regular 400 · подзаголовки</text>
+<line x1="30" y1="250" x2="810" y2="250" stroke="#e4e8f0"/>
+<text x="30" y="278" fill="#4f46e5" font-size="10.5" font-weight="700" font-family="Arial">BODY</text>
+<text x="60" y="279" fill="#101828" font-size="14" font-family="Arial">Мастера с опытом 5+ лет, своя косметика</text>
+<text x="300" y="276" fill="#6d7789" font-size="10.5" font-family="Arial">16 px · line-height 1.6</text>
+<text x="300" y="292" fill="#6d7789" font-size="10.5" font-family="Arial">Regular 400 · основной текст</text>
+<line x1="30" y1="298" x2="810" y2="298" stroke="#e4e8f0"/>
+<text x="30" y="326" fill="#4f46e5" font-size="10.5" font-weight="700" font-family="Arial">CAP</text>
+<text x="60" y="327" fill="#6d7789" font-size="12.5" font-family="Arial">Позвоним в течение 15 минут</text>
+<text x="300" y="324" fill="#6d7789" font-size="10.5" font-family="Arial">14 px · line-height 1.4</text>
+<rect x="30" y="340" width="780" height="14" rx="4" fill="#eef2ff"/>
+<text x="42" y="351" fill="#4f46e5" font-size="10" font-weight="700" font-family="Arial">Оптимальная длина строки: 45–75 символов. Задаётся через max-width: 65ch</text>
+</svg><figcaption><b>Рис. 13.1.</b> Разница между уровнями кратна: 48 → 36 → 24 → 20 → 16 → 14. Такая шкала даёт ровный ритм.</figcaption></figure>
+
+<h3>Пример кода</h3>
+<pre>:root {
+  --fs-h1: 48px;  --fs-h2: 36px;  --fs-h3: 24px;
+  --fs-body-lg: 20px;  --fs-body: 16px;  --fs-caption: 14px;
+}
+body { font-size: var(--fs-body); line-height: 1.6; }
+h1 { font-size: var(--fs-h1); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: var(--fs-h2); font-weight: 600; }
+p  { max-width: 65ch; }</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Весь текст одного размера</strong> — нет иерархии. <strong>Строка на 120+ символов</strong> — читатель теряет место. <strong>Заголовок в три строки</strong> — обещание слишком размытое. <strong>Серый текст #999</strong> — не проходит норму контраста.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать шкалу проекта</div>
+<div class="task-why">Зачем: система заменяет 50 отдельных решений одним.</div>
+<ol class="steps">
+<li>Возьми текст лендинга из референсов.</li>
+<li>Определи 6 уровней по рис. 13.1.</li>
+<li>Запиши для каждого: размер, межстрочный, вес.</li>
+<li>Сверстай страницу-шпаргалку со всеми уровнями.</li>
+<li>Проверь на абзаце: прочитай вслух.</li>
+<li>Сравни шкалу с макетом референса.</li>
+</ol>
+<div class="task-r">Результат: типографическая система для любого проекта.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Размеры «по месту».</strong> Через месяц 15 значений.</li>
+<li><strong>line-height: 1 на абзацах.</strong> Строки слипаются.</li>
+<li><strong>Нет ограничения ширины.</strong> Строка нечитаема.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Какой интерлиньяж у заголовка и у текста?</li>
+<li>Зачем max-width: 65ch?</li>
+<li>Сколько уровней в шкале?</li>
+<li>Что делает letter-spacing: -0.02em?</li></ol></div>
+`},
+
+{t:"Шрифтовые пары и Google Fonts",g:"Выбирать шрифты осознанно и подключать их с кириллицей.",c:`
+<h3>Зачем этот урок</h3>
+<p>Шрифт несёт характер. Один и тот же текст в Playfair и Roboto читается по-разному — не из-за букв, а из-за настроения, которое они задают. Выбрал шрифт «не тот» — и премиальный продукт выглядит как контора.</p>
+<p>Google Fonts бесплатный и огромный, но <strong>не все шрифты поддерживают кириллицу</strong>. Новичок выбирает красивый шрифт, подключает — и русский текст показывается системным шрифтом. Выглядит как поломка, хотя шрифт просто не содержит русских букв.</p>
+
+<h3>Простым языком</h3>
+<p><strong>Гротеск</strong> (Inter, Roboto, Manrope) — нейтральный, технологичный. <strong>Антиква</strong> (Playfair, Cormorant) — с засечками, «дорогая». <strong>Геометрическая</strong> (Montserrat, Poppins) — ровная, дружелюбная. <strong>Акцидентная</strong> — с характером, только для заголовков.</p>
+<p>Правило пары: один шрифт «с характером» для заголовков + один нейтральный для текста. Две антиквы рядом выглядят как случайный набор, а антиква + гротеск — как гармония.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Гарнитура</dt><dd>Семейство шрифтов, например Inter.</dd>
+<dt>Начертание</dt><dd>Вариант: Regular, Medium, Bold, Italic.</dd>
+<dt>Засечки (serif)</dt><dd>Короткие штрихи на концах букв.</dd>
+<dt>Гротеск (sans-serif)</dt><dd>Шрифт без засечек.</dd>
+<dt>font-display: swap</dt><dd>Показывать системный шрифт, пока грузится свой.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему в паре один шрифт с характером? Два «характерных» конкурируют, и взгляд не знает, на чём остановиться. Почему не подключать восемь начертаний? Каждый вес — отдельный файл, сайт грузится дольше. Почему важно проверять кириллицу? Без неё русский текст отобразится системным шрифтом. Почему font-display: swap? Иначе текст невидим, пока грузится шрифт.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Шрифтовая пара — наряд на свидание. Нельзя надеть два ярких платья: они будут спорить. Но яркий шарф к нейтральному платью — гармония. Кириллица — проверка, есть ли в магазине твой размер: картинка на витрине красивая, а на тебе не налезет.</p></div>
+
+<figure><svg viewBox="0 0 840 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Сравнение шрифтовых пар">
+<rect width="840" height="340" fill="#f8fafc"/>
+<text x="30" y="24" fill="#e08c00" font-size="12" font-weight="700" font-family="Arial">ОДИН ШРИФТ ВЕЗДЕ — скучно</text>
+<rect x="30" y="34" width="380" height="100" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="50" y="66" fill="#101828" font-size="19" font-weight="700" font-family="Arial">Стрижка и борода</text>
+<text x="50" y="92" fill="#101828" font-size="13" font-family="Arial">Записывайтесь онлайн</text>
+<text x="50" y="118" fill="#101828" font-size="13" font-family="Arial">Работаем с 2015 года</text>
+<text x="220" y="132" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">непонятно, что важнее</text>
+<text x="430" y="24" fill="#15a34a" font-size="12" font-weight="700" font-family="Arial">ПАРА ШРИФТОВ — контраст + родство</text>
+<rect x="430" y="34" width="380" height="100" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="450" y="68" fill="#101828" font-size="21" font-weight="700" font-family="Georgia,serif">Стрижка и борода</text>
+<text x="450" y="94" fill="#475467" font-size="13" font-family="Arial">Записывайтесь онлайн</text>
+<text x="450" y="120" fill="#6d7789" font-size="11.5" font-family="Arial">Работаем с 2015 года</text>
+<text x="620" y="132" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">Playfair + Inter — иерархия ясна</text>
+<text x="30" y="164" fill="#101828" font-size="12" font-weight="700" font-family="Arial">Готовые пары с кириллицей</text>
+<rect x="30" y="176" width="380" height="140" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="50" y="202" fill="#101828" font-size="13.5" font-weight="700" font-family="Arial">Manrope + Inter</text>
+<text x="50" y="222" fill="#6d7789" font-size="10.5" font-family="Arial">современно / IT / SaaS</text>
+<line x1="50" y1="236" x2="390" y2="236" stroke="#e4e8f0"/>
+<text x="50" y="258" fill="#101828" font-size="13.5" font-weight="700" font-family="Georgia,serif">Playfair Display + Inter</text>
+<text x="50" y="278" fill="#6d7789" font-size="10.5" font-family="Arial">премиум / мода / рестораны</text>
+<line x1="50" y1="292" x2="390" y2="292" stroke="#e4e8f0"/>
+<text x="50" y="314" fill="#101828" font-size="12.5" font-weight="700" font-family="Arial">Montserrat + Open Sans</text>
+<text x="230" y="314" fill="#6d7789" font-size="10.5" font-family="Arial">минимализм / дружелюбный</text>
+<rect x="430" y="176" width="380" height="140" rx="10" fill="#101828"/>
+<text x="450" y="202" fill="#a5b4fc" font-size="13" font-weight="700" font-family="Arial">Правило пары</text>
+<text x="450" y="226" fill="#cbd5e1" font-size="10.5" font-family="Arial">Один шрифт «с характером» для заголовков</text>
+<text x="450" y="244" fill="#cbd5e1" font-size="10.5" font-family="Arial">+ один нейтральный для текста</text>
+<line x1="450" y1="258" x2="790" y2="258" stroke="#1e293b"/>
+<text x="450" y="280" fill="#7dd3fc" font-size="10.5" font-weight="700" font-family="Arial">Главное — контраст, но не конфликт</text>
+<text x="450" y="300" fill="#94a3b8" font-size="10" font-family="Arial">Две антиквы рядом = каша.</text>
+<text x="450" y="314" fill="#94a3b8" font-size="10" font-family="Arial">Антиква + гротеск = гармония.</text>
+</svg><figcaption><b>Рис. 14.1.</b> Разница между одним шрифтом и парой. Справа — пары, в которых есть кириллица.</figcaption></figure>
+
+<h3>Как подключить</h3>
+<pre>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"&gt;</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Выбрать шрифт по превью, не проверив кириллицу</strong> — русский текст системным шрифтом. <strong>Подключить 6 начертаний</strong> — сайт грузится дольше. <strong>Две антиквы в паре</strong> — случайный набор. <strong>Акцидентный шрифт для текста</strong> — плохо читается.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Подобрать пару под нишу</div>
+<div class="task-why">Зачем: шрифт живёт только в связке с контентом.</div>
+<ol class="steps">
+<li>Определи нишу проекта.</li>
+<li>В Google Fonts включи фильтр «Cyrillic».</li>
+<li>Введи реальный заголовок и проверь каждую букву.</li>
+<li>Выбери шрифт для заголовков и для текста.</li>
+<li>Сверстай «шрифтовую страницу»: заголовки, абзац, кнопка.</li>
+<li>Покажи трём людям, спроси «какой vibe?».</li>
+<li>Если не совпало — поменяй один шрифт.</li>
+</ol>
+<div class="task-r">Результат: проверенная на людях пара с кириллицей.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Выбирать шрифт по превью.</strong> Главная ошибка новичка.</li>
+<li><strong>Подключать восемь начертаний.</strong> Каждый вес — отдельный файл.</li>
+<li><strong>Две антиквы в паре.</strong> Случайный набор.</li>
+<li><strong>Акцидентный шрифт для текста.</strong> Плохо читается.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Из чего состоит хорошая пара?</li>
+<li>Как проверить кириллицу?</li>
+<li>Почему не стоит подключать восемь начертаний?</li>
+<li>Какой шрифт для ювелирного магазина?</li></ol></div>
+`},
+
+{t:"Цвет: теория и палитра",g:"Строить палитру по формуле 60/30/10, которая работает, а не просто нравится.",c:`
+<h3>Зачем этот урок</h3>
+<p>Цвет делает две вещи: создаёт эмоцию и направляет внимание. Когда он сделан неправильно, страдает обычно второе: акцентный цвет стоит на десяти элементах, и глаз не понимает, куда жать. Кнопка «Купить» выглядит так же важно, как заголовок раздела.</p>
+<p>Решение простое и старое: <strong>не больше трёх основных цветов</strong> по формуле 60/30/10. Один фоновый, один тёмный, один акцентный — и акцент используется редко.</p>
+
+<h3>Простым языком</h3>
+<p>60% — фон. 30% — тёмный (текст, заголовки, подвал). 10% — акцент (кнопки, активное).</p>
+<p>Почему акцент редко? Если он везде, он перестаёт быть акцентом. Синие кнопки, ссылки, рамки, фон — акцент не работает. Акцент должен быть там, где должно произойти действие.</p>
+<p>Если у бренда один цвет — построй шкалу оттенков (от почти белого до почти чёрного) и бери 4 ступени: 50 / 100 / 500 / 900.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Палитра</dt><dd>Набор цветов проекта.</dd>
+<dt>Акцентный цвет</dt><dd>Цвет целевых действий.</dd>
+<dt>Оттенок (tint)</dt><dd>Цвет, смешанный с белым.</dd>
+<dt>Тень (shade)</dt><dd>Цвет, смешанный с чёрным.</dd>
+<dt>Насыщенность</dt><dd>Интенсивность цвета.</dd>
+<dt>Ядовитые сочетания</dt><dd>Пары, вызывающие усталость глаз.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему не больше трёх цветов? Палитра превращается в шум, взгляд не находит главного. Почему акцент на 10%? Редкий цвет притягивает внимание сильнее частого. Почему проверять контраст? Палитра может быть красивой, но текст на её фоне нечитаемым. Почему монохром с одним акцентом работает для коммерции? Он спокоен и предсказуем, а значит, не мешает продавать.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Палитра — интерьер комнаты. Стены — 60% (нейтральный фон). Мебель — 30% (тёмное, основательное). 10% — акцент: яркая подушка или лампа. Если все стены, мебель и лампы яркие — невозможно находиться. Если всё серое — скучно. Один яркий элемент на нейтральном фоне — идеально.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Формула палитры">
+<rect width="840" height="300" fill="#f8fafc"/>
+<rect x="30" y="30" width="420" height="240" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<rect x="30" y="30" width="420" height="40" rx="12" fill="#f8fafc"/>
+<text x="50" y="54" fill="#101828" font-size="10.5" font-weight="700" font-family="Arial">ОСТРИЕ</text>
+<text x="360" y="54" fill="#101828" font-size="9.5" font-family="Arial">меню · кнопка</text>
+<text x="240" y="112" text-anchor="middle" fill="#101828" font-size="19" font-weight="700" font-family="Arial">ЗАГОЛОВОК</text>
+<text x="240" y="136" text-anchor="middle" fill="#475467" font-size="10.5" font-family="Arial">Подзаголовок поменьше</text>
+<rect x="200" y="152" width="80" height="24" rx="6" fill="#4f46e5"/>
+<text x="240" y="168" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700" font-family="Arial">ЗАПИСАТЬСЯ</text>
+<rect x="30" y="195" width="420" height="60" rx="8" fill="#101828"/>
+<text x="240" y="222" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="700" font-family="Arial">ТЁМНЫЙ БЛОК</text>
+<text x="240" y="242" text-anchor="middle" fill="#98a2b3" font-size="9.5" font-family="Arial">текст, заголовки, подвал</text>
+<rect x="480" y="30" width="330" height="80" rx="10" fill="#fff" stroke="#e4e8f0" stroke-width="2"/>
+<rect x="480" y="30" width="198" height="80" rx="10" fill="#fff" stroke="#cbd5e1"/>
+<rect x="678" y="30" width="99" height="80" fill="#f8fafc" stroke="#cbd5e1"/>
+<rect x="777" y="30" width="33" height="80" fill="#4f46e5"/>
+<text x="579" y="60" text-anchor="middle" fill="#101828" font-size="13" font-weight="700" font-family="Arial">60%</text>
+<text x="579" y="80" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">фон</text>
+<text x="727" y="60" text-anchor="middle" fill="#101828" font-size="13" font-weight="700" font-family="Arial">30%</text>
+<text x="727" y="80" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">тёмный</text>
+<text x="793" y="60" text-anchor="middle" fill="#fff" font-size="10.5" font-weight="700" font-family="Arial">10</text>
+<text x="793" y="80" text-anchor="middle" fill="#fff" font-size="9" font-family="Arial">%</text>
+<rect x="480" y="130" width="330" height="70" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="500" y="154" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Если акцент на всём —</text>
+<text x="500" y="172" fill="#101828" font-size="11" font-weight="700" font-family="Arial">он перестаёт быть акцентом</text>
+<rect x="500" y="182" width="290" height="14" rx="4" fill="#fffbeb" stroke="#fde68a"/>
+<text x="510" y="193" fill="#b45309" font-size="9.5" font-family="Arial">10 синих кнопок = ни одной не заметно</text>
+<rect x="480" y="215" width="330" height="55" rx="10" fill="#101828"/>
+<text x="500" y="238" fill="#a5b4fc" font-size="10.5" font-weight="700" font-family="Arial">Правило одного акцента</text>
+<text x="500" y="258" fill="#cbd5e1" font-size="10" font-family="Arial">Акцент там, где должно произойти действие</text>
+</svg><figcaption><b>Рис. 15.1.</b> Формула 60/30/10 в реальном макете.</figcaption></figure>
+
+<h3>Пример кода</h3>
+<pre>:root {
+  --color-bg:         #FFFFFF;   /* 60% фон */
+  --color-dark:       #101828;   /* 30% текст и блоки */
+  --color-accent:     #4F46E5;   /* 10% кнопки */
+  --color-accent-soft:#EEF2FF;
+  --color-muted:      #667085;
+}
+body { background: var(--color-bg); color: var(--color-dark); }
+.btn { background: var(--color-accent); color: #fff; }</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Пять и более основных цветов</strong> — палитра превращается в шум. <strong>Акцент на всём</strong> — он не работает. <strong>Ядовитые сочетания</strong> — глаза устают. <strong>Забыть про контраст</strong> — палитра красивая, текст нечитаемый.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать палитру по формуле</div>
+<div class="task-why">Зачем: получить палитру, которая работает на любом макете.</div>
+<ol class="steps">
+<li>На coolors.co подбери 5 цветов.</li>
+<li>Определи фон (60%), тёмный (30%), акцент (10%).</li>
+<li>Проверь контраст текста на всех фонах (Урок 16).</li>
+<li>Собери CSS-переменные как в примере.</li>
+<li>Примени к тестовой странице: шапка, герой, тёмный блок, кнопка.</li>
+<li>Проверь: акцент не больше 10% элементов?</li>
+</ol>
+<div class="task-r">Результат: палитра с чёткой иерархией.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Пять и более цветов.</strong> Палитра — шум.</li>
+<li><strong>Акцент на всём.</strong> Он не работает.</li>
+<li><strong>Ядовитые сочетания.</strong> Глаза устают.</li>
+<li><strong>Забыли про контраст.</strong> Текст нечитаемый.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Расскажи формулу 60/30/10.</li>
+<li>Почему акцент должен быть редким?</li>
+<li>Что делать, если у бренда один цвет?</li>
+<li>Назови три роли цвета в палитре 60/30/10.</li>
+<li>Зачем нужен акцент и сколько его?</li></ol></div>
+`},
+
+{t:"Контраст и доступность (WCAG)",g:"Делать сайты, которыми могут пользоваться все — и не терять клиентов.",c:`
+<h3>Зачем этот урок</h3>
+<p>Представь посетителя на солнце — экран бликует, и светло-серый текст на белом фоне для него просто не существует. Или человека в метро — смотрит на минимуме яркости. Или человека 60 лет со зрением не 100%. Все они уйдут с сайта, где контраст плохой, и никто не скажет тебе почему.</p>
+<p>Плюс доступность напрямую влияет на SEO: Google учитывает удобство использования. И отдельный плюс: соблюдение контраста — то, что проверяют при сдаче проекта. «Lighthouse Accessibility 100» звучит в отчёте лучше, чем «вроде норм».</p>
+
+<h3>Простым языком</h3>
+<p>Нормы WCAG: <strong>обычный текст 4.5:1</strong>, <strong>крупный (от 24 px bold) 3:1</strong>, максимальный уровень AAA 7:1.</p>
+<p>Проверить — ввести цвет текста и цвет фона в <code>webaim.org/resources/contrastchecker</code>, занимает 15 секунд.</p>
+<p>Что ещё важно: все картинки с осмысленным alt, все поля формы связаны с label, кнопки имеют текст (не только иконку), сайтом можно управлять с клавиатуры, размер кликабельной зоны минимум 44×44 px.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>WCAG</dt><dd>Web Content Accessibility Guidelines — стандарт доступности веб-контента.</dd>
+<dt>Контраст</dt><dd>Разница яркости между текстом и фоном.</dd>
+<dt>AA / AAA</dt><dd>Уровни соответствия стандарту доступности.</dd>
+<dt>Скринридер</dt><dd>Программа, читающая страницу вслух для незрячих.</dd>
+<dt>ARIA</dt><dd>Набор атрибутов для описания элементов доступности.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему 4.5:1, а не 3:1 для текста? При 3:1 люди с ослабленным зрением теряют часть символов, особенно на мелком кегле. Почему крупному можно 3:1? У крупных букв больше площадь и форма проще, они различимы при меньшем контрасте. Почему placeholder вместо label — плохо? Он исчезает при вводе, и пользователь забывает, что заполнял.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Контраст — как читать книгу в метро при ярком солнце. Тонкий серый шрифт на белой бумаге — ты напрягаешь глаза и быстро устаёшь. Чёрный на белом — читаешь свободно. Поля формы с label — как подписанные полки на кухне: всегда знаешь, где сахар, а не выдвигаешь все ящики.</p></div>
+
+<figure><svg viewBox="0 0 840 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Сравнение контраста">
+<rect width="840" height="320" fill="#f8fafc"/>
+<rect x="30" y="30" width="380" height="80" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="50" y="58" fill="#D0D5DD" font-size="18" font-weight="700" font-family="Arial">серый текст на белом</text>
+<text x="50" y="84" fill="#D0D5DD" font-size="13" font-family="Arial">Позвоним в течение 15 минут</text>
+<text x="50" y="102" fill="#b42318" font-size="10" font-weight="700" font-family="Arial">✗ 1.6:1 — не читается</text>
+<rect x="30" y="120" width="380" height="80" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="50" y="148" fill="#98A2B3" font-size="18" font-weight="700" font-family="Arial">серый текст на белом</text>
+<text x="50" y="174" fill="#98A2B3" font-size="13" font-family="Arial">Позвоним в течение 15 минут</text>
+<text x="50" y="192" fill="#e08c00" font-size="10" font-weight="700" font-family="Arial">✗ 2.9:1 — только для крупного</text>
+<rect x="430" y="30" width="380" height="80" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="450" y="58" fill="#101828" font-size="18" font-weight="700" font-family="Arial">тёмный текст на белом</text>
+<text x="450" y="84" fill="#475467" font-size="13" font-family="Arial">Позвоним в течение 15 минут</text>
+<text x="450" y="102" fill="#15a34a" font-size="10" font-weight="700" font-family="Arial">✓ 14.8:1 — читается везде</text>
+<rect x="430" y="120" width="380" height="80" rx="10" fill="#4f46e5"/>
+<text x="450" y="148" fill="#fff" font-size="18" font-weight="700" font-family="Arial">белый на индиго</text>
+<text x="450" y="174" fill="#E0E7FF" font-size="13" font-family="Arial">Позвоним в течение 15 минут</text>
+<text x="450" y="192" fill="#A5B4FC" font-size="10" font-weight="700" font-family="Arial">✓ 8.1:1 — отлично</text>
+<rect x="30" y="220" width="780" height="86" rx="10" fill="#101828"/>
+<text x="50" y="244" fill="#a5b4fc" font-size="11.5" font-weight="700" font-family="Arial">Чек-лист доступности</text>
+<text x="50" y="266" fill="#cbd5e1" font-size="10.5" font-family="Arial">☐ осмысленный alt у картинок   ☐ label у всех полей   ☐ текст у кнопок-иконок</text>
+<text x="50" y="284" fill="#cbd5e1" font-size="10.5" font-family="Arial">☐ управление с клавиатуры (Tab, Enter, Esc)   ☐ зона клика ≥ 44×44 px</text>
+<text x="50" y="302" fill="#7dd3fc" font-size="10.5" font-weight="700" font-family="Arial">Правило: контраст текста ≥ 4.5:1, крупного ≥ 3:1</text>
+</svg><figcaption><b>Рис. 16.1.</b> Четыре варианта одной подписи. Коэффициент рядом — то, что покажет WebAIM Contrast Checker.</figcaption></figure>
+
+<h3>Пример кода</h3>
+<pre>/* ✗ Плохо: серый на белом */
+.muted { color: #D0D5DD; }   /* 1.6:1 */
+
+/* ✓ Хорошо: тёмно-серый */
+.muted { color: #667085; }   /* 4.7:1 */</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Серый текст «для элегантности»</strong> — часть посетителей уходит. <strong>Белый текст на жёлтом</strong> — контраст около 1.5:1. <strong>Placeholder вместо label</strong> — ломает доступность и удобство. <strong>Ссылка-иконка 16×16</strong> — промах guaranteed.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Проверить все цветовые пары макета</div>
+<div class="task-why">Зачем: найти нечитаемые места до того, как их заметят клиенты.</div>
+<ol class="steps">
+<li>Выпиши 8–10 пар «цвет текста / цвет фона» из макета.</li>
+<li>Проверь каждую в WebAIM Contrast Checker.</li>
+<li>Отметь те, что ниже 4.5:1.</li>
+<li>Исправь, заменив цвет текста на более тёмный.</li>
+<li>Для крупного текста допустимо 3:1, но лучше держать 4.5.</li>
+<li>Перепроверь все пары после исправления.</li>
+</ol>
+<div class="task-r">Результат: макет, где весь текст проходит норму AA.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Серый текст «для элегантности».</strong> #999 и светлее обычно не проходит.</li>
+<li><strong>Белый текст на жёлтом.</strong> Контраст около 1.5:1.</li>
+<li><strong>Placeholder вместо label.</strong> Ломает удобство.</li>
+<li><strong>Маленькие кликабельные зоны.</strong> Ссылка 16×16 — промах.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Какой минимальный контраст для обычного текста?</li>
+<li>Чем placeholder отличается от label?</li>
+<li>Назови три вещи из чек-листа доступности.</li>
+<li>Почему доступность влияет на деньги?</li></ol></div>
+`}
+];
+var cur=1;
+function render(){
+  var t=document.getElementById("tabs"); t.innerHTML="";
+  L.forEach(function(l,i){ var b=document.createElement("button");
+    b.className="tab"+(i+1===cur?" on":""); b.textContent=(i+1);
+    b.onclick=function(){cur=i+1;render();}; t.appendChild(b); });
+  var d=L[cur-1];
+  var g = cur<=6?1:2;
+  document.getElementById("out").innerHTML='<div class="lesson"><div class="lh"><div class="num">Урок '+cur+' · Глава '+g+' · Расширенная версия</div><h2>'+d.t+'</h2><div class="goal">🎯 '+d.g+'</div></div><div class="lb">'+d.c+'</div></div>';
+  document.getElementById("cnt").textContent="Урок "+cur+" из "+L.length;
+  window.scrollTo(0,0);
+}
+document.getElementById("prev").onclick=function(){ if(cur>1){cur--;render();} };
+document.getElementById("next").onclick=function(){ if(cur<L.length){cur++;render();} };
+render();
+</script>
+</body>
+</html>

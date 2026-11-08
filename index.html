@@ -2,13 +2,30 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>От нуля до профи — трекер обучения созданию сайтов</title>
-<meta name="description" content="124 урока по созданию сайтов: дизайн, HTML, CSS, JavaScript, WordPress, WooCommerce. Тесты по каждому уроку и большие тесты по главам.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#1a1d23">
+<meta name="description" content="135 уроков по созданию сайтов: дизайн, HTML, CSS, JavaScript, WordPress, WooCommerce, AI. Тесты по каждому уроку и большие тесты по главам. Работает офлайн.">
+<title>Сайт с 0 по созданию сайтов</title>
+
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16.png">
+<link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Сайт с 0">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="msapplication-TileColor" content="#1a1d23">
+<meta name="msapplication-tileimage" content="icons/icon-192.png">
+
 <link rel="stylesheet" href="assets/styles.css">
 <style>
 :root{
-  --bg:#1a1d23 !important;
+  --bg:#2a2f3a !important;       /* фон на 10% светлее */
   --card:#2a2f3a !important;
   --line:#3a4150 !important;
   --txt:#e6e8ec !important;
@@ -17,18 +34,31 @@
   --ok:#22c55e !important;
   --proc:#f59e0b !important;
   --code:#0d1117 !important;
+  --dark:#101828;
+  --dark2:#1d2939;
+  --edge:rgba(255,255,255,.09);
 }
-body{background:#1a1d23 !important;color:#e6e8ec !important}
-.card,.panel{background:#2a2f3a !important;border-color:#3a4150 !important;color:#e6e8ec !important}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;height:100%;overscroll-behavior-y:none}
+body{
+  background:#2a2f3a !important;color:#e6e8ec !important;padding:0 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;
+  -webkit-text-size-adjust:100%;
+}
+
+/* === Тёмная тема для контента уроков === */
+.card,.panel{background:#1d2939 !important;border-color:rgba(255,255,255,.09) !important;color:#e6e8ec !important}
 .card .v,.rowline b{color:#fff !important}
-.bar{background:#3a4150 !important}
+.bar{background:rgba(255,255,255,.15) !important}
 .btn{background:#2a2f3a !important;border-color:#3a4150 !important;color:#e6e8ec !important}
 .btn:hover{background:#323845 !important}
 .btn.on,.btn.pri{background:#6b73e8 !important;border-color:#6b73e8 !important;color:#fff !important}
-input[type=text],select{background:#3a4150 !important;color:#e6e8ec !important;border-color:#3a4150 !important}
+input[type=text],select{background:#1d2939 !important;color:#e6e8ec !important;border-color:#3a4150 !important}
 input::placeholder{color:#9aa4b4 !important}
 .hint,.bottom{color:#9aa4b4 !important}
-.qz-bar{background:#3a4150 !important}
+
+/* === Модалки и тесты — тёмная тема === */
 .modal{background:#1a1d23 !important;border:1px solid #3a4150 !important;box-shadow:0 24px 70px rgba(0,0,0,.6) !important}
 .modal-h{background:linear-gradient(180deg,#252a35,#1a1d23) !important;border-bottom-color:#3a4150 !important}
 .modal-h h2{color:#fff !important}
@@ -71,45 +101,455 @@ input::placeholder{color:#9aa4b4 !important}
 .modal-f{background:#252a35 !important;border-top-color:#3a4150 !important}
 .qz-ok-badge{background:#1e2d25 !important;border-color:#22c55e !important;color:#22c55e !important}
 .qz-launch{border-top-color:#3a4150 !important}
-</style>  
+.qz-bar{background:#3a4150 !important}
+
+/* ============ ANDROID APP LAYOUT ============ */
+/* App Bar */
+.app-bar{
+  background:linear-gradient(180deg,#1d2939,#101828);
+  color:#fff;
+  padding:max(14px,env(safe-area-inset-top)) 16px 14px;
+  display:flex;align-items:center;gap:14px;
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.app-bar .hamburger{
+  width:44px;height:44px;flex:0 0 44px;
+  background:transparent;border:none;color:#fff;cursor:pointer;
+  display:grid;place-items:center;border-radius:10px;
+  transition:background .15s ease;
+}
+.app-bar .hamburger:hover,.app-bar .hamburger:active{background:rgba(255,255,255,.08)}
+.app-bar .hamburger svg{width:24px;height:24px}
+.app-bar .app-logo{
+  width:36px;height:36px;flex:0 0 36px;border-radius:9px;
+  background:linear-gradient(135deg,#1d2939,#101828);
+  border:1px solid rgba(255,255,255,.12);
+  display:grid;place-items:center;
+  color:#6b73e8;font-weight:800;font-family:monospace;font-size:14px;
+}
+.app-bar .title{flex:1;min-width:0}
+.app-bar .title h1{margin:0;font-size:18px;font-weight:700;letter-spacing:-.01em;line-height:1.2;color:#fff}
+.app-bar .title .sub{font-size:11.5px;color:rgba(255,255,255,.5);font-weight:500;margin-top:2px}
+
+/* Drawer */
+.drawer-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;
+  opacity:0;pointer-events:none;transition:opacity .25s ease;
+}
+.drawer-overlay.open{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;left:0;bottom:0;
+  width:min(320px,85vw);
+  background:#1a1d23;border-right:1px solid rgba(255,255,255,.09);
+  z-index:210;transform:translateX(-100%);
+  transition:transform .28s cubic-bezier(.2,.7,.3,1);
+  display:flex;flex-direction:column;
+  padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);
+  box-shadow:4px 0 24px rgba(0,0,0,.4);
+  overflow-y:auto;
+}
+.drawer.open{transform:translateX(0)}
+
+/* Шапка drawer */
+.drawer-header{
+  padding:24px 20px 20px;
+  background:linear-gradient(135deg,#1d2939,#101828);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  position:relative;
+}
+.drawer-logo{
+  width:60px;height:60px;border-radius:14px;
+  background:linear-gradient(135deg,#1d2939,#101828);
+  border:1px solid rgba(255,255,255,.12);
+  display:grid;place-items:center;
+  color:#6b73e8;font-weight:800;font-family:monospace;font-size:22px;
+  margin-bottom:14px;
+  box-shadow:0 8px 24px rgba(0,0,0,.3);
+}
+.drawer-title{font-size:20px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.drawer-subtitle{font-size:13px;color:rgba(255,255,255,.5);margin-top:3px}
+
+/* Кнопка закрытия — простой крестик ✕ в правом верхнем углу */
+.drawer-close{
+  position:absolute;top:20px;right:20px;
+  width:36px;height:36px;
+  background:transparent;border:none;cursor:pointer;
+  display:grid;place-items:center;
+  color:rgba(255,255,255,.7);
+  font-size:22px;line-height:1;font-family:inherit;
+  transition:color .15s ease;
+  padding:0;
+}
+.drawer-close:hover,.drawer-close:active{color:#fff}
+.drawer-close svg{width:18px;height:18px}
+
+/* Содержимое drawer — inline-статистика */
+.drawer-body{flex:1;overflow-y:auto;padding:20px}
+
+/* Hero-статистика */
+.drawer-hero{margin-bottom:20px}
+.drawer-hero .pct{font-size:44px;font-weight:800;color:#6b73e8;letter-spacing:-.03em;line-height:1}
+.drawer-hero .label{font-size:13px;color:#9aa4b4;margin-top:4px}
+.drawer-hero .bar{height:8px;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden;margin-top:14px}
+.drawer-hero .bar i{display:block;height:100%;background:linear-gradient(90deg,#6366f1,#a78bfa);border-radius:99px;transition:width .5s ease}
+
+/* 4 карточки статистики */
+.drawer-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.drawer-stat-card{
+  background:#2a2f3a;border:1px solid rgba(255,255,255,.09);border-radius:12px;
+  padding:12px 14px;
+}
+.drawer-stat-card .k{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#9aa4b4;font-weight:600}
+.drawer-stat-card .v{font-size:22px;font-weight:700;margin-top:4px;letter-spacing:-.02em;color:#fff}
+.drawer-stat-card.ok .v{color:#22c55e}
+.drawer-stat-card.proc .v{color:#f59e0b}
+.drawer-stat-card.acc .v{color:#6b73e8}
+
+/* Список глав в drawer */
+.drawer-section-title{font-size:11px;font-weight:700;color:#9aa4b4;text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px}
+.drawer-chapter-row{
+  background:#2a2f3a;border:1px solid rgba(255,255,255,.09);border-radius:10px;
+  padding:10px 12px;margin-bottom:6px;
+}
+.drawer-chapter-row .rowline{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:12px}
+.drawer-chapter-row .name{font-weight:600;color:#e6e8ec;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+.drawer-chapter-row .num{font-size:11px;color:#9aa4b4;font-weight:700;flex:0 0 auto;margin-left:8px}
+.drawer-chapter-row .bar{height:4px;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden}
+.drawer-chapter-row .bar i{display:block;height:100%;background:linear-gradient(90deg,#6366f1,#a78bfa);border-radius:99px;transition:width .5s ease}
+
+/* 3 кнопки внизу drawer */
+.drawer-actions{padding:16px 20px;border-top:1px solid rgba(255,255,255,.06)}
+.drawer-action-btn{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 8px;color:#e6e8ec;font-size:15px;font-weight:500;
+  cursor:pointer;border:none;background:transparent;width:100%;text-align:left;
+  font-family:inherit;transition:background .15s ease;border-radius:10px;
+}
+.drawer-action-btn:hover,.drawer-action-btn:active{background:rgba(255,255,255,.06)}
+.drawer-action-btn.danger{color:#f87171}
+.drawer-action-btn svg{width:20px;height:20px;flex:0 0 20px;opacity:.85}
+
+.drawer-footer{padding:12px 20px;font-size:11px;color:#6d7789;border-top:1px solid rgba(255,255,255,.06)}
+
+/* Main content */
+.main-content{flex:1;display:flex;flex-direction:column;min-height:0}
+.screen{display:none;flex:1;flex-direction:column;min-height:0}
+.screen.active{display:flex}
+
+/* Home screen */
+.home-screen{padding:16px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.search-wrap{position:relative;margin-bottom:18px}
+.search-wrap .search-icon{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  width:20px;height:20px;color:#9aa4b4;pointer-events:none;
+}
+.search-wrap input{
+  width:100%;
+  background:#1d2939 !important;
+  border:1.5px solid rgba(255,255,255,.09) !important;
+  color:#e6e8ec !important;
+  padding:14px 14px 14px 44px !important;
+  border-radius:14px;font-size:15px;font-family:inherit;min-height:48px;
+  transition:border-color .15s ease,background .15s ease;
+}
+.search-wrap input:focus{outline:none;border-color:#6b73e8 !important;background:#252a35 !important}
+.search-wrap input::placeholder{color:#9aa4b4}
+
+.filter-chips{display:flex;gap:8px;margin-bottom:16px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+.filter-chips::-webkit-scrollbar{height:0}
+.chip{
+  flex:0 0 auto;
+  background:#2a2f3a;border:1px solid rgba(255,255,255,.09);
+  color:#9aa4b4;padding:8px 14px;border-radius:99px;
+  font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;
+  transition:all .15s ease;white-space:nowrap;min-height:36px;
+  display:flex;align-items:center;
+}
+.chip:hover{background:#323845;color:#e6e8ec}
+.chip.active{background:#6b73e8;border-color:#6b73e8;color:#fff}
+
+/* Stats screen */
+.stats-screen{padding:16px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.stat-hero{
+  background:linear-gradient(135deg,#1d2939,#101828);
+  border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:24px 20px;margin-bottom:16px;text-align:center;
+}
+.stat-hero .pct{font-size:48px;font-weight:800;color:#6b73e8;letter-spacing:-.03em;line-height:1}
+.stat-hero .label{font-size:13px;color:#9aa4b4;margin-top:6px}
+.stat-hero .bar{height:8px;background:rgba(255,255,255,.15) !important;border-radius:99px;overflow:hidden;margin-top:16px}
+.stat-hero .bar i{display:block;height:100%;background:linear-gradient(90deg,#6366f1,#a78bfa);border-radius:99px;transition:width .5s ease}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px}
+.stat-card{background:#2a2f3a;border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:16px}
+.stat-card .k{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#9aa4b4;font-weight:600}
+.stat-card .v{font-size:28px;font-weight:700;margin-top:6px;letter-spacing:-.02em;color:#fff}
+.stat-card.ok .v{color:#22c55e}
+.stat-card.proc .v{color:#f59e0b}
+.stat-card.acc .v{color:#6b73e8}
+.stat-section-title{font-size:13px;font-weight:700;color:#9aa4b4;text-transform:uppercase;letter-spacing:.05em;margin:20px 0 10px}
+.stat-chapter-row{background:#2a2f3a;border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:12px 14px;margin-bottom:8px}
+.stat-chapter-row .rowline{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:13px}
+.stat-chapter-row .name{font-weight:600;color:#e6e8ec;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stat-chapter-row .num{font-size:12px;color:#9aa4b4;font-weight:700;flex:0 0 auto;margin-left:8px}
+.stat-chapter-row .bar{height:6px;background:rgba(255,255,255,.15) !important;border-radius:99px;overflow:hidden}
+.stat-chapter-row .bar i{display:block;height:100%;background:linear-gradient(90deg,#6366f1,#a78bfa);border-radius:99px}
+
+/* Splash loader — с окном редактора кода */
+#loader{position:fixed;inset:0;background:#1a1d23;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;transition:opacity .4s ease;padding:24px}
+#loader.hide{opacity:0;pointer-events:none}
+
+/* Окно редактора кода в splash */
+.code-window{
+  width:min(560px,90vw);
+  background:#0d1117;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:14px;
+  box-shadow:0 16px 40px rgba(0,0,0,.4);
+  overflow:hidden;
+  font-family:"SF Mono",Menlo,Consolas,monospace;
+}
+.code-window-header{
+  background:#1c212a;padding:14px 18px;
+  display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.code-window-dots{display:flex;gap:6px}
+.code-window-dots span{width:11px;height:11px;border-radius:50%}
+.code-window-dots span:nth-child(1){background:#ef4444}
+.code-window-dots span:nth-child(2){background:#f59e0b}
+.code-window-dots span:nth-child(3){background:#22c55e}
+.code-window-fname{color:#9aa4b4;font-size:13px;margin-left:auto}
+.code-window-body{padding:18px;font-size:13px;line-height:1.7;overflow-x:auto}
+.code-line{display:flex;gap:14px}
+.code-line .num{color:#6d7789;width:24px;text-align:right;flex:0 0 24px;user-select:none}
+.code-line .code-text{color:#e6edf7;white-space:pre}
+.code-text.kw{color:#6b73e8}
+.code-text.str{color:#22c55e}
+.code-text.fn{color:#a78bfa}
+.code-text.cm{color:#6d7789}
+.code-cursor{display:inline-block;width:2px;height:16px;background:#6b73e8;animation:blink 1s steps(2) infinite;vertical-align:middle;margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+
+/* Заголовок под окном */
+#loader .title{margin-top:32px;color:#fff;font-size:32px;font-weight:700;letter-spacing:-.02em;text-align:center}
+#loader .spinner{margin-top:24px;width:32px;height:32px;border:3px solid #3a4150;border-top-color:#6b73e8;border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#loader .dots{margin-top:20px;display:flex;gap:8px}
+#loader .dots span{width:8px;height:8px;border-radius:50%;background:#9aa4b4;opacity:.4}
+#loader .dots span:nth-child(1){opacity:1}
+
+/* Старая шапка скрыта */
+.top{display:none !important}
+.bottom{padding:24px 16px calc(24px + env(safe-area-inset-bottom))}
+
+/* Карточки глав — как на сайте */
+.ch-card.closed .cc-lessons{display:none}
+.ch-card .cc-lessons{display:grid}
+
+/* === АДАПТАЦИЯ ПОД РАЗМЕРЫ ЭКРАНОВ === */
+
+/* Большие планшеты (≥1024px) — показываем 2 колонки глав */
+@media(min-width:1024px){
+  #list{grid-template-columns:repeat(2,1fr) !important;gap:24px !important}
+  .home-screen,.stats-screen{padding:24px 32px}
+  .app-bar{padding:max(14px,env(safe-area-inset-top)) 32px 14px}
+  .app-bar .title h1{font-size:20px}
+  .drawer{width:340px}
+}
+
+/* Средние планшеты (768–1023px) */
+@media(min-width:768px) and (max-width:1023px){
+  .home-screen,.stats-screen{padding:20px 24px}
+  .drawer{width:300px}
+}
+
+/* Телефоны в landscape */
+@media(orientation:landscape) and (max-height:500px){
+  .app-bar{padding:10px 16px}
+  .app-bar .title h1{font-size:16px}
+  .app-bar .title .sub{font-size:10.5px}
+  #loader .title{font-size:24px;margin-top:20px}
+  .code-window{width:min(420px,80vw)}
+  .code-window-body{font-size:11px;padding:12px}
+}
+
+/* Маленькие телефоны (≤380px) */
+@media(max-width:380px){
+  .app-bar{padding:max(10px,env(safe-area-inset-top)) 12px 10px;gap:10px}
+  .app-bar .hamburger{width:40px;height:40px;flex:0 0 40px}
+  .app-bar .app-logo{width:32px;height:32px;flex:0 0 32px;font-size:12px}
+  .app-bar .title h1{font-size:16px}
+  .app-bar .title .sub{font-size:10.5px}
+  .home-screen,.stats-screen{padding:12px 10px}
+  .search-wrap input{padding:12px 12px 12px 38px !important;font-size:14px}
+  .search-wrap .search-icon{width:18px;height:18px;left:12px}
+  .chip{font-size:12px;padding:6px 12px;min-height:32px}
+  .stat-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .stat-card{padding:12px}
+  .stat-card .v{font-size:24px}
+  .stat-hero{padding:18px 14px}
+  .stat-hero .pct{font-size:40px}
+  .drawer{width:90vw}
+  .drawer-header{padding:18px 16px}
+  .drawer-logo{width:52px;height:52px;font-size:18px}
+  .drawer-title{font-size:18px}
+  .drawer-body{padding:16px}
+  .drawer-hero .pct{font-size:36px}
+  .drawer-stats-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .drawer-stat-card{padding:10px 12px}
+  .drawer-stat-card .v{font-size:18px}
+  .drawer-chapter-row{padding:8px 10px}
+  .drawer-chapter-row .name{font-size:11px}
+  .drawer-chapter-row .num{font-size:10px}
+  #loader .title{font-size:26px}
+  .code-window{width:92vw}
+  .code-window-body{font-size:11px;padding:14px}
+}
+
+/* Очень большие экраны (≥1440px) — ограничиваем ширину контента */
+@media(min-width:1440px){
+  .home-screen,.stats-screen{max-width:1280px;margin:0 auto;width:100%}
+}
+
+/* PWA standalone режим — особые отступы */
+@media(display-mode:standalone){
+  .app-bar{padding-top:max(14px,env(safe-area-inset-top))}
+  body{user-select:none}
+  input,.qz-opt,.l-card{user-select:text}
+}
+
+/* Уважаем prefers-reduced-motion */
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+</style>
 </head>
 <body>
-<header class="top">
-  <h1>От нуля до профи <span>в создании сайтов</span></h1>
-  <p>11 глав · 124 урока · тест после каждого урока и большие тесты по главам</p>
+
+<!-- Splash screen с окном редактора кода -->
+<div id="loader">
+  <div class="code-window">
+    <div class="code-window-header">
+      <div class="code-window-dots"><span></span><span></span><span></span></div>
+      <span class="code-window-fname">app.js</span>
+    </div>
+    <div class="code-window-body">
+      <div class="code-line"><span class="num">1</span><span class="code-text kw">const</span> <span class="code-text">app = {</span></div>
+      <div class="code-line"><span class="num">2</span> <span class="code-text">name: </span><span class="code-text str">"Сайт с 0"</span><span class="code-text">,</span></div>
+      <div class="code-line"><span class="num">3</span> <span class="code-text">version: </span><span class="code-text str">"7.0"</span><span class="code-text">,</span></div>
+      <div class="code-line"><span class="num">4</span> <span class="code-text">lessons: </span><span class="code-text">135</span><span class="code-text">,</span></div>
+      <div class="code-line"><span class="num">5</span> <span class="code-text">chapters: </span><span class="code-text">13</span><span class="code-text">,</span></div>
+      <div class="code-line"><span class="num">6</span> <span class="code-text">offline: </span><span class="code-text kw">true</span><span class="code-text">,</span></div>
+      <div class="code-line"><span class="num">7</span> <span class="code-text fn">start</span><span class="code-text">() {</span></div>
+      <div class="code-line"><span class="num">8</span> <span class="code-text kw">return</span> <span class="code-text fn">ready</span><span class="code-text">;</span></div>
+      <div class="code-line"><span class="num">9</span> <span class="code-text">}</span></div>
+      <div class="code-line"><span class="num">10</span><span class="code-text">};</span><span class="code-cursor"></span></div>
+    </div>
+  </div>
+  <div class="title">Сайт с 0</div>
+  <div class="spinner"></div>
+  <div class="dots"><span></span><span></span><span></span></div>
+</div>
+
+<!-- App Bar -->
+<header class="app-bar">
+  <button class="hamburger" id="hamburger" aria-label="Меню">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 6h18M3 12h18M3 18h18"/>
+    </svg>
+  </button>
+  <div class="app-logo">&lt;/&gt;</div>
+  <div class="title">
+    <h1>Сайт с 0</h1>
+    <div class="sub" id="appBarSub">13 глав · 135 уроков</div>
+  </div>
 </header>
 
-<main class="wrap">
-  <section class="cards" id="cards"></section>
+<!-- Drawer с inline-статистикой -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-header">
+    <button class="drawer-close" id="drawerClose" aria-label="Закрыть">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+      </svg>
+    </button>
+    <div class="drawer-logo">&lt;/&gt;</div>
+    <div class="drawer-title">Сайт с 0</div>
+    <div class="drawer-subtitle">по созданию сайтов</div>
+  </div>
 
-  <section class="panel">
-    <div class="rowline"><span>Общий прогресс</span><b id="pctTxt">0%</b></div>
-    <div class="bar"><i id="mainBar"></i></div>
+  <div class="drawer-body" id="drawerBody">
+    <!-- Заполняется из JS: hero-процент + 4 карточки + список глав -->
+  </div>
+
+  <div class="drawer-actions">
+    <button class="drawer-action-btn" data-action="csv">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span>Экспорт в CSV</span>
+    </button>
+    <button class="drawer-action-btn danger" data-action="reset">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+      <span>Сбросить прогресс</span>
+    </button>
+    <button class="drawer-action-btn" data-action="about">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <span>О приложении</span>
+    </button>
+  </div>
+
+  <div class="drawer-footer">Сайт с 0 · v7.0 · работает офлайн</div>
+</aside>
+
+<!-- Main content -->
+<main class="main-content">
+
+  <section class="screen active" id="screen-home">
+    <div class="home-screen">
+      <div class="search-wrap">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="search" placeholder="Поиск урока...">
+      </div>
+
+      <div class="filter-chips">
+        <button class="chip active" data-f="all">Все</button>
+        <button class="chip" data-f="0">Не начаты</button>
+        <button class="chip" data-f="1">В процессе</button>
+        <button class="chip" data-f="2">Пройдены</button>
+      </div>
+
+      <p class="hint">Нажми на главу, чтобы развернуть. Нажми на урок — открыть материал и тест.</p>
+
+      <div id="list"></div>
+    </div>
   </section>
 
-  <section class="panel">
-    <div class="rowline"><span>Прогресс по главам</span></div>
-    <div id="chMini" class="chmini"></div>
+  <section class="screen" id="screen-stats">
+    <div class="stats-screen">
+      <div class="stat-hero">
+        <div class="pct" id="statHeroPct">0%</div>
+        <div class="label">Общий прогресс курса</div>
+        <div class="bar"><i id="statHeroBar" style="width:0%"></i></div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card ok"><div class="k">Пройдено</div><div class="v" id="statDone">0</div></div>
+        <div class="stat-card proc"><div class="k">В процессе</div><div class="v" id="statProc">0</div></div>
+        <div class="stat-card"><div class="k">Не начато</div><div class="v" id="statNotStarted">0</div></div>
+        <div class="stat-card acc"><div class="k">Тестов сдано</div><div class="v" id="statTests">0</div></div>
+      </div>
+
+      <div class="stat-section-title">Прогресс по главам</div>
+      <div id="statChapters"></div>
+    </div>
   </section>
 
-  <nav class="toolbar">
-    <button class="btn on" data-f="all">Все</button>
-    <button class="btn" data-f="0">Не начаты</button>
-    <button class="btn" data-f="1">В процессе</button>
-    <button class="btn" data-f="2">Пройдены</button>
-    <input type="text" id="search" placeholder="Поиск по уроку…">
-    <button class="btn" id="btnCsv">Экспорт в CSV</button>
-    <button class="btn danger" id="btnReset">Сбросить прогресс</button>
-  </nav>
-
-  <p class="hint">Клик по названию главы — свернуть или развернуть. Клик по названию урока — открыть материал и тест.</p>
-
-  <div id="list"></div>
 </main>
 
-<footer class="bottom">
-  Прогресс сохраняется в этом браузере. Регулярно нажимайте «Экспорт в CSV».
-</footer>
+<footer class="bottom">Прогресс сохраняется в этом браузере. Регулярно нажимайте «Экспорт в CSV».</footer>
 
 <!-- Окно урока -->
 <div class="modal-bg" id="lessonBg">
@@ -149,7 +589,52 @@ input::placeholder{color:#9aa4b4 !important}
   </div>
 </div>
 
+<!-- Окно "О приложении" -->
+<div class="modal-bg" id="aboutBg">
+  <div class="modal">
+    <div class="modal-h">
+      <div class="mh"><h2>О приложении</h2></div>
+      <button class="modal-x" id="aboutClose" title="Закрыть">✕</button>
+    </div>
+    <div class="modal-b">
+      <h3>Сайт с 0</h3>
+      <p>Курс по созданию сайтов: от основ до AI и современных практик.</p>
+      <p><strong>13 глав · 135 уроков · 1080 вопросов в тестах · 612 вопросов в больших тестах.</strong></p>
+      <p>Приложение работает офлайн. Прогресс сохраняется в браузере.</p>
+      <h3>Возможности</h3>
+      <ul>
+        <li>13 глав с уроками и тестами</li>
+        <li>Большой тест по каждой главе</li>
+        <li>Статистика прогресса</li>
+        <li>Поиск по урокам</li>
+        <li>Экспорт прогресса в CSV</li>
+        <li>Работа без интернета</li>
+      </ul>
+      <h3>Версия</h3>
+      <p>v7.0 — Android-интерфейс, окно кода в splash, обновлённый drawer со статистикой</p>
+    </div>
+  </div>
+</div>
+
 <script src="assets/icons.js"></script>
 <script src="assets/app.js"></script>
+
+<script>
+(function(){
+  function hideLoader(){
+    var l = document.getElementById("loader");
+    if (l) { setTimeout(function(){ l.classList.add("hide"); }, 600); }
+  }
+  if (document.readyState === "complete") hideLoader();
+  else window.addEventListener("load", function(){ setTimeout(hideLoader, 1000); });
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker.register("sw.js").catch(function(){});
+    });
+  }
+  document.body.style.overscrollBehaviorY = "contain";
+})();
+</script>
 </body>
 </html>

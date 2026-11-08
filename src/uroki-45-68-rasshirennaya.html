@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Уроки 45–68 · Расширенная теория</title>
+<style>
+:root{--bg:#eef1f6;--card:#fff;--line:#e4e8f0;--txt:#182031;--muted:#6d7789;--acc:#4f46e5;--ok:#15a34a;--proc:#e08c00;--code:#101828}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);font-size:14.5px;line-height:1.6}
+header{background:#101828;color:#fff;padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+header h1{margin:0;font-size:16px}header .sub{color:#98a2b3;font-size:12px}
+header .cnt{margin-left:auto;font-size:12px;color:#cbd5e1;font-weight:600}
+.wrap{max-width:900px;margin:0 auto;padding:20px 16px 70px}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:#fff;border-radius:7px;padding:5px 9px;font-size:12px;cursor:pointer;font-weight:600;color:var(--muted)}
+.tab:hover{border-color:#c7cfdd}.tab.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.lesson{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.lh{padding:20px 24px 14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fbfcfe,#fff)}
+.lh .num{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);font-weight:700}
+.lh h2{margin:4px 0 0;font-size:23px;letter-spacing:-.02em;line-height:1.25}
+.lh .goal{margin-top:6px;font-size:13px;color:var(--muted)}
+.lb{padding:4px 24px 24px}
+.lb h3{font-size:12.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);margin:24px 0 9px;font-weight:700;padding-bottom:5px;border-bottom:2px solid #eef2ff}
+.lb h4{font-size:15.5px;margin:18px 0 6px}
+.lb p{margin:0 0 12px;line-height:1.75}
+.lb ul,.lb ol{margin:0 0 13px;padding-left:21px}
+.lb li{margin-bottom:6px;line-height:1.68}
+.lb strong{color:#0f172a}
+.lb code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.87em;background:#f1f5f9;padding:1px 5px;border-radius:4px;color:#3730a3}
+.lb pre{background:var(--code);color:#e6edf7;padding:13px 15px;border-radius:9px;overflow-x:auto;font-size:12.2px;line-height:1.5;font-family:"SF Mono",Menlo,Consolas,monospace;margin:0 0 13px}
+.lb pre code{background:none;padding:0;color:inherit}
+.lb table{width:100%;border-collapse:collapse;margin:0 0 13px;font-size:12.8px}
+.lb th{background:#f8fafc;text-align:left;padding:8px 10px;border:1px solid var(--line);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.lb td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;line-height:1.5}
+figure{margin:0 0 16px}
+figure svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+figcaption{margin-top:6px;font-size:12.2px;color:var(--muted);line-height:1.5}
+figcaption b{color:#475467}
+.term{background:#f5f3ff;border-left:4px solid #8b5cf6;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px}
+.term-t{font-weight:700;font-size:12.5px;color:#6d28d9;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.term dl{margin:0}
+.term dt{font-weight:700;color:#4c1d95;font-size:13.5px;margin-top:6px}
+.term dd{margin:2px 0 0 0;font-size:13.5px;line-height:1.6;color:#5b21b6}
+.why{background:#eef2ff;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.why-t{font-weight:700;font-size:12.5px;color:#3730a3;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.life{background:#f0fdf4;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.life-t{font-weight:700;font-size:12.5px;color:#15803d;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.risk{background:#fef2f2;border-left:4px solid #b42318;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.risk-t{font-weight:700;font-size:12.5px;color:#b42318;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.task{background:#f8fafc;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:0 11px 11px 0;padding:13px 15px;margin:0 0 13px}
+.task-h{font-weight:700;font-size:14.5px;margin-bottom:4px}
+.task-why{font-size:12.8px;color:var(--muted);margin-bottom:9px;line-height:1.55}
+.steps{margin:0;padding-left:0;list-style:none;counter-reset:st}
+.steps li{position:relative;padding-left:32px;margin-bottom:8px;line-height:1.6;font-size:13.2px;counter-increment:st}
+.steps li::before{content:counter(st);position:absolute;left:0;top:0;width:21px;height:21px;background:var(--acc);color:#fff;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.task-r{margin-top:10px;padding-top:9px;border-top:1px dashed #d7dde6;font-size:12.8px;color:var(--ok);font-weight:600}
+.warn{background:#fffbeb;border-left:4px solid var(--proc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.warn-t{font-weight:700;font-size:12.5px;color:#b45309;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.warn ul{margin:0;padding-left:19px}.warn li{font-size:13.2px;margin-bottom:4px}
+.check{background:#f0fdf4;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.check-t{font-weight:700;font-size:12.5px;color:#15803d;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.check ol{margin:0;padding-left:19px}.check li{font-size:13.2px;margin-bottom:4px}
+.note{background:#eef2ff;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px;font-size:13.5px}
+.navb{display:flex;gap:9px;margin-top:16px}.navb .sp{flex:1}
+.btn{border:1px solid var(--line);background:#fff;padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600;font-family:inherit}
+.btn:hover{border-color:#c7cfdd}.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+@media(max-width:700px){.lh,.lb{padding-left:15px;padding-right:15px}.lh h2{font-size:20px}}
+</style>
+</head>
+<body>
+<header><h1>📚 Уроки 45–68 · Расширенная теория</h1><span class="sub">как · зачем · почему · терминология · примеры из жизни</span><span class="cnt" id="cnt"></span></header>
+<div class="wrap"><div class="tabs" id="tabs"></div><div id="out"></div>
+<div class="navb"><button class="btn" id="prev">← Предыдущий</button><span class="sp"></span><button class="btn pri" id="next">Следующий →</button></div></div>
+<script>
+var L=[
+{t:"Переменные и типы данных",g:"Научиться хранить и оперировать данными.",c:`
+<h3>Зачем этот урок</h3>
+<p>Переменная — коробка с именем, в которую кладут значение. В современном JS только <code>const</code> (по умолчанию) и <code>let</code> (если значение меняется). <code>var</code> — устарел, не используй.</p>
+<p>Это фундамент: всё, что ты будешь делать дальше — хранить данные, считать, сравнивать, — опирается на переменные и типы.</p>
+
+<h3>Простым языком</h3>
+<p>Восемь типов данных: <strong>строка</strong> ("Привет"), <strong>число</strong> (42), <strong>логический</strong> (true/false), <strong>null</strong> (намеренно пусто), <strong>undefined</strong> (ещё нет значения), <strong>symbol</strong> (уникальный идентификатор), <strong>bigint</strong> (для очень больших чисел), <strong>объект</strong> ({ }).</p>
+<p>Примитивы (строка, число, boolean, null, undefined, symbol, bigint) копируются <strong>по значению</strong>: <code>let a=1; let b=a; b=2;</code> — a всё ещё 1.</p>
+<p>Объекты и массивы копируются <strong>по ссылке</strong>: <code>let a={}; let b=a; b.x=1;</code> — a.x тоже 1. Это главный источник «странных» багов у новичков.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Переменная</dt><dd>Именованная область для хранения значения.</dd>
+<dt>Примитив</dt><dd>Простой тип данных, копируется по значению.</dd>
+<dt>Ссылочный тип</dt><dd>Объект, массив, функция — копируется по ссылке.</dd>
+<dt>Область видимости</dt><dd>Часть кода, где переменная доступна.</dd>
+<dt>typeof</dt><dd>Оператор определения типа данных.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему const по умолчанию? Потому что большинство переменных не меняются, и const защищает от случайного присваивания. Почему var не используют? У него нет блочной области видимости — переменная «утекает» за пределы блока, создавая баги. Почему объекты копируются по ссылке? Потому что объект может быть огромным, и копирование его целиком дорого; ссылка занимает байты.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Переменная — как коробка с наклейкой «носки». В неё кладут то, что написано на наклейке. Примитив — как монета: дал другу свою монету, у тебя её больше нет, у него своя. Объект — как ключ от квартиры: дал другу копию, вы оба заходите в одну квартиру, и если он переставит мебель, ты это увидишь.</p></div>
+
+<h3>Пример кода</h3>
+<pre>const siteName = "Острие";      // константа
+let visitors = 0;               // можно менять
+visitors = visitors + 1;        // теперь 1
+
+const str  = "Привет";          // строка
+const num  = 42;                // число
+const bool = true;              // логический
+const nothing = null;           // намеренно пусто
+let undef;                      // undefined — ещё нет значения
+
+typeof str;   // "string"
+typeof num;   // "number"
+typeof bool;  // "boolean"
+typeof nothing; // "object" (историческая особенность)
+typeof undef;  // "undefined"
+
+// Правильная копия объекта
+const user = { name: "Анна", age: 30 };
+const copy = { ...user };</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>var вместо let/const</strong> — переменная утекает из блока. <strong>Копирование объекта через =</strong> — изменения затронут оригинал. <strong>Путаница null и undefined</strong> — сложно отлаживать. <strong>Использование переменной до объявления</strong> — ошибка или undefined.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Решить 15 задач на Codewars</div>
+<div class="task-why">Зачем: закрепить типы и операции на реальных задачах.</div>
+<ol class="steps">
+<li>Зарегистрируйся на codewars.com.</li>
+<li>Реши 15 задач уровня 8kyu на строки и числа.</li>
+<li>Для каждой проверь typeof входных данных.</li>
+<li>Создай const с названием проекта и let со счётчиком.</li>
+<li>Проверь typeof для шести разных значений.</li>
+</ol>
+<div class="task-r">Результат: уверенная работа с базовыми типами.</div></div>
+
+<div class="task"><div class="task-h">Задание 2. Проверить ловушку со ссылками</div>
+<div class="task-why">Зачем: узнать о ней сейчас, а не через два часа отладки.</div>
+<ol class="steps">
+<li>Создай объект user и скопируй его через =.</li>
+<li>Измени поле в копии — проверь оригинал.</li>
+<li>Сделай правильную копию через { ...user }.</li>
+<li>Повтори для массива через [ ...arr ].</li>
+<li>Выпиши: когда нужна глубокая копия?</li>
+</ol>
+<div class="task-r">Результат: понимание разницы между ссылкой и значением.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>var вместо let/const.</strong> Нет блочной области.</li>
+<li><strong>Копирование объекта через =.</strong> Копируется ссылка.</li>
+<li><strong>Путаница null и undefined.</strong> Сложно отлаживать.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем const отличается от let?</li>
+<li>Почему var не используют?</li>
+<li>Что будет при копировании объекта через =?</li>
+<li>Чем null отличается от undefined?</li></ol></div>
+`},
+
+{t:"Условия, операторы, циклы",g:"Заставить код принимать решения и повторяться.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Условие</strong> — развилка: «если А, то X, иначе Y». <strong>Цикл</strong> — повторение одного действия много раз. Без них код — просто список команд, который ничего не решает.</p>
+<p>Это точка, где код перестаёт быть «инструкцией» и становится «программой».</p>
+
+<h3>Простым языком</h3>
+<p>Условия: <code>if / else if / else</code>, тернарный оператор <code>? :</code>, <code>switch</code>.</p>
+<p>Циклы: <code>for</code> (когда нужен индекс), <code>for...of</code> (когда нужно просто перебрать), <code>while</code> (пока условие истинно).</p>
+<p><code>==</code> сравнивает с приведением типов, <code>===</code> — без. Используй <code>===</code> всегда.</p>
+<p><code>&&</code> — И (оба условия), <code>||</code> — ИЛИ (хотя бы одно).</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Ветвление</dt><dd>Выполнение разных веток кода по условию.</dd>
+<dt>Цикл</dt><dd>Повторение блока кода.</dd>
+<dt>Тернарный оператор</dt><dd>Короткая форма if/else.</dd>
+<dt>Итерация</dt><dd>Один проход цикла.</dd>
+<dt>Инкремент</dt><dd>Увеличение значения на единицу.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему ===, а не ==? == приводит типы: 0 == "0" даёт true, что часто приводит к неожиданным багам. === не приводит — сравнение строгое. Почему break в switch? Без него выполнятся все case ниже, что почти всегда не нужно. Почему i++ в for? Без инкремента условие останется истинным навсегда — бесконечный цикл.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Условие — как светофор: если зелёный, едь; если жёлтый, приготовься; иначе стой. Цикл — как конвейер: деталь проходит одну и ту же операцию снова и снова. === vs == — как сверка паспорта: по фамилии (==) может совпасть у двоих, а по номеру (===) — только у одного.</p></div>
+
+<h3>Пример кода</h3>
+<pre>const age = 20;
+if (age < 18) {
+  console.log("Несовершеннолетний");
+} else if (age < 60) {
+  console.log("Взрослый");
+} else {
+  console.log("Пенсионер");
+}
+
+const access = age >= 18 ? "открыт" : "закрыт";
+
+switch (plan) {
+  case "start":  price = 1000; break;
+  case "pro":    price = 2500; break;
+  case "max":    price = 5000; break;
+  case "pro":    price = 3000; break;
+  default:       price = 0;
+}
+
+if (isLoggedIn && hasPaid) { showContent(); }
+if (isAdmin || isModerator) { showPanel(); }
+
+for (let i = 0; i < 5; i++) console.log(i);      // 0 1 2 3 4
+for (const item of items) console.log(item);     // по массиву
+while (attempts < 3) { attempts++; }</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Забыли i++</strong> — бесконечный цикл, вкладка виснет. <strong>Забыли break в switch</strong> — выполнятся все case ниже. <strong>= вместо ===</strong> — присваивание вместо сравнения. <strong>Условие, которое никогда не выполняется</strong> — мёртвый код.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Три консольные программы</div>
+<div class="task-why">Зачем: отработать условия и циклы на задачах с проверяемым результатом.</div>
+<ol class="steps">
+<li>Калькулятор скидки: цена → скидка по условиям (0 / 5 / 10 / 15%).</li>
+<li>Игра «угадай число» в консоли.</li>
+<li>Таблица умножения для числа 7 через вложенный цикл.</li>
+<li>Перепиши один цикл for на for...of — сравни читаемость.</li>
+</ol>
+<div class="task-r">Результат: уверенное использование условий и циклов.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Забыли i++.</strong> Бесконечный цикл.</li>
+<li><strong>Забыли break.</strong> Все case выполнятся.</li>
+<li><strong>= вместо ===.</strong> Присваивание.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем == отличается от ===?</li>
+<li>Зачем break в switch?</li>
+<li>Когда for...of удобнее for?</li>
+<li>Что будет без i++ в цикле?</li></ol></div>
+`},
+
+{t:"Функции и стрелочные функции",g:"Упаковывать код в переиспользуемые блоки.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Функция</strong> — рецепт. Один раз описываешь шаги, потом вызываешь по имени сколько угодно раз. Это главный инструмент борьбы с дублированием кода.</p>
+<p>Функция с одной задачей легко понять, протестировать и переиспользовать. Функция, делающая три несвязанные вещи, — источник багов.</p>
+
+<h3>Простым языком</h3>
+<p>Обычная функция: <code>function greet(name) { return ...; }</code>. Стрелочная: <code>const greet = (name) => ...;</code> — короче запись и нет своего <code>this</code>.</p>
+<p>Параметры по умолчанию: <code>(base, discount = 0) => ...</code>.</p>
+<p>Функция без <code>return</code> вернёт <code>undefined</code>.</p>
+<p>Область видимости: <code>const/let</code> внутри функции не «утекают» наружу.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Функция</dt><dd>Блок кода, выполняющий задачу и возвращающий результат.</dd>
+<dt>Параметр</dt><dd>Переменная, которую функция принимает.</dd>
+<dt>Аргумент</dt><dd>Значение, передаваемое в параметр.</dd>
+<dt>Возврат</dt><dd>Значение, которое функция отдаёт наружу.</dd>
+<dt>Стрелочная функция</dt><dd>Короткая запись функции через =>.</dd>
+<dt>Область видимости</dt><dd>Часть кода, где переменная доступна.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему return, а не console.log? console.log печатает, но не отдаёт значение; return позволяет использовать результат дальше. Почему параметры, а не глобальные переменные? Глобальные ломают переиспользуемость — функцию нельзя вызвать с другими данными. Почему одна задача? Потому что тестировать и переиспользовать проще.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Функция — рецепт блинов: написано, что взять и что сделать. Параметры — количество блинов (на 2 или на 6). Возврат — готовые блины на тарелке. Глобальные переменные — как если бы рецепт говорил «возьми муку, которая лежит в моём шкафу»: работать будет только у тебя дома.</p></div>
+
+<h3>Пример кода</h3>
+<pre>// Обычная функция
+function greet(name) {
+  return "Привет, " + name + "!";
+}
+
+// Стрелочная — короче
+const greet2 = (name) => "Привет, " + name + "!";
+
+// Параметры по умолчанию
+const price = (base, discount = 0) => base - (base * discount) / 100;
+price(1000);       // 1000
+price(1000, 20);   // 800
+
+// Область видимости
+const global = "виден везде";
+function test() {
+  const local = "виден только внутри";
+  console.log(global);   // ✓
+}
+console.log(local);      // ✗ ReferenceError</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Забыли return</strong> — функция вернёт undefined. <strong>Функция делает три несвязанные вещи</strong> — сложно тестировать и переиспользовать. <strong>Глобальные переменные вместо параметров</strong> — ломает переиспользуемость. <strong>Слишком длинная функция</strong> — не читается.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Библиотека из 10 функций</div>
+<div class="task-why">Зачем: получить набор инструментов, которые используешь в каждом проекте.</div>
+<ol class="steps">
+<li>formatPrice(n) — добавить пробелы и ₽.</li>
+<li>plural(n, ['товар','товара','товаров']) — склонение.</li>
+<li>isValidEmail(str) — проверка через регулярку.</li>
+<li>generateId() — случайный ID.</li>
+<li>debounce(fn, ms) — задержка вызова.</li>
+<li>Перепиши все в стрелочном стиле.</li>
+<li>Собери в файл utils.js — он пригодится всегда.</li>
+</ol>
+<div class="task-r">Результат: личная библиотека утилит.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Забыли return.</strong> Вернёт undefined.</li>
+<li><strong>Три несвязанные задачи.</strong> Раздели.</li>
+<li><strong>Глобальные переменные.</strong> Ломает переиспользуемость.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что вернёт функция без return?</li>
+<li>Чем стрелочная функция отличается от обычной?</li>
+<li>Зачем параметры по умолчанию?</li>
+<li>Почему глобальные переменные — плохо?</li></ol></div>
+`},
+
+{t:"Объекты и деструктуризация",g:"Хранить связанные данные одним блоком.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Объект</strong> — паспорт сущности. В нём лежат свойства с именами: name, price, inStock. Это главный способ описывать реальные вещи в JS.</p>
+<p>Деструктуризация извлекает свойства в отдельные переменные одной строкой. Опциональная цепочка защищает от ошибок при отсутствии данных.</p>
+
+<h3>Простым языком</h3>
+<p><code>product.name</code> или <code>product["price"]</code> — доступ к свойству.</p>
+<p><code>const { name, price } = product;</code> — деструктуризация.</p>
+<p><code>const updated = { ...user, age: 31 };</code> — копия с изменённым полем.</p>
+<p><code>user?.address?.city</code> — не упадёт, если адреса нет.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Объект</dt><dd>Структура из пар «ключ : значение».</dd>
+<dt>Свойство</dt><dd>Пара ключ-значение внутри объекта.</dd>
+<dt>Деструктуризация</dt><dd>Извлечение свойств в переменные.</dd>
+<dt>Spread</dt><dd>Оператор раскрытия объекта или массива.</dd>
+<dt>Опциональная цепочка</dt><dd>Безопасный доступ через ?.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему объект, а не набор переменных? Объект группирует связанные данные и даёт им имена. Почему spread, а не =? = копирует ссылку, spread создаёт новый объект. Почему ?. — потому что обращение к полю отсутствующего объекта выбрасывает ошибку и ломает скрипт.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Объект — паспорт: фамилия, имя, дата рождения в одном документе с подписями. Деструктуризация — как выписать нужные данные в анкету одной строкой. Spread — как сделать копию паспорта с исправленной датой, не трогая оригинал. ?. — как спросить «есть ли у него машина?» прежде чем спрашивать «какого цвета машина?».</p></div>
+
+<h3>Пример кода</h3>
+<pre>const product = {
+  name: "Куртка",
+  price: 4990,
+  inStock: true,
+  tags: ["зима", "мужская"]
+};
+
+product.name;            // "Куртка"
+product["price"];        // 4990
+
+// Деструктуризация
+const { name, price } = product;
+
+// Копия (не ссылка!)
+const copy = { ...product, price: 3990 };
+
+// Опциональная цепочка
+const city = user?.address?.city;
+
+// Метод объекта
+const cart = {
+  items: [],
+  add(item) { this.items.push(item); }
+};</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Копирование через =</strong> — копируется ссылка. <strong>Обращение к вложенному полю без ?.</strong> — упадёт с ошибкой. <strong>Огромные плоские объекты</strong> — сложно читать. <strong>Мутация свойства</strong> — сложно отследить.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Описать товар и пользователя</div>
+<div class="task-why">Зачем: объекты — способ описывать всё в JS.</div>
+<ol class="steps">
+<li>Создай объект product: имя, цена, наличие, теги, характеристики.</li>
+<li>Создай объект user: имя, email, адрес (вложенный объект).</li>
+<li>Извлеки поля через деструктуризацию.</li>
+<li>Сделай копию товара с новой ценой через ...spread.</li>
+<li>Попробуй обратиться к несуществующему полю без ?. и с ?.</li>
+<li>Выведи карточку товара в консоль.</li>
+</ol>
+<div class="task-r">Результат: уверенная работа с объектами.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Копирование через =.</strong> Копируется ссылка.</li>
+<li><strong>Обращение без ?.</strong> Упадёт.</li>
+<li><strong>Огромные плоские объекты.</strong> Группируй.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что делает деструктуризация?</li>
+<li>Зачем опциональная цепочка ?.</li>
+<li>Как сделать копию объекта с одним новым полем?</li>
+<li>Что такое this в методе объекта?</li></ol></div>
+`},
+
+{t:"Массивы и методы",g:"Работать со списками данных эффективно.",c:`
+<h3>Зачем этот урок</h3>
+<p>Массив — пронумерованный список. У него есть мощные методы, которые заменяют ручные циклы: <code>map</code> (преобразовать каждый), <code>filter</code> (оставить подходящие), <code>reduce</code> (свести к числу), <code>forEach</code> (обойти).</p>
+<p>Это реальная задача, которую будешь решать в каждом каталоге и магазине.</p>
+
+<h3>Простым языком</h3>
+<p><code>map</code> возвращает новый массив, <code>forEach</code> просто перебирает.</p>
+<p><code>reduce((sum, p) => sum + p.price, 0)</code> — сумма всех цен.</p>
+<p><code>find</code> — первый подходящий, <code>some</code> — хотя бы один, <code>every</code> — все.</p>
+<p><code>sort</code> мутирует исходный массив — сортируй копию.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Массив</dt><dd>Упорядоченный список элементов.</dd>
+<dt>Метод</dt><dd>Функция, принадлежащая объекту или массиву.</dd>
+<dt>Колбэк</dt><dd>Функция, передаваемая в другую функцию.</dd>
+<dt>Аккумулятор</dt><dd>Накопитель значения в reduce.</dd>
+<dt>Мутация</dt><dd>Изменение исходного объекта или массива.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему map, а не for? map короче, не мутирует исходный массив и сразу возвращает результат. Почему reduce с начальным значением? Без него на пустом массиве будет ошибка. Почему sort мутирует? Так работает метод — поэтому сортируй копию, чтобы не сломать данные.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Массив — список покупок. map — как заменить каждый продукт на его цену. filter — как оставить только то, что в бюджете. reduce — как посчитать общую сумму на кассе. sort — как расставить продукты по алфавиту на полке, но чтобы не перепутать список — делаешь копию.</p></div>
+
+<h3>Пример кода</h3>
+<pre>const products = [
+  { name: "Куртка",    price: 4990, cat: "одежда" },
+  { name: "Кроссовки", price: 7990, cat: "обувь" },
+  { name: "Шапка",     price: 990,  cat: "одежда" }
+];
+
+const names = products.map(p => p.name);          // преобразовать
+const cheap = products.filter(p => p.price < 5000); // оставить
+const total = products.reduce((s, p) => s + p.price, 0); // свести
+products.forEach(p => console.log(p.name));         // обойти
+
+products.find(p => p.cat === "обувь");   // первый подходящий
+products.some(p => p.price > 5000);     // true
+products.every(p => p.price > 500);    // true
+
+const sorted = [...products].sort((a, b) => a.price - b.price);</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>sort без компаратора</strong> — сортирует как строки: [1,10,2]. <strong>sort напрямую по массиву</strong> — мутирует исходный массив. <strong>reduce без начального значения</strong> — на пустом массиве упадёт. <strong>map вместо forEach</strong> — создаёт ненужный массив.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Каталог с фильтром и сортировкой</div>
+<div class="task-why">Зачем: это реальная задача, которую будешь решать в каждом магазине.</div>
+<ol class="steps">
+<li>Создай массив из 8 товаров (имя, цена, категория, рейтинг).</li>
+<li>Отфильтруй по категории через filter.</li>
+<li>Отсортируй по цене через sort (копию!).</li>
+<li>Посчитай общую сумму через reduce.</li>
+<li>Сделай цепочку: filter → map → reduce.</li>
+<li>Найди самый дорогой товар через reduce.</li>
+</ol>
+<div class="task-r">Результат: навык, применяемый в каждом каталоге.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>sort без компаратора.</strong> Сортирует строки.</li>
+<li><strong>sort по data.</strong> Мутирует.</li>
+<li><strong>reduce без начального.</strong> Упадёт.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем map отличается от forEach?</li>
+<li>Как посчитать сумму цен массива?</li>
+<li>Почему sort мутирует массив?</li>
+<li>Когда some, а когда every?</li></ol></div>
+`},
+
+{t:"DOM: поиск и изменение",g:"Управлять страницей из JavaScript.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>DOM</strong> — HTML-страница, превращённая в дерево объектов. Ты находишь элемент — и меняешь его текст, класс, содержимое. Это мост между кодом и тем, что видит пользователь.</p>
+<p>Базовый навык для любого интерактива: вывод данных, переключение табов, динамические списки.</p>
+
+<h3>Простым языком</h3>
+<p><code>querySelector</code> — первый подходящий, <code>querySelectorAll</code> — все, <code>getElementById</code> — по id.</p>
+<p><code>textContent</code> — только текст (безопасно), <code>innerHTML</code> — HTML (осторожно!).</p>
+<p><code>classList.add / remove / toggle</code> — управление классами.</p>
+<p>Если элемент не найден, вернётся <code>null</code>.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>DOM</dt><dd>Объектная модель документа.</dd>
+<dt>Селектор</dt><dd>Строка для поиска элементов.</dd>
+<dt>Узел</dt><dd>Элемент дерева DOM.</dd>
+<dt>textContent</dt><dd>Текстовое содержимое элемента.</dd>
+<dt>innerHTML</dt><dd>HTML-содержимое элемента.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему textContent безопаснее? innerHTML разбирает строку как HTML, и если туда попадёт пользовательский ввод — можно выполнить код (XSS). Почему не искать в цикле? Каждый поиск замедляет код — найди один раз, сохрани в переменную. Почему скрипт в конце body? Иначе DOM не построен, и querySelector вернёт null.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>DOM — план здания со всеми комнатами. querySelector — как найти «кухню» на плане. textContent — как написать на двери «кухня» маркером. innerHTML — как перепланировать комнату: если чертёж от неизвестного — могут вынести не ту стену.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DOM-дерево и querySelector">
+<rect width="840" height="300" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="12" font-weight="700" font-family="Arial">DOM-дерево и поиск через querySelector</text>
+<rect x="350" y="40" width="140" height="34" rx="7" fill="#4f46e5"/>
+<text x="420" y="62" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="monospace">document</text>
+<line x1="420" y1="74" x2="200" y2="110" stroke="#4f46e5" stroke-width="2"/>
+<line x1="420" y1="74" x2="420" y2="110" stroke="#4f46e5" stroke-width="2"/>
+<line x1="420" y1="74" x2="640" y2="110" stroke="#4f46e5" stroke-width="2"/>
+<rect x="130" y="110" width="140" height="34" rx="7" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+<text x="200" y="132" text-anchor="middle" fill="#101828" font-size="13" font-weight="700" font-family="monospace">&lt;html&gt;</text>
+<rect x="350" y="110" width="140" height="34" rx="7" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+<text x="420" y="132" text-anchor="middle" fill="#101828" font-size="13" font-weight="700" font-family="monospace">&lt;body&gt;</text>
+<rect x="570" y="110" width="140" height="34" rx="7" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+<text x="640" y="132" text-anchor="middle" fill="#101828" font-size="13" font-weight="700" font-family="monospace">&lt;head&gt;</text>
+<line x1="420" y1="144" x2="280" y2="180" stroke="#4f46e5" stroke-width="2"/>
+<line x1="420" y1="144" x2="420" y2="180" stroke="#4f46e5" stroke-width="2"/>
+<line x1="420" y1="144" x2="560" y2="180" stroke="#4f46e5" stroke-width="2"/>
+<rect x="220" y="180" width="120" height="30" rx="6" fill="#15a34a"/>
+<text x="280" y="200" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="700" font-family="monospace">h1.hero</text>
+<rect x="365" y="180" width="110" height="30" rx="6" fill="#e08c00"/>
+<text x="420" y="200" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="700" font-family="monospace">.cards</text>
+<rect x="510" y="180" width="100" height="30" rx="6" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+<text x="560" y="200" text-anchor="middle" fill="#101828" font-size="11.5" font-weight="700" font-family="monospace">button</text>
+<line x1="420" y1="210" x2="370" y2="240" stroke="#4f46e5" stroke-width="1.5"/>
+<line x1="420" y1="210" x2="420" y2="240" stroke="#4f46e5" stroke-width="1.5"/>
+<line x1="420" y1="210" x2="470" y2="240" stroke="#4f46e5" stroke-width="1.5"/>
+<rect x="335" y="240" width="70" height="26" rx="5" fill="#fff" stroke="#15a34a" stroke-width="1.5"/>
+<text x="370" y="258" text-anchor="middle" fill="#101828" font-size="10.5" font-family="monospace">.card</text>
+<rect x="395" y="240" width="70" height="26" rx="5" fill="#fff" stroke="#15a34a" stroke-width="1.5"/>
+<text x="430" y="258" text-anchor="middle" fill="#101828" font-size="10.5" font-family="monospace">.card</text>
+<rect x="455" y="240" width="70" height="26" rx="5" fill="#fff" stroke="#15a34a" stroke-width="1.5"/>
+<text x="490" y="258" text-anchor="middle" fill="#101828" font-size="10.5" font-family="monospace">.card</text>
+<text x="30" y="290" fill="#475467" font-size="10.5" font-family="Arial">querySelector(".hero") → 1 элемент (зелёный). querySelectorAll(".card") → 3 элемента (NodeList).</text>
+</svg><figcaption><b>Рис. 50.1.</b> DOM-дерево: корень document, ветки — элементы. querySelector возвращает первый подходящий, querySelectorAll — все.</figcaption></figure>
+
+
+<h3>Пример кода</h3>
+<pre>// Поиск
+document.querySelector(".btn");        // первый подходящий
+document.querySelectorAll(".card");    // все (NodeList)
+document.getElementById("hero");       // по id
+
+// Изменение
+const title = document.querySelector("h1");
+title.textContent = "Новый заголовок";     // только текст (безопасно)
+title.innerHTML = "&lt;span&gt;Текст&lt;/span&gt;"; // HTML (осторожно!)
+title.classList.add("active");
+title.classList.remove("hidden");
+title.classList.toggle("open");
+title.setAttribute("data-id", "42");
+title.style.color = "red";
+title.dataset.price = "100";</pre>
+
+<h3>Современные API: IntersectionObserver</h3>
+<p><strong>IntersectionObserver</strong> — главный инструмент для ленивой загрузки и анимаций по скроллу. Без него раньше писали <code>window.addEventListener('scroll', ...)</code> с проверкой <code>getBoundingClientRect()</code> — это тормозило страницу. Observer работает быстро, потому что браузер сам следит за элементами.</p>
+<pre>// Появление элементов при скролле
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      io.unobserve(entry.target);   // один раз, потом отключаем
+    }
+  });
+}, { threshold: 0.15 });   // сработает, когда 15% элемента видно
+
+document.querySelectorAll(".fade-in").forEach(el => io.observe(el));</pre>
+
+<p><strong>Что ещё умеют современные observer'ы:</strong></p>
+<ul>
+<li><strong>ResizeObserver</strong> — следит за изменением размера элемента (для адаптивных компонентов).</li>
+<li><strong>MutationObserver</strong> — следит за изменениями DOM (для библиотек).</li>
+<li><strong>PerformanceObserver</strong> — для аналитики и Core Web Vitals.</li>
+</ul>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>innerHTML с пользовательским вводом</strong> — XSS-уязвимость. <strong>querySelector до загрузки DOM</strong> — вернёт null. <strong>Поиск в цикле</strong> — замедляет код. <strong>Мутация innerHTML в цикле</strong> — перерисовывает страницу многократно. <strong>Scroll-обработчик без throttle</strong> — тормозит, используйте IntersectionObserver.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Вывести массив товаров на страницу</div>
+<div class="task-why">Зачем: это база любого каталога.</div>
+<ol class="steps">
+<li>Возьми массив товаров из Урока 49.</li>
+<li>Найди контейнер .cards через querySelector.</li>
+<li>Циклом forEach создай разметку карточки.</li>
+<li>Вставь через innerHTML (данные свои, безопасно).</li>
+<li>По клику на карточку меняй её текст через textContent.</li>
+<li>Переключай класс active у пунктов меню.</li>
+</ol>
+<div class="task-r">Результат: динамический рендеринг из данных.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>innerHTML с вводом.</strong> XSS.</li>
+<li><strong>querySelector до DOM.</strong> Null.</li>
+<li><strong>Поиск в цикле.</strong> Медленно.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем querySelector отличается от querySelectorAll?</li>
+<li>Чем textContent отличается от innerHTML?</li>
+<li>Почему innerHTML с пользовательским вводом опасен?</li>
+<li>Что вернёт querySelector, если элемент не найден?</li></ol></div>
+`},
+
+{t:"DOM: создание и удаление",g:"Добавлять и убирать элементы динамически.",c:`
+<h3>Зачем этот урок</h3>
+<p>Когда элементы создаются на лету (карточки товаров, пункты списка), используют <code>createElement</code> и <code>append</code>. Это безопаснее innerHTML, потому что не выполняет HTML-строки.</p>
+<p>DocumentFragment делает одну вставку в DOM вместо десяти — на больших списках разница в скорости в разы.</p>
+
+<h3>Простым языком</h3>
+<p><code>document.createElement("div")</code> — создать элемент. <code>append</code> — вставить в конец, <code>prepend</code> — в начало.</p>
+<p><code>DocumentFragment</code> — «виртуальный контейнер», который вставляется одной операцией.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>createElement</dt><dd>Создание нового элемента DOM.</dd>
+<dt>append / prepend</dt><dd>Вставка в конец / начало родителя.</dd>
+<dt>DocumentFragment</dt><dd>Лёгкий контейнер для пакетной вставки.</dd>
+<dt>Рефлоу</dt><dd>Пересчёт расположения элементов браузером.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему createElement безопаснее innerHTML? Он не разбирает строку как HTML, поэтому пользовательские данные не могут выполниться. Почему DocumentFragment? Каждая вставка в DOM вызывает пересчёт расположения; десять вставок — десять пересчётов, фрагмент — один.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>createElement — как слепить новый кирпич руками, а не набрать адрес на печатной машинке. DocumentFragment — как принести ведро с кирпичами и выложить всё сразу, а не бегать по одному. Рефлоу — как перестановка мебели: чем чаще, тем больше суеты.</p></div>
+
+<h3>Пример кода</h3>
+<pre>// Создать элемент
+const card = document.createElement("div");
+card.className = "card";
+card.textContent = "Новая карточка";
+
+// Вставить
+document.querySelector(".cards").append(card);   // в конец
+document.querySelector(".cards").prepend(card);  // в начало
+card.before(otherEl);                            // перед
+card.after(otherEl);                             // после
+card.remove();                                   // удалить
+
+// Пакетная вставка — быстрее
+const frag = document.createDocumentFragment();
+items.forEach(item => {
+  const el = document.createElement("li");
+  el.textContent = item;
+  frag.append(el);
+});
+list.append(frag);   // одна вставка вместо десяти</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>innerHTML для пользовательских данных</strong> — XSS. <strong>Вставка элементов по одному в цикле</strong> — медленно. <strong>Забыли remove()</strong> — элементы накапливаются. <strong>Создание элемента без textContent</strong> — пустой блок.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Список дел и корзина</div>
+<div class="task-why">Зачем: две типовые задачи на создание/удаление.</div>
+<ol class="steps">
+<li>Поле ввода + Enter → пункт появляется в списке.</li>
+<li>Клик по «×» → пункт удаляется.</li>
+<li>Используй createElement и append, не innerHTML.</li>
+<li>Корзина: добавление и удаление товаров.</li>
+<li>Для списка из 20+ элементов используй DocumentFragment.</li>
+</ol>
+<div class="task-r">Результат: безопасный динамический рендеринг.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>innerHTML для данных.</strong> XSS.</li>
+<li><strong>По одному в цикле.</strong> Медленно.</li>
+<li><strong>Забыли remove().</strong> Накапливаются.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем createElement безопаснее innerHTML?</li>
+<li>Зачем DocumentFragment?</li>
+<li>Как удалить элемент?</li>
+<li>Чем prepend отличается от append?</li></ol></div>
+`},
+
+{t:"События и делегирование",g:"Реагировать на действия пользователя.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Событие</strong> — «что-то произошло»: клик, ввод, скролл, отправка формы. Ты вешаешь слушателя на элемент — он вызывает твою функцию.</p>
+<p><strong>Делегирование</strong> — вместо слушателя на каждую из 100 карточек вешаешь один на родителя и определяешь, по какой карточке кликнули. Экономит память и работает с элементами, добавленными позже.</p>
+
+<h3>Простым языком</h3>
+<p>Событие всплывает снизу вверх: от целевого элемента к родителям.</p>
+<p><code>e.target</code> — где был клик, <code>e.currentTarget</code> — где висит слушатель.</p>
+<p><code>closest()</code> поднимается от точки клика до нужного родителя.</p>
+<p><code>preventDefault</code> отменяет действие по умолчанию (например, перезагрузку формы).</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Событие</dt><dd>Действие, на которое можно отреагировать.</dd>
+<dt>Слушатель</dt><dd>Функция, вызываемая при наступлении события.</dd>
+<dt>Всплытие</dt><dd>Прохождение события от цели к корню документа.</dd>
+<dt>Делегирование</dt><dd>Один слушатель на группу элементов.</dd>
+<dt>closest</dt><dd>Поиск ближайшего подходящего родителя.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему делегирование? На 100 карточках 100 слушателей жрут память, а один на родителе работает и с новыми карточками. Почему closest, а не e.target? Клик по вложенной иконке даст цель-иконку, а нужна карточка; closest поднимется до неё. Почему preventDefault у формы? Иначе браузер перезагрузит страницу при отправке.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Делегирование — как один охранник на входе вместо охранника у каждой двери: он смотрит, из какой двери пришёл человек. Всплытие — как новость, которая поднимается с нижнего этажа до управдома. closest — как вопрос «в какой квартире этот человек?», на который отвечает лестничная площадка.</p></div>
+
+<h3>Пример кода</h3>
+<pre>// Простой слушатель
+const btn = document.querySelector(".btn");
+btn.addEventListener("click", () => {
+  console.log("Клик!");
+});
+
+// Объект события
+btn.addEventListener("click", (e) => {
+  e.target;            // по какому элементу кликнули
+  e.preventDefault();  // отменить действие по умолчанию
+  e.stopPropagation(); // остановить всплытие
+});
+
+// Делегирование — один слушатель на родителя
+document.querySelector(".cards").addEventListener("click", (e) => {
+  const card = e.target.closest(".card");   // ближайшая карточка
+  if (!card) return;                        // клик мимо — выходим
+  console.log("Клик по карточке", card.dataset.id);
+});</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Слушатель на каждую карточку</strong> — на 100 карточках 100 слушателей. <strong>Забыли preventDefault у формы</strong> — страница перезагружается. <strong>e.target вместо closest</strong> — клик по вложенной иконке «промахивается». <strong>Много слушателей на scroll</strong> — тормозит.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Четыре интерактивных блока</div>
+<div class="task-why">Зачем: эти паттерны покрывают 90% интерактива на сайтах.</div>
+<ol class="steps">
+<li>Модальное окно: клик по кнопке → открылось, по фону → закрылось.</li>
+<li>Табы: клик переключает активный.</li>
+<li>Аккордеон: клик раскрывает/закрывает.</li>
+<li>Бургер-меню: открытие/закрытие.</li>
+<li>Сделай делегирование на списке из 20 элементов.</li>
+</ol>
+<div class="task-r">Результат: четыре рабочих паттерна интерактива.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Слушатель на каждую карточку.</strong> Делегируй.</li>
+<li><strong>Забыли preventDefault.</strong> Перезагрузка.</li>
+<li><strong>e.target вместо closest.</strong> Промах.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что такое всплытие события?</li>
+<li>Чем e.target отличается от e.currentTarget?</li>
+<li>Зачем делегирование?</li>
+<li>Что делает closest()?</li></ol></div>
+`},
+
+{t:"Формы и валидация на JS",g:"Проверять данные до отправки и отправлять без перезагрузки.",c:`
+<h3>Зачем этот урок</h3>
+<p>HTML-валидация хороша, но молчалива: пользователь не понимает, что не так. JS-валидация даёт понятные сообщения и позволяет отправить форму без перезагрузки страницы.</p>
+<p>Это коммерческий элемент — он приносит заявки.</p>
+
+<h3>Простым языком</h3>
+<p><code>preventDefault</code> — отменить перезагрузку. <code>replace(/\D/g, "")</code> — убрать всё, кроме цифр.</p>
+<p>Маску делают на <code>input</code>, а не <code>keydown</code> — иначе не ловится вставка и backspace.</p>
+<p>Валидация только на клиенте недостаточна — на сервере проверять обязательно.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Валидация</dt><dd>Проверка корректности данных.</dd>
+<dt>Регулярное выражение</dt><dd>Шаблон для поиска и проверки строк.</dd>
+<dt>Маска ввода</dt><dd>Автоформатирование вводимых данных.</dd>
+<dt>Submit</dt><dd>Событие отправки формы.</dd>
+<dt>Fetch</dt><dd>Отправка сетевого запроса из JS.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему preventDefault? Иначе браузер выполняет стандартное действие — перезагрузку страницы, и данные теряются. Почему input, а не keydown? keydown не ловит вставку из буфера обмена и backspace. Почему дублировать на сервере? Клиентскую валидацию можно обойти, отправив данные напрямую.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Валидация — как проверка документов на границе: проверяют до въезда, а не после. Маска — как форма, где клеточки под буквы: вписать можно только туда, куда положено. preventDefault — как табличка «не нажимать»: она отменяет стандартную реакцию двери.</p></div>
+
+<h3>Пример кода</h3>
+<pre>const form = document.querySelector("#order");
+const phone = document.querySelector("#phone");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();   // отменяем перезагрузку
+
+  const value = phone.value.replace(/\D/g, "");   // только цифры
+  let error = "";
+
+  if (value.length < 11)       error = "Введите полный номер";
+  else if (!/^[78]/.test(value)) error = "Номер должен начинаться с 7 или 8";
+
+  if (error) { showError(phone, error); return; }
+
+  fetch("/api/order", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ phone: value })
+  })
+  .then(res => res.json())
+  .then(data => showSuccess("Заявка принята!"))
+  .catch(() => showError(phone, "Ошибка отправки"));
+});
+
+// Маска телефона
+phone.addEventListener("input", (e) => {
+  let digits = e.target.value.replace(/\D/g, "").slice(0, 11);
+  if (digits.startsWith("8")) digits = "7" + digits.slice(1);
+  let out = "+7";
+  if (digits.length > 1) out += " (" + digits.slice(1, 4);
+  if (digits.length >= 5) out += ") " + digits.slice(4, 7);
+  if (digits.length >= 8) out += "-" + digits.slice(7, 9);
+  if (digits.length >= 10) out += "-" + digits.slice(9, 11);
+  e.target.value = out;
+});</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Валидация только на клиенте</strong> — её можно обойти. <strong>Маска на keydown</strong> — ломает backspace и вставку. <strong>Нет preventDefault</strong> — страница перезагружается. <strong>Нет сообщения об успехе</strong> — клиент не уверен, что заявка ушла.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Форма с маской и уведомлением</div>
+<div class="task-why">Зачем: это коммерческий элемент — он приносит заявки.</div>
+<ol class="steps">
+<li>Форма с маской телефона (input, не keydown).</li>
+<li>Валидация: длина, начало с 7/8.</li>
+<li>Понятное сообщение об ошибке под полем.</li>
+<li>Отправка без перезагрузки (preventDefault + fetch).</li>
+<li>Уведомление «Заявка принята» после успеха.</li>
+<li>Черновик формы в localStorage.</li>
+</ol>
+<div class="task-r">Результат: форма, которая конвертирует посетителя в заявку.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Валидация только на клиенте.</strong> Обходится.</li>
+<li><strong>Маска на keydown.</strong> Ломает вставку.</li>
+<li><strong>Нет preventDefault.</strong> Перезагрузка.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем preventDefault у формы?</li>
+<li>Почему маску делают на input?</li>
+<li>Почему валидация только на клиенте недостаточна?</li>
+<li>Что делает replace(/\D/g, "")?</li></ol></div>
+`},
+
+{t:"Шаблонные строки, spread, rest",g:"Собирать строки и копировать данные удобно.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Шаблонные строки</strong> (обратные кавычки) позволяют вставлять переменные прямо в текст. <strong>Spread</strong> (...) «раскрывает» массив или объект. <strong>Rest</strong> собирает «остаток» в массив.</p>
+<p>Шаблонные строки — способ генерировать разметку. Spread и rest — главный инструмент иммутабельного обновления данных.</p>
+
+<h3>Простым языком</h3>
+<p>В шаблонных строках переменные вставляются через <code>${...}</code>.</p>
+<p>Spread раскрывает, rest собирает. Вместе — основа обновления данных без мутации.</p>
+<p><code>arr.map(x => x.id === id ? {...x, done: true} : x)</code> — обновление без мутации.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Шаблонная строка</dt><dd>Строка в обратных кавычках с интерполяцией.</dd>
+<dt>Интерполяция</dt><dd>Вставка значений в строку.</dd>
+<dt>Spread</dt><dd>Раскрытие массива или объекта.</dd>
+<dt>Rest</dt><dd>Сбор оставшихся аргументов в массив.</dd>
+<dt>Иммутабельность</dt><dd>Отсутствие изменения исходных данных.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему шаблонные строки? В них можно вставлять переменные и переносить строки, не ломая синтаксис. Почему иммутабельность? Мутация массива при обновлении усложняет отслеживание изменений — React и не только этого не любят. Почему spread, а не Object.assign? Spread короче и читаемее.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Шаблонная строка — как бланк с пропусками: вставил имя — подставилось в строку приветствия. Spread — как высыпать сумку с продуктами на стол: всё разом, в том же порядке. Rest — как собрать остатки в пакет: не выкидывать же.</p></div>
+
+<h3>Пример кода</h3>
+<pre>const name = "Анна", price = 1990;
+// Шаблонная строка — короче и читаемее конкатенации:
+const card = `&lt;div class='card'&gt;&lt;h3&gt;${name}&lt;/h3&gt;&lt;p&gt;${price} ₽&lt;/p&gt;&lt;/div&gt;`;
+
+// Spread — массивы
+const a = [1, 2], b = [3, 4];
+const all = [...a, ...b];        // [1, 2, 3, 4]
+
+// Spread — объекты (копия + изменение)
+const user = { name: "Анна", age: 30 };
+const updated = { ...user, age: 31 };
+
+// Rest — собрать остаток
+function sum(...numbers) {
+  return numbers.reduce((s, n) => s + n, 0);
+}
+sum(1, 2, 3, 4);   // 10
+
+// Деструктуризация + rest
+const [first, ...others] = [1, 2, 3, 4];</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Конкатенация вместо шаблонных строк</strong> — теряется читаемость. <strong>Мутация массива при обновлении</strong> — сложно отследить. <strong>Spread без понимания</strong> — можно случайно скопировать ссылку.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Шаблонизатор и утилиты</div>
+<div class="task-why">Зачем: шаблонные строки — способ генерировать разметку.</div>
+<ol class="steps">
+<li>Функция cardTemplate(product) — возвращает HTML-строку.</li>
+<li>Слияние двух массивов товаров без дублей (по id).</li>
+<li>Функция log(level, ...messages) с rest.</li>
+<li>Обновление товара в массиве без мутации (map + spread).</li>
+</ol>
+<div class="task-r">Результат: приёмы, используемые в каждом проекте.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Конкатенация.</strong> Теряется читаемость.</li>
+<li><strong>Мутация при обновлении.</strong> Сложно отследить.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем spread отличается от rest?</li>
+<li>Как обновить элемент массива без мутации?</li>
+<li>Зачем шаблонные строки удобнее конкатенации?</li>
+<li>Что делает функция sum(...numbers)?</li></ol></div>
+`},
+
+{t:"Асинхронность: Promise",g:"Понимать, как JS ждёт данные, не блокируя страницу.",c:`
+<h3>Зачем этот урок</h3>
+<p>JavaScript однопоточный — делает одно дело за раз. Если сервер думает 2 секунды, страница не должна «замереть». Поэтому придумали <strong>асинхронность</strong>: «начни запрос, а когда ответ придёт — вызови мою функцию».</p>
+<p><strong>Promise</strong> — обещание результата. Три состояния: pending (ждём), fulfilled (успех), rejected (ошибка).</p>
+
+<h3>Простым языком</h3>
+<p><code>.then()</code> — когда успех, <code>.catch()</code> — когда ошибка, <code>.finally()</code> — всегда.</p>
+<p><code>return</code> внутри then обязателен, иначе следующий then получит undefined.</p>
+<p><code>Promise.all</code> запускает запросы параллельно и ждёт все.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Асинхронность</dt><dd>Выполнение операций без блокировки потока.</dd>
+<dt>Промис</dt><dd>Объект, представляющий будущий результат.</dd>
+<dt>Колбэк</dt><dd>Функция, вызываемая по завершении операции.</dd>
+<dt>Цепочка then</dt><dd>Последовательная обработка результата.</dd>
+<dt>Race condition</dt><dd>Ошибка при одновременном доступе к данным.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему не ждать ответа просто так? JS однопоточный: пока ждёт сервер, он не может обновлять интерфейс, и страница зависает. Почему return в then? Без него в следующий then уйдёт undefined. Почему Promise.all? Последовательные запросы ждут друг друга; параллельные — вдвое быстрее.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Промис — как заказ в ресторане: тебе дали пейджер и сказали «перезвоним». Ты садишься за стол и занимаешься своими делами, а не стоишь у окна. then — «когда позовут, подойти». catch — «если что-то не так, извиниться». finally — «в любом случае, оставить пейджер».</p></div>
+
+<h3>Пример кода</h3>
+<pre>const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+delay(1000)
+  .then(() => console.log("Прошла секунда"))
+  .catch(err => console.error("Ошибка", err))
+  .finally(() => console.log("В любом случае"));
+
+// Цепочка
+fetch("/api/user")
+  .then(res => res.json())
+  .then(user => fetch("/api/orders/" + user.id))
+  .then(res => res.json())
+  .then(orders => render(orders))
+  .catch(err => showError(err));
+
+// Параллельно
+Promise.all([fetch("/a"), fetch("/b")])
+  .then(([a, b]) => console.log("Оба готовы"));</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Забыли return в then</strong> — следующий then получит undefined. <strong>Нет catch</strong> — ошибка проглатывается молча. <strong>Последовательные запросы вместо Promise.all</strong> — вдвое медленнее. <strong>Обращение к данным до ответа</strong> — undefined.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Имитация загрузки данных</div>
+<div class="task-why">Зачем: понять асинхронность на безопасном примере.</div>
+<ol class="steps">
+<li>Функция delay(ms) через Promise.</li>
+<li>Имитация загрузки: показать скелетон → через 1.5с данные.</li>
+<li>Цепочка из трёх then: загрузка → обработка → рендер.</li>
+<li>Два «запроса» параллельно через Promise.all.</li>
+<li>Обработай ошибку через catch — покажи сообщение.</li>
+</ol>
+<div class="task-r">Результат: понимание асинхронной модели.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Забыли return.</strong> Undefined.</li>
+<li><strong>Нет catch.</strong> Ошибка молчит.</li>
+<li><strong>Последовательно.</strong> Медленнее.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови три состояния Promise.</li>
+<li>Зачем return в .then()?</li>
+<li>Чем Promise.all полезен?</li>
+<li>Что делает finally?</li></ol></div>
+`},
+
+{t:"async/await и fetch",g:"Писать асинхронный код, который читается как обычный.",c:`
+<h3>Зачем этот урок</h3>
+<p><code>async/await</code> — «сахар» над промисами. Вместо цепочки <code>.then()</code> пишешь <code>await</code>, и код выглядит последовательным, хотя остаётся асинхронным.</p>
+<p>Три состояния (загрузка/ошибка/данные) — стандарт любого динамического блока.</p>
+
+<h3>Простым языком</h3>
+<p><code>await</code> ждёт результат промиса, не блокируя страницу.</p>
+<p><code>try/catch</code> ловит ошибки.</p>
+<p>Проверяй <code>res.ok</code> — иначе 404 с HTML-телом сломает <code>res.json()</code>.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Async</dt><dd>Объявление асинхронной функции.</dd>
+<dt>Await</dt><dd>Ожидание результата промиса внутри async-функции.</dd>
+<dt>Fetch</dt><dd>API для сетевых запросов.</dd>
+<dt>Res.ok</dt><dd>Признак успешного статуса ответа.</dd>
+<dt>JSON</dt><dd>Формат обмена данными.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему await удобнее? Код читается сверху вниз, и try/catch ловит все ошибки сразу. Почему проверять res.ok? fetch не выбрасывает ошибку на 404 — вернёт ответ с HTML, и json() сломается. Почему await в цикле только для зависимых запросов? Независимые быстрее через Promise.all.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Await — как «подожди у кассы, пока пробивают чек»: ты не уходишь, но и не стоишь столбом. try/catch — как «если карта не пройдёт, скажем об этом». res.ok — как проверить, что товар в наличии, прежде чем платить.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Поток async/await">
+<rect width="840" height="300" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="12" font-weight="700" font-family="Arial">Поток async/await: запрос, ожидание, результат</text>
+<rect x="40" y="50" width="170" height="40" rx="8" fill="#4f46e5"/>
+<text x="125" y="74" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="monospace">async function</text>
+<rect x="280" y="50" width="170" height="40" rx="8" fill="#e08c00"/>
+<text x="365" y="74" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="monospace">await fetch(url)</text>
+<rect x="520" y="50" width="170" height="40" rx="8" fill="#15a34a"/>
+<text x="605" y="74" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="monospace">const res</text>
+<rect x="730" y="50" width="80" height="40" rx="8" fill="#4f46e5"/>
+<text x="770" y="74" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="monospace">await res.json()</text>
+<line x1="210" y1="70" x2="280" y2="70" stroke="#4f46e5" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="450" y1="70" x2="520" y2="70" stroke="#4f46e5" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="690" y1="70" x2="730" y2="70" stroke="#4f46e5" stroke-width="2" marker-end="url(#arr)"/>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0,0 8,4 0,8" fill="#4f46e5"/></marker></defs>
+<rect x="280" y="120" width="170" height="34" rx="7" fill="#fef2f2" stroke="#b42318" stroke-width="2"/>
+<text x="365" y="142" text-anchor="middle" fill="#b42318" font-size="11.5" font-weight="700" font-family="Arial">⏱ пауза, ждём ответ</text>
+<line x1="365" y1="90" x2="365" y2="120" stroke="#b42318" stroke-width="1.5" stroke-dasharray="4 3"/>
+<rect x="40" y="180" width="760" height="100" rx="10" fill="#101828"/>
+<text x="60" y="206" fill="#a5b4fc" font-size="11.5" font-weight="700" font-family="Arial">try {</text>
+<text x="80" y="226" fill="#e6edf7" font-size="11.5" font-family="monospace">const res = await fetch("/api/order", {...});</text>
+<text x="80" y="244" fill="#e6edf7" font-size="11.5" font-family="monospace">if (!res.ok) throw new Error("Не найдено");</text>
+<text x="80" y="262" fill="#e6edf7" font-size="11.5" font-family="monospace">const data = await res.json();</text>
+<text x="60" y="278" fill="#a5b4fc" font-size="11.5" font-weight="700" font-family="Arial">} catch (e) { ... }</text>
+</svg><figcaption><b>Рис. 56.1.</b> await «ставит на паузу» функцию, не блокируя браузер. Без try/catch ошибка уронит весь скрипт.</figcaption></figure>
+
+
+<h3>Пример кода</h3>
+<pre>async function loadProduct(id) {
+  try {
+    const res = await fetch("/api/products/" + id);
+    if (!res.ok) throw new Error("Не найдено");
+    const product = await res.json();
+    return product;
+  } catch (err) {
+    console.error("Ошибка:", err.message);
+    return null;
+  }
+}
+
+const product = await loadProduct(42);  // только в ES-модуле или async-функции
+
+// fetch: метод, заголовки, тело
+const res = await fetch("/api/order", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ name: "Анна", phone: "+79991234567" })
+});
+res.status;      // 200, 404, 500...
+res.ok;          // true если 200–299</pre>
+
+<h3>Современно: AbortController</h3>
+<p><strong>AbortController</strong> — отмена запроса. Нужна, когда пользователь ушёл со страницы, а запрос ещё идёт — без отмены он загрузится зря и может вызвать ошибку «setState on unmounted component» в React.</p>
+<pre>const controller = new AbortController();
+
+async function loadProducts() {
+  try {
+    const res = await fetch("/api/products", {
+      signal: controller.signal   // привязали сигнал
+    });
+    return await res.json();
+  } catch (err) {
+    if (err.name === "AbortError") {
+      console.log("Запрос отменён пользователем");
+      return null;
+    }
+    throw err;   // другие ошибки пробрасываем
+  }
+}
+
+// Пользователь ушёл со страницы — отменяем:
+controller.abort();</pre>
+
+<p>В React это обычно делают в <code>useEffect</code> — возвращают функцию, которая вызывает <code>abort()</code> при размонтировании компонента.</p>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>await без try/catch</strong> — ошибка уронит весь скрипт. <strong>Не проверили res.ok</strong> — json() сломается на 404. <strong>await в цикле для независимых запросов</strong> — медленно. <strong>Забыли await</strong> — получишь промис вместо данных. <strong>Не отменили запрос при размонтировании</strong> — ошибка в React и утечка памяти.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Загрузчик данных с состояниями</div>
+<div class="task-why">Зачем: три состояния — стандарт любого динамического блока.</div>
+<ol class="steps">
+<li>Функция loadProducts() с await fetch.</li>
+<li>Состояние «Загрузка» — показать скелетон.</li>
+<li>Состояние «Ошибка» — обработать через try/catch.</li>
+<li>Состояние «Данные» — отрисовать список.</li>
+<li>Обработай 404 через проверку res.ok.</li>
+<li>Три запроса подряд через await — замерь время.</li>
+</ol>
+<div class="task-r">Результат: рабочий паттерн загрузки данных.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>await без try/catch.</strong> Уронит скрипт.</li>
+<li><strong>Не проверили res.ok.</strong> Сломается json().</li>
+<li><strong>await в цикле.</strong> Медленно.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем async перед функцией?</li>
+<li>Что делает await?</li>
+<li>Почему нужно проверять res.ok?</li>
+<li>Когда await в цикле оправдан?</li></ol></div>
+`},
+
+{t:"Работа с JSON и внешними API",g:"Получать данные с других сервисов.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>JSON</strong> — формат обмена данными. Выглядит как JS-объект, но это текст. Его нужно «парсить» в объект и обратно. <strong>API</strong> — «окошко» другого сервиса: присылаешь запрос, получаешь данные.</p>
+<p>Это первый реальный проект с внешним API.</p>
+
+<h3>Простым языком</h3>
+<p><code>JSON.stringify</code> — объект в текст, <code>JSON.parse</code> — текст в объект.</p>
+<p>Коды ответов: 401 — нет ключа, 429 — исчерпан лимит, 500 — сломались они.</p>
+<p><strong>CORS</strong> — защита браузера: он не даёт JS с одного домена читать ответы другого без разрешения.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>JSON</dt><dd>Формат данных на основе текста.</dd>
+<dt>API</dt><dd>Интерфейс программирования приложений.</dd>
+<dt>Ключ API</dt><dd>Секретный токен доступа к сервису.</dd>
+<dt>CORS</dt><dd>Правило браузера о междоменных запросах.</dd>
+<dt>Endpoint</dt><dd>Конкретный адрес метода API.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему JSON, а не XML? Он легче, читаемее и напрямую превращается в объект. Почему ключ не в коде? Репозиторий может стать публичным — ключ утечёт. Почему CORS решается на стороне API? Это защита браузера, и обойти её из клиентского кода нельзя.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>JSON — как накладная на товар: стандартный формат, понятный любому складу. API — как окно в банке: подошёл, предъявил документ (ключ), получил справку. CORS — как охрана на проходной: пускает только тех, кто в списке, даже если документ настоящий.</p></div>
+
+<h3>Пример кода</h3>
+<pre>// JSON ↔ объект
+const obj = { name: "Анна", age: 30 };
+const json = JSON.stringify(obj);     // объект → текст
+const back = JSON.parse(json);        // текст → объект
+
+// Запрос к API
+async function getWeather(city) {
+  const key = "ВАШ_КЛЮЧ";
+  const url = "https://api.openweathermap.org/data/2.5/weather"
+            + "?q=" + encodeURIComponent(city) + "&appid=" + key + "&units=metric&lang=ru";
+
+  const res = await fetch(url);
+  if (!res.ok) throw new Error("Город не найден");
+
+  const data = await res.json();
+  return {
+    temp: Math.round(data.main.temp),
+    desc: data.weather[0].description
+  };
+}</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Ключ API в коде и в git</strong> — утечёт. <strong>Нет обработки res.ok</strong> — json() сломается. <strong>Запросы без ключа на проде</strong> — лимит кончится. <strong>Игнорирование CORS</strong> — запрос не пройдёт.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Погодное приложение</div>
+<div class="task-why">Зачем: первый реальный проект с внешним API.</div>
+<ol class="steps">
+<li>Получи бесплатный ключ на openweathermap.org.</li>
+<li>Сохрани ключ в .env или константу (не в git!).</li>
+<li>Сделай запрос через async/await.</li>
+<li>Обработай состояния: загрузка / ошибка / данные.</li>
+<li>Выведи температуру и описание.</li>
+<li>Проверь поведение при неверном городе.</li>
+</ol>
+<div class="task-r">Результат: приложение, работающее с реальным внешним API.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Ключ в коде.</strong> Утечёт.</li>
+<li><strong>Нет обработки res.ok.</strong> Сломается.</li>
+<li><strong>Запросы без ключа.</strong> Лимит.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем JSON.stringify отличается от JSON.parse?</li>
+<li>Что означает код 401?</li>
+<li>Почему ключ API не хранят в коде?</li>
+<li>Что такое CORS и кто его чинит?</li></ol></div>
+`},
+
+{t:"localStorage и sessionStorage",g:"Хранить данные в браузере пользователя.",c:`
+<h3>Зачем этот урок</h3>
+<p>Иногда сервер не нужен — данные можно хранить прямо в браузере. <code>localStorage</code> живёт до очистки, <code>sessionStorage</code> — до закрытия вкладки. Оба хранят <strong>только строки</strong>, поэтому объекты прогоняем через JSON.</p>
+<p>Три фичи на localStorage повышают удержание: корзина, тема, черновик формы.</p>
+
+<h3>Простым языком</h3>
+<p><code>localStorage.setItem("theme", "dark")</code> — записать, <code>getItem</code> — прочитать.</p>
+<p>Объект → строка через JSON.stringify, обратно через JSON.parse.</p>
+<p>Не храни пароли и токены — любой скрипт на странице может их прочитать.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>LocalStorage</dt><dd>Хранилище в браузере, живёт до очистки.</dd>
+<dt>SessionStorage</dt><dd>Хранилище на время вкладки.</dd>
+<dt>Cookie</dt><dd>Мелкие данные, уходящие на сервер с запросом.</dd>
+<dt>Сериализация</dt><dd>Преобразование объекта в строку.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему объект нельзя положить напрямую? Хранилище принимает только строки; без JSON.stringify получишь «[object Object]». Почему обёртка с try/catch? Битые данные уронят скрипт. Почему не пароли? Любой XSS на странице прочитает хранилище.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>LocalStorage — как блокнот в ящике стола: лежит, пока не выбросишь. SessionStorage — как записка на клейкой бумажке: снимется, когда закроешь крышку. Cookie — как записка, которую посылаешь вместе с каждым письмом. Сериализация — как перевести заметку на общий для всех язык.</p></div>
+
+<h3>Пример кода</h3>
+<pre>// Запись и чтение
+localStorage.setItem("theme", "dark");
+localStorage.getItem("theme");        // "dark"
+localStorage.removeItem("theme");
+localStorage.clear();
+
+// Объект → строка → объект
+const cart = [{ id: 1, qty: 2 }];
+localStorage.setItem("cart", JSON.stringify(cart));
+const saved = JSON.parse(localStorage.getItem("cart") || "[]");
+
+// Безопасная обёртка
+const store = {
+  get(key, fallback = null) {
+    try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
+    catch { return fallback; }
+  },
+  set(key, value) { localStorage.setItem(key, JSON.stringify(value)); }
+};</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Хранение паролей и токенов</strong> — утечка. <strong>JSON.parse без try/catch</strong> — битые данные уронят скрипт. <strong>Хранение больших объектов</strong> — лимит 5 МБ, синхронно тормозит. <strong>Нет обработки отсутствия данных</strong> — null.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Три фичи на localStorage</div>
+<div class="task-why">Зачем: типовые задачи, которые делают сайт «своим» для пользователя.</div>
+<ol class="steps">
+<li>Корзина, переживающая перезагрузку страницы.</li>
+<li>Переключатель темы (светлая/тёмная) с сохранением.</li>
+<li>Черновик формы, восстанавливающийся при возврате.</li>
+<li>Оберни доступ в store.get/store.set с try/catch.</li>
+</ol>
+<div class="task-r">Результат: три фичи, повышающие удержание.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Пароли и токены.</strong> Утечка.</li>
+<li><strong>JSON.parse без try/catch.</strong> Уронит.</li>
+<li><strong>Большие объекты.</strong> Тормозит.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем localStorage отличается от sessionStorage?</li>
+<li>Почему объект нельзя положить напрямую?</li>
+<li>Что нельзя хранить в localStorage?</li>
+<li>Зачем обёртка с try/catch?</li></ol></div>
+`},
+
+{t:"Модули и npm",g:"Разбивать код на файлы и использовать чужие библиотеки.",c:`
+<h3>Зачем этот урок</h3>
+<p>Когда кода становится много, его разбивают на <strong>модули</strong> — файлы, которые экспортируют и импортируют нужные части. <strong>npm</strong> — магазин чужих модулей: библиотеки ставятся одной командой.</p>
+<p>Файл на 2000 строк не читается. Модульная архитектура — масштабируемость.</p>
+
+<h3>Простым языком</h3>
+<p><code>export</code> отдаёт, <code>import</code> забирает.</p>
+<p><code>npm install</code> ставит зависимости из package.json.</p>
+<p>Модули работают только через сервер — при открытии файла двойным щелчком браузер блокирует import из-за CORS.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Модуль</dt><dd>Файл с изолированным кодом.</dd>
+<dt>Экспорт / импорт</dt><dd>Отдача и получение кода между модулями.</dd>
+<dt>npm</dt><dd>Менеджер пакетов Node.js.</dd>
+<dt>node_modules</dt><dd>Папка установленных зависимостей.</dd>
+<dt>Зависимость</dt><dd>Внешняя библиотека, используемая проектом.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему разбивать на модули? Один файл на 2000 строк не читается и не поддерживается. Почему node_modules не коммитят? Это сотни мегабайт чужих библиотек, восстанавливаются одной командой. Почему модули не работают при открытии файла? Браузер блокирует import из-за правил безопасности — нужен локальный сервер.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Модуль — как отдел в компании: у каждого своя задача, общение через документы. npm — как склад готовых деталей: не изготавливаешь винт сам, а заказываешь партию. node_modules — как склад у завода: он нужен для работы, но его не берут с собой при переезде.</p></div>
+
+<h3>Пример кода</h3>
+<pre>// data.js — экспорт
+export const products = [/* ... */];
+export function formatPrice(n) { return n + " ₽"; }
+
+// cart.js — импорт
+import { products, formatPrice } from "./data.js";
+export function addToCart(id) { /* ... */ }
+
+// main.js — точка входа
+import { addToCart } from "./cart.js";
+addToCart(1);
+
+// .gitignore
+node_modules/
+.DS_Store
+.env</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Открытие index.html двойным щелчком</strong> — import не работает из-за CORS. <strong>Коммит node_modules</strong> — сотни МБ мусора. <strong>Циклические импорты</strong> — модули зависят друг от друга по кругу. <strong>Всё в одном файле</strong> — не читается.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Разбить проект на модули</div>
+<div class="task-why">Зачем: масштабируемость.</div>
+<ol class="steps">
+<li>Раздели JS проекта на data / cart / ui / main.</li>
+<li>Экспортируй функции из каждого.</li>
+<li>Импортируй в main.js.</li>
+<li>Установи swiper через npm.</li>
+<li>Создай .gitignore с node_modules/.</li>
+<li>Проверь: npm install восстанавливает всё с нуля?</li>
+</ol>
+<div class="task-r">Результат: модульная архитектура проекта.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Открытие двойным щелчком.</strong> Не работает.</li>
+<li><strong>Коммит node_modules.</strong> Мусор.</li>
+<li><strong>Циклические импорты.</strong> Зависимость по кругу.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем export отличается от import?</li>
+<li>Почему node_modules не коммитят?</li>
+<li>Почему модули не работают при открытии файла?</li>
+<li>Что делает npm install?</li></ol></div>
+`},
+
+{t:"Обработка ошибок и отладка",g:"Находить и исправлять баги системно.",c:`
+<h3>Зачем этот урока</h3>
+<p>Ошибки — норма. Умение их находить — 50% работы разработчика. Главный инструмент — <strong>отладчик</strong> (breakpoints), а не сотня console.log.</p>
+<p>Навык отладки экономит часы: сначала читай сообщение об ошибке — в 80% случаев там написано, что не так и на какой строке.</p>
+
+<h3>Простым языком</h3>
+<p><code>try/catch</code> — поймать и обработать. <code>finally</code> — выполнится всегда.</p>
+<p><code>console.log</code> — значение, <code>console.table</code> — массив объектов таблицей, <code>console.time</code> — время выполнения.</p>
+<p>Breakpoint в DevTools показывает значения переменных в нужный момент без правки кода.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Отладка</dt><dd>Процесс поиска и исправления ошибок.</dd>
+<dt>Точка останова</dt><dd>Место, где выполнение кода приостанавливается.</dd>
+<dt>Стек вызовов</dt><dd>Цепочка вызовов функций до ошибки.</dd>
+<dt>Исключение</dt><dd>Ошибка времени выполнения.</dd>
+<dt>Логирование</dt><dd>Вывод информации о работе программы.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему breakpoint лучше console.log? На 50 строк кода лог становится шумом, а breakpoint показывает значения в нужный момент. Почему читать сообщение? В 80% случаев там прямо написано, что не так и на какой строке. Почему finally? Он выполнится и при успехе, и при ошибке — удобно для снятия лоадера.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Отладчик — как замедленная съёмка момента аварии: видно каждый кадр. console.log — как крикнуть «я тут!» из окна: помогает, но не объясняет. Стек вызовов — как след на снегу: видно, откуда пришёл.</p></div>
+
+<h3>Пример кода</h3>
+<pre>// try/catch — поймать и обработать
+try {
+  const data = JSON.parse(brokenJson);
+} catch (err) {
+  console.error("Не удалось разобрать:", err.message);
+} finally {
+  hideLoader();   // выполнится всегда
+}
+
+// Своя ошибка
+if (!user) throw new Error("Пользователь не найден");
+
+// Логирование
+console.log("значение:", x);
+console.table(products);      // таблицей!
+console.time("load");
+// ... код ...
+console.timeEnd("load");      // "load: 234ms"</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>console.log вместо отладчика</strong> — на большом коде лог становится шумом. <strong>Игнорирование консоли</strong> — красная строка часто объясняет всё. <strong>Исправление симптома</strong> — через день баг вернётся. <strong>Нет finally</strong> — лоадер останется висеть.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Найти пять багов через отладчик</div>
+<div class="task-why">Зачем: сменить привычку «логировать всё» на «смотреть значения».</div>
+<ol class="steps">
+<li>Создай файл с 5 намеренными ошибками.</li>
+<li>Для каждой открой Sources, поставь breakpoint.</li>
+<li>Пройди пошагово (F10), смотри значения переменных.</li>
+<li>Найди причину без единого console.log.</li>
+<li>Оберни опасный JSON.parse в try/catch.</li>
+<li>Замерь время загрузки через console.time.</li>
+</ol>
+<div class="task-r">Результат: навык отладки, экономящий часы.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>console.log вместо отладчика.</strong> Шум.</li>
+<li><strong>Игнорирование консоли.</strong> Красная строка.</li>
+<li><strong>Исправление симптома.</strong> Вернётся.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем breakpoint лучше console.log?</li>
+<li>Что делает finally?</li>
+<li>Когда throw уместен?</li>
+<li>Что покажет console.table?</li></ol></div>
+`},
+
+{t:"Библиотеки: Swiper, Lenis, AOS",g:"Подключать готовые решения вместо изобретения велосипедов.",c:`
+<h3>Зачем этот урок</h3>
+<p>Не всё нужно писать руками. Популярные задачи решены качественно: слайдеры, плавный скролл, появление при скролле. Своя реализация каждого — дни работы и баги.</p>
+<p>Три библиотеки закрывают типовые задачи: Swiper для слайдеров, Lenis для скролла, AOS для появления.</p>
+
+<h3>Простым языком</h3>
+<p>Swiper — слайдеры с touch, loop, адаптивом. Настройка через объект опций и брейкпоинты.</p>
+<p>Lenis делает скролл плавным с инерцией.</p>
+<p>AOS — анимация появления через атрибуты в разметке, без JS.</p>
+<p>Все проверять на prefers-reduced-motion — у некоторых пользователей анимации вызывают тошноту.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Библиотека</dt><dd>Готовый код для решения типовой задачи.</dd>
+<dt>CDN</dt><dd>Доставка библиотеки с сервера разработчиков.</dd>
+<dt>Инициализация</dt><dd>Запуск библиотеки с настройками.</dd>
+<dt>Брейкпоинты</dt><dd>Условия изменения настроек по ширине.</dd>
+<dt>Touch</dt><dd>Поддержка сенсорного управления.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему не писать свой слайдер? Свой слайдер — это touch-события, инерция, адаптив, доступность, кроссплатформенность. Дни работы против часа настройки. Почему Lenis проверять на prefers-reduced-motion? Плавный скролл вызывает тошноту у части людей. Почему autoplay с паузой при наведении? Иначе раздражает.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Swiper — как карусель в торговом центре: толкнул — поехала. Lenis — как лифт с плавным торможением вместо рывка. AOS — как подсветка витрин, которая включается, когда проходишь мимо.</p></div>
+
+<h3>Пример кода</h3>
+<pre>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"&gt;
+&lt;div class="swiper"&gt;
+  &lt;div class="swiper-wrapper"&gt;
+    &lt;div class="swiper-slide"&gt;Слайд 1&lt;/div&gt;
+    &lt;div class="swiper-slide"&gt;Слайд 2&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="swiper-button-prev"&gt;&lt;/div&gt;
+  &lt;div class="swiper-button-next"&gt;&lt;/div&gt;
+  &lt;div class="swiper-pagination"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"&gt;&lt;/script&gt;
+
+new Swiper(".swiper", {
+  slidesPerView: 1,
+  spaceBetween: 16,
+  loop: true,
+  autoplay: { delay: 3000 },
+  breakpoints: {
+    768:  { slidesPerView: 2 },
+    1024: { slidesPerView: 3 }
+  },
+  navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+  pagination: { el: ".swiper-pagination" }
+});</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Lenis без prefers-reduced-motion</strong> — тошнота. <strong>autoplay без паузы при наведении</strong> — раздражает. <strong>Пять библиотек на одну задачу</strong> — выбери одну. <strong>Свой слайдер вместо Swiper</strong> — дни работы.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Добавить три библиотеки в лендинг</div>
+<div class="task-why">Зачем: получить готовые качественные компоненты за час.</div>
+<ol class="steps">
+<li>Подключи Swiper, сделай слайдер отзывов с адаптивом.</li>
+<li>Подключи Lenis, проверь плавность.</li>
+<li>Подключи AOS, добавь появление трём блокам.</li>
+<li>Настрой breakpoints слайдера: 1 / 2 / 3 слайда.</li>
+<li>Проверь всё на телефоне.</li>
+</ol>
+<div class="task-r">Результат: три фичи, которые обычно пишут днями.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Lenis без reduced-motion.</strong> Тошнота.</li>
+<li><strong>autoplay без паузы.</strong> Раздражает.</li>
+<li><strong>Пять библиотей.</strong> Выбери одну.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Какие три библиотеки и зачем?</li>
+<li>Как сделать разное число слайдов на экранах?</li>
+<li>Зачем Lenis проверять на prefers-reduced-motion?</li>
+<li>Чем AOS проще ручной анимации?</li></ol></div>
+`},
+
+{t:"Проект: интерактивный лендинг + корзина",g:"Собрать всё из Главы 5 в один работающий сайт.",c:`
+<h3>Зачем этот урок</h3>
+<p>Финальный проект главы. Здесь собирается всё: данные, рендеринг, события, корзина, хранилище, формы. Без фреймворков — чистый JS. После этого проекта ты сможешь делать лендинги «под ключ».</p>
+<p>Это первый полноценный проект для портфолио.</p>
+
+<h3>Простым языком</h3>
+<p>Обязательный функционал: бургер-меню, табы или аккордеон, слайдер отзывов, модалка, фильтр товаров, сортировка, корзина с количеством и суммой, корзина в localStorage, форма с маской и валидацией, товары из JS-массива, плавный скролл, кнопка «Наверх».</p>
+
+<h3>Структура файлов проекта</h3>
+<pre>project/
+├── index.html
+├── css/style.css
+└── js/
+    ├── data.js     ← товары
+    ├── cart.js     ← корзина
+    ├── ui.js       ← меню, модалка
+    ├── form.js     ← валидация
+    └── main.js     ← сборка</pre>
+
+<h3>Порядок работы</h3>
+<ol>
+<li>Данные и рендеринг каталога.</li>
+<li>Фильтр и сортировка.</li>
+<li>Корзина + localStorage.</li>
+<li>UI: меню, модалка, форма.</li>
+</ol>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Всё в одном main.js</strong> — через неделю не разберёшься. <strong>Мутация массива при сортировке</strong> — данные «поедут». <strong>Корзина без localStorage</strong> — пользователь теряет её при перезагрузке.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать проект по чек-листу</div>
+<div class="task-why">Зачем: это твой первый полноценный проект для портфолио.</div>
+<ol class="steps">
+<li>Создай структуру файлов из схемы.</li>
+<li>data.js: массив из 8 товаров (id, имя, цена, категория, фото).</li>
+<li>Отрисуй каталог через map + шаблонные строки.</li>
+<li>Фильтр по категории + сортировка по цене (по копии).</li>
+<li>Корзина: add/remove/changeQty, сумма через reduce.</li>
+<li>Сохрани корзину в localStorage, восстанови при загрузке.</li>
+<li>Меню, модалка, табы — через события и делегирование.</li>
+<li>Форма с маской + валидация + preventDefault.</li>
+<li>Плавный скролл по анкорам + кнопка «Наверх».</li>
+<li>Проверка: нет ошибок в консоли, работает на телефоне, корзина после reload.</li>
+<li>Закоммить и запушь на GitHub.</li>
+</ol>
+<div class="task-r">Результат: полноценный интерактивный лендинг — первый серьёзный проект портфолио.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Всё в одном main.js.</strong> Не разберёшься.</li>
+<li><strong>Мутация при сортировке.</strong> Данные поедут.</li>
+<li><strong>Корзина без localStorage.</strong> Потеря.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови 8 обязательных функций лендинга.</li>
+<li>Почему проект разбивают на модули?</li>
+<li>Как сделать сортировку без мутации данных?</li>
+<li>Что должен уметь проект после перезагрузки?</li></ol></div>
+`}
+];
+var cur=1;
+function render(){
+  var t=document.getElementById("tabs"); t.innerHTML="";
+  L.forEach(function(l,i){ var b=document.createElement("button");
+    b.className="tab"+(i+1===cur?" on":""); b.textContent=(i+45);
+    b.onclick=function(){cur=i+1;render();}; t.appendChild(b); });
+  var d=L[cur-1];
+  document.getElementById("out").innerHTML='<div class="lesson"><div class="lh"><div class="num">Урок '+(cur+44)+' · Глава 5 · JavaScript · Расширенная версия</div><h2>'+d.t+'</h2><div class="goal">🎯 '+d.g+'</div></div><div class="lb">'+d.c+'</div></div>';
+  document.getElementById("cnt").textContent="Урок "+cur+" из "+L.length;
+  window.scrollTo(0,0);
+}
+document.getElementById("prev").onclick=function(){ if(cur>1){cur--;render();} };
+document.getElementById("next").onclick=function(){ if(cur<L.length){cur++;render();} };
+render();
+</script>
+</body>
+</html>

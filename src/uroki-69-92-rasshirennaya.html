@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Уроки 63–91 · Расширенная теория</title>
+<style>
+:root{--bg:#eef1f6;--card:#fff;--line:#e4e8f0;--txt:#182031;--muted:#6d7789;--acc:#4f46e5;--ok:#15a34a;--proc:#e08c00;--code:#101828}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);font-size:14.5px;line-height:1.6}
+header{background:#101828;color:#fff;padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+header h1{margin:0;font-size:16px}header .sub{color:#98a2b3;font-size:12px}
+header .cnt{margin-left:auto;font-size:12px;color:#cbd5e1;font-weight:600}
+.wrap{max-width:900px;margin:0 auto;padding:20px 16px 70px}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:#fff;border-radius:7px;padding:5px 9px;font-size:12px;cursor:pointer;font-weight:600;color:var(--muted)}
+.tab:hover{border-color:#c7cfdd}.tab.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.lesson{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.lh{padding:20px 24px 14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fbfcfe,#fff)}
+.lh .num{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);font-weight:700}
+.lh h2{margin:4px 0 0;font-size:23px;letter-spacing:-.02em;line-height:1.25}
+.lh .goal{margin-top:6px;font-size:13px;color:var(--muted)}
+.lb{padding:4px 24px 24px}
+.lb h3{font-size:12.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);margin:24px 0 9px;font-weight:700;padding-bottom:5px;border-bottom:2px solid #eef2ff}
+.lb h4{font-size:15.5px;margin:18px 0 6px}
+.lb p{margin:0 0 12px;line-height:1.75}
+.lb ul,.lb ol{margin:0 0 13px;padding-left:21px}
+.lb li{margin-bottom:6px;line-height:1.68}
+.lb strong{color:#0f172a}
+.lb code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.87em;background:#f1f5f9;padding:1px 5px;border-radius:4px;color:#3730a3}
+.lb pre{background:var(--code);color:#e6edf7;padding:13px 15px;border-radius:9px;overflow-x:auto;font-size:12.2px;line-height:1.5;font-family:"SF Mono",Menlo,Consolas,monospace;margin:0 0 13px}
+.lb pre code{background:none;padding:0;color:inherit}
+.lb table{width:100%;border-collapse:collapse;margin:0 0 13px;font-size:12.8px}
+.lb th{background:#f8fafc;text-align:left;padding:8px 10px;border:1px solid var(--line);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.lb td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;line-height:1.5}
+figure{margin:0 0 16px}
+figure svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+figcaption{margin-top:6px;font-size:12.2px;color:var(--muted);line-height:1.5}
+figcaption b{color:#475467}
+.term{background:#f5f3ff;border-left:4px solid #8b5cf6;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px}
+.term-t{font-weight:700;font-size:12.5px;color:#6d28d9;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.term dl{margin:0}
+.term dt{font-weight:700;color:#4c1d95;font-size:13.5px;margin-top:6px}
+.term dd{margin:2px 0 0 0;font-size:13.5px;line-height:1.6;color:#5b21b6}
+.why{background:#eef2ff;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.why-t{font-weight:700;font-size:12.5px;color:#3730a3;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.life{background:#f0fdf4;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.life-t{font-weight:700;font-size:12.5px;color:#15803d;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.risk{background:#fef2f2;border-left:4px solid #b42318;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.risk-t{font-weight:700;font-size:12.5px;color:#b42318;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.task{background:#f8fafc;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:0 11px 11px 0;padding:13px 15px;margin:0 0 13px}
+.task-h{font-weight:700;font-size:14.5px;margin-bottom:4px}
+.task-why{font-size:12.8px;color:var(--muted);margin-bottom:9px;line-height:1.55}
+.steps{margin:0;padding-left:0;list-style:none;counter-reset:st}
+.steps li{position:relative;padding-left:32px;margin-bottom:8px;line-height:1.6;font-size:13.2px;counter-increment:st}
+.steps li::before{content:counter(st);position:absolute;left:0;top:0;width:21px;height:21px;background:var(--acc);color:#fff;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.task-r{margin-top:10px;padding-top:9px;border-top:1px dashed #d7dde6;font-size:12.8px;color:var(--ok);font-weight:600}
+.warn{background:#fffbeb;border-left:4px solid var(--proc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.warn-t{font-weight:700;font-size:12.5px;color:#b45309;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.warn ul{margin:0;padding-left:19px}.warn li{font-size:13.2px;margin-bottom:4px}
+.check{background:#f0fdf4;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.check-t{font-weight:700;font-size:12.5px;color:#15803d;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.check ol{margin:0;padding-left:19px}.check li{font-size:13.2px;margin-bottom:4px}
+.note{background:#eef2ff;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px;font-size:13.5px}
+.navb{display:flex;gap:9px;margin-top:16px}.navb .sp{flex:1}
+.btn{border:1px solid var(--line);background:#fff;padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600;font-family:inherit}
+.btn:hover{border-color:#c7cfdd}.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+@media(max-width:700px){.lh,.lb{padding-left:15px;padding-right:15px}.lh h2{font-size:20px}}
+</style>
+</head>
+<body>
+<header><h1>📚 Уроки 63–91 · Расширенная теория</h1><span class="sub">как · зачем · почему · терминология · примеры из жизни</span><span class="cnt" id="cnt"></span></header>
+<div class="wrap"><div class="tabs" id="tabs"></div><div id="out"></div>
+<div class="navb"><button class="btn" id="prev">← Предыдущий</button><span class="sp"></span><button class="btn pri" id="next">Следующий →</button></div></div>
+<script>
+var L=[
+{t:"Установка: локально и на хостинге",g:"Поднять WordPress на компьютере и на сервере.",c:`
+<h3>Зачем этот урок</h3>
+<p>Разработку всегда начинают <strong>локально</strong> — на своём компьютере. Быстрее, безопаснее, и клиенты ничего не видят. Когда сайт готов — переносишь на хостинг.</p>
+<p><strong>Local</strong> (бывш. Local by Flywheel) — программа, которая одной кнопкой создаёт полноценный WordPress на твоём компьютере: PHP, MySQL, Nginx уже настроены.</p>
+<p>Разница между окружениями: локально ломаешь без последствий, на проде ошибки видят клиенты.</p>
+
+<h3>Простым языком</h3>
+<p>Локально — черновик на столе. Прод — готовый документ на подписи.</p>
+<p>Требования к хостингу: PHP 8.1+ (лучше 8.2+), MySQL 5.7+, расширения curl, gd, mbstring, xml, zip, SSL.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Локальная среда</dt><dd>Сервер на твоём компьютере для разработки.</dd>
+<dt>Прод / продакшен</dt><dd>Боевой сервер, доступный клиентам.</dd>
+<dt>Стек</dt><dd>Набор технологий: PHP + MySQL + Nginx.</dd>
+<dt>Хостинг</dt><dd>Сервер, где работает сайт.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему локально? Быстрее (нет задержки сети), безопаснее (ошибки не видят клиенты), дешевле (не платишь за хостинг пока разрабатываешь). Почему LocalWP? Настройка PHP + MySQL + Nginx вручную — часы, LocalWP — минуты. Почему PHP 8.1+? Старые версии не поддерживаются и имеют уязвимости.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Локальная среда — как репетиция спектакля: можешь фальшивить, падать, начинать заново. Прод — премьера: всё должно работать с первого дубля. LocalWP — как репетиционная студия со всем оборудованием: зашёл и репетируй.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Перенос без бэкапа</strong> — потеря сайта. <strong>Не заменены URL в БД</strong> — картинки смотрят на localhost. <strong>Забыли постоянные ссылки</strong> — 404 на всех страницах. <strong>PHP на проде ниже, чем локально</strong> — белый экран.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Поднять WordPress локально</div>
+<div class="task-why">Зачем: получить бесплатную и безопасную песочницу.</div>
+<ol class="steps">
+<li>Скачай LocalWP с localwp.com.</li>
+<li>Создай сайт: имя test.local, PHP 8.1, Nginx.</li>
+<li>Открой админку (/wp-admin), поменяй язык на русский.</li>
+<li>Посмотри версию PHP в «Инструменты → Здоровье сайта».</li>
+<li>Создай тестовую страницу и запись.</li>
+<li>Сделай скриншот дашборда.</li>
+</ol>
+<div class="task-r">Результат: локальная среда, готовая к экспериментам.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Разработка сразу на боевом.</strong> Клиенты увидят поломанную страницу.</li>
+<li><strong>PHP 5.x на хостинге.</strong> WordPress и плагины не работают.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем разрабатывать локально?</li>
+<li>Какие требования к хостингу для WP?</li>
+<li>Что делает LocalWP?</li>
+<li>Чем продакшен опаснее локальной среды?</li></ol></div>
+`},
+
+{t:"Админка, настройки, пользователи, роли",g:"Управлять сайтом и понимать права доступа.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Админка</strong> — панель управления (/wp-admin). <strong>Роли</strong> определяют, кто что может. Клиенту нужна роль с минимумом прав — так безопаснее и ему проще.</p>
+<p>Базовая гигиена проекта: включить ЧПУ сразу, удалить лишние плагины и темы, сменить префикс wp_ таблиц, выставить часовой пояс.</p>
+
+<h3>Простым языком</h3>
+<p>Роли: Администратор (всё), Редактор (публикует чужие записи), Автор (только свои), Участник (пишет, не публикует), Подписчик (профиль).</p>
+<p>ЧПУ (человекочитаемые URL): <code>/uslugi/strizhka/</code> вместо <code>/?p=123</code> — важно для SEO.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Роль</dt><dd>Набор прав пользователя.</dd>
+<dt>ЧПУ</dt><dd>Человекочитаемые URL-адреса.</dd>
+<dt>Префикс таблиц</dt><dd>Приставка к именам таблиц в базе.</dd>
+<dt>Dashboard</dt><dd>Панель управления WordPress.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему клиенту не админ? Может случайно сломать сайт. Почему ЧПУ сразу? URL вида ?p=123 нечитаем для людей и плох для поиска. Почему менять префикс wp_? Автоматические атаки целятся именно в стандартные имена таблиц.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Роли — как пропуска в офисе: у директора все двери, у менеджера только свой отдел. ЧПУ — как адрес «ул. Ленина, 5» против «квартал 4, строение 12». Префикс таблиц — как замок нестандартного образца: стандартный вскрывают все.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Дать клиенту роль «Администратор»</strong> — сломает сайт за 5 минут. <strong>Слабый пароль admin</strong> — взлом за сутки. <strong>Не настроены постоянные ссылки</strong> — кривые URL. <strong>Время сервера не Московское</strong> — публикации уходят не вовремя.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Настроить сайт и роли</div>
+<div class="task-why">Зачем: базовая гигиена проекта.</div>
+<ol class="steps">
+<li>Включи ЧПУ /%postname%/, проверь URL записи.</li>
+<li>Удали неиспользуемые плагины и темы (Hello Dolly и др.).</li>
+<li>Выстави часовой пояс и язык.</li>
+<li>Создай 3 пользователей: редактор, автор, подписчик.</li>
+<li>Зайди под каждым — сравни, что видно в меню.</li>
+<li>Выпиши: какую роль дать клиенту магазина?</li>
+</ol>
+<div class="task-r">Результат: сайт с правильной базовой настройкой и пониманием ролей.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Давать клиенту роль администратора.</strong> Может сломать случайно.</li>
+<li><strong>Оставить ЧПУ по умолчанию.</strong> Теряете SEO.</li>
+<li><strong>Не менять префикс wp_.</strong> Цель для атак.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Какую роль дать клиенту и почему?</li>
+<li>Зачем ЧПУ?</li>
+<li>Что делать сразу после установки WP?</li>
+<li>Чем автор отличается от редактора?</li></ol></div>
+`},
+
+{t:"Страницы, меню, виджеты",g:"Строить структуру сайта и навигацию.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Страницы</strong> — постоянный контент («О нас», «Контакты»). <strong>Записи</strong> — блог/новости, идут по датам. <strong>Меню</strong> создаётся один раз и привязывается к «областям темы».</p>
+<p>Структура определяет удобство сайта. Меню должно быть управляемым из админки, а не захардкожено.</p>
+
+<h3>Простым языком</h3>
+<p><code>register_nav_menus</code> — регистрируем область меню. <code>wp_nav_menu</code> — выводим его в шаблоне.</p>
+<p>Область виджетов — место в шаблоне, куда клиент добавляет блоки из админки.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Область меню</dt><dd>Место в шаблоне для вывода меню.</dd>
+<dt>Область виджетов</dt><dd>Место для блоков, управляемых из админки.</dd>
+<dt>Иерархия страниц</dt><dd>Вложенность страниц друг в друга.</dd>
+<dt>Шаблон страницы</dt><dd>PHP-файл, определяющий вид страницы.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему меню не захардкоживают? Клиент не сможет его менять без разработчика. Почему отдельно области? Одна область «шапка», другая «подвал» — гибкость. Почему страницы отдельно от записей? Страницы постоянны, записи темпоральны.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Меню — как указатели в торговом центре: висят на крючках, можно переставить. Захардкоженное меню — как выгравированные на стене указатели: красиво, но переставить нельзя. Область виджетов — как витрина, куда выставляют разные товары.</p></div>
+
+<h3>Пример кода</h3>
+<pre>// functions.php: регистрируем область меню
+register_nav_menus([
+  'header' => 'Меню в шапке',
+  'footer' => 'Меню в подвале'
+]);
+
+// header.php: выводим
+wp_nav_menu([
+  'theme_location'  => 'header',
+  'container'       => 'nav',
+  'container_class' => 'main-nav',
+  'menu_class'      => 'main-nav__list'
+]);</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Меню захардкожено</strong> — клиент не сможет менять. <strong>Смешали страницы и записи</strong> — путаница в админке. <strong>Нет меню в подвале</strong> — служебные страницы не найти.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать структуру из 8 страниц</div>
+<div class="task-why">Зачем: структура определяет удобство сайта.</div>
+<ol class="steps">
+<li>Создай 6 страниц с вложенностью (Услуги → Стрижка, Борода).</li>
+<li>Собери меню в шапке, привяжи к области header.</li>
+<li>Собери меню в подвале (политика, оферта, доставка).</li>
+<li>Добавь виджет «Свежие записи» в подвал.</li>
+<li>Проверь: все ссылки меню работают?</li>
+</ol>
+<div class="task-r">Результат: сайт с продуманной навигацией.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Меню захардкожено.</strong> Клиент не поменяет.</li>
+<li><strong>Смешали страницы и записи.</strong> Путаница.</li>
+<li><strong>Нет меню в подвале.</strong> Служебные страницы не найти.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем страница отличается от записи?</li>
+<li>Зачем register_nav_menus?</li>
+<li>Что такое область виджетов?</li>
+<li>Почему меню не захардкоживают?</li></ol></div>
+`},
+
+{t:"Темы: как устроены, дочерние темы",g:"Менять внешний вид, не ломая обновления.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Тема</strong> — набор файлов, определяющих внешний вид. Если править файлы темы напрямую, все правки исчезнут при обновлении. Решение — <strong>дочерняя тема</strong>: наследует всё от родителя, а твои изменения лежат отдельно.</p>
+<p>Для коммерческих проектов чаще делают полностью свою тему.</p>
+
+<h3>Простым языком</h3>
+<p>Дочерняя тема — файл <code>style.css</code> с заголовком <code>Template: папка-родителя</code> плюс <code>functions.php</code>, который подгружает стили родителя.</p>
+<p>Обновление родителя не задевает дочернюю.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Тема</dt><dd>Набор шаблонов и стилей WordPress.</dd>
+<dt>Дочерняя тема</dt><dd>Тема, наследующая родительскую.</dd>
+<dt>Template</dt><dd>Указание родительской темы в style.css.</dd>
+<dt>get_template_directory_uri</dt><dd>Путь к папке родительской темы.</dd>
+<dt>get_stylesheet_directory_uri</dt><dd>Путь к папке текущей темы.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему нельзя править родителя? Обновление перезапишет файлы и снесёт правки. Почему дочерняя? Она не обновляется, поэтому изменения сохраняются. Почему functions.php дочерней грузит родительский стиль? Иначе оформление родителя не применится.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Дочерняя тема — как наклейка на витрину магазина: магазин покрасили заново (обновили родителя), а твоя наклейка на месте. Правка родителя — как роспись стены: покрасили заново — роспись исчезла.</p></div>
+
+<h3>Пример кода</h3>
+<pre>/* my-theme/style.css */
+/*
+Theme Name: Моя тема
+Template: twentytwentyfour
+Version: 1.0
+*/
+
+/* my-theme/functions.php */
+add_action('wp_enqueue_scripts', function () {
+  wp_enqueue_style('parent-style',
+    get_template_directory_uri() . '/style.css'
+  );
+  wp_enqueue_style('child-style',
+    get_stylesheet_directory_uri() . '/style.css',
+    ['parent-style']
+  );
+});</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Правка файлов родителя</strong> — обновление снесёт всё. <strong>Забыли Template</strong> — дочерняя тема не активируется. <strong>functions.php не грузит родительский</strong> — стили не применятся.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Создать дочернюю тему</div>
+<div class="task-why">Зачем: безопасный способ кастомизации чужой темы.</div>
+<ol class="steps">
+<li>Создай папку my-theme в wp-content/themes/.</li>
+<li>Создай style.css с заголовком Template.</li>
+<li>Создай functions.php с подключением родителя.</li>
+<li>Активируй тему в админке.</li>
+<li>Измени цвет заголовков через CSS.</li>
+<li>Обнови родительскую тему — проверь, что правки целы.</li>
+</ol>
+<div class="task-r">Результат: понимание механики дочерних тем.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Правка родителя.</strong> Обновление снесёт.</li>
+<li><strong>Забыли Template.</strong> Не активируется.</li>
+<li><strong>Не грузит родительский.</strong> Стили не применятся.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем дочерняя тема?</li>
+<li>Что указывает Template?</li>
+<li>Что будет при обновлении родителя?</li>
+<li>Когда дочерняя тема не нужна?</li></ol></div>
+`},
+
+{t:"Иерархия шаблонов",g:"Понимать, какой файл за что отвечает.",c:`
+<h3>Зачем этот урок</h3>
+<p>WordPress не «угадывает» — у него есть <strong>иерархия</strong>: для каждой ситуации он идёт по списку файлов сверху вниз и берёт первый существующий. Поймёшь иерархию — перестанешь удивляться, почему правка одного файла не работает.</p>
+
+<h3>Простым языком</h3>
+<p>Для главной: <code>front-page.php</code> → <code>home.php</code> → <code>index.php</code>.</p>
+<p>Для страницы: <code>page-{slug}.php</code> → <code>page.php</code> → <code>index.php</code>.</p>
+<p>Обязательные файлы темы: <code>style.css</code> и <code>index.php</code> (functions.php необязателен, но используется почти всегда).</p>
+<p><code>get_header()</code> / <code>get_footer()</code> подключают общие части и вызывают <code>wp_head</code> / <code>wp_footer</code>.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Иерархия шаблонов</dt><dd>Порядок выбора файла темы.</dd>
+<dt>front-page.php</dt><dd>Шаблон главной страницы.</dd>
+<dt>index.php</dt><dd>Универсальный запасной шаблон.</dd>
+<dt>wp_head / wp_footer</dt><dd>Хуки подключения ресурсов.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему front-page.php приоритетнее? Он конкретнее — заточен именно под главную. Почему index.php обязателен? Это последний запасной вариант; без него тема не работает. Почему get_footer()? Без wp_footer скрипты плагинов не загрузятся.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Иерархия — как поиск нужной справки в архиве: сначала смотришь в ящике «главная страница», не нашёл — «общие», не нашёл — «всё остальное». index.php — как корзина «разное»: если ничего не нашлось, бери оттуда.</p></div>
+
+<h3>Пример кода</h3>
+<pre>get_header();      // подключает header.php
+
+if (have_posts()) :
+  while (have_posts()) : the_post();
+    the_title();
+    the_content();
+  endwhile;
+endif;
+
+get_footer();      // подключает footer.php</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Правка index.php вместо front-page.php</strong> — не применится на главной. <strong>Нет index.php</strong> — тема не работает. <strong>Забыли get_footer()</strong> — wp_footer не вызовется, плагины сломаются.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Проверить иерархию на практике</div>
+<div class="task-why">Зачем: перестать гадать, почему правка не применилась.</div>
+<ol class="steps">
+<li>Создай front-page.php — проверь, что он приоритетнее index.php.</li>
+<li>Создай page-about.php для страницы «О нас».</li>
+<li>Удали front-page.php — что подхватится?</li>
+<li>Составь схему иерархии для своего сайта.</li>
+<li>Выведи 3 последние записи на главной.</li>
+</ol>
+<div class="task-r">Результат: понимание, какой файл за что отвечает.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Правка index.php вместо front-page.</strong> Не применится.</li>
+<li><strong>Нет index.php.</strong> Тема не работает.</li>
+<li><strong>Забыли get_footer().</strong> Плагины сломаются.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Какой файл приоритетнее для главной?</li>
+<li>Что будет без index.php?</li>
+<li>Зачем get_header() и get_footer()?</li>
+<li>Какой файл выбрать для страницы с slug "about"?</li></ol></div>
+`},
+
+{t:"functions.php и подключение ассетов",g:"Правильно подключать стили, скрипты и включать возможности темы.",c:`
+<h3>Зачем этот урок</h3>
+<p><code>functions.php</code> — «мозг темы». Там регистрируют меню, подключают CSS/JS, включают поддержку миниатюр. Главное правило: ассеты подключаются <strong>только через wp_enqueue_*</strong>, а не прямой &lt;link&gt; в шаблоне — иначе WordPress не сможет ими управлять.</p>
+
+<h3>Простым языком</h3>
+<p>Пятый параметр <code>true</code> в <code>wp_enqueue_script</code> — загружать скрипт в подвале.</p>
+<p><code>add_theme_support('title-tag')</code> — WordPress сам формирует заголовок страницы.</p>
+<p><code>add_image_size('card-thumb', 400, 300, true)</code> — свой размер миниатюры.</p>
+<p>Версия у файлов нужна, чтобы браузер не отдавал старый файл из кэша.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>wp_enqueue_style</dt><dd>Корректное подключение CSS.</dd>
+<dt>wp_enqueue_script</dt><dd>Корректное подключение JS.</dd>
+<dt>add_theme_support</dt><dd>Включение возможностей темы.</dd>
+<dt>add_image_size</dt><dd>Регистрация своего размера изображения.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему не &lt;link&gt; напрямую? WordPress не сможет отключить, объединить или закэшировать такие файлы. Почему true? Скрипт в подвале не блокирует отрисовку. Почему версия? Без неё браузер отдаст старый файл из кэша.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>wp_enqueue — как оформление груза через диспетчера: он знает, когда и куда его деть. &lt;link&gt; напрямую — как тайный провоз багажа: носишь сам, а диспетчер не в курсе. Версия — как дата на молоке: без неё непонятно, свежее или просроченное.</p></div>
+
+<h3>Пример кода</h3>
+<pre>add_action('wp_enqueue_scripts', function () {
+  wp_enqueue_style('main-style',
+    get_stylesheet_uri(), [], '1.0');
+
+  wp_enqueue_script('main-script',
+    get_template_directory_uri() . '/js/main.js',
+    [], '1.0', true          // true = в подвале
+  );
+});
+
+add_theme_support('post-thumbnails');
+add_theme_support('title-tag');
+add_theme_support('custom-logo');
+
+register_nav_menus(['header' => 'Меню в шапке']);
+
+add_image_size('card-thumb', 400, 300, true);</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>&lt;link&gt; напрямую в header.php</strong> — дубли при подключении плагинов. <strong>Забыли true</strong> — JS блокирует отрисовку. <strong>Нет версии у ассетов</strong> — старый файл из кэша.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать правильный functions.php</div>
+<div class="task-why">Зачем: основа любой темы.</div>
+<ol class="steps">
+<li>Подключи свои CSS и JS через wp_enqueue_*.</li>
+<li>Включи post-thumbnails, title-tag, custom-logo.</li>
+<li>Зарегистрируй меню и сайдбар.</li>
+<li>Выведи оба в шаблоне.</li>
+<li>Создай свой размер миниатюры card-thumb.</li>
+<li>Проверь в DevTools: файлы подключатся один раз?</li>
+</ol>
+<div class="task-r">Результат: тема с правильной архитектурой.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>&lt;link&gt; напрямую.</strong> Дубли.</li>
+<li><strong>Забыли true.</strong> Блокирует.</li>
+<li><strong>Нет версии.</strong> Кэш.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Почему не &lt;link&gt; напрямую?</li>
+<li>Что делает пятый параметр wp_enqueue_script?</li>
+<li>Зачем add_theme_support('title-tag')?</li>
+<li>Как добавить свой размер миниатюры?</li></ol></div>
+`},
+
+{t:"Своя тема: базовые шаблоны",g:"Сверстать дизайн как полноценную тему WordPress.",c:`
+<h3>Зачем этот урок</h3>
+<p>Своя тема = твой HTML/CSS превращается в шаблоны PHP, где динамические части заменяются на функции WordPress. Цикл WordPress (The Loop) выводит записи.</p>
+<p>Это ключевой коммерческий навык: клиент получает сайт, которым управляет сам.</p>
+
+<h3>Простым языком</h3>
+<p>The Loop — цикл вывода записей: <code>if (have_posts()) : while (have_posts()) : the_post(); ... endwhile; endif;</code></p>
+<p>Главные функции: <code>the_title()</code>, <code>the_content()</code>, <code>the_excerpt()</code>, <code>the_permalink()</code>, <code>the_post_thumbnail()</code>.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>The Loop</dt><dd>Цикл WordPress для вывода записей.</dd>
+<dt>Шаблон</dt><dd>PHP-файл темы.</dd>
+<dt>Хук</dt><dd>Точка, куда можно «повесить» свой код.</dd>
+<dt>Условные теги</dt><dd>is_front_page, is_single и т.п.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему цикл, а не просто вывод? Потому что WordPress сам решает, какие записи показывать на текущей странице. Почему функции, а не прямой доступ к базе? Функции дают слои абстракции и совместимость с плагинами. Почему post_class? Добавляет служебные классы для стилей и плагинов.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>The Loop — как конвейер: заготовки (записи) едут по ленте, на каждой выполняется одна и та же операция (оформление). the_title() — как штамп «название» на каждом изделии. Хук — как возможность вставить дополнительный операцию в середину конвейера.</p></div>
+
+<h3>Пример кода</h3>
+<pre>get_header(); ?>
+
+<main class="container">
+  <?php if (have_posts()) : ?>
+    <?php while (have_posts()) : the_post(); ?>
+      <article id="post-<?php the_ID(); ?>" <?php post_class('card'); ?>>
+        <?php if (has_post_thumbnail()) : ?>
+          <a href="<?php the_permalink(); ?>">
+            <?php the_post_thumbnail('card-thumb'); ?>
+          </a>
+        <?php endif; ?>
+        <h2 class="card__title">
+          <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+        </h2>
+        <div class="card__meta"><?php the_date(); ?> · <?php the_author(); ?></div>
+        <div class="card__excerpt"><?php the_excerpt(); ?></div>
+      </article>
+    <?php endwhile; ?>
+    <?php the_posts_pagination(); ?>
+  <?php else : ?>
+    <p>Ничего не найдено.</p>
+  <?php endif; ?>
+</main>
+
+<?php get_footer();</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Забыли wp_head() в header.php</strong> — плагины не подключатся. <strong>Забыли wp_footer()</strong> — скрипты не загрузятся. <strong>Цикл без wp_reset_query()</strong> — ломает последующие выборки.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Сверстать лендинг как тему</div>
+<div class="task-why">Зачем: превратить статику в управляемый сайт.</div>
+<ol class="steps">
+<li>Создай header.php, footer.php, front-page.php.</li>
+<li>Перенеси вёрстку лендинга в шаблоны.</li>
+<li>Замени текст на the_title()/the_content() где нужно.</li>
+<li>Выведи 3 последние записи блога на главной.</li>
+<li>Проверь: клиент может поменять текст в админке?</li>
+</ol>
+<div class="task-r">Результат: своя тема WordPress.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Забыли wp_head().</strong> Плагины не подключатся.</li>
+<li><strong>Забыли wp_footer().</strong> Скрипты не загрузятся.</li>
+<li><strong>Без wp_reset_query().</strong> Ломает выборки.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что такое The Loop?</li>
+<li>Зачем wp_head() и wp_footer()?</li>
+<li>Чем the_content отличается от the_excerpt?</li>
+<li>Какие файлы обязательны в теме?</li></ol></div>
+`},
+
+{t:"Произвольные типы записей и таксономии",g:"Расширять WordPress за пределы страниц и записей.",c:`
+<h3>Зачем этот урок</h3>
+<p>WordPress из коробки умеет «страницы» и «записи». Но сайту обычно нужны свои сущности: <strong>Услуги</strong>, <strong>Проекты</strong>, <strong>Отзывы</strong>, <strong>Мастера</strong>. Это <strong>произвольные типы записей</strong>. У каждого могут быть свои <strong>таксономии</strong> (категории).</p>
+<p>80% коммерческих сайтов требуют своих сущностей.</p>
+
+<h3>Простым языком</h3>
+<p><code>register_post_type('project', [...])</code> — создаёт свой раздел в админке.</p>
+<p><code>register_taxonomy('project_type', 'project', [...])</code> — свои категории.</p>
+<p><strong>Важно:</strong> после регистрации зайди в «Настройки → Постоянные ссылки» и нажми «Сохранить» — иначе WordPress выдаст 404.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Произвольный тип записи</dt><dd>Своя сущность, например «Проекты».</dd>
+<dt>Таксономия</dt><dd>Система классификации записей.</dd>
+<dt>Rewrite</dt><dd>Правила формирования URL.</dd>
+<dt>Supports</dt><dd>Поддерживаемые поля записи.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему отдельный тип, а не страницы? У услуг свои поля (цена, срок) и свои категории. Почему сохранять ЧПУ? Без обновления правил WordPress не знает новых URL. Почему hierarchical? true — вложенные категории, false — плоский список тегов.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Произвольный тип — как отдел в магазине: у товаров отдела свои свойства и свои полки. Таксономия — как система полок: «верхняя одежда» → «куртки» → «пуховики». Сохранение ЧПУ — как регистрация нового отдела в навигационной системе: без регистрации покупатели не найдут.</p></div>
+
+<h3>Пример кода</h3>
+<pre>add_action('init', function () {
+  register_post_type('project', [
+    'labels' => [
+      'name'          => 'Проекты',
+      'singular_name' => 'Проект',
+      'add_new'       => 'Добавить проект'
+    ],
+    'public'      => true,
+    'has_archive' => true,
+    'supports'    => ['title', 'editor', 'thumbnail', 'excerpt'],
+    'menu_icon'   => 'dashicons-portfolio',
+    'rewrite'     => ['slug' => 'projects']
+  ]);
+
+  register_taxonomy('project_type', 'project', [
+    'labels'      => ['name' => 'Типы проектов'],
+    'hierarchical'=> true
+  ]);
+});</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Забыли сохранить ЧПУ</strong> — 404 на новых записях. <strong>has_archive = false</strong> — нет страницы архива. <strong>Произвольный тип вместо ACF</strong> — сначала определись, нужна ли отдельная сущность.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Создать тип «Проекты»</div>
+<div class="task-why">Зачем: 80% коммерческих сайтов требуют своих сущностей.</div>
+<ol class="steps">
+<li>Зарегистрируй project с supports и иконкой.</li>
+<li>Создай таксономию project_type.</li>
+<li>Сохрани постоянные ссылки.</li>
+<li>Добавь 5 проектов разного типа.</li>
+<li>Выведи их на странице архива.</li>
+<li>Проверь: URL выглядит как /projects/nazvanie/?</li>
+</ol>
+<div class="task-r">Результат: расширенный WordPress под задачу клиента.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Забыли сохранить ЧПУ.</strong> 404.</li>
+<li><strong>has_archive = false.</strong> Нет архива.</li>
+<li><strong>Произвольный тип вместо ACF.</strong> Определись.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем произвольные типы записей?</li>
+<li>Что делать после регистрации типа?</li>
+<li>Чем hierarchical: true отличается от false?</li>
+<li>Когда произвольный тип избыточен?</li></ol></div>
+`},
+
+{t:"ACF: произвольные поля",g:"Давать клиенту возможность редактировать любой блок.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>ACF</strong> (Advanced Custom Fields) — плагин, позволяющий добавлять к записям <strong>свои поля</strong>: цена, иконка, ссылка, галерея. Без него клиент лезет в код, чтобы поменять текст в блоке.</p>
+<p>Всегда экранируй вывод: <code>esc_html()</code> для текста, <code>esc_url()</code> для ссылок.</p>
+
+<h3>Простым языком</h3>
+<p>Типы полей: Text/Textarea, Number, Image/File, Select/Radio, True/False, Link, Repeater, Flexible Content.</p>
+<p>Если поле пустое — проверяй через <code>if ($price)</code>, иначе пустое значение ломает вёрстку.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>ACF</dt><dd>Плагин произвольных полей.</dd>
+<dt>get_field</dt><dd>Получение значения поля.</dd>
+<dt>esc_html</dt><dd>Экранирование текста.</dd>
+<dt>esc_url</dt><dd>Экранирование ссылки.</dd>
+<dt>Группа полей</dt><dd>Набор полей с условиями показа.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему ACF, а не хардкод? Клиент должен править контент сам, не трогая код. Почему экранирование? Без esc_html данные от пользователя могут выполнить код (XSS). Почему if? Пустое поле без проверки сломает вёрстку.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>ACF — как бланк с полями для заполнения: цена, срок, фото. Клиент заполняет — сайт показывает. Экранирование — как проверка рукописного текста перед публикацией: убедиться, что там не спрятан код. if — как «если поле пустое, не печатай пустое место».</p></div>
+
+<h3>Пример кода</h3>
+<pre>$price = get_field('price');
+$icon  = get_field('icon');
+$link  = get_field('link');   // массив: url, title, target
+
+if ($price) :
+?>
+  <div class="service-card__price">от <?php echo esc_html($price); ?> ₽</div>
+<?php endif; ?>
+
+<?php if ($link) : ?>
+  <a class="btn" href="<?php echo esc_url($link['url']); ?>"
+     target="<?php echo esc_attr($link['target']); ?>">
+    <?php echo esc_html($link['title']); ?>
+  </a>
+<?php endif; ?></pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Вывод без экранирования</strong> — XSS. <strong>Нет проверки if</strong> — пустое поле ломает вёрстку. <strong>Слишком много полей</strong> — клиент путается.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Добавить поля к услугам</div>
+<div class="task-why">Зачем: клиент должен править контент сам.</div>
+<ol class="steps">
+<li>Создай группу полей для «Услуг»: иконка, цена, срок, ссылка.</li>
+<li>Заполни поля у 3 услуг.</li>
+<li>Выведи на странице с экранированием.</li>
+<li>Проверь: удали значение — блок должен исчезнуть, не сломаться.</li>
+<li>Попробуй ввести HTML в поле — убедись, что экранирование работает.</li>
+</ol>
+<div class="task-r">Результат: редактируемые блоки без правки кода.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Без экранирования.</strong> XSS.</li>
+<li><strong>Нет проверки if.</strong> Ломает вёрстку.</li>
+<li><strong>Много полей.</strong> Клиент путается.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем ACF?</li>
+<li>Чем esc_html отличается от esc_url?</li>
+<li>Что делать, если поле пустое?</li>
+<li>Какой тип поля выбрать для цены?</li></ol></div>
+`},
+
+{t:"ACF: гибкое содержимое и повторители",g:"Делать конструктор страниц из блоков.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Repeater</strong> — повторяющийся набор одинаковых полей: преимущества, FAQ, слайдер. <strong>Flexible Content</strong> — конструктор страницы: клиент добавляет блоки разного типа в любом порядке. Это стандарт для лендингов на WordPress.</p>
+
+<h3>Простым языком</h3>
+<p><code>get_row_layout()</code> возвращает тип текущего блока в Flexible Content.</p>
+<p>Клиент меняет порядок блоков в админке — сайт перестраивается сам.</p>
+<p>Без <code>the_row()</code> подполя недоступны.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Repeater</dt><dd>Повторяющийся набор полей.</dd>
+<dt>Flexible Content</dt><dd>Набор блоков разного типа.</dd>
+<dt>get_row_layout</dt><dd>Тип текущего блока.</dd>
+<dt>the_sub_field</dt><dd>Вывод подполя текущей строки.</dd>
+<dt>the_row</dt><dd>Установка текущей строки в цикле.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему Flexible Content? Клиент собирает страницу из блоков как конструктор, а PHP просто отрисовывает выбранную последовательность. Почему the_row? Без него подполя недоступны. Почему опечатка в get_row_layout опасна? Блок молча не отрисуется, и ты будешь искать причину часами.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Flexible Content — как конструктор: выбираешь нужные детали и складываешь в любом порядке. Repeater — как отрывной блокнот: листы одинаковые, но сколько угодно. the_row — как перелистывание на очередной лист.</p></div>
+
+<h3>Пример кода</h3>
+<pre>// Repeater (FAQ)
+if (have_rows('faq')) : ?>
+  <div class="faq">
+    <?php while (have_rows('faq')) : the_row(); ?>
+      <div class="faq__item">
+        <h3 class="faq__q"><?php the_sub_field('question'); ?></h3>
+        <p class="faq__a"><?php the_sub_field('answer'); ?></p>
+      </div>
+    <?php endwhile; ?>
+  </div>
+<?php endif; ?>
+
+// Flexible Content
+if (have_rows('blocks')) : ?>
+  <?php while (have_rows('blocks')) : the_row(); ?>
+
+    <?php if (get_row_layout() === 'hero') : ?>
+      <section class="hero">
+        <h1><?php the_sub_field('title'); ?></h1>
+        <p><?php the_sub_field('subtitle'); ?></p>
+      </section>
+
+    <?php elseif (get_row_layout() === 'features') : ?>
+      <section class="features">
+        <?php while (have_rows('items')) : the_row(); ?>
+          <div class="feature">
+            <h3><?php the_sub_field('title'); ?></h3>
+            <p><?php the_sub_field('text'); ?></p>
+          </div>
+        <?php endwhile; ?>
+      </section>
+
+    <?php endif; ?>
+
+  <?php endwhile; ?>
+<?php endif; ?></pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Вложенный Repeater без have_rows</strong> — цикл не работает. <strong>Забыли the_row()</strong> — подполя недоступны. <strong>Опечатка в get_row_layout</strong> — блок молча не отрисуется.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Сделать конструктор из 4 блоков</div>
+<div class="task-why">Зачем: стандарт индустрии для лендингов на WP.</div>
+<ol class="steps">
+<li>Создай Flexible Content: Герой, Преимущества, Отзывы, CTA.</li>
+<li>Напиши обработчик каждого в front-page.php.</li>
+<li>Собери главную из этих блоков.</li>
+<li>Поменяй порядок блоков в админке.</li>
+<li>Проверь: сайт перестроился без правки кода?</li>
+<li>Добавь Repeater для списка преимуществ.</li>
+</ol>
+<div class="task-r">Результат: лендинг, который клиент собирает сам.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Вложенный Repeater без have_rows.</strong> Не работает.</li>
+<li><strong>Забыли the_row().</strong> Подполя недоступны.</li>
+<li><strong>Опечатка в get_row_layout.</strong> Молчит.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем Repeater отличается от Flexible Content?</li>
+<li>Что делает get_row_layout()?</li>
+<li>Зачем the_row()?</li>
+<li>Как клиент меняет порядок блоков?</li></ol></div>
+`},
+
+{t:"WP_Query и произвольные выборки",g:"Выводить нужные записи в нужном месте.",c:`
+<h3>Зачем этот урок</h3>
+<p>Стандартный цикл выводит записи текущей страницы. Но часто нужны <strong>другие</strong>: «похожие проекты», «последние 3 отзыва», «услуги в категории». Для этого — <code>WP_Query</code>.</p>
+<p>Типовые блоки, нужные почти везде.</p>
+
+<h3>Простым языком</h3>
+<p>Параметры: <code>post_type</code> (что), <code>posts_per_page</code> (сколько), <code>orderby/order</code> (как), <code>tax_query</code> (свои таксономии), <code>meta_query</code> (поля ACF).</p>
+<p><strong>Важно:</strong> после цикла <code>wp_reset_postdata()</code> — иначе сломается основной цикл страницы.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>WP_Query</dt><dd>Класс для выборок записей.</dd>
+<dt>wp_reset_postdata</dt><dd>Восстановление основного цикла.</dd>
+<dt>tax_query</dt><dd>Фильтр по таксономиям.</dd>
+<dt>meta_query</dt><dd>Фильтр по произвольным полям.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему wp_reset_postdata? Без него глобальные данные записи остаются от выборки, и основной цикл страницы ломается. Почему tax_query, а не category_name? category_name работает только со стандартными рубриками. Почему не -1 на большой базе? Сайт ляжет под нагрузкой.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>WP_Query — как поиск в каталоге: «найди все проекты типа "дизайн"». wp_reset_postdata — как вернуть каталог в исходное состояние после поиска, чтобы следующий посетитель видел полный список. tax_query — как фильтр по полке, meta_query — как фильтр по свойству товара.</p></div>
+
+<h3>Пример кода</h3>
+<pre>$q = new WP_Query([
+  'post_type'      => 'project',
+  'posts_per_page' => 3,
+  'orderby'        => 'date',
+  'order'          => 'DESC',
+  'tax_query'      => [[
+    'taxonomy' => 'project_type',
+    'field'    => 'slug',
+    'terms'    => 'design'
+  ]]
+]);
+
+if ($q->have_posts()) :
+  while ($q->have_posts()) : $q->the_post();
+    the_title();
+  endwhile;
+  wp_reset_postdata();   // ОБЯЗАТЕЛЬНО
+endif;</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Забыли wp_reset_postdata()</strong> — контент страницы «съезжает». <strong>posts_per_page => -1 на большой базе</strong> — сайт ляжет. <strong>WP_Query для одного простого запроса</strong> — избыточно.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Три произвольные выборки</div>
+<div class="task-why">Зачем: типовые блоки, нужные почти везде.</div>
+<ol class="steps">
+<li>«Похожие проекты» — 4 шт, тот же тип.</li>
+<li>Страница блога с пагинацией по 6 записей.</li>
+<li>«Услуги дороже 5000» через meta_query.</li>
+<li>Проверь: после каждой выборки wp_reset_postdata()?</li>
+</ol>
+<div class="task-r">Результат: навык создания любых блоков вывода.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Забыли wp_reset_postdata().</strong> Ломает страницу.</li>
+<li><strong>-1 на большой базе.</strong> Ляжет.</li>
+<li><strong>WP_Query вместо get_posts.</strong> Избыточно.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем wp_reset_postdata()?</li>
+<li>Чем tax_query отличается от category_name?</li>
+<li>Как вывести записи с полем ACF больше X?</li>
+<li>Почему posts_per_page => -1 опасен?</li></ol></div>
+`},
+
+{t:"Elementor и Crocoblock",g:"Ускоряться там, где это оправдано.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Elementor</strong> — визуальный конструктор. Ускоряет простые сайты, но замедляет сложные и создаёт «мусорный» HTML. <strong>Crocoblock</strong> — набор плагинов для сложных сайтов на Elementor без кода.</p>
+<p>Профессионал выбирает инструмент под задачу и бюджет клиента, а не «как привык».</p>
+
+<h3>Простым языком</h3>
+<table><tr><th>Задача</th><th>Решение</th></tr>
+<tr><td>Лендинг из стандартных блоков</td><td>Elementor + шаблоны</td></tr>
+<tr><td>Каталог с фильтрами</td><td>Elementor + JetSmartFilters</td></tr>
+<tr><td>Уникальный дизайн с анимациями</td><td>Своя тема + ACF</td></tr>
+<tr><td>Высокая скорость (Core Web Vitals)</td><td>Своя тема, минимум плагинов</td></tr>
+<tr><td>Сложная логика (калькулятор, кабинет)</td><td>Код, не конструктор</td></tr></table>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Elementor</dt><dd>Визуальный конструктор страниц.</dd>
+<dt>Crocoblock</dt><dd>Набор плагинов для Elementor.</dd>
+<dt>JetSmartFilters</dt><dd>Плагин фильтров каталога.</dd>
+<dt>Шаблон</dt><dd>Готовая страница или секция.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему Elementor для лендинга? Собрать стандартные блоки за 40 минут против 2 часов кода. Почему своя тема для магазина? Elementor создаёт мусорный HTML и замедляет страницы. Почему сравнивать объективно? Собрать одну страницу обоими способами и прогнать Lighthouse — это данные, а не мнения.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Elementor — как мебель из IKEA: собирается быстро по инструкции, но если нужно что-то нестандартное — проще заказать у столяра. Crocoblock — как набор дополнительных модулей к той же IKEA. Своя тема — как мебель на заказ: дольше, но именно под твою комнату.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Elementor на нагруженном магазине</strong> — страницы грузятся по 5 секунд. <strong>20 плагинов Crocoblock сразу</strong> — админка ложится. <strong>Правки в Elementor без бэкапа</strong> — нет отката. <strong>Кастомный CSS через виджет</strong> — теряется при обновлении.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Сравнить два способа</div>
+<div class="task-why">Зачем: принимать решение объективно.</div>
+<ol class="steps">
+<li>Собери страницу на Elementor за 40 минут.</li>
+<li>Собери ту же страницу своей темой за 2 часа.</li>
+<li>Прогони оба через Lighthouse.</li>
+<li>Сравни: вес HTML, число запросов, скорость.</li>
+<li>Выпиши: для какого клиента какой вариант выберете.</li>
+</ol>
+<div class="task-r">Результат: объективное понимание плюсов и минусов.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Elementor для высоконагруженного магазина.</strong> Ляжет.</li>
+<li><strong>Своя тема для лендинга на 3 дня.</strong> Нерентабельно.</li>
+<li><strong>Много плагинов Crocoblock «на всякий случай».</strong> Замедляет.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Когда Elementor выигрывает?</li>
+<li>Когда своя тема обязательна?</li>
+<li>Что даёт JetSmartFilters?</li>
+<li>Как сравнить два подхода объективно?</li></ol></div>
+`},
+
+{t:"Обязательные плагины",g:"Собрать минимальный безопасный набор.",c:`
+<h3>Зачем этот урок</h3>
+<p>Плагинов тысячи, но нужны единицы. Каждый лишний = риск безопасности + замедление. Правило: <strong>минимум, только необходимое</strong>.</p>
+<p>Базовый набор закрывает всё: безопасность, SEO, кэш, бэкапы, формы, поля, почта.</p>
+
+<h3>Простым языком</h3>
+<table><tr><th>Задача</th><th>Плагин</th></tr>
+<tr><td>Безопасность</td><td>Wordfence</td></tr>
+<tr><td>SEO</td><td>Rank Math / Yoast</td></tr>
+<tr><td>Кэш</td><td>WP Super Cache / LiteSpeed</td></tr>
+<tr><td>Бэкапы</td><td>UpdraftPlus</td></tr>
+<tr><td>Антиспам комментариев</td><td>Antispam Bee</td></tr>
+<tr><td>Картинки</td><td>ShortPixel / Smush</td></tr>
+<tr><td>Формы</td><td>Contact Form 7 / Fluent Forms</td></tr>
+<tr><td>Поля</td><td>ACF Pro</td></tr>
+<tr><td>SMTP</td><td>WP Mail SMTP</td></tr></table>
+
+<h3>Чего избегать</h3>
+<ul>
+<li>Плагины «всё в одном» (десятки функций, 90% не нужны)</li>
+<li>Нулёвые/пиратские плагины — главный источник взломов</li>
+<li>Плагины, не обновлявшиеся больше года</li>
+<li>Несколько плагинов на одну задачу</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Плагин</dt><dd>Дополнение к WordPress.</dd>
+<dt>SMTP</dt><dd>Протокол отправки почты.</dd>
+<dt>Wordfence</dt><dd>Плагин безопасности.</dd>
+<dt>Кэш</dt><dd>Сохранение страниц для быстрой выдачи.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему минимум? Каждый плагин — лишний код, лишние запросы, лишние уязвимости. Почему пиратские опасны? В них часто внедряют вредоносный код. Почему старые плагины? Они перестают поддерживаться и становятся дырами в безопасности.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Плагины — как приложения на телефоне: чем больше, тем медленнее и тем выше шанс вируса. Пиратский плагин — как приложение из непонятного источника: может красть данные. Старый плагин — как приложение, не обновлявшееся годами: дыры в безопасности не закрыты.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Антиспам только для комментариев</strong> — спам льётся через формы CF7. <strong>Отправка писем через wp_mail</strong> — письма не доходят до Gmail. <strong>Нет бэкапов</strong> — потеря сайта при взломе. <strong>20 плагинов „для всего“</strong> — сайт тормозит и ломается при конфликтах.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать и настроить набор</div>
+<div class="task-why">Зачем: рабочая конфигурация для любого проекта.</div>
+<ol class="steps">
+<li>Установи 6 плагинов из таблицы.</li>
+<li>Настрой каждый: кэш, бэкап, SEO, безопасность.</li>
+<li>Посмотри Lighthouse → «Убрать неиспользуемый JS».</li>
+<li>Определи, какой плагин грузит лишнее везде.</li>
+<li>Выпиши свой финальный список обязательных плагинов.</li>
+</ol>
+<div class="task-r">Результат: проверенный набор плагинов.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>15+ плагинов.</strong> Риск и вес.</li>
+<li><strong>Пиратские премиум-плагины.</strong> Взлом.</li>
+<li><strong>Два кэш-плагина.</strong> Конфликт.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Сколько плагинов достаточно?</li>
+<li>Чем опасны пиратские плагины?</li>
+<li>Зачем WP Mail SMTP?</li>
+<li>Что делать с плагином, не обновлявшимся год?</li></ol></div>
+`},
+
+{t:"Скорость WordPress",g:"Разогнать сайт до зелёной зоны Lighthouse.",c:`
+<h3>Зачем этот урок</h3>
+<p>WordPress медленный по природе: PHP собирает страницу на каждый запрос. Ускорять надо тремя способами: <strong>кэширование</strong>, <strong>оптимизация ассетов</strong>, <strong>оптимизация картинок</strong>.</p>
+<p>Кэш страниц — самый эффективный шаг: один плагин даёт 5–10-кратное ускорение.</p>
+
+<h3>Простым языком</h3>
+<ol>
+<li>Кэш страниц — собирается один раз, отдаётся как HTML.</li>
+<li>Сжатие картинок + WebP.</li>
+<li>Ленивая загрузка картинок и видео.</li>
+<li>Минификация CSS/JS + объединение.</li>
+<li>Отключить лишнее: эмодзи, лишние плагины. REST API отключать опасно — он нужен Gutenberg и многим плагинам.</li>
+<li>CDN (Cloudflare) — раздать статику по миру.</li>
+</ol>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Кэш страниц</dt><dd>Сохранение готового HTML.</dd>
+<dt>Минификация</dt><dd>Удаление пробелов из кода.</dd>
+<dt>Lazy loading</dt><dd>Отложенная загрузка контента.</dd>
+<dt>CDN</dt><dd>Сеть доставки контента.</dd>
+<dt>Gzip</dt><dd>Сжатие данных при передаче.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему кэш страниц? PHP-генерация занимает 300–800 мс, а выдача готового HTML — 30–80 мс. Почему сбрасывать кэш после правок? Иначе пользователи увидят старую версию. Почему не кэшировать корзину? Пользователи могут увидеть чужие товары.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Кэш — как готовые обеды в витрине: повар не готовит каждый раз на заказ, а берёт готовый. Сброс кэша — как утренняя замена витрины: старые обеды убраны, новые свежие. Кэш корзины — как если бы покупателям выдавали чужие пакеты.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Отключили REST API „для скорости“</strong> — сломали Gutenberg и половину плагинов. <strong>Кэш без исключений для корзины</strong> — у пользователя чужие товары. <strong>Картинки в PNG</strong> — 2 МБ каждая вместо 200 КБ WebP. <strong>10 внешних шрифтов</strong> — страница ждёт Google Fonts.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Разогнать сайт</div>
+<div class="task-why">Зачем: скорость — фактор ранжирования и конверсии.</div>
+<ol class="steps">
+<li>Прогони сайт через Lighthouse, запиши результат.</li>
+<li>Включи кэш страниц.</li>
+<li>Сожми картинки, включи WebP.</li>
+<li>Включи ленивую загрузку.</li>
+<li>Подключи Cloudflare.</li>
+<li>Прогони снова — сравни. Цель: 85+ на мобильном.</li>
+</ol>
+<div class="task-r">Результат: измеримое ускорение сайта.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Забыли сбросить кэш после правок.</strong> Старая версия.</li>
+<li><strong>Кэш + корзина без исключений.</strong> Чужие корзины.</li>
+<li><strong>Минификация ломает сайт.</strong> Проверяй после каждого шага.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Как ускоряет кэш страниц?</li>
+<li>Назови три способа оптимизации картинок.</li>
+<li>Зачем Cloudflare?</li>
+<li>Что делать после включения кэша при правках?</li></ol></div>
+`},
+
+{t:"Безопасность и бэкапы",g:"Защитить сайт и уметь восстановить его за 10 минут.",c:`
+<h3>Зачем этот урок</h3>
+<p>WordPress — самая взламываемая CMS в мире, потому что популярна. 90% взломов из-за: устаревших плагинов, слабых паролей и пиратских плагинов/тем.</p>
+<p>Разница между «полчаса простоя» и «сайт потерян» — один настроенный бэкап.</p>
+
+<h3>Чек-лист безопасности</h3>
+<ul>
+<li>Обновлять ядро, темы и плагины <strong>еженедельно</strong></li>
+<li>Сложные пароли + 2FA для всех админов</li>
+<li>Сменить префикс таблиц БД с wp_</li>
+<li>Скрыть версию WordPress из head</li>
+<li>Ограничить попытки входа (Wordfence)</li>
+<li>Запретить редактирование файлов из админки</li>
+<li>SSL (HTTPS) обязательно</li>
+<li>Автобэкап ежедневно + хранение вне сервера</li>
+<li>Права на файлы: папки 755, файлы 644</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Бэкап</dt><dd>Резервная копия сайта.</dd>
+<dt>2FA</dt><dd>Двухфакторная аутентификация.</dd>
+<dt>DISALLOW_FILE_EDIT</dt><dd>Запрет правки файлов из админки.</dd>
+<dt>Файрвол</dt><dd>Программа, блокирующая атаки.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему бэкап вне сервера? Если сервер взломан или сгорел, локальная копия на нём же тоже потеряется. Почему 2FA? Пароль можно подобрать или украсть, а код из телефона — нет. Почему запрет правки файлов? Через админку вредоносный плагин может переписать файлы темы.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Бэкап — как страховка: платишь мало, а когда случается беда — спасает. Хранение вне сервера — как хранить копию документов у родственников: сгорел дом — копия цела. 2FA — как второй замок на двери: один вскрыли, второй держит.</p></div>
+
+<h3>Пример кода</h3>
+<pre>define('DISALLOW_FILE_EDIT', true);   // запретить правку файлов в админке
+define('FORCE_SSL_ADMIN', true);      // админка только по HTTPS
+define('WP_DEBUG', false);            // на проде отключить отладку</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Нет бэкапа</strong> — самая дорогая ошибка. <strong>Бэкап только на том же сервере</strong> — взлом снесёт и его. <strong>Пароль admin/admin</strong> — подбор за минуты.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Настроить защиту и бэкап</div>
+<div class="task-why">Зачем: взлом без бэкапа = потеря бизнеса клиента.</div>
+<ol class="steps">
+<li>Настрой авто бэкап в UpdraftPlus на облако.</li>
+<li>Включи 2FA в Wordfence.</li>
+<li>Добавь define в wp-config.php.</li>
+<li>Смени префикс таблиц на новом сайте.</li>
+<li>Сымитируй взлом: удали тему → восстанови из бэкапа.</li>
+<li>Замерь время восстановления.</li>
+</ol>
+<div class="task-r">Результат: сайт, который можно восстановить за час.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Нет бэкапа.</strong> Самая дорогая ошибка.</li>
+<li><strong>Бэкап на том же сервере.</strong> Взлом снесёт.</li>
+<li><strong>Пароль admin/admin.</strong> Подбор за минуты.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Куда хранить бэкапы?</li>
+<li>Что делает DISALLOW_FILE_EDIT?</li>
+<li>Сколько занимает восстановление с бэкапом?</li>
+<li>Зачем 2FA для администраторов?</li></ol></div>
+`},
+
+{t:"SEO-настройка WordPress",g:"Настроить техническое SEO без программиста.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Rank Math</strong> или <strong>Yoast</strong> закрывают 90% нужд: title, description, sitemap, Schema, хлебные крошки, редиректы.</p>
+<p>Техническое SEO — быстрые очки и видимый результат.</p>
+
+<h3>Что настроить</h3>
+<ul>
+<li>Title и description на каждой странице (уникальные!)</li>
+<li>Sitemap.xml — сгенерировать и добавить в Search Console</li>
+<li>Robots.txt — закрыть админку, служебные страницы</li>
+<li>ЧПУ — человекочитаемые URL</li>
+<li>Хлебные крошки — «Главная → Услуги → Стрижка»</li>
+<li>Schema.org — разметка «Организация», «Товар», «Отзыв»</li>
+<li>Open Graph — картинка при отправке ссылки</li>
+<li>Редиректы 301 при смене URL</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Sitemap</dt><dd>Карта сайта для поисковиков.</dd>
+<dt>Schema.org</dt><dd>Разметка структурированных данных.</dd>
+<dt>Robots.txt</dt><dd>Файл правил для роботов.</dd>
+<dt>Хлебные крошки</dt><dd>Навигационная цепочка.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему sitemap? Помогает поисковикам быстрее найти все страницы. Почему Schema? Поисковик понимает сущность: организация, товар, отзыв. Почему проверять индексацию? Классика — случайно включённая галочка в настройках, и сайт не индексируется.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Sitemap — как оглавление книги: поисковик сразу видит все главы. Schema — как аннотация с жанром и автором: понятно, что за книга. Robots.txt — как табличка «посторонним вход воспрещён»: роботы знают, куда не ходить.</p></div>
+
+<h3>Шаблоны title</h3>
+<pre>Главная:    %sitename% — %sitedesc%
+            «Острие — барбершоп в Москве»
+
+Услуга:     %title% в %cf_city% от %cf_price%
+            «Стрижка в Москве от 1500 ₽»</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Одинаковые title</strong> — дубли. <strong>Закрыта индексация</strong> — классика. <strong>Нет sitemap в Вебмастере</strong> — индексация дольше. <strong>Нет редиректа при смене URL</strong> — 404 и потеря позиций.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Настроить SEO-плагин</div>
+<div class="task-why">Зачем: техническое SEO — быстрые очки.</div>
+<ol class="steps">
+<li>Установи Rank Math, пройди мастер.</li>
+<li>Заполни title и description на 5 страницах.</li>
+<li>Сгенерируй sitemap.xml.</li>
+<li>Добавь его в Яндекс.Вебмастер и Google Search Console.</li>
+<li>Включи Schema «LocalBusiness» с адресом и телефоном.</li>
+<li>Настрой хлебные крошки в шаблоне.</li>
+</ol>
+<div class="task-r">Результат: сайт с базовым техническим SEO.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Одинаковые title.</strong> Дубли.</li>
+<li><strong>Закрыта индексация.</strong> Классика.</li>
+<li><strong>Нет sitemap.</strong> Дольше.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что настраивает Rank Math?</li>
+<li>Зачем sitemap.xml?</li>
+<li>Что делать при смене URL страницы?</li>
+<li>Как проверить, что сайт не закрыт от индексации?</li></ol></div>
+`},
+
+{t:"Проект: корпоративный сайт на своей теме",g:"Собрать всё из Главы 6 в реальный сайт.",c:`
+<h3>Зачем этот урок</h3>
+<p>Полноценный корпоративный сайт: дизайн → своя тема → контент → блог → форма → SEO → выгрузка на хостинг. После этого проекта вы можете брать коммерческие заказы.</p>
+<p>Это проект, за который платят больше всего.</p>
+
+<h3>Обязательный функционал</h3>
+<ul>
+<li>Своя тема с header/footer/front-page/single/page/archive/404</li>
+<li>Произвольный тип «Услуги» + таксономия</li>
+<li>ACF-поля к услугам (иконка, цена, срок)</li>
+<li>Главная, собранная из гибких блоков</li>
+<li>Меню в шапке и подвале</li>
+<li>Блог с пагинацией и «Похожими записями»</li>
+<li>Форма заявки (CF7) + отправка в Telegram</li>
+<li>Rank Math: title, description, sitemap, Schema</li>
+<li>Кэш + бэкап + Wordfence</li>
+<li>Lighthouse 85+</li>
+<li>Сайт выложен на реальный домен</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Проект</dt><dd>Полный цикл создания сайта.</dd>
+<dt>Критерий приёмки</dt><dd>Условия, при которых проект сдан.</dd>
+<dt>Деплой</dt><dd>Размещение сайта на сервере.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему своя тема? Клиент должен управлять контентом, а сайт — быстро работать. Почему Flexible Content? Клиент меняет текст в любом блоке через админку. Почему кэш + бэкап + безопасность? Без них сайт уязвим и медленен.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Проект — как стройка: проект → фундамент → стены → отделка → сдача. Своя тема — как индивидуальный проект дома, а не типовой. Кэш и бэкап — как охранная сигнализация и противопожарная система: не видно, пока не понадобятся.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Нет бэкапа перед сдачей</strong> — последний баг = потеря. <strong>Не настроили SMTP</strong> — формы не отправляют. <strong>Сдали без теста на телефоне</strong> — 70% трафика видит сломанный сайт. <strong>Не передали доступы актом</strong> — клиент потом «это не я».</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать сайт по чек-листу</div>
+<div class="task-why">Зачем: это ваш первый полноценный коммерческий проект.</div>
+<ol class="steps">
+<li>Создай структуру темы.</li>
+<li>Настрой functions.php: enqueue, меню, сайдбары, CPT.</li>
+<li>Сверстай front-page.php из гибких блоков.</li>
+<li>Создай тип «Услуги» + ACF-поля.</li>
+<li>Настрой блог: single.php, archive.php, пагинация, похожие записи.</li>
+<li>Подключи форму CF7 + уведомление в Telegram.</li>
+<li>Настрой Rank Math: title, description, sitemap, Schema.</li>
+<li>Включи кэш, бэкап, Wordfence, 2FA.</li>
+<li>Выложи на домен, включи SSL.</li>
+<li>Прогони Lighthouse — доведи до 85+.</li>
+<li>Сделай бэкап и закоммить тему в Git.</li>
+</ol>
+<div class="task-r">Результат: готовый корпоративный сайт — проект для портфолио и основа для первых заказов.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Главная захардкожена.</strong> Клиент не сможет менять блоки.</li>
+<li><strong>Забыли wp_head()/wp_footer().</strong> Плагины сломаются.</li>
+<li><strong>Нет бэкапа перед выгрузкой.</strong> Ошибка переноса = потеря.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови 7 обязательных файлов темы.</li>
+<li>Что должен уметь клиент в админке?</li>
+<li>Какие плагины обязательны на проде?</li>
+<li>Как проверить, что сайт готов к сдаче?</li></ol></div>
+`},
+
+{t:"Установка и настройка магазина",g:"Поднять интернет-магазин на WordPress.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>WooCommerce</strong> — бесплатный плагин, превращающий WordPress в магазин. По статистике за 2024 год — около 23% всех интернет-магазинов мира работают на нём. После активации запускается мастер настройки.</p>
+<p>Без шорткода на странице корзины — она пустая.</p>
+
+<h3>Простым языком</h3>
+<p>Четыре служебные страницы: <code>/cart</code>, <code>/checkout</code>, <code>/my-account</code>, <code>/shop</code>.</p>
+<p>Настройки валюты: RUB, символ ₽, позиция знака, разделитель тысяч.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>WooCommerce</dt><dd>Плагин интернет-магазина.</dd>
+<dt>Шорткод</dt><dd>Короткий код, выводящий функционал.</dd>
+<dt>Чекаут</dt><dd>Страница оформления заказа.</dd>
+<dt>Витрина</dt><dd>Страница каталога товаров.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему WooCommerce? Бесплатно, огромная экосистема плагинов, гибкость. Почему шорткоды? Без них WooCommerce не выводит содержимое на страницах. Почему настроить валюту? Неверные настройки дают цены без символа или с точкой вместо запятой.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>WooCommerce — как готовый торговый павильон: приехал, собрал, продаёшь. Шорткод — как кнопка «включить кассу»: без неё павильон есть, а торговли нет. Валюта — как ценники: если написано «1000» без рубля, покупатель не поймёт.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Не созданы служебные страницы</strong> — корзина и чекаут пустые. <strong>Не настроена валюта</strong> — цены без символа. <strong>Включили налоги без понимания</strong> — цены расходятся с чеком. <strong>Не настроили email-уведомления</strong> — клиент не знает, что заказ принят.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Установить и проверить магазин</div>
+<div class="task-why">Зачем: убедиться, что база работает, прежде чем добавлять товары.</div>
+<ol class="steps">
+<li>Установи WooCommerce, пройди мастер.</li>
+<li>Проверь 4 служебные страницы и их шорткоды.</li>
+<li>Настрой валюту: RUB, символ ₽ после цены, пробел как разделитель тысяч.</li>
+<li>Открой витрину — убедись, что она не пустая.</li>
+<li>Проверь корзину и чекаут в тестовом режиме.</li>
+</ol>
+<div class="task-r">Результат: рабочий каркас магазина.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Страница без шорткода.</strong> Пустая.</li>
+<li><strong>Валюта не настроена.</strong> Цены без символа.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем WooCommerce отличается от обычного WP?</li>
+<li>Назови четыре служебные страницы.</li>
+<li>Что будет без шорткода?</li>
+<li>Какие настройки валюты важны?</li></ol></div>
+`},
+
+{t:"Товары: простые и вариативные",g:"Добавлять товары всех типов.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Простой товар</strong> — одна цена, одна поставка. <strong>Вариативный</strong> — один товар с разными вариантами: размер, цвет. У каждого варианта своя цена, наличие, SKU и картинка.</p>
+<p>Без веса и габаритов не работает расчёт доставки.</p>
+
+<h3>Простым языком</h3>
+<p>Нужны два описания: краткое (каталог) и полное (карточка).</p>
+<p>SKU — артикул для учёта и импорта.</p>
+<p>Цифровой товар — скачивается после оплаты.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Вариативный товар</dt><dd>Товар с вариантами размера/цвета.</dd>
+<dt>SKU</dt><dd>Артикул товара.</dd>
+<dt>Габариты</dt><dd>Размеры и вес для доставки.</dd>
+<dt>Цифровой товар</dt><dd>Файл для скачивания.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему вес и габариты? Без них СДЭК не посчитает стоимость доставки. Почему два описания? В каталоге нужен короткий анонс, в карточке — полное описание. Почему SKU? По нему товар находится при импорте и в учёте.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Вариативный товар — как футболка в разных размерах: одна модель, много вариантов. SKU — как штрихкод на упаковке: по нему касса знает, что за товар. Вес — как данные на весах для почты: без них не отправить.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Вес и габариты пустые</strong> — СДЭК не считает доставку. <strong>SKU дублируются</strong> — импорт перезаписывает товары. <strong>Вариации без цены</strong> — кнопка «В корзину» пропадает. <strong>Нет описания категории</strong> — дубли в поиске.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Наполнить каталог</div>
+<div class="task-why">Зачем: получить реалистичный каталог для тестов.</div>
+<ol class="steps">
+<li>Добавь 10 товаров, из них 3 вариативных (размер/цвет).</li>
+<li>Укажи SKU каждому.</li>
+<li>Сделай один товар цифровым.</li>
+<li>Укажи вес и габариты у всех.</li>
+<li>Настрой «Похожие товары» на карточке.</li>
+</ol>
+<div class="task-r">Результат: каталог, готовый к продажам.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Нет веса/габаритов.</strong> Доставка не считает.</li>
+<li><strong>Одно описание.</strong> В каталоге нужен анонс.</li>
+<li><strong>Вариации без SKU.</strong> Не отследить остатки.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем простой товар отличается от вариативного?</li>
+<li>Зачем SKU?</li>
+<li>Почему вес важен?</li>
+<li>Что такое цифровой товар?</li></ol></div>
+`},
+
+{t:"Категории, атрибуты, фильтры",g:"Построить удобный каталог.",c:`
+<h3>Зачем этот урок</h3>
+<p>Каталог должен быть таким, чтобы человек находил товар за 3 клика. Это достигается правильной структурой категорий + <strong>фильтрами по атрибутам</strong>.</p>
+<p>Фильтры — главный элемент удобства магазина.</p>
+
+<h3>Простым языком</h3>
+<p>Почему фильтры работают только по глобальным атрибутам? Атрибуты, созданные вручную в карточке, не индексируются для фильтра.</p>
+<p>Оптимально 2–3 уровня категорий.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Глобальный атрибут</dt><dd>Атрибут из настроек магазина.</dd>
+<dt>Фильтр</dt><dd>Инструмент отбора товаров.</dd>
+<dt>Иерархия категорий</dt><dd>Вложенность категорий.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему глобальные атрибуты? Локальные, созданные в карточке, не видны фильтру. Почему 2–3 уровня? На 4-м товар теряется. Почему фильтр со сбросом? Без него пользователь застревает в фильтре и уходит.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Категории — как полки в супермаркете: «молочка» → «йогурты» → «фруктовые». Глобальный атрибут — как общий ярлык на полке, по которому работает указатель. Локальный — как наклейка на одном пакете: указатель её не увидит.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>10 уровней вложенности категорий</strong> — никто не дойдёт до товара. <strong>Атрибуты как категории</strong> — нельзя фильтровать. <strong>Фильтр по цене без индекса</strong> — страница вешается. <strong>Глобальные атрибуты не созданы</strong> — фильтры не работают.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Построить каталог с фильтрами</div>
+<div class="task-why">Зачем: фильтры — главный элемент удобства магазина.</div>
+<ol class="steps">
+<li>Построй каталог из 4 категорий с вложенностью.</li>
+<li>Создай 3 глобальных атрибута: Размер, Цвет, Сезон.</li>
+<li>Добавь фильтр по цене и по атрибуту «Размер».</li>
+<li>Проверь: выбрав «M» и «чёрный», показывается только релевантное?</li>
+<li>Проверь на телефоне: фильтры удобны?</li>
+</ol>
+<div class="task-r">Результат: каталог, которым удобно пользоваться.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Атрибут в карточке.</strong> Фильтр не работает.</li>
+<li><strong>Слишком много уровней.</strong> Товар теряется.</li>
+<li><strong>Фильтр без сброса.</strong> Пользователь застревает.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем глобальные атрибуты?</li>
+<li>Назови 2 типа фильтров (по цене, по атрибуту).</li>
+<li>Сколько уровней категорий оптимально?</li>
+<li>Как проверить работу фильтра?</li></ol></div>
+`},
+
+{t:"Корзина и оформление заказа",g:"Настроить путь от «Хочу» до «Купил».",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Каждый лишний шаг = потерянные заказы.</strong> Идеальный чекаут — 1 страница, 5–7 полей, без обязательной регистрации.</p>
+<p>Гостевая покупка обязательна: регистрация отсекает до 30% заказов.</p>
+
+<h3>Простым языком</h3>
+<p>Убрать из чекаута: отчество, повтор email, факс, компанию (если B2C).</p>
+<p>«Купить в 1 клик» сокращает путь до заказа и повышает конверсию.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Чекаут</dt><dd>Страница оформления заказа.</dd>
+<dt>Гостевая покупка</dt><dd>Покупка без регистрации.</dd>
+<dt>Микро-конверсия</dt><dd>Маленькое действие к покупке.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему 5–7 полей? Каждое лишнее — трение. Почему убрать отчество и повтор email? Они не нужны для выполнения заказа. Почему гостевая покупка? Регистрация — барьер; многие уходят, не дойдя до покупки.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Чекаут — как касса в магазине: чем меньше шагов, тем меньше шанс, что человек передумает. Отчество — как просьба назвать отчество при покупке хлеба: лишнее. Гостевая покупка — как покупка без членской карты: доступно всем.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>15 полей в чекауте</strong> — 60% бросают на полпути. <strong>Регистрация обязательна</strong> — гость уходит. <strong>Доставка не видна до чекаута</strong> — отказ на последнем шаге. <strong>Нет проверки оплаты перед сменой статуса</strong> — заказ уехал неоплаченным.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Минимизировать чекаут</div>
+<div class="task-why">Зачем: каждый лишний шаг — потерянные деньги.</div>
+<ol class="steps">
+<li>Настрой чекаут в 6 полей.</li>
+<li>Разреши гостевую покупку.</li>
+<li>Убери «Отчество» и «Компанию».</li>
+<li>Пройди заказ от корзины до письма.</li>
+<li>Добавь «Купить в 1 клик».</li>
+</ol>
+<div class="task-r">Результат: чекаут, который не отпугивает.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Обязательная регистрация.</strong> Теряете до 30%.</li>
+<li><strong>Много полей.</strong> Конверсия падает.</li>
+<li><strong>Нет сообщения после заказа.</strong> Клиент не уверен.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Сколько полей оптимально в чекауте?</li>
+<li>Зачем гостевая покупка?</li>
+<li>Что убрать из чекаута?</li>
+<li>Что должно быть после оформления?</li></ol></div>
+`},
+
+{t:"Доставка и налоги",g:"Настроить расчёт стоимости доставки и налогов.",c:`
+<h3>Зачем этот урок</h3>
+<p>Доставка — главная причина отказов от заказа. Нужно показывать <strong>реальную стоимость и срок</strong> до оформления, а не «сюрприз» в чекауте.</p>
+<p>«Бесплатная доставка от суммы» — сильнейший стимул увеличить чек.</p>
+
+<h3>Простым языком</h3>
+<p>Стандартная ставка НДС — 20%. Обычно включён в цену. Пониженная 10% для отдельных категорий.</p>
+<p>Настройка: WooCommerce → Настройки → Налоги.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Зона доставки</dt><dd>Регион со своими способами.</dd>
+<dt>НДС</dt><dd>Налог на добавленную стоимость.</dd>
+<dt>Порог бесплатной доставки</dt><dd>Сумма, после которой доставка 0.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему зоны? Разные регионы — разные способы и цены. Почему порог бесплатной доставки? Стимулирует добавить товар в корзину. Почему показывать заранее? Скрытая стоимость в чекауте вызывает отказы.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Зоны доставки — как тарифы такси: в центре одна цена, за городом другая. Порог бесплатной доставки — как «кофе в подарок при заказе от 1000 ₽»: добавляешь десерт, чтобы получить бонус. НДС — как налог, уже включённый в ценник.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Стоимость скрыта до чекаута</strong> — отказы. <strong>Налог не включён в цену</strong> — расхождение с чеком. <strong>Нет порога бесплатной доставки</strong> — средний чек ниже. <strong>Одна зона для всей России</strong> — доставка во Владивосток по цене Москвы.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Настроить доставку и налоги</div>
+<div class="task-why">Зачем: прозрачная доставка снижает отказы.</div>
+<ol class="steps">
+<li>Создай 3 зоны с разными методами.</li>
+<li>Настрой бесплатную доставку от 5000 ₽.</li>
+<li>Настрой налоговую ставку 20%, включённую в цену.</li>
+<li>Проверь расчёт на заказе из 3 товаров разного веса.</li>
+<li>Проверь: порог бесплатной доставки работает?</li>
+</ol>
+<div class="task-r">Результат: предсказуемая доставка и корректные налоги.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Стоимость скрыта до чекаута.</strong> Отказы.</li>
+<li><strong>Налог не включён.</strong> Расхождение с чеком.</li>
+<li><strong>Нет порога.</strong> Средний чек ниже.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем зоны доставки?</li>
+<li>Как работает бесплатная доставка?</li>
+<li>Какая ставка НДС стандартная?</li>
+<li>Когда показывать стоимость доставки?</li></ol></div>
+`},
+
+{t:"Купоны, скидки, акции",g:"Управлять ценами и стимулировать продажи.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Купон</strong> — код, дающий скидку. Правильное использование — стимулировать конкретное поведение: первую покупку, крупный заказ, возвращение.</p>
+<p>Купон без лимита и минимальной суммы — дыра в прибыли.</p>
+
+<h3>Простым языком</h3>
+<p>Четыре типа купонов: процентный, фиксированная скидка на корзину, фиксированная скидка на товар, бесплатная доставка.</p>
+<p>Ограничения: минимальная сумма, срок действия, лимит использований, не суммируется с распродажей.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Купон</dt><dd>Код скидки.</dd>
+<dt>Распродажа</dt><dd>Скидка на категорию товаров.</dd>
+<dt>Кэшбэк</dt><dd>Возврат части суммы.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему ограничения? Без лимита один человек использует купон 100 раз. Почему не суммировать с распродажей? Можно получить убыток. Почему срок действия? Через год старый код всплывёт и создаст убыток.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Купон — как скидочный купон в магазине: «-20% при покупке от 2000 ₽». Лимит — как «один купон на покупателя»: иначе один купит всё со скидкой. Срок — как дата на купоне: просроченный не принимают.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Купон без лимита использований</strong> — viral-утечка прибыли. <strong>Скидка поверх скидки</strong> — продаёте в минус. <strong>Купон без минимальной суммы</strong> — скидка на заказ 200 ₽. <strong>Не отключили истёкший промокод</strong> — продолжает работать.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Создать три купона</div>
+<div class="task-why">Зачем: понять механику, не потеряв деньги.</div>
+<ol class="steps">
+<li>Создай 3 купона: процентный, фиксированный, бесплатная доставка.</li>
+<li>Каждому задай ограничения (сумма, срок, лимит).</li>
+<li>Проверь: купон 10% работает, но не суммируется с распродажей?</li>
+<li>Сделай распродажу: категория «Зима» со скидкой 30%.</li>
+<li>Проверь: максимальная скидка ограничена 2000 ₽?</li>
+</ol>
+<div class="task-r">Результат: рабочие акции с защитой прибыли.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Купон без лимита.</strong> Убыток.</li>
+<li><strong>Суммирование с распродажами.</strong> Убыток.</li>
+<li><strong>Нет срока.</strong> Годом позже всплывёт.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови три типа купонов.</li>
+<li>Какие ограничения обязательны?</li>
+<li>Зачем лимит использований?</li>
+<li>Как сделать распродажу категории?</li></ol></div>
+`},
+
+{t:"Email-уведомления",g:"Настроить письма, которые не падают в спам.",c:`
+<h3>Зачем этот урок</h3>
+<p>WooCommerce отправляет письма клиенту и админу. По умолчанию они уходят через <code>mail()</code> — и часто попадают в спам. Решение — <strong>SMTP</strong>.</p>
+<p>Потерянное письмо = потерянный заказ.</p>
+
+<h3>Простым языком</h3>
+<p>Обязательные письма: новый заказ (админ), заказ получен, заказ отправлен (с треком), заказ выполнен.</p>
+<p>Настройка: WP Mail SMTP + Яндекс 360 / SendGrid.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>SMTP</dt><dd>Протокол отправки почты.</dd>
+<dt>Уведомление</dt><dd>Письмо о событии.</dd>
+<dt>Шаблон письма</dt><dd>Оформление письма.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему SMTP? Письма через mail() идут без подписи SPF/DKIM и попадают в спам. Почему трек в письме? Клиент пишет «где заказ?», если не получил трек. Почему шаблон по умолчанию плох? Выглядит как спам и вызывает недоверие.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>SMTP — как отправка письма через почтовую службу с подписью: доходит. mail() — как письмо без обратного адреса: часто теряется. Шаблон — как фирменный бланк: красиво и узнаваемо.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Письма через wp_mail</strong> — Gmail кладёт в спам. <strong>Не настроены SPF/DKIM/DMARC</strong> — письма подменяют. <strong>Один шаблон для всех статусов</strong> — клиент не понимает, что произошло. <strong>Не отправлено «заказ в обработке»</strong> — клиент пишет снова и снова.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Настроить SMTP и шаблоны</div>
+<div class="task-why">Зачем: потерянное письмо = потерянный заказ.</div>
+<ol class="steps">
+<li>Установи WP Mail SMTP, подключи Яндекс 360 или SendGrid.</li>
+<li>Отправь тестовое письмо — проверь, что не в спаме.</li>
+<li>Кастомизируй шаблон: логотип, контакты, текст.</li>
+<li>Добавь трек-номер в письмо «Отправлен».</li>
+<li>Сделай тестовый заказ и проверь все письма.</li>
+</ol>
+<div class="task-r">Результат: надёжная email-доставка.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Не настроен SMTP.</strong> Письма в спаме.</li>
+<li><strong>Нет трека.</strong> «Где заказ?»</li>
+<li><strong>Шаблон по умолчанию.</strong> Как спам.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем SMTP?</li>
+<li>Какие письма обязательны?</li>
+<li>Что должно быть в письме «Отправлен»?</li>
+<li>Как проверить, что письмо не в спаме?</li></ol></div>
+`},
+
+{t:"Личный кабинет пользователя",g:"Дать покупателю управление заказами и данными.",c:`
+<h3>Зачем этот урок</h3>
+<p>Личный кабинет — единственное место, где покупатель сам управляет заказами, адресами и данными. Чем меньше он туда заходит, тем лучше, но кабинет должен быть удобным.</p>
+<p>Гостевая покупка разрешена — обязательная регистрация отпугивает.</p>
+
+<h3>Простым языком</h3>
+<p>Шорткод: <code>[woocommerce_my_account]</code>.</p>
+<p>Что проверить в первую очередь: восстановление пароля и смену пароля.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Личный кабинет</dt><dd>Раздел управления аккаунтом.</dd>
+<dt>Заказ</dt><dd>Оформленная покупка.</dd>
+<dt>Статус заказа</dt><dd>Этап выполнения.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему разрешать гостевую покупку? Обязательная регистрация отпугивает покупателей. Почему проверять восстановление пароля? Если оно не работает, пользователи не смогут войти. Почему адаптировать? Многие заходят с телефона.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Личный кабинет — как кабинет на почте: заходишь, проверяешь посылки, меняешь адрес. Гостевая покупка — как отправка без регистрации: быстро и без барьеров. Восстановление пароля — как забытый ключ: должен быть способ попасть внутрь.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Нет согласия на обработку ПД (152-ФЗ)</strong> — штраф. <strong>Слабый пароль без лимита попыток</strong> — взлом перебором. <strong>История заказов недоступна</strong> — звонки в поддержку. <strong>Гость не может стать клиентом после оплаты</strong> — теряем данные для повторных продаж.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Пройти полный цикл</div>
+<div class="task-why">Зачем: проверить кабинет глазами покупателя.</div>
+<ol class="steps">
+<li>Пройти цикл: регистрация → заказ → просмотр в кабинете.</li>
+<li>Настрой «Забыли пароль» и смену пароля.</li>
+<li>Добавь блок «Избранное».</li>
+<li>Проверь кабинет на телефоне.</li>
+<li>Сделай заказ гостем — убедись, что не требует регистрации.</li>
+</ol>
+<div class="task-r">Результат: удобный кабинет и работающая гостевая покупка.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Обязательная регистрация.</strong> Отпугивает.</li>
+<li><strong>Нет статусов заказов.</strong> Непонятно.</li>
+<li><strong>Кабинет не адаптирован.</strong> Неудобно.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что должно быть в личном кабинете?</li>
+<li>Зачем гостевую покупку?</li>
+<li>Как проверить восстановление пароля?</li>
+<li>Почему кабинет адаптируют?</li></ol></div>
+`},
+
+{t:"Чеки и фискализация (54-ФЗ)",g:"Выдавать чеки законно.",c:`
+<h3>Зачем этот урок</h3>
+<p>С 2017 года <strong>все</strong> интернет-магазины России обязаны выдавать фискальные чеки при оплате онлайн. Без этого — штрафы. Нужна <strong>онлайн-касса</strong>, интегрированная с магазином.</p>
+<p>Магазин без фискализации — нарушение 54-ФЗ.</p>
+
+<h3>Простым языком</h3>
+<p>Платёж проходит через онлайн-кассу, данные уходят в ОФД и ФНС, покупатель получает чек.</p>
+<p>Настраивают фискальные признаки: ставка НДС, предмет расчёта, способ расчёта.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>54-ФЗ</dt><dd>Закон о кассовой технике.</dd>
+<dt>ОФД</dt><dd>Оператор фискальных данных.</dd>
+<dt>Фискальный признак</dt><dd>Данные чека.</dd>
+<dt>Фискальный накопитель</dt><dd>Устройство в кассе.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему онлайн-касса? Закон требует фискальные чеки при онлайн-оплате. Почему ОФД? Он передаёт данные в налоговую. Почему неверная ставка? Расхождение с учётом и проблемы с налоговой.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Онлайн-касса — как кассовый аппарат: бьёт чек. ОФД — как передача данных о продаже в налоговую: без неё чек не считается. Фискальный признак — как номер чека: по нему налоговая проверяет продажу.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Нет онлайн-кассы</strong> — штраф от 30 000 ₽. <strong>Чек не отправлен в ОФД</strong> — повторный штраф. <strong>Неверный предмет расчёта</strong> — расхождение с отчётностью. <strong>Возврат без чека возврата</strong> — налоговая разбирается.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Подключить фискализацию</div>
+<div class="task-why">Зачем: законность. Штрафы за отсутствие чеков — от 30 000 ₽.</div>
+<ol class="steps">
+<li>Изучи требования 54-ФЗ к онлайн-кассам.</li>
+<li>Выбери сервис онлайн-кассы (ЮKassa Касса, CloudPayments, АТОЛ Онлайн) и ОФД (Эвотор ОФД, Такском).</li>
+<li>Настрой фискальные признаки: ставка, предмет, способ расчёта.</li>
+<li>Интегрируй с WooCommerce.</li>
+<li>Сделай тестовый заказ — проверь, что чек пришёл на email.</li>
+</ol>
+<div class="task-r">Результат: легальная выдача чеков.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Магазин без фискализации.</strong> Штрафы.</li>
+<li><strong>Неверная ставка НДС.</strong> Расхождение.</li>
+<li><strong>Чек не приходит.</strong> Жалоба в налоговую.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем онлайн-касса?</li>
+<li>Что такое ОФД?</li>
+<li>Какие фискальные признаки настраивают?</li>
+<li>Кто отвечает за выдачу чека?</li></ol></div>
+`},
+
+{t:"Кастомизация шаблонов WooCommerce",g:"Менять карточку товара и чекаут под дизайн.",c:`
+<h3>Зачем этот урок</h3>
+<p>WooCommerce позволяет переопределить <strong>любой</strong> шаблон: скопируй файл из плагина в свою тему и правь. Хуки позволяют добавлять/убирать блоки без копирования файлов.</p>
+<p>Хуки предпочтительнее копирования: обновление плагина не сломает правки.</p>
+
+<h3>Простым языком</h3>
+<p>Приоритет 35 в <code>add_action</code> — выполнить после кнопки «В корзину» (30).</p>
+<p>Своё поле чекаута: хук <code>woocommerce_after_order_notes</code>, сохранить через <code>woocommerce_checkout_update_order_meta</code>.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Переопределение шаблона</dt><dd>Копирование файла из плагина в тему.</dd>
+<dt>Хук</dt><dd>Точка вставки своего кода.</dd>
+<dt>sanitize_text_field</dt><dd>Очистка текстовых данных.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему хук лучше копирования? Обновление плагина не удалит правки. Почему приоритет 35? Кнопка «В корзину» выводится на 30, значит 35 будет сразу после. Почему sanitize_text_field? Защита от XSS при сохранении данных.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Хук — как крючок на стене: повесил что нужно, стену не трогал. Переопределение файла — как перекраска самой стены: обновление (ремонт) смоет твою работу. Sanitize — как проверка текста перед наклейкой: убедиться, что не спрятан вредоносный код.</p></div>
+
+<h3>Пример кода</h3>
+<pre>// Текст под ценой
+add_action('woocommerce_single_product_summary', function () {
+  echo '<p class="note">Доставка 1–3 дня</p>';
+}, 35);
+
+// Убрать вкладку «Отзывы»
+add_filter('woocommerce_product_tabs', function ($tabs) {
+  unset($tabs['reviews']);
+  return $tabs;
+});
+
+// Своё поле в чекауте
+add_action('woocommerce_after_order_notes', function () {
+  echo '<textarea name="order_comment"></textarea>';
+});
+
+// Сохранить в заказ
+add_action('woocommerce_checkout_update_order_meta',
+  function ($order_id) {
+    if (!empty($_POST['order_comment'])) {
+      update_post_meta($order_id, '_order_comment',
+        sanitize_text_field($_POST['order_comment']));
+    }
+  });</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Правка файлов плагина</strong> — обновление снесёт всё. <strong>Неверный приоритет</strong> — блок не там. <strong>Забыли sanitize</strong> — XSS.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Кастомизировать карточку и чекаут</div>
+<div class="task-why">Зачем: стандартный WooCommerce выглядит шаблонно.</div>
+<ol class="steps">
+<li>Добавь блок «Доставка 1–3 дня» под цену через хук.</li>
+<li>Добавь поле «Комментарий к заказу» и сохрани в мета заказа.</li>
+<li>Убери вкладку «Отзывы», если не нужна.</li>
+<li>Переопредели content-single-product.php в своей теме.</li>
+<li>Проверь: всё работает после обновления WooCommerce?</li>
+</ol>
+<div class="task-r">Результат: магазин с индивидуальной карточкой.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Правка плагина.</strong> Обновление снесёт.</li>
+<li><strong>Неверный приоритет.</strong> Не там.</li>
+<li><strong>Забыли sanitize.</strong> XSS.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем хук лучше копирования файла?</li>
+<li>Что означает приоритет 35?</li>
+<li>Как сохранить своё поле чекаута?</li>
+<li>Зачем sanitize_text_field?</li></ol></div>
+`},
+
+{t:"Импорт/экспорт товаров",g:"Залить каталог из CSV и выгрузить заказы.",c:`
+<h3>Зачем этот урок</h3>
+<p>Ручное добавление 500 товаров — дни работы. <strong>CSV-импорт</strong> делает это за минуты. Главное — правильно подготовить файл.</p>
+<p>SKU — ключ: при повторном импорте товары обновляются, а не дублируются.</p>
+
+<h3>Простым языком</h3>
+<p>CSV в кодировке UTF-8 — иначе русский текст превратится в кракозябры.</p>
+<p>Категории разделяются запятыми, иерархия — через &gt; (например «Одежда &gt; Футболки»). Картинки — через запятую.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>CSV</dt><dd>Формат табличных данных.</dd>
+<dt>SKU</dt><dd>Артикул для сопоставления.</dd>
+<dt>Импорт</dt><dd>Загрузка данных в магазин.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему SKU? По нему товары сопоставляются при повторном импорте и не дублируются. Почему UTF-8? Windows-1251 даёт кракозябры. Почему экспорт заказов? Для бухгалтерии и анализа.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>CSV — как прайс-лист в Excel: стандартный формат, понятный любой программе. SKU — как штрихкод: по нему находишь тот же товар. UTF-8 — как общий язык: без него сосед не поймёт твой текст.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>CSV не в UTF-8</strong> — кракозябры. <strong>Категории через / вместо &gt;</strong> — не создаются. <strong>Импорт без SKU</strong> — дубли при повторе. <strong>Не выгружены картинки</strong> — каталог без фото.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Импортировать каталог</div>
+<div class="task-why">Зачем: навык, экономящий дни на реальных проектах.</div>
+<ol class="steps">
+<li>Подготовь CSV с 50 товарами (UTF-8).</li>
+<li>Импортируй через Товары → Импорт.</li>
+<li>Проверь: категории, цены, картинки, атрибуты подтянулись?</li>
+<li>Экспортируй заказы за месяц в CSV для бухгалтерии.</li>
+<li>Повтори импорт — убедись, что нет дублей (работает по SKU).</li>
+</ol>
+<div class="task-r">Результат: быстрый импорт и выгрузка данных.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>CSV в Windows-1251.</strong> Кракозябры.</li>
+<li><strong>Нет колонки sku.</strong> Дубли.</li>
+<li><strong>Картинки по относительным путям.</strong> Нужны URL.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем колонка sku?</li>
+<li>В какой кодировке сохранять CSV?</li>
+<li>Как разделяются категории и картинки?</li>
+<li>Как избежать дублей при повторном импорте?</li></ol></div>
+`},
+
+{t:"Проект: интернет-магазин под ключ",g:"Собрать всё из Главы 7 в работающий магазин.",c:`
+<h3>Зачем этот урок</h3>
+<p>Полноценный магазин: дизайн → тема → каталог → корзина → оплата → доставка → чеки → письма → выгрузка. После этого проекта вы можете брать заказы на магазины.</p>
+<p>Это проект, за который платят больше всего.</p>
+
+<h3>Полный цикл заказа</h3>
+<ol>
+<li>Товар → Купить</li>
+<li>Корзина</li>
+<li>Чекаут</li>
+<li>Оплата</li>
+<li>Чек</li>
+<li>CRM + Доставка</li>
+</ol>
+
+<h3>Чек-лист проекта</h3>
+<ul>
+<li>Своя тема + WooCommerce, переопределённые шаблоны</li>
+<li>Каталог: 4 категории, 40+ товаров, 5 вариативных</li>
+<li>Фильтры: категория, цена, атрибут</li>
+<li>Чекаут в 6 полей, гостевая покупка</li>
+<li>Оплата: ЮKassa (тест) + наличные при получении</li>
+<li>Фискализация чеков (54-ФЗ)</li>
+<li>Доставка: 3 зоны + СДЭК с ПВЗ</li>
+<li>Email через SMTP, кастомные шаблоны</li>
+<li>Личный кабинет с заказами</li>
+<li>Импорт каталога из CSV</li>
+<li>Lighthouse 80+</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Проект</dt><dd>Полный цикл создания магазина.</dd>
+<dt>Критерий приёмки</dt><dd>Условия сдачи проекта.</dd>
+<dt>Деплой</dt><dd>Размещение на сервере.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему своя тема? Клиент должен управлять контентом, а магазин — быстро работать. Почему проверять полный цикл? Ошибка на любом шаге обнуляет все остальные. Почему тестовый режим оплаты? Проверить оплату до реальных денег.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Магазин — как супермаркет: каталог (полки), корзина (тележки), чекаут (кассы), оплата (терминал), доставка (курьер). Полный цикл — как покупка от входа до выхода: если хоть один шаг сломан, покупатель уйдёт.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Не протестировали цикл «корзина → оплата → чек → доставка»</strong> — первые клиенты встретят баг. <strong>Сдали без тестового режима оплаты</strong> — реальные деньги падают в никуда. <strong>Не настроили фискализацию</strong> — штраф 30 000 ₽ в первую неделю. <strong>Каталог без фильтров</strong> — покупатель не находит товар.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать магазин по чек-листу</div>
+<div class="task-why">Зачем: это проект, за который платят больше всего.</div>
+<ol class="steps">
+<li>Создай тему и переопредели шаблоны WooCommerce.</li>
+<li>Наполни каталог: 40 товаров, 5 вариативных, фильтры.</li>
+<li>Настрой чекаут в 6 полей + гостевая покупка.</li>
+<li>Подключи ЮKassa в тестовом режиме.</li>
+<li>Настрой фискализацию чеков.</li>
+<li>Настрой 3 зоны доставки + СДЭК с ПВЗ.</li>
+<li>Настрой SMTP и кастомные письма.</li>
+<li>Настрой личный кабинет с заказами.</li>
+<li>Импортируй каталог из CSV.</li>
+<li>Прогони Lighthouse — доведи до 80+.</li>
+<li>Проверь весь цикл на телефоне.</li>
+</ol>
+<div class="task-r">Результат: работающий магазин — самый дорогой тип проекта в портфолио.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Не проверили оплату в тесте.</strong> Потеряете заказы.</li>
+<li><strong>Нет фискализации.</strong> Штрафы клиенту.</li>
+<li><strong>Каталог без фильтров.</strong> Покупатель не находит.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови 11 обязательных элементов магазина.</li>
+<li>Какой цикл нужно проверить перед сдачей?</li>
+<li>Зачем тестовый режим оплаты?</li>
+<li>Что показывают критерии приёмки?</li></ol></div>
+`}
+];
+var cur=1;
+function render(){
+  var t=document.getElementById("tabs"); t.innerHTML="";
+  L.forEach(function(l,i){ var b=document.createElement("button");
+    b.className="tab"+(i+1===cur?" on":""); b.textContent=(i+69);
+    b.onclick=function(){cur=i+1;render();}; t.appendChild(b); });
+  var d=L[cur-1];
+  var g = cur<=17?6:7;
+  document.getElementById("out").innerHTML='<div class="lesson"><div class="lh"><div class="num">Урок '+(cur+62)+' · Глава '+g+' · Расширенная версия</div><h2>'+d.t+'</h2><div class="goal">🎯 '+d.g+'</div></div><div class="lb">'+d.c+'</div></div>';
+  document.getElementById("cnt").textContent="Урок "+cur+" из "+L.length;
+  window.scrollTo(0,0);
+}
+document.getElementById("prev").onclick=function(){ if(cur>1){cur--;render();} };
+document.getElementById("next").onclick=function(){ if(cur<L.length){cur++;render();} };
+render();
+</script>
+</body>
+</html>

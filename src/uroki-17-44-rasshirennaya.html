@@ -1,0 +1,2505 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Уроки 17–44 · Расширенная теория</title>
+<style>
+:root{--bg:#eef1f6;--card:#fff;--line:#e4e8f0;--txt:#182031;--muted:#6d7789;--acc:#4f46e5;--ok:#15a34a;--proc:#e08c00;--code:#101828}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);font-size:14.5px;line-height:1.6}
+header{background:#101828;color:#fff;padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+header h1{margin:0;font-size:16px}header .sub{color:#98a2b3;font-size:12px}
+header .cnt{margin-left:auto;font-size:12px;color:#cbd5e1;font-weight:600}
+.wrap{max-width:900px;margin:0 auto;padding:20px 16px 70px}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:#fff;border-radius:7px;padding:5px 9px;font-size:12px;cursor:pointer;font-weight:600;color:var(--muted)}
+.tab:hover{border-color:#c7cfdd}.tab.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.lesson{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.lh{padding:20px 24px 14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fbfcfe,#fff)}
+.lh .num{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);font-weight:700}
+.lh h2{margin:4px 0 0;font-size:23px;letter-spacing:-.02em;line-height:1.25}
+.lh .goal{margin-top:6px;font-size:13px;color:var(--muted)}
+.lb{padding:4px 24px 24px}
+.lb h3{font-size:12.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);margin:24px 0 9px;font-weight:700;padding-bottom:5px;border-bottom:2px solid #eef2ff}
+.lb h4{font-size:15.5px;margin:18px 0 6px}
+.lb p{margin:0 0 12px;line-height:1.75}
+.lb ul,.lb ol{margin:0 0 13px;padding-left:21px}
+.lb li{margin-bottom:6px;line-height:1.68}
+.lb strong{color:#0f172a}
+.lb code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.87em;background:#f1f5f9;padding:1px 5px;border-radius:4px;color:#3730a3}
+.lb pre{background:var(--code);color:#e6edf7;padding:13px 15px;border-radius:9px;overflow-x:auto;font-size:12.2px;line-height:1.5;font-family:"SF Mono",Menlo,Consolas,monospace;margin:0 0 13px}
+.lb pre code{background:none;padding:0;color:inherit}
+.lb table{width:100%;border-collapse:collapse;margin:0 0 13px;font-size:12.8px}
+.lb th{background:#f8fafc;text-align:left;padding:8px 10px;border:1px solid var(--line);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.lb td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;line-height:1.5}
+figure{margin:0 0 16px}
+figure svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+figcaption{margin-top:6px;font-size:12.2px;color:var(--muted);line-height:1.5}
+figcaption b{color:#475467}
+.term{background:#f5f3ff;border-left:4px solid #8b5cf6;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px}
+.term-t{font-weight:700;font-size:12.5px;color:#6d28d9;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.term dl{margin:0}
+.term dt{font-weight:700;color:#4c1d95;font-size:13.5px;margin-top:6px}
+.term dd{margin:2px 0 0 0;font-size:13.5px;line-height:1.6;color:#5b21b6}
+.why{background:#eef2ff;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.why-t{font-weight:700;font-size:12.5px;color:#3730a3;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.life{background:#f0fdf4;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.life-t{font-weight:700;font-size:12.5px;color:#15803d;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.risk{background:#fef2f2;border-left:4px solid #b42318;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.risk-t{font-weight:700;font-size:12.5px;color:#b42318;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.task{background:#f8fafc;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:0 11px 11px 0;padding:13px 15px;margin:0 0 13px}
+.task-h{font-weight:700;font-size:14.5px;margin-bottom:4px}
+.task-why{font-size:12.8px;color:var(--muted);margin-bottom:9px;line-height:1.55}
+.steps{margin:0;padding-left:0;list-style:none;counter-reset:st}
+.steps li{position:relative;padding-left:32px;margin-bottom:8px;line-height:1.6;font-size:13.2px;counter-increment:st}
+.steps li::before{content:counter(st);position:absolute;left:0;top:0;width:21px;height:21px;background:var(--acc);color:#fff;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.task-r{margin-top:10px;padding-top:9px;border-top:1px dashed #d7dde6;font-size:12.8px;color:var(--ok);font-weight:600}
+.warn{background:#fffbeb;border-left:4px solid var(--proc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.warn-t{font-weight:700;font-size:12.5px;color:#b45309;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.warn ul{margin:0;padding-left:19px}.warn li{font-size:13.2px;margin-bottom:4px}
+.check{background:#f0fdf4;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.check-t{font-weight:700;font-size:12.5px;color:#15803d;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.check ol{margin:0;padding-left:19px}.check li{font-size:13.2px;margin-bottom:4px}
+.note{background:#eef2ff;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px;font-size:13.5px}
+.navb{display:flex;gap:9px;margin-top:16px}.navb .sp{flex:1}
+.btn{border:1px solid var(--line);background:#fff;padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600;font-family:inherit}
+.btn:hover{border-color:#c7cfdd}.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+@media(max-width:700px){.lh,.lb{padding-left:15px;padding-right:15px}.lh h2{font-size:20px}}
+</style>
+</head>
+<body>
+<header><h1>📚 Уроки 17–44 · Расширенная теория</h1><span class="sub">как · зачем · почему · терминология · примеры из жизни</span><span class="cnt" id="cnt"></span></header>
+<div class="wrap"><div class="tabs" id="tabs"></div><div id="out"></div>
+<div class="navb"><button class="btn" id="prev">← Предыдущий</button><span class="sp"></span><button class="btn pri" id="next">Следующий →</button></div></div>
+<script>
+var L=[
+{t:"UI-компоненты в Figma",g:"Собрать библиотеку элементов: кнопки, поля, карточки, бейджи.",c:`
+<h3>Зачем этот урок</h3>
+<p>Компонент — элемент, который рисуешь один раз, а используешь сто раз. Заменил цвет в компоненте «Кнопка» — поменялись все 40 кнопок на всех макетах. Это не «удобство», а <strong>экономия часов</strong>: без компонентов правка кнопки в магазине на 15 экранов занимает день.</p>
+<p>Второй момент: компоненты заставляют думать <strong>состояниями</strong>. У кнопки их четыре, и новички обычно рисуют только первое. Потом оказывается, что на наведении ничего не происходит, и сайт ощущается мёртвым.</p>
+
+<h3>Простым языком</h3>
+<p>Четыре состояния кнопки: <strong>default</strong> (обычное), <strong>hover</strong> (курсор наведён — темнее), <strong>active</strong> (нажата — ещё темнее и ниже), <strong>disabled</strong> (недоступна — серая).</p>
+<p>Карточка товара: фото, название, цена, кнопка. Поле ввода: подпись <strong>над</strong> полем, не внутри.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Компонент</dt><dd>Переиспользуемый элемент интерфейса.</dd>
+<dt>Экземпляр</dt><dd>Копия компонента на макете.</dd>
+<dt>Состояние</dt><dd>Вариант внешнего вида элемента: default, hover, active, disabled.</dd>
+<dt>Дизайн-система</dt><dd>Набор компонентов и правил их использования.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему четыре состояния, а не одно? Без hover пользователь не понимает, что элемент интерактивный. Почему подпись над полем, а не placeholder? Placeholder исчезает при вводе, и пользователь забывает, что заполнял. Почему компоненты, а не копирование слоёв? При копировании правка одного не задевает другие, и через день они расходятся.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Компонент — как форма для выпечки печенья. Один раз сделал форму — печёшь сколько хочешь, все изделия одинаковые. Захотел другой размер — поменял форму, все новые печенья другого размера. Если лепить каждое руками — разбег в 2 мм, и набор выглядит неряшливо.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Четыре состояния кнопки">
+<rect width="840" height="300" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="13" font-weight="700" font-family="Arial">Кнопка: четыре обязательных состояния</text>
+<rect x="30" y="38" width="180" height="70" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<rect x="55" y="60" width="130" height="32" rx="8" fill="#4f46e5"/>
+<text x="120" y="80" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Arial">КУПИТЬ</text>
+<text x="120" y="100" text-anchor="middle" fill="#101828" font-size="10.5" font-weight="700" font-family="Arial">default</text>
+<text x="120" y="114" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">обычное</text>
+<rect x="230" y="38" width="180" height="70" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<rect x="255" y="60" width="130" height="32" rx="8" fill="#4338CA"/>
+<text x="320" y="80" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Arial">КУПИТЬ</text>
+<text x="320" y="100" text-anchor="middle" fill="#101828" font-size="10.5" font-weight="700" font-family="Arial">hover</text>
+<text x="320" y="114" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">наведён, темнее</text>
+<rect x="430" y="38" width="180" height="70" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<rect x="455" y="62" width="130" height="30" rx="8" fill="#3730A3"/>
+<text x="520" y="81" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="Arial">КУПИТЬ</text>
+<text x="520" y="100" text-anchor="middle" fill="#101828" font-size="10.5" font-weight="700" font-family="Arial">active</text>
+<text x="520" y="114" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">нажата, ниже</text>
+<rect x="630" y="38" width="180" height="70" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<rect x="655" y="60" width="130" height="32" rx="8" fill="#D0D5DD"/>
+<text x="720" y="80" text-anchor="middle" fill="#98A2B3" font-size="11" font-weight="700" font-family="Arial">КУПИТЬ</text>
+<text x="720" y="100" text-anchor="middle" fill="#101828" font-size="10.5" font-weight="700" font-family="Arial">disabled</text>
+<text x="720" y="114" text-anchor="middle" fill="#6d7789" font-size="9.5" font-family="Arial">недоступна</text>
+<text x="30" y="140" fill="#101828" font-size="12.5" font-weight="700" font-family="Arial">Карточка товара</text>
+<rect x="30" y="150" width="200" height="120" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<rect x="44" y="163" width="172" height="48" rx="8" fill="#f1f5f9"/>
+<text x="130" y="192" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="Arial">[ФОТО 4:3]</text>
+<text x="44" y="229" fill="#101828" font-size="11.5" font-weight="700" font-family="Arial">Куртка Storm</text>
+<text x="44" y="247" fill="#e08c00" font-size="10" font-family="Arial">★★★★☆ (24)</text>
+<text x="44" y="265" fill="#101828" font-size="12" font-weight="700" font-family="Arial">4 990 ₽</text>
+<rect x="150" y="255" width="38" height="16" rx="4" fill="#FEE2E2"/>
+<text x="169" y="267" text-anchor="middle" fill="#B42318" font-size="9" font-weight="700" font-family="Arial">-20%</text>
+<text x="260" y="140" fill="#101828" font-size="12.5" font-weight="700" font-family="Arial">Поле ввода</text>
+<rect x="260" y="150" width="230" height="120" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<text x="280" y="175" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Имя</text>
+<rect x="280" y="181" width="190" height="32" rx="8" fill="#fff" stroke="#d7dde6"/>
+<text x="290" y="202" fill="#98A2B3" font-size="11" font-family="Arial">Введите имя</text>
+<text x="280" y="230" fill="#15a34a" font-size="10" font-family="Arial">✓ Доступно</text>
+<line x1="280" y1="238" x2="470" y2="238" stroke="#e4e8f0"/>
+<text x="280" y="258" fill="#6d7789" font-size="9.5" font-family="Arial">Label СНАРУЖИ — не placeholder!</text>
+<rect x="520" y="150" width="290" height="120" rx="12" fill="#fffbeb" stroke="#fde68a"/>
+<text x="540" y="175" fill="#b45309" font-size="11" font-weight="700" font-family="Arial">Правило placeholder</text>
+<text x="540" y="197" fill="#92400e" font-size="10.5" font-family="Arial">Placeholder исчезает при вводе —</text>
+<text x="540" y="215" fill="#92400e" font-size="10.5" font-family="Arial">пользователь забывает, что заполнял.</text>
+<text x="540" y="237" fill="#92400e" font-size="10.5" font-family="Arial">Label всегда виден над полем.</text>
+<text x="540" y="259" fill="#b45309" font-size="10.5" font-weight="700" font-family="Arial">Исключение: поиск с иконкой.</text>
+</svg><figcaption><b>Рис. 17.1.</b> Четыре состояния кнопки, карточка товара и поле ввода. Подпись у поля находится <b>над</b> ним.</figcaption></figure>
+
+<h3>Пример кода</h3>
+<pre>.btn {
+  background: var(--color-accent);
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  transition: all .2s ease;
+}
+.btn:hover    { background: #4338CA; }
+.btn:active   { transform: translateY(1px); }
+.btn:disabled { background: #D0D5DD; cursor: not-allowed; }</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Рисовать только default</strong> — сайт кажется статичным. <strong>Placeholder вместо label</strong> — ломает доступность. <strong>Кнопка без границы на белом фоне</strong> — пользователь не понимает, что кликабельно. <strong>Разные радиусы у похожих кнопок</strong> — выглядит как случайный набор.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать библиотеку из 5 компонентов</div>
+<div class="task-why">Зачем: база для всех будущих проектов.</div>
+<ol class="steps">
+<li>Создай в Figma страницу «Components».</li>
+<li>Сделай Button с 4 состояниями и 2 размерами.</li>
+<li>Сделай Input с 3 состояниями: обычный, с ошибкой, disabled.</li>
+<li>Сделай Card: фото, заголовок, описание, цена, кнопка.</li>
+<li>Сделай Badge в трёх цветах: нейтральный, успех, ошибка.</li>
+<li>Сделай Accordion: закрытый и открытый.</li>
+<li>Преврати каждый в компонент (Ctrl+Alt+K).</li>
+<li>Назови по правилу «Что это / Вариант».</li>
+</ol>
+<div class="task-r">Результат: библиотека из 5 компонентов — основа дизайн-системы.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Рисовать только default.</strong> Сайт кажется мёртвым.</li>
+<li><strong>Placeholder вместо label.</strong> Ломает доступность.</li>
+<li><strong>Кнопка без видимой границы.</strong> Непонятно, что кликабельно.</li>
+<li><strong>Разные радиусы у похожих кнопок.</strong> Случайный набор.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови четыре состояния кнопки.</li>
+<li>Зачем состояние hover?</li>
+<li>Что должно быть у поля ввода обязательно?</li>
+<li>Что произойдёт с 40 кнопками при смене цвета компонента?</li></ol></div>
+`},
+
+{t:"Auto-layout и компоненты",g:"Делать макеты, которые легко менять и легко отдать в вёрстку.",c:`
+<h3>Зачем этот урок</h3>
+<p>Auto-layout — «умный» контейнер в Figma. Ты говоришь: «этот блок идёт сверху вниз, отступ между детьми 16 px, внутренние поля 24 px». Добавляешь элемент — блок сам вырастает. Убираешь — сам сжимается. Текст стал в две строки вместо трёх — всё ниже сдвинулось автоматически.</p>
+<p>Главный секрет: auto-layout — <strong>прямой аналог CSS Flexbox</strong>. Поймёшь одно — поймёшь другое. Поэтому этот урок экономит время дважды.</p>
+
+<h3>Простым языком</h3>
+<p>Режимы размера: <strong>Fixed</strong> (размер не меняется), <strong>Hug Contents</strong> (блок по контенту), <strong>Fill Container</strong> (растянуть на доступное).</p>
+<p>Когда отдаёшь макет в вёрстку, auto-layout работает как документация: разработчик смотрит на настройки и сразу пишет CSS. Без него он угадывает отступы, и почти всегда угадывает неточно.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Auto-layout</dt><dd>Умный контейнер, перестраивающий содержимое автоматически.</dd>
+<dt>Direction</dt><dd>Направление: Vertical или Horizontal.</dd>
+<dt>Gap</dt><dd>Отступ между дочерними элементами.</dd>
+<dt>Padding</dt><dd>Внутренние поля контейнера.</dd>
+<dt>Hug / Fill</dt><dd>Режимы определения размера.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему настройки совпадают с Flexbox один к одному? Потому что Figma изначально проектировался как инструмент, результат которого можно перенести в код. Direction Vertical = flex-direction: column, Gap = gap, Fill = flex: 1. Почему Gap лучше ручных отступов? Gap удаляется одним движением, а ручные отступы — нет.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Auto-layout — как полка-стеллаж с регулируемыми перегородками. Положил книги — перегородки встали по размеру. Добавил книгу — соседние сдвинулись сами. А без него ты вручную расставляешь каждую книгу линейкой и переделываешь всю полку при любой замене.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Auto-layout и Flexbox">
+<rect width="840" height="300" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="13" font-weight="700" font-family="Arial">FIGMA — Auto Layout</text>
+<rect x="30" y="34" width="360" height="150" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<rect x="50" y="54" width="320" height="110" rx="8" fill="#eef2ff" stroke="#c7d2fe"/>
+<rect x="62" y="66" width="296" height="26" rx="5" fill="#4f46e5"/>
+<text x="210" y="83" text-anchor="middle" fill="#fff" font-size="10.5" font-weight="700" font-family="Arial">[⚙]  Настройки</text>
+<rect x="62" y="98" width="296" height="20" rx="5" fill="#fff" stroke="#c7d2fe"/>
+<text x="210" y="112" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">строка 2</text>
+<rect x="62" y="124" width="296" height="20" rx="5" fill="#fff" stroke="#c7d2fe"/>
+<text x="210" y="138" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">строка 3</text>
+<text x="50" y="180" fill="#101828" font-size="10.5" font-family="Arial">Direction: Vertical</text>
+<text x="50" y="196" fill="#101828" font-size="10.5" font-family="Arial">Gap: 8</text>
+<text x="50" y="212" fill="#101828" font-size="10.5" font-family="Arial">Padding: 12 / 20</text>
+<text x="50" y="228" fill="#101828" font-size="10.5" font-family="Arial">Mode: Hug Contents</text>
+<text x="50" y="248" fill="#6d7789" font-size="10" font-family="Arial">Shift+A — применить к выделенному фрейму</text>
+<text x="430" y="24" fill="#101828" font-size="13" font-weight="700" font-family="Arial">CSS — Flexbox</text>
+<rect x="430" y="34" width="380" height="150" rx="12" fill="#101828"/>
+<text x="450" y="58" fill="#7dd3fc" font-size="11" font-family="monospace">.block {</text>
+<text x="466" y="78" fill="#c4b5fd" font-size="10.5" font-family="monospace">display: flex;</text>
+<text x="466" y="96" fill="#c4b5fd" font-size="10.5" font-family="monospace">flex-direction: column;</text>
+<text x="466" y="114" fill="#c4b5fd" font-size="10.5" font-family="monospace">gap: 8px;</text>
+<text x="466" y="132" fill="#c4b5fd" font-size="10.5" font-family="monospace">padding: 12px 20px;</text>
+<text x="466" y="150" fill="#c4b5fd" font-size="10.5" font-family="monospace">width: fit-content;</text>
+<text x="450" y="170" fill="#7dd3fc" font-size="11" font-family="monospace">}</text>
+<rect x="430" y="200" width="380" height="86" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="450" y="224" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Соответствие</text>
+<text x="450" y="244" fill="#475467" font-size="10" font-family="Arial">Direction Vertical → flex-direction: column</text>
+<text x="450" y="260" fill="#475467" font-size="10" font-family="Arial">Gap 8 → gap: 8px</text>
+<text x="450" y="276" fill="#475467" font-size="10" font-family="Arial">Hug Contents → width: fit-content</text>
+</svg><figcaption><b>Рис. 18.1.</b> Один и тот же блок в Figma и в CSS. Настройки совпадают один к одному.</figcaption></figure>
+
+<table><tr><th>Режим</th><th>Что делает</th><th>CSS</th></tr>
+<tr><td>Fixed</td><td>размер не меняется</td><td>width: 300px</td></tr>
+<tr><td>Hug Contents</td><td>блок по контенту</td><td>width: fit-content</td></tr>
+<tr><td>Fill Container</td><td>растянуть на доступное</td><td>flex: 1</td></tr></table>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Вложенность без auto-layout</strong> — правка одного элемента ломает три соседних. <strong>Hug там, где нужен Fill</strong> — блок не растягивается, макет «плывёт». <strong>Ручные отступы вместо Gap</strong> — не удаляются одним движением. <strong>Забыть мобильную версию</strong> — сюрпризы в вёрстке.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать карточку на auto-layout</div>
+<div class="task-why">Зачем: отработать механику на реальном компоненте.</div>
+<ol class="steps">
+<li>Создай фрейм, назови Card.</li>
+<li>Нажми Shift+A — примени auto-layout.</li>
+<li>Поставь Direction: Vertical, Gap: 12, Padding: 20.</li>
+<li>Добавь фото, заголовок, описание, цену.</li>
+<li>Сделай кнопку с Direction: Horizontal, Gap: 8.</li>
+<li>Преврати в компонент (Ctrl+Alt+K).</li>
+<li>Создай 3 экземпляра, добавь в один лишнюю строку.</li>
+<li>Проверь: карточка выросла, остальные не сломались?</li>
+</ol>
+<div class="task-r">Результат: компонент, устойчивый к изменению контента.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Вложенность без auto-layout.</strong> Правка ломает соседние.</li>
+<li><strong>Hug там, где нужен Fill.</strong> Макет плывёт.</li>
+<li><strong>Ручные отступы вместо Gap.</strong> Не удаляются сразу.</li>
+<li><strong>Забыть мобильную версию.</strong> Сюрпризы.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чему соответствует Gap в CSS?</li>
+<li>Что делает Hug Contents?</li>
+<li>Зачем auto-layout?</li>
+<li>Что будет, если текст кнопки станет длиннее?</li></ol></div>
+`},
+
+{t:"Адаптивный дизайн и mobile-first",g:"Проектировать сначала для телефона, потом для монитора.",c:`
+<h3>Зачем этот урок</h3>
+<p>70–80% трафика многих сайтов — телефоны. Но новички рисуют макет на 1440 px, вкладываются в него, а потом «ужимают» под телефон в панике за день до сдачи. В результате мобильная версия скомканная: текст мелкий, кнопки неудобные, блоки не влезают.</p>
+<p><strong>Mobile-first</strong> переворачивает порядок: рисуешь сначала 390 px — только главное, крупно, по вертикали. Потом расширяешь: на планшете блоки встают в две колонки, на десктопе — в три-четыре. Мобильная версия перестаёт быть «ужатой» и становится продуманной.</p>
+
+<h3>Простым языком</h3>
+<p>Что происходит с блоками при сжатии: 4 колонки преимуществ → одна колонка списком. 3 тарифа рядом → вертикальный стек, средний выделен. «Текст + фото» → текст сверху, фото снизу. Меню → бургер.</p>
+<p>Почему <code>min-width</code> лучше <code>max-width</code>: стили <strong>накапливаются</strong>, а не переопределяют друг друга.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Адаптив</dt><dd>Вёрстка, перестраивающаяся под размер экрана.</dd>
+<dt>Mobile-first</dt><dd>Подход: базовые стили для телефона, потом дополнения.</dd>
+<dt>Брейкпоинт</dt><dd>Ширина, на которой происходит перестроение.</dd>
+<dt>Медиазапрос</dt><dd>Условие применения стилей по параметрам экрана.</dd>
+<dt>Responsive</dt><dd>Отзывчивая вёрстка.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему mobile-first лучше? Базовые стили пишутся для самого частого случая (телефон), а для десктопа добавляются исключения. При десктоп-first наоборот — приходится писать «отменяющие» правила, код растёт и конфликтует. Почему брейкпоинты по контенту, а не по устройствам? Устройств много и экраны разные, а контент один — ломается он в предсказуемых местах.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Mobile-first — как собирать чемодан. Сначала кладёшь необходимое (телефон, документы, зарядка), а потом, если осталось место, добавляешь удобства. А если начать с большого чемодана и пытаться запихнуть всё в ручную кладь — половину придётся выбросить. Мобильный экран — та самая ручная кладь: влезает только главное.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Перестроение блоков">
+<rect width="840" height="300" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="12" font-weight="700" font-family="Arial">ДЕСКТОП · 1440 px</text>
+<rect x="30" y="34" width="240" height="150" rx="8" fill="#fff" stroke="#e4e8f0"/>
+<rect x="42" y="46" width="46" height="14" rx="3" fill="#4f46e5"/>
+<rect x="96" y="46" width="30" height="14" rx="3" fill="#e8ecf3"/>
+<rect x="132" y="46" width="30" height="14" rx="3" fill="#e8ecf3"/>
+<rect x="168" y="46" width="30" height="14" rx="3" fill="#e8ecf3"/>
+<rect x="206" y="44" width="52" height="18" rx="4" fill="#101828"/>
+<rect x="42" y="72" width="100" height="50" rx="4" fill="#eef2ff" stroke="#c7d2fe"/>
+<rect x="150" y="72" width="110" height="50" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<rect x="42" y="130" width="56" height="44" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<rect x="104" y="130" width="56" height="44" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<rect x="166" y="130" width="56" height="44" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<rect x="228" y="130" width="32" height="44" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="150" y="192" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">4 колонки · меню полное</text>
+<text x="300" y="24" fill="#101828" font-size="12" font-weight="700" font-family="Arial">ПЛАНШЕТ · 768 px</text>
+<rect x="300" y="34" width="230" height="150" rx="8" fill="#fff" stroke="#e4e8f0"/>
+<rect x="312" y="46" width="40" height="14" rx="3" fill="#4f46e5"/>
+<rect x="360" y="46" width="26" height="14" rx="3" fill="#e8ecf3"/>
+<rect x="394" y="46" width="26" height="14" rx="3" fill="#e8ecf3"/>
+<rect x="428" y="46" width="26" height="14" rx="3" fill="#e8ecf3"/>
+<rect x="466" y="44" width="48" height="18" rx="4" fill="#101828"/>
+<rect x="312" y="72" width="206" height="40" rx="4" fill="#eef2ff" stroke="#c7d2fe"/>
+<rect x="312" y="118" width="100" height="44" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<rect x="418" y="118" width="100" height="44" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<rect x="312" y="168" width="100" height="10" rx="3" fill="#e8ecf3"/>
+<text x="415" y="192" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">2 колонки · меню → бургер</text>
+<text x="560" y="24" fill="#101828" font-size="12" font-weight="700" font-family="Arial">ТЕЛЕФОН · 390 px</text>
+<rect x="560" y="34" width="130" height="150" rx="8" fill="#fff" stroke="#e4e8f0"/>
+<rect x="572" y="46" width="36" height="14" rx="3" fill="#4f46e5"/>
+<rect x="660" y="44" width="20" height="18" rx="4" fill="#101828"/>
+<text x="670" y="57" text-anchor="middle" fill="#fff" font-size="10" font-family="Arial">≡</text>
+<rect x="572" y="72" width="106" height="44" rx="4" fill="#eef2ff" stroke="#c7d2fe"/>
+<rect x="572" y="122" width="106" height="24" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<rect x="572" y="152" width="106" height="24" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="625" y="192" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">1 колонка</text>
+<rect x="710" y="34" width="100" height="150" rx="8" fill="#101828"/>
+<text x="760" y="58" text-anchor="middle" fill="#a5b4fc" font-size="10.5" font-weight="700" font-family="Arial">ПАТТЕРНЫ</text>
+<text x="724" y="80" fill="#cbd5e1" font-size="9.5" font-family="Arial">бургер-меню</text>
+<text x="724" y="100" fill="#cbd5e1" font-size="9.5" font-family="Arial">кнопки ≥ 44 px</text>
+<text x="724" y="120" fill="#cbd5e1" font-size="9.5" font-family="Arial">аккордеон</text>
+<text x="724" y="140" fill="#cbd5e1" font-size="9.5" font-family="Arial">вместо табов</text>
+<text x="724" y="160" fill="#cbd5e1" font-size="9.5" font-family="Arial">свайп-карусель</text>
+<rect x="30" y="215" width="780" height="70" rx="10" fill="#101828"/>
+<text x="50" y="239" fill="#a5b4fc" font-size="11.5" font-weight="700" font-family="Arial">Mobile-first: базовые стили для телефона, потом дополняем для больших</text>
+<text x="50" y="261" fill="#cbd5e1" font-size="10.5" font-family="Arial">min-width: 768px = «начиная с 768 и шире» → стили ДОПОЛНЯЮТ базовые</text>
+<text x="50" y="279" fill="#7dd3fc" font-size="10.5" font-weight="700" font-family="Arial">✓ меньше кода, меньше конфликтов, мобильная версия продумана заранее</text>
+</svg><figcaption><b>Рис. 19.1.</b> Перестроение блоков на трёх экранах. Внизу — почему min-width лучше max-width.</figcaption></figure>
+
+<h3>Пример кода</h3>
+<pre>/* 1. База: телефон */
+.container { width: 100%; padding: 0 16px; }
+.grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+
+/* 2. Планшет: от 768px */
+@media (min-width: 768px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+
+/* 3. Десктоп: от 1024px */
+@media (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .container { max-width: 1280px; margin: 0 auto; }
+}</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Рисовать только десктоп</strong> — мобильная версия скомканная. <strong>max-width вместо min-width</strong> — приходится писать отменяющие правила. <strong>Прятать контент на телефоне</strong> — иногда нужно, но чаще перестроить. <strong>Забыть 320 px</strong> — дешёвые Android ещё живы.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Сделать мобильную версию</div>
+<div class="task-why">Зачем: получить продуманный мобильный макет.</div>
+<ol class="steps">
+<li>Создай фрейм 390×3000.</li>
+<li>Пройди по всем блокам, реши судьбу каждого.</li>
+<li>4 колонки преимуществ → 1 колонка списком.</li>
+<li>3 тарифа рядом → вертикальный стек.</li>
+<li>«Текст + фото» → текст сверху, фото снизу.</li>
+<li>Меню → бургер, нарисуй открытое состояние.</li>
+<li>Отступы по бокам — минимум 16 px.</li>
+<li>Проверь: нет горизонтальной прокрутки?</li>
+</ol>
+<div class="task-r">Результат: мобильный макет с принятыми решениями.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Рисовать только десктоп.</strong> Мобильная версия скомканная.</li>
+<li><strong>max-width вместо min-width.</strong> Код растёт и конфликтует.</li>
+<li><strong>Прятать контент.</strong> Чаще перестроить, а не удалять.</li>
+<li><strong>Забыть 320 px.</strong> Дешёвые Android живы.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Почему mobile-first лучше?</li>
+<li>Чем min-width отличается от max-width?</li>
+<li>Что делать с четырёхколоночным блоком на телефоне?</li>
+<li>Какую ширину проверять обязательно?</li></ol></div>
+`},
+
+{t:"Дизайн-система и передача в вёрстку",g:"Оформить макет так, чтобы верстальщик не догадывался.",c:`
+<h3>Зачем этот урок</h3>
+<p>Дизайн-система — набор правил и компонентов, которые делают сайт единым. Для одного лендинга это одна страница с цветами, шрифтами и 10 компонентами. Для большого проекта — библиотека на сто элементов.</p>
+<p>Главная польза не в «красоте», а в <strong>скорости и предсказуемости</strong>. Когда есть токены, каждое решение занимает секунды: нужен отступ — берёшь <code>--space-4</code>. Нет системы — каждый раз выбираешь «на глаз», и через 20 блоков макет становится неровным.</p>
+<p>Второй смысл: <strong>токены — язык общения с разработчиком</strong>. Цвет называется не «индиго-синий», а <code>color-accent</code>. Верстальщик пишет <code>var(--color-accent)</code>, и разночтений не возникает.</p>
+
+<h3>Простым языком</h3>
+<p>Токен — переменная, используемая и в макете, и в коде. Цвета, отступы, шрифты, радиусы, тени.</p>
+<p>Чек-лист «макет готов к вёрстке»: отступы кратны 4 или 8, цвета через стили, шрифты с кириллицей, состояния hover/active у всех кликабельных, версия под 390 px, картинки в SVG или 2x WebP, компоненты названы понятно.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Токен</dt><dd>Переменная дизайна: цвет, отступ, размер.</dd>
+<dt>Дизайн-система</dt><dd>Набор компонентов и правил.</dd>
+<dt>Шпаргалка</dt><dd>Страница со всеми стилями проекта.</dd>
+<dt>Передача в вёрстку</dt><dd>Процесс передачи макета разработчику.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему токены называются по роли, а не по виду? «red-block» через месяц станет синим, а имя останется. Почему слои называют по смыслу? Верстальщик должен понимать, что за элемент, иначе будет спрашивать. Почему состояния hover обязательны? Верстальщик их не придумает — сайт получится статичным.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Дизайн-система — как поваренная книга ресторана. Есть список стандартных ингредиентов с замерами: «соль — 5 г», «мука — 200 г». Повар не отмеряет на глаз каждый раз, он берёт готовую меру. Без книги каждый повар сделает блюдо по-своему, и сеть развалится.</p></div>
+
+<figure><svg viewBox="0 0 840 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Токены дизайн-системы">
+<rect width="840" height="340" fill="#f8fafc"/>
+<rect x="30" y="24" width="250" height="150" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="46" y="48" fill="#4f46e5" font-size="10.5" font-weight="700" font-family="Arial">ЦВЕТА</text>
+<rect x="46" y="58" width="16" height="16" rx="4" fill="#fff" stroke="#cbd5e1"/>
+<text x="70" y="71" fill="#101828" font-size="10" font-family="monospace">--color-bg</text>
+<rect x="46" y="80" width="16" height="16" rx="4" fill="#101828"/>
+<text x="70" y="93" fill="#101828" font-size="10" font-family="monospace">--color-dark</text>
+<rect x="46" y="102" width="16" height="16" rx="4" fill="#4F46E5"/>
+<text x="70" y="115" fill="#101828" font-size="10" font-family="monospace">--color-accent</text>
+<rect x="46" y="124" width="16" height="16" rx="4" fill="#EEF2FF" stroke="#c7d2fe"/>
+<text x="70" y="137" fill="#101828" font-size="10" font-family="monospace">--color-accent-soft</text>
+<rect x="46" y="146" width="16" height="16" rx="4" fill="#667085"/>
+<text x="70" y="159" fill="#101828" font-size="10" font-family="monospace">--color-muted</text>
+<rect x="295" y="24" width="250" height="150" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="311" y="48" fill="#4f46e5" font-size="10.5" font-weight="700" font-family="Arial">ОТСТУПЫ (8-pt)</text>
+<rect x="311" y="60" width="4" height="16" rx="1" fill="#4f46e5"/><text x="325" y="73" fill="#101828" font-size="10" font-family="monospace">--space-1   4 px</text>
+<rect x="311" y="82" width="8" height="16" rx="1" fill="#6366f1"/><text x="325" y="95" fill="#101828" font-size="10" font-family="monospace">--space-2   8 px</text>
+<rect x="311" y="104" width="16" height="16" rx="1" fill="#818cf8"/><text x="325" y="117" fill="#101828" font-size="10" font-family="monospace">--space-4   16 px</text>
+<rect x="311" y="126" width="24" height="16" rx="1" fill="#a5b4fc"/><text x="325" y="139" fill="#101828" font-size="10" font-family="monospace">--space-6   24 px</text>
+<rect x="311" y="148" width="32" height="16" rx="1" fill="#c7d2fe"/><text x="325" y="161" fill="#101828" font-size="10" font-family="monospace">--space-8   64 px</text>
+<rect x="560" y="24" width="250" height="150" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="576" y="48" fill="#4f46e5" font-size="10.5" font-weight="700" font-family="Arial">ШРИФТЫ</text>
+<text x="576" y="72" fill="#101828" font-size="14" font-weight="700" font-family="Arial">Aa Manrope</text>
+<text x="576" y="90" fill="#6d7789" font-size="10" font-family="monospace">--font-head</text>
+<line x1="576" y1="100" x2="794" y2="100" stroke="#e4e8f0"/>
+<text x="576" y="122" fill="#101828" font-size="14" font-family="Arial">Aa Inter</text>
+<text x="576" y="140" fill="#6d7789" font-size="10" font-family="monospace">--font-body</text>
+<line x1="576" y1="150" x2="794" y2="150" stroke="#e4e8f0"/>
+<text x="576" y="168" fill="#6d7789" font-size="10" font-family="Arial">заголовки / основной текст</text>
+<rect x="30" y="190" width="780" height="136" rx="10" fill="#101828"/>
+<text x="50" y="214" fill="#a5b4fc" font-size="12" font-weight="700" font-family="Arial">Токены в CSS</text>
+<text x="50" y="238" fill="#7dd3fc" font-size="11" font-family="monospace">:root {</text>
+<text x="70" y="256" fill="#c4b5fd" font-size="11" font-family="monospace">--color-accent: #4F46E5;</text>
+<text x="70" y="272" fill="#c4b5fd" font-size="11" font-family="monospace">--space-4: 16px;  --radius-md: 8px;</text>
+<text x="70" y="288" fill="#c4b5fd" font-size="11" font-family="monospace">--font-head: 'Manrope', sans-serif;</text>
+<text x="50" y="306" fill="#7dd3fc" font-size="11" font-family="monospace">}</text>
+<text x="50" y="322" fill="#cbd5e1" font-size="10.5" font-family="Arial">.btn { background: var(--color-accent); padding: var(--space-2) var(--space-4); }</text>
+</svg><figcaption><b>Рис. 20.1.</b> Токены дизайн-системы: цвета, отступы, шрифты. Одно определение, множество использований.</figcaption></figure>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Слои названы «Rectangle 12»</strong> — верстальщик не поймёт, что это кнопка. <strong>Отступы не кратны 4</strong> — 23 и 37 px выглядят как небрежность. <strong>Нет состояний hover</strong> — сайт мёртвый. <strong>Шрифты не проверены на кириллице</strong> — увидишь проблему на готовом сайте.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Создать страницу Design System</div>
+<div class="task-why">Зачем: одна страница заменяет сотни вопросов «а какой тут отступ?».</div>
+<ol class="steps">
+<li>Создай страницу «Design System».</li>
+<li>Вынеси палитру из Урока 15 с HEX-кодами.</li>
+<li>Вынеси типографическую шкалу из Урока 13.</li>
+<li>Вынеси шкалу отступов из Урока 11.</li>
+<li>Добавь все компоненты из Уроков 17–18.</li>
+<li>Назови каждый токен так, как он будет в CSS.</li>
+<li>Сохрани как отдельный файл-шаблон.</li>
+</ol>
+<div class="task-r">Результат: дизайн-система, которую можно перенести в любой проект.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Слои «Rectangle 12».</strong> Верстальщик не поймёт.</li>
+<li><strong>Отступы не кратны 4.</strong> Небрежность.</li>
+<li><strong>Нет состояний hover.</strong> Мёртвый сайт.</li>
+<li><strong>Шрифты не проверены.</strong> Проблема на проде.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что такое токен и зачем он?</li>
+<li>Назови пять пунктов чек-листа.</li>
+<li>Почему слои называют по смыслу?</li>
+<li>Что должен содержать файл дизайн-системы?</li></ol></div>
+`},
+
+{t:"Структура HTML-документа",g:"Написать правильный каркас страницы.",c:`
+<h3>Зачем этот урок</h3>
+<p>HTML — не язык программирования, а <strong>разметка</strong>. Ты не программируешь страницу, ты расставляешь ярлыки: «это заголовок», «это абзац», «это картинка». Браузер читает эти ярлыки и понимает, что показать и в каком порядке.</p>
+<p>Важность правильного каркаса трудно переоценить. Три строки в <code>&lt;head&gt;</code> отличают сайт, который работает, от сайта, который показывает кракозябры, выглядит на телефоне как почтовая марка и не попадает в поиск.</p>
+
+<h3>Простым языком</h3>
+<p>Каждый тег открывается <code>&lt;тег&gt;</code> и закрывается <code>&lt;/тег&gt;</code>. Как скобки: открыл — закрыл. Незакрытый тег — самая частая ошибка новичка, и она ломает всю страницу ниже.</p>
+<p>Дерево документа: <code>html</code> → <code>head</code> (мозги, не видно) + <code>body</code> (тело, всё видимое).</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Тег</dt><dd>Элемент разметки в угловых скобках.</dd>
+<dt>Атрибут</dt><dd>Дополнительный параметр тега, например class или href.</dd>
+<dt>Doctype</dt><dd>Объявление типа документа, говорит браузеру использовать HTML5.</dd>
+<dt>Корневой элемент</dt><dd>Элемент html, содержащий всю страницу.</dd>
+<dt>Валидность</dt><dd>Соответствие разметки стандартам.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему head отделён от body? В head — метаданные, которые браузер и поисковики читают до отрисовки, а в body — то, что увидит пользователь. Почему script в конце body? Иначе браузер остановит отрисовку, чтобы выполнить скрипт, и страница «подвиснет». Почему lang важен? Поисковик и скринридер используют его для выбора языка произношения.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>HTML-документ — как письмо. Есть конверт с адресом и маркой (head): почтальон понимает, куда нести и какого класса отправление. И есть сам лист с текстом (body): то, что прочитает получатель. Если на конверте нет адреса — письмо не дойдёт, каким бы хорошим ни был текст.</p></div>
+
+<figure><svg viewBox="0 0 840 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Каркас HTML">
+<rect width="840" height="400" fill="#f8fafc"/>
+<rect x="30" y="24" width="360" height="360" rx="12" fill="#101828"/>
+<text x="50" y="48" fill="#a5b4fc" font-size="12" font-weight="700" font-family="Arial">index.html</text>
+<text x="50" y="72" fill="#7dd3fc" font-size="11" font-family="monospace">&lt;!DOCTYPE html&gt;</text>
+<text x="50" y="94" fill="#7dd3fc" font-size="11" font-family="monospace">&lt;html lang="ru"&gt;</text>
+<text x="50" y="116" fill="#7dd3fc" font-size="11" font-family="monospace">&lt;head&gt;</text>
+<text x="66" y="138" fill="#c4b5fd" font-size="11" font-family="monospace">&lt;meta charset="UTF-8"&gt;</text>
+<text x="66" y="160" fill="#c4b5fd" font-size="11" font-family="monospace">&lt;meta name="viewport"…&gt;</text>
+<text x="66" y="182" fill="#c4b5fd" font-size="11" font-family="monospace">&lt;title&gt;Острие&lt;/title&gt;</text>
+<text x="66" y="204" fill="#c4b5fd" font-size="11" font-family="monospace">&lt;link rel="stylesheet"…&gt;</text>
+<text x="50" y="226" fill="#7dd3fc" font-size="11" font-family="monospace">&lt;/head&gt;</text>
+<text x="50" y="248" fill="#7dd3fc" font-size="11" font-family="monospace">&lt;body&gt;</text>
+<text x="66" y="270" fill="#c4b5fd" font-size="11" font-family="monospace">&lt;h1&gt;Стрижка…&lt;/h1&gt;</text>
+<text x="66" y="292" fill="#c4b5fd" font-size="11" font-family="monospace">&lt;p&gt;Барбершоп…&lt;/p&gt;</text>
+<text x="66" y="314" fill="#c4b5fd" font-size="11" font-family="monospace">&lt;img src="…" alt="…"&gt;</text>
+<text x="50" y="336" fill="#7dd3fc" font-size="11" font-family="monospace">&lt;/body&gt;</text>
+<text x="50" y="358" fill="#7dd3fc" font-size="11" font-family="monospace">&lt;/html&gt;</text>
+<rect x="410" y="24" width="400" height="360" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<text x="430" y="48" fill="#101828" font-size="12" font-weight="700" font-family="Arial">Зачем каждая строка</text>
+<text x="430" y="74" fill="#b42318" font-size="11" font-weight="700" font-family="Arial">charset="UTF-8"</text>
+<text x="430" y="92" fill="#475467" font-size="10.5" font-family="Arial">Без неё русский текст = кракозябры</text>
+<line x1="430" y1="104" x2="790" y2="104" stroke="#e4e8f0"/>
+<text x="430" y="128" fill="#b42318" font-size="11" font-weight="700" font-family="Arial">viewport</text>
+<text x="430" y="146" fill="#475467" font-size="10.5" font-family="Arial">Без неё сайт на телефоне — как марка</text>
+<line x1="430" y1="158" x2="790" y2="158" stroke="#e4e8f0"/>
+<text x="430" y="182" fill="#15a34a" font-size="11" font-weight="700" font-family="Arial">title</text>
+<text x="430" y="200" fill="#475467" font-size="10.5" font-family="Arial">Заголовок вкладки + что видно в поиске</text>
+<line x1="430" y1="212" x2="790" y2="212" stroke="#e4e8f0"/>
+<text x="430" y="236" fill="#4f46e5" font-size="11" font-weight="700" font-family="Arial">link stylesheet</text>
+<text x="430" y="254" fill="#475467" font-size="10.5" font-family="Arial">Подключение файла стилей</text>
+<line x1="430" y1="266" x2="790" y2="266" stroke="#e4e8f0"/>
+<text x="430" y="290" fill="#4f46e5" font-size="11" font-weight="700" font-family="Arial">lang="ru"</text>
+<text x="430" y="308" fill="#475467" font-size="10.5" font-family="Arial">Язык для поиска и скринридеров</text>
+<line x1="430" y1="320" x2="790" y2="320" stroke="#e4e8f0"/>
+<text x="430" y="344" fill="#4f46e5" font-size="11" font-weight="700" font-family="Arial">script внизу body</text>
+<text x="430" y="362" fill="#475467" font-size="10.5" font-family="Arial">Код запускается после отрисовки</text>
+<text x="430" y="380" fill="#475467" font-size="10.5" font-family="Arial">страница не «подвисает»</text>
+</svg><figcaption><b>Рис. 21.1.</b> Слева — каркас HTML. Справа — что сломается без каждой строки. Красным — то, без чего сайт сломан.</figcaption></figure>
+
+<h3>Полный каркас</h3>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Барбершоп «Острие» в Москве&lt;/title&gt;
+  &lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Стрижка и борода за 40 минут&lt;/h1&gt;
+  &lt;p&gt;Барбершоп в центре Москвы.&lt;/p&gt;
+  &lt;script src="js/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Забыли charset</strong> — русский текст станет кракозябрами. <strong>Забыли viewport</strong> — сайт на телефоне в масштабе десктопа. <strong>Незакрытый тег</strong> — половина страницы уедет внутрь. <strong>Script в head без defer</strong> — страница морозит полсекунды.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Создать каркас и проверить каждую строку</div>
+<div class="task-why">Зачем: убедиться на опыте, зачем нужны «невидимые» строки.</div>
+<ol class="steps">
+<li>Создай index.html с полным каркасом.</li>
+<li>Добавь заголовок, два абзаца, одну картинку.</li>
+<li>Открой в браузере — проверь русский текст и вкладку.</li>
+<li>Убери строку charset, обнови — посмотри, что стало с текстом.</li>
+<li>Верни её. Убери viewport, открой в эмуляции телефона.</li>
+<li>Верни её. Убери link — проверь, что стили отключились.</li>
+<li>Верни всё, проверь консоль на ошибки.</li>
+</ol>
+<div class="task-r">Результат: понимание каждой строки на опыте.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Забыли charset.</strong> Кракозябры.</li>
+<li><strong>Забыли viewport.</strong> Масштаб десктопа на телефоне.</li>
+<li><strong>Незакрытый тег.</strong> Полстраницы уедет.</li>
+<li><strong>Script в head без defer.</strong> Страница подвиснет.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что будет без charset?</li>
+<li>Зачем lang="ru"?</li>
+<li>Чем head отличается от body?</li>
+<li>Что проверяет валидатор W3C?</li></ol></div>
+`},
+
+{t:"Текст, списки, ссылки, изображения",g:"Разместить контент семантически правильно.",c:`
+<h3>Зачем этот урок</h3>
+<p>Заголовки <code>h1</code>–<code>h6</code> — это <strong>не размер шрифта</strong>, а уровень важности. Это ключевое различие, которое новички усваивают позже всего. Если выбирать заголовок «чтобы был крупнее» — получится каша, из которой поисковик и скринридер не поймут структуру.</p>
+<p>Правило: <code>h1</code> — один на страницу, главная тема. <code>h2</code> — разделы. <code>h3</code> — подразделы. Порядок нельзя перескакивать: после <code>h1</code> идёт <code>h2</code>, а не <code>h4</code>. Размер — дело CSS, а не HTML.</p>
+
+<h3>Простым языком</h3>
+<p>Заголовки работают как оглавление книги. Без них скринридер не сможет навигацию по странице предложить, а поисковик не поймёт, о чём разделы.</p>
+<p><code>alt</code> — текст, который увидит человек, если картинка не загрузилась, и который прочитает скринридер вслух незрячему. Плохой <code>alt="фото1.jpg"</code> не несёт информации. Хороший <code>alt="Интерьер барбершопа с тремя креслами"</code> описывает то, что важно. Для чисто декоративных картинок ставь пустой <code>alt=""</code>.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Заголовок</dt><dd>Элемент h1–h6, обозначающий уровень важности.</dd>
+<dt>Семантика</dt><dd>Смысловое значение разметки, а не только внешний вид.</dd>
+<dt>alt</dt><dd>Текстовое описание изображения для доступности.</dd>
+<dt>Ненумерованный список</dt><dd>ul — когда порядок не важен.</dd>
+<dt>Нумерованный список</dt><dd>ol — когда порядок важен.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему нельзя выбирать заголовок по размеру? Размер задаётся в CSS, а уровень заголовка — смысловая разметка. Если выбрать h4 потому что «красиво», поисковик решит, что это второстепенный блок. Почему alt обязателен? Без него незрячий пользователь не поймёт, что на картинке, а если она не загрузилась — увидит пустое место.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Заголовки — оглавление в учебнике. Глава, параграф, подпараграф. Если всё написать одним шрифтом, ты не найдёшь нужную тему. Alt — как подпись под картиной в музее: без неё ты смотришь на полотно и не понимаешь, что на нём изображено.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Иерархия заголовков">
+<rect width="840" height="300" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="13" font-weight="700" font-family="Arial">Иерархия заголовков — как оглавление книги</text>
+<rect x="30" y="34" width="400" height="250" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<rect x="50" y="52" width="360" height="30" rx="6" fill="#4f46e5"/>
+<text x="66" y="72" fill="#fff" font-size="13" font-weight="700" font-family="Arial">H1 · Барбершоп «Острие»</text>
+<text x="66" y="94" fill="#6d7789" font-size="10" font-family="Arial">1 на страницу · главная тема</text>
+<rect x="60" y="108" width="340" height="26" rx="5" fill="#eef2ff" stroke="#c7d2fe"/>
+<text x="74" y="125" fill="#101828" font-size="11.5" font-weight="700" font-family="Arial">H2 · Наши услуги</text>
+<rect x="74" y="140" width="180" height="22" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="86" y="155" fill="#475467" font-size="10.5" font-family="Arial">H3 · Стрижка</text>
+<rect x="74" y="168" width="180" height="22" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="86" y="183" fill="#475467" font-size="10.5" font-family="Arial">H3 · Борода</text>
+<rect x="60" y="196" width="340" height="26" rx="5" fill="#eef2ff" stroke="#c7d2fe"/>
+<text x="74" y="213" fill="#101828" font-size="11.5" font-weight="700" font-family="Arial">H2 · Почему мы</text>
+<rect x="74" y="228" width="180" height="22" rx="4" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="86" y="243" fill="#475467" font-size="10.5" font-family="Arial">H3 · Отзывы</text>
+<rect x="50" y="260" width="360" height="20" rx="5" fill="#fffbeb" stroke="#fde68a"/>
+<text x="64" y="274" fill="#b45309" font-size="10.5" font-weight="700" font-family="Arial">✗ H1 → H4 — перескок через уровень</text>
+<text x="460" y="24" fill="#101828" font-size="13" font-weight="700" font-family="Arial">Элементы контента</text>
+<rect x="460" y="34" width="350" height="80" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="478" y="58" fill="#101828" font-size="12" font-weight="700" font-family="Arial">Список ul — порядок НЕ важен</text>
+<text x="478" y="80" fill="#6d7789" font-size="11" font-family="Arial">• Мастера с опытом 5+ лет</text>
+<text x="478" y="98" fill="#6d7789" font-size="11" font-family="Arial">• Своя линейка косметики</text>
+<rect x="460" y="120" width="350" height="80" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="478" y="144" fill="#101828" font-size="12" font-weight="700" font-family="Arial">Список ol — порядок ВАЖЕН</text>
+<text x="478" y="166" fill="#6d7789" font-size="11" font-family="Arial">1. Выбираешь мастера</text>
+<text x="478" y="184" fill="#6d7789" font-size="11" font-family="Arial">2. Записываешься онлайн</text>
+<rect x="460" y="206" width="350" height="78" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="478" y="228" fill="#101828" font-size="12" font-weight="700" font-family="Arial">Изображение</text>
+<rect x="478" y="236" width="70" height="40" rx="5" fill="#f1f5f9" stroke="#e4e8f0"/>
+<text x="513" y="260" text-anchor="middle" fill="#94a3b8" font-size="9.5" font-family="Arial">[фото]</text>
+<text x="560" y="248" fill="#15a34a" font-size="10" font-weight="700" font-family="Arial">✓ alt="Интерьер с креслами"</text>
+<text x="560" y="266" fill="#6d7789" font-size="9.5" font-family="Arial">width / height заданы</text>
+<text x="560" y="280" fill="#b42318" font-size="10" font-weight="700" font-family="Arial">✗ alt="фото1.jpg"</text>
+</svg><figcaption><b>Рис. 22.1.</b> Иерархия заголовков как оглавление. Списки: ul когда порядок не важен, ol когда важен.</figcaption></figure>
+
+<h3>Пример кода</h3>
+<pre>&lt;h1&gt;Барбершоп «Острие»&lt;/h1&gt;
+&lt;h2&gt;Наши услуги&lt;/h2&gt;
+&lt;h3&gt;Стрижка&lt;/h3&gt;
+&lt;p&gt;Классическая или современная — 40 минут.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Мастера с опытом 5+ лет&lt;/li&gt;
+  &lt;li&gt;Своя линейка косметики&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Выбираешь мастера&lt;/li&gt;
+  &lt;li&gt;Записываешься онлайн&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;a href="https://vk.com/ostrie" target="_blank" rel="noopener"&gt;Наш ВКонтакте&lt;/a&gt;
+
+&lt;img src="img/shop.jpg" alt="Интерьер барбершопа с тремя креслами"
+     width="800" height="600"&gt;</pre>
+
+<table><tr><th>Атрибут</th><th>Зачем</th></tr>
+<tr><td>target="_blank"</td><td>открыть в новой вкладке</td></tr>
+<tr><td>rel="noopener"</td><td>безопасность при target="_blank"</td></tr>
+<tr><td>width / height</td><td>резервируют место, страница не прыгает</td></tr>
+<tr><td>alt</td><td>описание для скринридера</td></tr></table>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Два h1 на странице</strong> — ломает структуру для поисковиков. <strong>H1 → H4</strong> — перескок уровня. <strong>Выбор заголовка по размеру</strong> — каша вместо структуры. <strong>alt="photo1.jpg"</strong> — бесполезно. <strong>ul для шагов</strong> — шаги это ol.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Разметить текст семантически</div>
+<div class="task-why">Зачем: получить структуру, которую понимают поисковик и скринридер.</div>
+<ol class="steps">
+<li>Возьми текст своего выдуманного клиента.</li>
+<li>Определи главную тему — это h1.</li>
+<li>Разбей остальное на разделы — h2.</li>
+<li>Найди подразделы — h3.</li>
+<li>Преимущества — в ul, шаги — в ol.</li>
+<li>Добавь 2 картинки с осмысленным alt.</li>
+<li>Проверь в Lighthouse → Accessibility.</li>
+</ol>
+<div class="task-r">Результат: семантически правильная страница.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Два h1.</strong> Ломает структуру.</li>
+<li><strong>H1 → H4.</strong> Перескок уровня.</li>
+<li><strong>Заголовок по размеру.</strong> Каша.</li>
+<li><strong>alt="photo1.jpg".</strong> Бесполезно.</li>
+<li><strong>ul для шагов.</strong> Шаги — ol.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Сколько h1 должно быть?</li>
+<li>Чем ul отличается от ol по смыслу?</li>
+<li>Зачем alt и когда он может быть пустым?</li>
+<li>Почему нельзя выбирать заголовок по размеру?</li></ol></div>
+`},
+
+{t:"Семантические теги",g:"Разметить страницу так, чтобы её понимали поисковики и скринридеры.",c:`
+<h3>Зачем этот урок</h3>
+<p>Раньше верстали «всё через <code>&lt;div&gt;</code>». Теперь есть теги со <strong>смыслом</strong>: header, nav, main, section, article, footer. Для обычного посетителя разницы нет. А для Google и незрячего человека — огромная: он поймёт, где меню, где основной текст, где подвал.</p>
+<p>Практическая польза: семантическая разметка — <strong>бесплатные очки SEO и доступности</strong>. Lighthouse проверяет её отдельно, и страница на div теряет баллы просто потому, что структуру невозможно понять.</p>
+
+<h3>Простым языком</h3>
+<p>Шесть тегов: <code>header</code> — шапка, <code>nav</code> — меню, <code>main</code> — основной контент (ровно один), <code>section</code> — смысловой раздел, <code>article</code> — самостоятельная единица, <code>footer</code> — подвал.</p>
+<p><code>div</code> — «нейтральный ящик» без смысла. Используй, когда нужен контейнер просто для группировки — например, обернуть элементы для CSS Grid. Но если у блока есть роль — бери смысловой тег.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Семантика</dt><dd>Смысловое значение элементов разметки.</dd>
+<dt>Лендинг-разметка</dt><dd>Использование header, nav, main, section, article, footer.</dd>
+<dt>Роль элемента</dt><dd>Назначение блока на странице.</dd>
+<dt>Нейтральный контейнер</dt><dd>div — без смысловой нагрузки.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему main один? Это основной контент страницы, и скринридер предлагает «перейти к основному содержимому» — если их два, команда сломается. Почему section без заголовка — сигнал? Раздел без темы не несёт сообщения, значит, он лишний. Почему article можно вырезать и перенести? Потому что он самостоятелен: новость, отзыв, карточка товара.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Семантика — как план этажа здания. На нём подписано: «вход», «reception», «офисы», «архив». Без плана ты ходишь по коридорам и не понимаешь, куда идти. Скринридер — посетитель с этим планом: он читает подписи и сразу идёт в нужный кабинет, а не обходит всё здание.</p></div>
+
+<figure><svg viewBox="0 0 840 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Структура страницы">
+<rect width="840" height="340" fill="#f8fafc"/>
+<rect x="30" y="20" width="780" height="52" rx="10" fill="#4f46e5"/>
+<text x="50" y="42" fill="#fff" font-size="13" font-weight="700" font-family="Arial">&lt;header&gt; шапка</text>
+<text x="50" y="60" fill="#e0e7ff" font-size="10.5" font-family="Arial">лого + меню + телефон</text>
+<rect x="600" y="28" width="190" height="36" rx="6" fill="#6366F1"/>
+<text x="695" y="50" text-anchor="middle" fill="#fff" font-size="10.5" font-weight="700" font-family="Arial">&lt;nav&gt; меню</text>
+<rect x="30" y="82" width="780" height="180" rx="10" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+<text x="50" y="106" fill="#101828" font-size="13" font-weight="700" font-family="Arial">&lt;main&gt; основной контент — ровно ОДИН</text>
+<rect x="50" y="118" width="740" height="42" rx="8" fill="#fff" stroke="#c7d2fe"/>
+<text x="66" y="138" fill="#101828" font-size="11" font-weight="700" font-family="Arial">&lt;section&gt; Герой</text>
+<text x="66" y="154" fill="#6d7789" font-size="10" font-family="Arial">смысловой раздел страницы</text>
+<rect x="50" y="168" width="740" height="42" rx="8" fill="#fff" stroke="#c7d2fe"/>
+<text x="66" y="188" fill="#101828" font-size="11" font-weight="700" font-family="Arial">&lt;section&gt; Услуги</text>
+<text x="66" y="204" fill="#6d7789" font-size="10" font-family="Arial">внутри — несколько &lt;article&gt;</text>
+<rect x="66" y="218" width="230" height="36" rx="6" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="80" y="234" fill="#101828" font-size="10" font-weight="700" font-family="Arial">&lt;article&gt; Стрижка</text>
+<text x="80" y="248" fill="#6d7789" font-size="9.5" font-family="Arial">можно вырезать и вставить</text>
+<rect x="306" y="218" width="230" height="36" rx="6" fill="#f8fafc" stroke="#e4e8f0"/>
+<text x="320" y="234" fill="#101828" font-size="10" font-weight="700" font-family="Arial">&lt;article&gt; Борода</text>
+<text x="320" y="248" fill="#6d7789" font-size="9.5" font-family="Arial">самостоятельный блок</text>
+<rect x="546" y="218" width="244" height="36" rx="6" fill="#fffbeb" stroke="#fde68a"/>
+<text x="560" y="234" fill="#b45309" font-size="10" font-weight="700" font-family="Arial">&lt;aside&gt; виджет</text>
+<text x="560" y="248" fill="#92400e" font-size="9.5" font-family="Arial">побочное: реклама, форма</text>
+<rect x="30" y="272" width="780" height="52" rx="10" fill="#101828"/>
+<text x="50" y="296" fill="#fff" font-size="13" font-weight="700" font-family="Arial">&lt;footer&gt; подвал</text>
+<text x="50" y="314" fill="#98a2b3" font-size="10.5" font-family="Arial">контакты, соцсети, юр. страницы</text>
+</svg><figcaption><b>Рис. 23.1.</b> Каждый тег говорит поисковику и скринридеру, что это за часть страницы. main — ровно один.</figcaption></figure>
+
+<h3>Пример кода</h3>
+<pre>&lt;body&gt;
+  &lt;header class="site-header"&gt;
+    &lt;img src="img/logo.svg" alt="Острие" class="logo"&gt;
+    &lt;nav class="main-nav"&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#services"&gt;Услуги&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+    &lt;a href="tel:+74951234567" class="phone"&gt;+7 (495) 123-45-67&lt;/a&gt;
+  &lt;/header&gt;
+  &lt;main&gt;
+    &lt;section class="hero"&gt;
+      &lt;h1&gt;Стрижка и борода за 40 минут&lt;/h1&gt;
+      &lt;a href="#booking" class="btn"&gt;Записаться&lt;/a&gt;
+    &lt;/section&gt;
+    &lt;section class="services" id="services"&gt;
+      &lt;h2&gt;Услуги&lt;/h2&gt;
+      &lt;article class="service-card"&gt;
+        &lt;h3&gt;Стрижка&lt;/h3&gt;
+        &lt;p&gt;40 минут, 1 500 ₽&lt;/p&gt;
+      &lt;/article&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+  &lt;footer class="site-footer"&gt;
+    &lt;p&gt;© 2026 Барбершоп «Острие»&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Два и более main</strong> — ошибка. <strong>Всё на div</strong> — ломает SEO и доступность. <strong>section без заголовка</strong> — сигнал лишнего блока. <strong>article для обёртки страницы</strong> — article это единица, не контейнер.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Переверстать лендинг на семантику</div>
+<div class="task-why">Зачем: поднять SEO и доступность без изменения внешнего вида.</div>
+<ol class="steps">
+<li>Возьми свой лендинг из Урока 22.</li>
+<li>Замени внешние div на header, main, footer.</li>
+<li>Каждый смысловой блок оберни в section с id.</li>
+<li>Карточки услуг сделай article.</li>
+<li>Меню оберни в nav.</li>
+<li>Проверь: main ровно один?</li>
+<li>Проверь в Lighthouse → Accessibility и SEO.</li>
+</ol>
+<div class="task-r">Результат: страница, которую понимают и люди, и машины.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Два main.</strong> Это ошибка.</li>
+<li><strong>Всё на div.</strong> Ломает SEO и доступность.</li>
+<li><strong>section без заголовка.</strong> Лишний блок.</li>
+<li><strong>article для обёртки.</strong> Единица, не контейнер.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови шесть семантических тегов.</li>
+<li>Сколько main должно быть?</li>
+<li>Чем article отличается от section?</li>
+<li>Когда div использовать правильно?</li></ol></div>
+`},
+
+{t:"Формы: поля, типы, валидация",g:"Делать удобные формы, которые приносят заявки.",c:`
+<h3>Зачем этот урок</h3>
+<p>Форма — единственный способ «поговорить» с посетителем. И она же — главное место, где теряются деньги. Каждое лишнее поле снижает число заявок: три поля дают высокую конверсию, семь — среднюю, пятнадцать — низкую.</p>
+<p>Правило простое и его нарушают все новички: <strong>минимум полей</strong>. Спрашивай только то, без чего нельзя выполнить заказ. Имя и телефон — обычно достаточно. Остальное можно спросить потом, по телефону.</p>
+
+<h3>Простым языком</h3>
+<p>Структура: подписи <strong>над</strong> полями, ошибка <strong>под</strong> полем, чекбокс согласия (не предзаполненный), одна явная кнопка.</p>
+<p>Чекаут в 6 полей оптимален. Гостевую покупку разрешать обязательно — регистрация отсекает до 30% заказов.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Форма</dt><dd>Элемент form для сбора данных пользователя.</dd>
+<dt>Поле ввода</dt><dd>input различных типов: text, tel, email.</dd>
+<dt>Label</dt><dd>Подпись поля, связанная через for и id.</dd>
+<dt>Валидация</dt><dd>Проверка данных на корректность.</dd>
+<dt>Placeholder</dt><dd>Подсказка внутри поля, не замена label.</dd>
+<dt>Чекбокс</dt><dd>Элемент для выбора варианта (да/нет).</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему минимум полей? Каждое лишнее поле — трение. Люди ленивы и уходят с длинных форм. Почему label, а не placeholder? Placeholder исчезает при вводе, пользователь забывает, что заполнял. Почему type="tel", а не text? На телефоне откроется цифровая клавиатура — быстрее и удобнее. Почему чекбокс не предзаполняют? Без активного действия согласие не считается.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Форма — анкета на reception в клинике. Если попросят паспортные данные всех родственников — половина уйдёт. Если только имя и телефон — запишутся все. Подписи над полями — как указатели на стойке: всегда видно, куда писать, а не когда уже начал.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Структура формы">
+<rect width="840" height="300" fill="#f8fafc"/>
+<rect x="30" y="24" width="330" height="250" rx="12" fill="#fff" stroke="#e4e8f0"/>
+<text x="50" y="50" fill="#101828" font-size="14" font-weight="700" font-family="Arial">Записаться</text>
+<text x="50" y="76" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Как к вам обращаться?</text>
+<rect x="50" y="82" width="290" height="34" rx="8" fill="#fff" stroke="#d7dde6"/>
+<text x="62" y="104" fill="#98A2B3" font-size="11" font-family="Arial">Иван</text>
+<text x="50" y="140" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Телефон</text>
+<rect x="50" y="146" width="290" height="34" rx="8" fill="#fff" stroke="#818cf8" stroke-width="2"/>
+<text x="62" y="168" fill="#101828" font-size="11" font-family="Arial">+7 (999) 123-4</text>
+<text x="50" y="196" fill="#b42318" font-size="10" font-family="Arial">✗ Введите полный номер</text>
+<text x="50" y="226" fill="#101828" font-size="11" font-weight="700" font-family="Arial">Услуга</text>
+<rect x="50" y="232" width="290" height="34" rx="8" fill="#fff" stroke="#d7dde6"/>
+<text x="62" y="254" fill="#101828" font-size="11" font-family="Arial">Стрижка ▾</text>
+<rect x="50" y="280" width="16" height="16" rx="3" fill="#fff" stroke="#d7dde6"/>
+<text x="74" y="292" fill="#475467" font-size="10" font-family="Arial">Согласен с политикой</text>
+<rect x="220" y="278" width="120" height="34" rx="8" fill="#4f46e5"/>
+<text x="280" y="300" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="700" font-family="Arial">ЗАПИСАТЬСЯ</text>
+<text x="400" y="50" fill="#101828" font-size="13" font-weight="700" font-family="Arial">Число полей vs конверсия</text>
+<path d="M420,64 L760,64 L720,144 L460,144 Z" fill="#4f46e5"/>
+<text x="590" y="98" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Arial">3 поля — высокая</text>
+<path d="M460,154 L720,154 L660,214 L520,214 Z" fill="#818cf8"/>
+<text x="590" y="186" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="Arial">7 полей — средняя</text>
+<path d="M520,224 L660,224 L560,284 L620,284 Z" fill="#c7d2fe"/>
+<text x="590" y="256" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="Arial">15 — низкая</text>
+<text x="590" y="292" text-anchor="middle" fill="#6d7789" font-size="10" font-family="Arial">Каждое лишнее поле = минус заявки</text>
+</svg><figcaption><b>Рис. 24.1.</b> Структура формы: подписи над полями, ошибка под полем, чекбокс согласия, одна явная кнопка.</figcaption></figure>
+
+<h3>Пример кода</h3>
+<pre>&lt;form action="/send.php" method="POST" class="booking-form"&gt;
+  &lt;div class="field"&gt;
+    &lt;label for="name"&gt;Как к вам обращаться?&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" placeholder="Иван" required minlength="2"&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;label for="phone"&gt;Телефон&lt;/label&gt;
+    &lt;input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67"
+           pattern="\+?[0-9\s\-\(\)]{10,}" required&gt;
+    &lt;small&gt;Позвоним в течение 15 минут&lt;/small&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;label for="service"&gt;Услуга&lt;/label&gt;
+    &lt;select id="service" name="service"&gt;
+      &lt;option value="haircut"&gt;Стрижка&lt;/option&gt;
+      &lt;option value="beard"&gt;Борода&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+  &lt;label class="checkbox"&gt;
+    &lt;input type="checkbox" name="agree" required&gt;
+    Согласен с &lt;a href="/privacy"&gt;политикой конфиденциальности&lt;/a&gt;
+  &lt;/label&gt;
+  &lt;button type="submit" class="btn"&gt;Записаться&lt;/button&gt;
+&lt;/form&gt;</pre>
+
+<table><tr><th>Атрибут</th><th>Что делает</th></tr>
+<tr><td>type="tel"</td><td>цифровая клавиатура на телефоне</td></tr>
+<tr><td>required</td><td>нельзя отправить пустым</td></tr>
+<tr><td>minlength</td><td>минимум символов</td></tr>
+<tr><td>pattern</td><td>регулярное выражение</td></tr></table>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Много полей</strong> — конверсия падает. <strong>Placeholder вместо label</strong> — ломает удобство. <strong>Нет сообщения об ошибке</strong> — пользователь не понимает, что не так. <strong>Чекбокс предзаполнен</strong> — согласие не считается. <strong>После отправки ничего</strong> — клиент не уверен, что купил.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Сверстать форму из 4 полей</div>
+<div class="task-why">Зачем: получить рабочую форму с правильной структурой.</div>
+<ol class="steps">
+<li>Создай форму: имя, телефон, услуга (select), комментарий.</li>
+<li>К каждому полю — label над ним, связанный через for/id.</li>
+<li>Добавь type, required, pattern к телефону.</li>
+<li>Добавь чекбокс согласия (непредзаполненный).</li>
+<li>Добавь кнопку отправки.</li>
+<li>Попробуй отправить пустой — посмотри сообщения браузера.</li>
+<li>Замени placeholder на подсказки под полями, где нужно.</li>
+</ol>
+<div class="task-r">Результат: форма, которую можно отправить и которая проверяет данные.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Много полей.</strong> Каждое минус конверсия.</li>
+<li><strong>Placeholder вместо label.</strong> Ломает доступность.</li>
+<li><strong>Нет ошибки.</strong> Непонятно, что не так.</li>
+<li><strong>Чекбокс предзаполнен.</strong> Согласие не считается.</li>
+<li><strong>Нет «Спасибо».</strong> Клиент не уверен.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Сколько полей оптимально?</li>
+<li>Чем placeholder отличается от label?</li>
+<li>Зачем type="tel"?</li>
+<li>Почему чекбокс нельзя предзаполнять?</li></ol></div>
+`},
+
+{t:"Доступность: ARIA, alt, label",g:"Сделать сайт usable для всех и улучшить SEO.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Скринридер</strong> — программа, которая читает страницу вслух для незрячего человека. Она опирается только на разметку: если у кнопки нет текста, она прочитает «кнопка» и всё. Пользователь не поймёт, что произойдёт при нажатии.</p>
+<p>Но доступность — не только про незрячих. Это ещё человек с телефоном в одной руке, человек в солнечный день, человек, который пользуется только клавиатурой. И это прямой фактор SEO: Lighthouse проверяет доступность отдельно.</p>
+
+<h3>Простым языком</h3>
+<p>Три правила: у каждой картинки осмысленный alt (<code>alt="Собака в кресле"</code> ✓, <code>alt="фото1.jpg"</code> ✗, <code>alt=""</code> ✓ только для декоративной). У каждого поля label, связанный через for и id. У каждой иконки-кнопки есть текст — видимый или через aria-label.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>ARIA</dt><dd>Accessible Rich Internet Applications — набор атрибутов доступности.</dd>
+<dt>aria-label</dt><dd>Текстовая метка для скринридера.</dd>
+<dt>aria-hidden</dt><dd>Скрыть элемент от скринридера.</dd>
+<dt>aria-expanded</dt><dd>Состояние раскрытия элемента.</dd>
+<dt>aria-live</dt><dd>Область с динамическими изменениями.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему alt="" для декоративной? Пустой alt говорит скринридеру пропустить картинку, а отсутствие alt заставляет его читать имя файла. Почему aria-expanded у бургера? Без него незрячий не поймёт, открылось меню или нет. Почему нельзя убирать outline у :focus? Тогда пользователь клавиатуры не видит, где находится фокус.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>ARIA — как голосовые подсказки в лифте: «двери открываются», «вы на 3 этаже». Без них незрячий не знает, что происходит. Alt — подпись под товаром в магазине: «яблоки, 1 кг» вместо «фото_1234.jpg». Label у поля — как табличка на банкомате: «вставьте карту», а не молчащая щель.</p></div>
+
+<figure><svg viewBox="0 0 840 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Путь незрячего пользователя">
+<rect width="840" height="280" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="13" font-weight="700" font-family="Arial">Что услышит незрячий при Tab по странице</text>
+<rect x="30" y="34" width="380" height="180" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="50" y="58" fill="#15a34a" font-size="11.5" font-weight="700" font-family="Arial">✓ ПРАВИЛЬНО</text>
+<text x="50" y="82" fill="#101828" font-size="11" font-family="Arial">«Логотип Острие»</text>
+<text x="50" y="102" fill="#101828" font-size="11" font-family="Arial">«Меню: Услуги, Цены, Контакты»</text>
+<text x="50" y="122" fill="#101828" font-size="11" font-family="Arial">«Заголовок: Стрижка за 40 минут»</text>
+<text x="50" y="142" fill="#101828" font-size="11" font-family="Arial">«Кнопка: Записаться»</text>
+<text x="50" y="162" fill="#101828" font-size="11" font-family="Arial">«Поле: Как к вам обращаться?»</text>
+<text x="50" y="192" fill="#6d7789" font-size="10" font-family="Arial">Каждый элемент озвучен понятно</text>
+<rect x="430" y="34" width="380" height="180" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="450" y="58" fill="#b42318" font-size="11.5" font-weight="700" font-family="Arial">✗ НЕПРАВИЛЬНО</text>
+<text x="450" y="82" fill="#101828" font-size="11" font-family="Arial">«Изображение»</text>
+<text x="450" y="102" fill="#101828" font-size="11" font-family="Arial">«Ссылка, ссылка, ссылка»</text>
+<text x="450" y="122" fill="#101828" font-size="11" font-family="Arial">«Кнопка»</text>
+<text x="450" y="142" fill="#101828" font-size="11" font-family="Arial">«Поле ввода»</text>
+<text x="450" y="162" fill="#101828" font-size="11" font-family="Arial">«Изображение»</text>
+<text x="450" y="192" fill="#6d7789" font-size="10" font-family="Arial">Ничего непонятно — сайт не используется</text>
+<rect x="30" y="230" width="780" height="36" rx="8" fill="#101828"/>
+<text x="50" y="252" fill="#a5b4fc" font-size="11" font-weight="700" font-family="Arial">Чек-лист: alt у картинок · label у полей · aria-label у кнопок-иконок · aria-expanded у бургера · :focus-visible</text>
+</svg><figcaption><b>Рис. 25.1.</b> Разница между доступной и недоступной разметкой.</figcaption></figure>
+
+<h3>Пример кода</h3>
+<pre>&lt;!-- ✗ Плохо: скринридер прочитает «кнопка» --&gt;
+&lt;button class="menu-btn"&gt;
+  &lt;img src="img/menu.svg" alt=""&gt;
+&lt;/button&gt;
+
+&lt;!-- ✓ Хорошо --&gt;
+&lt;button class="menu-btn" aria-label="Открыть меню" aria-expanded="false"&gt;
+  &lt;img src="img/menu.svg" alt="" aria-hidden="true"&gt;
+&lt;/button&gt;</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>alt="photo1.jpg"</strong> — бесполезно. <strong>Placeholder вместо label</strong> — ломает доступность. <strong>Кнопка-иконка без aria-label</strong> — скринридер молчит. <strong>Убрали подсветку фокуса</strong> — сломали навигацию с клавиатуры.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Аудит доступности своей страницы</div>
+<div class="task-why">Зачем: найти конкретные дыры, а не «в целом нормально».</div>
+<ol class="steps">
+<li>Проверь: у всех картинок есть alt?</li>
+<li>Проверь: у всех полей есть label, связанный через for/id?</li>
+<li>Проверь: у иконок-кнопок есть текст или aria-label?</li>
+<li>Исправь всё найденное.</li>
+<li>Прогони Lighthouse → Accessibility, доведи до 100.</li>
+</ol>
+<div class="task-r">Результат: измеримый показатель, который можно показать клиенту.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>alt="photo1.jpg".</strong> Опиши содержание.</li>
+<li><strong>Placeholder вместо label.</strong> Исчезает при вводе.</li>
+<li><strong>Кнопка-иконка без aria-label.</strong> Скринридер молчит.</li>
+<li><strong>Убрали outline.</strong> Сломали клавиатуру.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем alt="" отличается от отсутствия alt?</li>
+<li>Зачем aria-expanded у бургера?</li>
+<li>Почему нельзя убирать outline?</li>
+<li>Назови три вещи, которые проверяет Lighthouse Accessibility.</li></ol></div>
+`},
+
+{t:"Meta-теги и SEO-разметка",g:"Чтобы сайт корректно выглядел в поиске и при отправке ссылки.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Title</strong> — заголовок в результатах поиска и во вкладке, до 60 символов. <strong>Description</strong> — серый текст под заголовком, до 160 символов. На позицию description не влияет напрямую, но влияет на кликабельность.</p>
+<p><strong>Open Graph</strong> — то, как ссылка выглядит, когда её кидают в Telegram или ВК. Без OG-тегов мессенджер подтянет случайную картинку или не покажет вовсе.</p>
+
+<h3>Простым языком</h3>
+<p>Title должен содержать главный ключ в начале + выгоду. «Барбершоп в Москве — от 1500 ₽», а не «Главная». Description — что получит посетитель + CTA.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Title</dt><dd>Заголовок страницы, до 60 символов.</dd>
+<dt>Description</dt><dd>Описание страницы, до 160 символов.</dd>
+<dt>Open Graph</dt><dd>Мета-теги для превью в соцсетях.</dd>
+<dt>Canonical</dt><dd>Канонический адрес страницы.</dd>
+<dt>Favicon</dt><dd>Иконка сайта во вкладке.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему ключ в начале title? В поиске обрезается примерно 60 символов, и если ключ в конце, его не увидят. Почему CAPS плохо? Выглядит как спам и снижает клики. Почему description важен? Он влияет на CTR — пользователь читает его и решает, заходить или нет.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Title — вывеска магазина на улице. «Хлеб свежий, с 7 утра» — понятно, зачем заходить. «Продукты» — непонятно, чем лучше соседа. Description — объявление под вывеской: «печём сами, доставка 30 минут». Open Graph — как товар выглядит на витрине Instagram, когда ты им делишься.</p></div>
+
+<h3>Полный набор meta</h3>
+<pre>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Барбершоп «Острие» в Москве — стрижка и борода от 1 500 ₽&lt;/title&gt;
+  &lt;meta name="description" content="Мужские стрижки и оформление бороды в центре Москвы. Запись онлайн за 2 минуты."&gt;
+  &lt;link rel="canonical" href="https://ostrie.ru/"&gt;
+  &lt;meta property="og:type" content="website"&gt;
+  &lt;meta property="og:title" content="Барбершоп «Острие» — стрижка за 40 минут"&gt;
+  &lt;meta property="og:description" content="Запишись онлайн и приходи. Кофе включён."&gt;
+  &lt;meta property="og:image" content="https://ostrie.ru/img/og-cover.jpg"&gt;
+  &lt;link rel="icon" href="img/favicon.ico" sizes="any"&gt;
+&lt;/head&gt;</pre>
+
+<table><tr><th>Правило</th><th>Пример</th></tr>
+<tr><td>Главный ключ в начале</td><td>Барбершоп в Москве</td></tr>
+<tr><td>Плюс выгода</td><td>стрижка от 1 500 ₽</td></tr>
+<tr><td>До 60 символов</td><td>иначе обрежется</td></tr>
+<tr><td>Без CAPS</td><td>как спам</td></tr></table>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Одинаковые title на всех страницах</strong> — Google считает это дублями. <strong>CAPS и восклицательные знаки</strong> — выглядят как спам. <strong>Забыли og:image</strong> — ссылка в Telegram выглядит пустой. <strong>Title длиннее 60</strong> — обрежется, выгода потеряется.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Написать title и description для трёх проектов</div>
+<div class="task-why">Зачем: первый элемент SEO, полностью в твоей власти.</div>
+<ol class="steps">
+<li>Возьми три выдуманных проекта.</li>
+<li>Определи главный ключ и главную выгоду.</li>
+<li>Напиши title: ключ + выгода, до 60 символов.</li>
+<li>Напиши description: что получит посетитель + CTA, до 160.</li>
+<li>Проверь длину счётчиком символов.</li>
+<li>Добавь OG-теги и favicon на тестовую страницу.</li>
+</ol>
+<div class="task-r">Результат: три готовых мета-набора для реальных проектов.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Одинаковые title.</strong> Дубли.</li>
+<li><strong>CAPS.</strong> Снижает клики.</li>
+<li><strong>Забыли og:image.</strong> Пустая ссылка.</li>
+<li><strong>Title длиннее 60.</strong> Обрежется.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Какая максимальная длина title?</li>
+<li>Зачем OG-теги?</li>
+<li>Что должно быть в начале title?</li>
+<li>Почему нельзя CAPS?</li></ol></div>
+`},
+
+{t:"Таблицы, медиа и встраиваемый контент",g:"Встроить таблицу, видео и карту корректно.",c:`
+<h3>Зачем этот урок</h3>
+<p>Таблицы используй <strong>только для табличных данных</strong>: цены, сравнение, расписание. Для вёрстки макета таблицы — дурной тон, это делается Grid. Если видишь таблицу в разметке лендинга — это 2010 год.</p>
+<p>Видео и карты встраиваются через iframe и video. Главная опасность: тяжёлый iframe в начале страницы тормозит отрисовку, и посетитель уходит, не дождавшись.</p>
+
+<h3>Простым языком</h3>
+<p>Три правила: iframe ниже первого экрана, <code>loading="lazy"</code>, фиксированная высота. Без последней макет «прыгает» при загрузке.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Таблица данных</dt><dd>Разметка для табличного содержимого.</dd>
+<dt>Caption</dt><dd>Подпись таблицы для скринридеров.</dd>
+<dt>Scope</dt><dd>Указание, что ячейка — заголовок столбца или строки.</dd>
+<dt>Iframe</dt><dd>Встроенный фрейм для внешнего контента.</dd>
+<dt>Lazy loading</dt><dd>Отложенная загрузка до появления в вьюпорте.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему таблицы только для данных? Табличная разметка жёсткая и плохо адаптируется, а Grid даёт гибкость. Почему loading="lazy"? Браузер загрузит iframe только когда пользователь доскроллит до него. Почему height обязателен? Без него браузер не знает размер и сдвигает контент после загрузки — это CLS.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Таблица для данных — прайс-лист на стене: строки и столбцы, всё читается. Таблица для вёрстки — как расставить мебель по клеткам шахматной доски: красиво на бумаге, но в реальной комнате ничего не встаёт. Тяжёлый iframe — как рекламный щит у входа в магазин: посетитель встаёт в пробку и уходит.</p></div>
+
+<h3>Пример кода</h3>
+<pre>&lt;table class="price-table"&gt;
+  &lt;caption&gt;Прайс-лист барбершопа «Острие»&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Услуга&lt;/th&gt;
+      &lt;th scope="col"&gt;Время&lt;/th&gt;
+      &lt;th scope="col"&gt;Цена&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;Стрижка&lt;/th&gt;
+      &lt;td&gt;40 мин&lt;/td&gt;
+      &lt;td&gt;1 500 ₽&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;video controls poster="img/cover.jpg" width="640" height="360"&gt;
+  &lt;source src="video/promo.mp4" type="video/mp4"&gt;
+  Ваш браузер не поддерживает видео.
+&lt;/video&gt;
+
+&lt;iframe src="https://yandex.ru/map-widget/v1/?um=..."
+  width="100%" height="400" loading="lazy"
+  title="Барбершоп «Острие» на карте"&gt;&lt;/iframe&gt;</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Таблица для вёрстки</strong> — ломает адаптив и доступность. <strong>iframe в начале страницы</strong> — тормозит отрисовку. <strong>Нет height у iframe</strong> — макет прыгает. <strong>iframe без title</strong> — скринридер не поймёт, что внутри.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать страницу с тремя типами контента</div>
+<div class="task-why">Зачем: отработать все три элемента сразу.</div>
+<ol class="steps">
+<li>Сделай таблицу цен на 4 строки с caption и scope.</li>
+<li>Встрой видео с poster и двумя source.</li>
+<li>Встрой карту с loading="lazy" и height 400.</li>
+<li>Проверь в Lighthouse → Performance.</li>
+<li>Убери loading="lazy" и сравни скорость.</li>
+</ol>
+<div class="task-r">Результат: понимание, сколько «весит» каждый тип контента.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Таблица для вёрстки.</strong> Нужен Grid.</li>
+<li><strong>iframe в начале.</strong> Тормозит отрисовку.</li>
+<li><strong>Нет height.</strong> Макет прыгает.</li>
+<li><strong>iframe без title.</strong> Непонятно.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Когда таблица уместна?</li>
+<li>Зачем loading="lazy"?</li>
+<li>Что делает scope="col"?</li>
+<li>Почему у iframe нужен height?</li></ol></div>
+`},
+
+{t:"Подключение CSS, каскад, специфичность",g:"Понимать, почему одни стили побеждают другие.",c:`
+<h3>Зачем этот урок</h3>
+<p>CSS (Cascading Style Sheets) — «каскадные таблицы стилей». Слово <strong>каскад</strong> ключевое: если к одному элементу применилось несколько правил, браузер выбирает по приоритету. Не понимаешь приоритет — будешь часами искать, почему твой цвет не применился.</p>
+
+<h3>Простым языком</h3>
+<p>Приоритет: <code>!important</code> (не используй никогда) → специфичность селектора → положение в файле.</p>
+<p>Специфичность: `#id` (1,0,0) сильнее `.class` (0,1,0), `.class` сильнее `element` (0,0,1). При равной специфичности побеждает тот, что ниже в файле.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Каскад</dt><dd>Порядок применения CSS-правил.</dd>
+<dt>Специфичность</dt><dd>Вес селектора, определяющий приоритет.</dd>
+<dt>Селектор</dt><dd>Правило выбора элементов для стилизации.</dd>
+<dt>!important</dt><dd>Принудительный приоритет, ломает каскад.</dd>
+<dt>Слои файлов</dt><dd>base, layout, components, utilities.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему не стоит стилизовать по id? id настолько специфичен, что потом его не перебить без !important, а !important — начало конца. Почему файлы подключают в порядке base → layout → components → utilities? Чтобы общие правила шли первыми, а точечные могли их переопределить. Почему глубоко вложенные селекторы плохо? `.a .b .c .d` создаёт высокую специфичность и ломает переиспользуемость.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Каскад — как система приоритетов в офисе. Директор (!important) перебивает всех, но если все станут директорами — хаос. Поэтому есть уровни: конкретный сотрудник (id), отдел (class), все (тег). Приказ, подписанный позже, отменяет подписанный раньше — если уровень равный.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Вес селекторов">
+<rect width="840" height="300" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="13" font-weight="700" font-family="Arial">Специфичность: как считается вес</text>
+<rect x="30" y="34" width="380" height="180" rx="10" fill="#fff" stroke="#e4e8f0"/>
+<text x="50" y="60" fill="#101828" font-size="11.5" font-family="monospace">#id                (1,0,0)   ← самый сильный</text>
+<text x="50" y="90" fill="#101828" font-size="11.5" font-family="monospace">.class .class      (0,2,0)</text>
+<text x="50" y="120" fill="#101828" font-size="11.5" font-family="monospace">element.class       (0,1,1)</text>
+<text x="50" y="150" fill="#101828" font-size="11.5" font-family="monospace">element             (0,0,1)</text>
+<text x="50" y="180" fill="#101828" font-size="11.5" font-family="monospace">*                   (0,0,0)   ← самый слабый</text>
+<text x="50" y="206" fill="#6d7789" font-size="10.5" font-family="Arial">Сравниваются слева направо: id важнее классов</text>
+<rect x="430" y="34" width="380" height="180" rx="10" fill="#101828"/>
+<text x="450" y="60" fill="#7dd3fc" font-size="11" font-family="monospace">p            { color: blue; }</text>
+<text x="450" y="90" fill="#7dd3fc" font-size="11" font-family="monospace">.text        { color: red; }</text>
+<text x="450" y="120" fill="#7dd3fc" font-size="11" font-family="monospace">#hero .text  { color: green; }</text>
+<text x="450" y="152" fill="#cbd5e1" font-size="10.5" font-family="Arial">Красный побеждает синий (класс &gt; тег)</text>
+<text x="450" y="172" fill="#cbd5e1" font-size="10.5" font-family="Arial">Зелёный побеждает оба (id + класс)</text>
+<text x="450" y="200" fill="#a5b4fc" font-size="11" font-weight="700" font-family="Arial">Итог: текст будет ЗЕЛЁНЫМ</text>
+<rect x="30" y="234" width="780" height="52" rx="10" fill="#f0fdf4" stroke="#bbf7d0"/>
+<text x="50" y="256" fill="#15803d" font-size="11" font-weight="700" font-family="Arial">Порядок подключения файлов</text>
+<text x="50" y="276" fill="#166534" font-size="10.5" font-family="Arial">base.css (сброс, переменные) → layout.css → components.css → utilities.css</text>
+</svg><figcaption><b>Рис. 28.1.</b> Вес селекторов и как он применяется на практике.</figcaption></figure>
+
+<h3>Структура файлов</h3>
+<pre>css/
+├── base.css        ← сброс, переменные, типографика
+├── layout.css      ← сетки, контейнер, секции
+├── components.css  ← кнопки, карточки, формы
+└── utilities.css   ← вспомогательные классы</pre>
+
+<h3>Современный CSS (2024–2025)</h3>
+<p>Раньше для многих вещей нужен был JavaScript или SCSS — теперь всё есть в самом CSS.</p>
+<ul>
+<li><strong><code>:has()</code></strong> — родительский селектор. Стилизуем родителя по ребёнку: <code>article:has(img) { padding-top: 0 }</code> — «если внутри article есть img, убрать отступ сверху». Работает во всех браузерах с 2024.</li>
+<li><strong>Native nesting (<code>&amp;</code>)</strong> — вложенность как в SCSS, без препроцессора:
+<pre>.card {
+  padding: 16px;
+  &amp; .title { font-size: 18px; }
+  &amp;:hover { background: #f8fafc; }
+}</pre>
+</li>
+<li><strong><code>color-mix()</code></strong> — смешивание цветов прямо в CSS: <code>color: color-mix(in srgb, var(--acc) 80%, white)</code>.</li>
+<li><strong>Layers (<code>@layer</code>)</strong> — управление каскадом: можно сказать «стили фреймворка всегда слабее моих», без <code>!important</code>.</li>
+<li><strong><code>@container</code></strong> — адаптив не по экрану, а по контейнеру (см. урок 38).</li>
+</ul>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Стилизация по id</strong> — неперебиваемая специфичность. <strong>!important чтобы «починить»</strong> — чинит один случай, ломает десять. <strong>Глубоко вложенные селекторы</strong> — ломает переиспользуемость. <strong>Неправильный порядок файлов</strong> — общие правила перебивают точечные.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Эксперимент с конфликтующими правилами</div>
+<div class="task-why">Зачем: понять каскад на опыте, а не заучить таблицу.</div>
+<ol class="steps">
+<li>Создай элемент с тегом, классом и id.</li>
+<li>Напиши три правила разной специфичности.</li>
+<li>Проверь в DevTools → Styles, какое применилось.</li>
+<li>Поменяй порядок правил в файле — что изменилось?</li>
+<li>Добавь !important к слабому — проверь эффект.</li>
+<li>Убери !important и перепиши через класс.</li>
+</ol>
+<div class="task-r">Результат: понимание каскада на практике.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Стилизация по id.</strong> Неперебиваемая специфичность.</li>
+<li><strong>!important чтобы починить.</strong> Ломает десять.</li>
+<li><strong>Глубоко вложенные селекторы.</strong> Ломает переиспользуемость.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что весит больше: .card .title или #card .title?</li>
+<li>Почему не стоит стилизовать по id?</li>
+<li>В каком порядке подключать файлы CSS?</li>
+<li>Что будет при равной специфичности?</li></ol></div>
+`},
+
+{t:"Box Model и единицы измерения",g:"Точно управлять размерами и отступами.",c:`
+<h3>Зачем этот урок</h3>
+<p>Каждый элемент в браузере — <strong>коробка</strong>. Пока не поймёшь, из чего она состоит, будешь удивляться, почему «ширина 300 px» превращается в 348 px на экране.</p>
+<p>Четыре слоя: <strong>content</strong> (собственно контент), <strong>padding</strong> (внутренний отступ), <strong>border</strong> (рамка), <strong>margin</strong> (внешний отступ).</p>
+
+<h3>Простым языком</h3>
+<p><code>box-sizing: border-box</code> — обязательная первая строка любого проекта. Без неё width = только контент, а padding и border ДОБАВЛЯЮТСЯ сверху. С ней width = всё вместе, и размеры предсказуемы.</p>
+<p>Единицы: <code>px</code> (фиксирована), <code>%</code> (от родителя), <code>rem</code> (от html, 16 px — главная единица), <code>em</code> (от родителя), <code>vw/vh</code> (от экрана), <code>ch</code> (ширина символа 0).</p>
+<p>Схлопывание margin: два блока с <code>margin: 32px</code> дают между собой 32 px, а не 64. Решение — padding или gap.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Box Model</dt><dd>Модель коробки: content, padding, border, margin.</dd>
+<dt>box-sizing</dt><dd>Свойство, определяющее, как считается размер.</dd>
+<dt>Border-box</dt><dd>Режим, где ширина включает padding и border.</dd>
+<dt>Rem</dt><dd>Единица относительно корневого размера шрифта.</dd>
+<dt>Схлопывание</dt><dd>Слияние вертикальных margin соседних блоков.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему border-box стандарт? Без него приходится вручную вычитать padding из ширины, и любая правка ломает вёрстку. Почему rem для шрифтов? rem масштабируется, если пользователь меняет размер шрифта в браузере, а px — нет. Почему gap лучше margin? gap не схлопывается и удаляется одним свойством.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Box Model — как коробка для переезда. Содержимое (content), обёртка внутри (padding), картон коробки (border), расстояние между коробками в машине (margin). Border-box — когда говоришь «коробка 50 см» и это весь размер с картоном, а не только место для вещей. Иначе вещи не влезут, хотя по расчёту влезали.</p></div>
+
+<figure><svg viewBox="0 0 840 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Box Model">
+<rect width="840" height="260" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="13" font-weight="700" font-family="Arial">Box Model — из чего состоит любой элемент</text>
+<rect x="120" y="50" width="400" height="180" rx="8" fill="#fff7ed" stroke="#fdba74"/>
+<text x="320" y="46" text-anchor="middle" fill="#c2410c" font-size="11" font-weight="700" font-family="Arial">margin (внешний отступ)</text>
+<rect x="160" y="80" width="320" height="130" rx="6" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+<text x="320" y="76" text-anchor="middle" fill="#4f46e5" font-size="11" font-weight="700" font-family="Arial">border (рамка)</text>
+<rect x="190" y="105" width="260" height="90" rx="4" fill="#eef2ff" stroke="#c7d2fe"/>
+<text x="320" y="100" text-anchor="middle" fill="#4f46e5" font-size="11" font-weight="700" font-family="Arial">padding (внутренний отступ)</text>
+<rect x="215" y="120" width="210" height="60" rx="4" fill="#4f46e5"/>
+<text x="320" y="155" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Arial">CONTENT</text>
+<text x="320" y="175" text-anchor="middle" fill="#e0e7ff" font-size="10" font-family="Arial">собственно контент</text>
+<rect x="560" y="60" width="250" height="170" rx="10" fill="#101828"/>
+<text x="580" y="86" fill="#a5b4fc" font-size="11" font-weight="700" font-family="Arial">box-sizing: border-box</text>
+<text x="580" y="112" fill="#cbd5e1" font-size="10.5" font-family="Arial">width: 300px = ВСЁ вместе</text>
+<text x="580" y="130" fill="#cbd5e1" font-size="10.5" font-family="Arial">контент + padding + border</text>
+<text x="580" y="158" fill="#7dd3fc" font-size="10.5" font-family="Arial">Без него: 300px = только контент,</text>
+<text x="580" y="176" fill="#7dd3fc" font-size="10.5" font-family="Arial">а padding и border ДОБАВЛЯЮТСЯ</text>
+<text x="580" y="204" fill="#a5b4fc" font-size="10.5" font-weight="700" font-family="Arial">Ставь первой строкой проекта!</text>
+</svg><figcaption><b>Рис. 29.1.</b> Четыре слоя коробки. Справа — почему border-box обязателен.</figcaption></figure>
+
+<h3>Обязательная строка</h3>
+<pre>*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Забыли box-sizing</strong> — элементы «распухают», макет едет. <strong>Фиксированные px для шрифтов</strong> — ломает масштабирование. <strong>Margin для отступов внутри flex/grid</strong> — лучше gap. <strong>Игнорирование схлопывания</strong> — лишние или недостающие отступы.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Проверить box-sizing на опыте</div>
+<div class="task-why">Зачем: увидеть разницу, иначе будешь ловить «распухание» каждый проект.</div>
+<ol class="steps">
+<li>Сделай блок 300×100 с padding 24 и border 1.</li>
+<li>Без border-box измерь реальную ширину в DevTools (348).</li>
+<li>Добавь border-box — измерь снова (300).</li>
+<li>Сделай три блока разной ширины с разными padding.</li>
+<li>Настрой html { font-size: 16px } и переведи размеры в rem.</li>
+</ol>
+<div class="task-r">Результат: понимание, почему border-box — стандарт.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Забыли box-sizing.</strong> Элементы распухают.</li>
+<li><strong>Фиксированные px для шрифтов.</strong> Ломает масштабирование.</li>
+<li><strong>Margin вместо gap.</strong> Схлопывается.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови четыре слоя Box Model.</li>
+<li>Зачем box-sizing: border-box?</li>
+<li>Чем rem отличается от em?</li>
+<li>Почему два margin по 32px дают 32px?</li></ol></div>
+`},
+
+{t:"Цвета, фоны, градиенты",g:"Управлять фоном и создавать глубину без картинок.",c:`
+<h3>Зачем этот урок</h3>
+<p>Фон — не только <code>background-color</code>. Это слои: цвет, картинка, градиент, пелена. Умеешь их комбинировать — создаёшь «дорогие» фоны без единой фотографии.</p>
+<p>Пелена поверх фонового фото обязательна, если сверху лежит текст — иначе он нечитаем.</p>
+
+<h3>Простым языком</h3>
+<p>Три слоя фона: цвет, картинка, градиент/пелена. <code>background-size: cover</code> заполняет область, сохраняя пропорции. Градиент оптимально из 2–3 цветов.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Пелена</dt><dd>Полупрозрачный слой поверх фонового изображения.</dd>
+<dt>Градиент</dt><dd>Плавный переход между цветами.</dd>
+<dt>Cover</dt><dd>Заполнение области с сохранением пропорций.</dd>
+<dt>Contain</dt><dd>Вписывание изображения целиком.</dd>
+<dt>Blend-mode</dt><dd>Режим смешивания фона с изображением.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему пелена? Фото имеет разную яркость по области, и белый текст на светлом участке исчезает. Почему cover, а не 100% 100%? 100% 100% искажает пропорции, cover обрезает лишнее, сохраняя форму. Почему градиент из 2–3 цветов? Пять и больше выглядят дешево и создают шум.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Пелена — как солнцезащитная плёнка на лобовом стекле: сквозь неё видно дорогу, но солнце не слепит. Градиент — закат: плавный переход от оранжевого к синему, а не резкая граница. Cover — как обои на стену: обои подгоняются под стену, обрезая лишнее, но рисунок не растягивается.</p></div>
+
+<h3>Пример кода</h3>
+<pre>.hero {
+  background-color: #101828;
+  background-image: url('../img/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
+/* Сокращённая запись */
+.hero {
+  background: #101828 url('../img/hero.jpg') center / cover no-repeat;
+}
+
+.btn { background: linear-gradient(135deg, #4F46E5, #7C3AED); }
+
+.glow {
+  background: radial-gradient(circle at 50% 0%, rgba(79,70,229,.25), transparent 60%);
+}</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Белый текст на фото без пелены</strong> — нечитаемо. <strong>background-size: 100% 100%</strong> — искажает пропорции. <strong>Градиент из пяти цветов</strong> — выглядит дешево. <strong>Забыли position</strong> — важная часть фото обрезается.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать герой с тремя слоями</div>
+<div class="task-why">Зачем: получить приём, используемый в каждом втором лендинге.</div>
+<ol class="steps">
+<li>Сделай секцию с фоновым фото + тёмной пеленой.</li>
+<li>Проверь: читается ли белый текст на фоне?</li>
+<li>Добавь радиальное свечение в углу.</li>
+<li>Сделай кнопку с линейным градиентом.</li>
+<li>Проверь контраст текста (Урок 16).</li>
+</ol>
+<div class="task-r">Результат: рабочий приём фона с гарантированной читаемостью.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Белый текст без пелены.</strong> Нечитаемо.</li>
+<li><strong>background-size: 100% 100%.</strong> Искажает.</li>
+<li><strong>Градиент из пяти цветов.</strong> Дешево.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем пелена поверх фото?</li>
+<li>Чем cover отличается от contain?</li>
+<li>Какие три слоя может иметь фон?</li>
+<li>Что делает background-blend-mode?</li></ol></div>
+`},
+
+{t:"Типографика в CSS",g:"Реализовать шкалу из Урока 13 в коде.",c:`
+<h3>Зачем этот урок</h3>
+<p>CSS даёт полный контроль над текстом. Главное — не разбрасывать значения, а задать <strong>систему</strong> через переменные. Тогда изменение кегля в одном месте меняет весь сайт.</p>
+
+<h3>Простым языком</h3>
+<p>Создай переменные для шести уровней, примени к заголовкам и абзацам. Ограничь ширину абзаца через <code>max-width: 65ch</code>.</p>
+<p>Интерлиньяж: заголовку 1.1–1.2, основному тексту 1.5–1.7. При <code>line-height: 1</code> строки слипаются.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>CSS-переменная</dt><dd>Пользовательское свойство, объявленное в :root.</dd>
+<dt>Font-size</dt><dd>Размер шрифта.</dd>
+<dt>Line-height</dt><dd>Межстрочный интервал.</dd>
+<dt>Letter-spacing</dt><dd>Межбуквенное расстояние.</dd>
+<dt>Text-transform</dt><dd>Преобразование регистра: uppercase, capitalize.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему размеры в переменных? Меняешь одно значение, а не пятнадцать. Почему max-width: 65ch? Строка на 120 символов нечитаема: глаз теряет место. Почему заголовку плотность? Он короткий и воспринимается как блок, а абзац нужно прокручивать построчно.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>CSS-переменные — как шаблоны в Word. Задал «Заголовок 1» один раз — все главы документа одного размера. Захотел другой — поменял шаблон, документ перестроился. Без шаблонов каждый заголовок вручную, и документ выглядит неряшливо.</p></div>
+
+<h3>Пример кода</h3>
+<pre>:root {
+  --fs-h1: 48px;  --fs-h2: 36px;  --fs-h3: 24px;
+  --fs-body-lg: 20px;  --fs-body: 16px;  --fs-caption: 14px;
+  --font-head: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--color-dark);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  line-height: 1.2;
+  margin: 0 0 var(--space-4);
+}
+
+h1 { font-size: var(--fs-h1); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: var(--fs-h2); font-weight: 600; }
+h3 { font-size: var(--fs-h3); font-weight: 600; }
+
+p  { max-width: 65ch; margin: 0 0 var(--space-4); }
+.text-muted { color: var(--color-muted); font-size: var(--fs-caption); }
+.text-uppercase { text-transform: uppercase; letter-spacing: .05em; }</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Размеры «по месту»</strong> — через месяц 15 значений. <strong>line-height: 1 на абзацах</strong> — строки слипаются. <strong>Нет ограничения ширины</strong> — строка нечитаема. <strong>Фиксированный цвет</strong> — не сменить тему.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Реализовать шкалу в CSS</div>
+<div class="task-why">Зачем: превратить дизайн-решение в рабочий код.</div>
+<ol class="steps">
+<li>Создай CSS-переменные для шести уровней.</li>
+<li>Примени к заголовкам и абзацам.</li>
+<li>Сверстай страницу-шпаргалку со всеми уровнями.</li>
+<li>Проверь max-width: 65ch на абзацах.</li>
+<li>Сравни с макетом: совпадают размеры?</li>
+</ol>
+<div class="task-r">Результат: типографическая система в коде.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Размеры «по месту».</strong> 15 значений.</li>
+<li><strong>line-height: 1.</strong> Строки слипаются.</li>
+<li><strong>Нет ограничения ширины.</strong> Нечитаемо.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Какой line-height у заголовка и у текста?</li>
+<li>Зачем max-width: 65ch?</li>
+<li>Где хранят размеры шрифтов?</li>
+<li>Что делает text-transform: uppercase?</li></ol></div>
+`},
+
+{t:"Flexbox: основа",g:"Уверенно выстраивать элементы в ряд.",c:`
+<h3>Зачем этот урок</h3>
+<p>Flexbox работает с <strong>одной осью</strong>: горизонтальной или вертикальной. Включается на <strong>контейнере</strong>, настраиваются <strong>дети</strong>. Это основной инструмент раскладки в вебе — шапки, меню, строки карточек, центрирование.</p>
+
+<h3>Простым языком</h3>
+<p>Две оси: <strong>главная</strong> (по направлению flex-direction) и <strong>поперечная</strong>. <code>justify-content</code> двигает по главной, <code>align-items</code> — по поперечной.</p>
+<p>Значения justify-content: flex-start, flex-end, center, space-between, space-around.</p>
+<p>Как сделать три равные колонки: <code>flex: 1</code> у каждой. Почему gap лучше margin? gap удаляется одним свойством и не схлопывается.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Flex-контейнер</dt><dd>Элемент с display: flex.</dd>
+<dt>Flex-элемент</dt><dd>Дочерний элемент контейнера.</dd>
+<dt>Главная ось</dt><dd>Направление flex-direction.</dd>
+<dt>Поперечная ось</dt><dd>Перпендикулярное направление.</dd>
+<dt>Flex: 1</dt><dd>Растянуть элемент на доступное пространство.</dd>
+<dt>Gap</dt><dd>Отступ между flex-элементами.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему на контейнере, а не на детях? Потому что flex определяет, как дети располагаются внутри родителя. Почему две оси? Потому что элементы нужно выравнивать и по направлению, и поперёк. Почему gap? margin схлопывается и его надо сбрасывать у крайних элементов, а gap нет.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Flexbox — как расстановка стульев в ряду. justify-content — как вы выравниваете ряд: слева, по центру, с равными промежутками, прижав к краям. align-items — на какой высоте стулья: все на полу, все на возвышении. gap — расстояние между стульями, одинаковое для всех, и когда уберёшь ряд — расстояние исчезнет вместе с ним.</p></div>
+
+<h3>Пример кода</h3>
+<pre>.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Шапка: лого слева, меню в центре, кнопка справа */
+.site-header { display: flex; align-items: center; justify-content: space-between; }
+
+/* Три равные колонки */
+.col { flex: 1; }
+
+/* Отодвинуть элемент вправо */
+.push-right { margin-left: auto; }</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Забыли flex: 1 у детей</strong> — карточки не растягиваются. <strong>justify-content вместо align-items</strong> — выравнивание не туда. <strong>Margin вместо gap</strong> — схлопывается. <strong>flex-direction не указан</strong> — по умолчанию row, и вертикальное меню не работает.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Пройти Flexbox Froggy</div>
+<div class="task-why">Зачем: Flexbox плохо понимается из текста — это про визуальные переходы.</div>
+<ol class="steps">
+<li>Открой flexboxfroggy.com.</li>
+<li>Пройди первые 12 уровней.</li>
+<li>На каждом читай подсказку.</li>
+<li>Вернись к уровню 1 и пройди заново.</li>
+</ol>
+<div class="task-r">Результат: понимание Flexbox на опыте.</div></div>
+
+<div class="task"><div class="task-h">Задание 2. Сверстать шапку и строку карточек</div>
+<div class="task-why">Зачем: два самых частых паттерна в вебе.</div>
+<ol class="steps">
+<li>Шапка: лого слева, меню в центре, кнопка справа.</li>
+<li>Меню — flex с gap: 32px, list-style: none.</li>
+<li>Строка из 4 карточек: flex + gap + flex: 1 у каждой.</li>
+<li>Проверь на 320 px: ничего не вылезает?</li>
+</ol>
+<div class="task-r">Результат: два рабочих блока для каждого проекта.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Забыли flex: 1.</strong> Карточки не растягиваются.</li>
+<li><strong>Перепутал оси.</strong> Выравнивание не туда.</li>
+<li><strong>Margin вместо gap.</strong> Схлопывается.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>На чём включается display: flex?</li>
+<li>Чем justify-content отличается от align-items?</li>
+<li>Как сделать три равные колонки?</li>
+<li>Зачем gap вместо margin?</li></ol></div>
+`},
+
+{t:"Flexbox: сложные случаи",g:"Решать задачи, на которых спотыкаются новички.",c:`
+<h3>Зачем этот урок</h3>
+<p>Четыре ситуации, которые новичок гуглит по десять раз: отодвинуть элемент вправо, идеальное центрирование, карточки равной высоты с кнопками по низу, вертикальное меню.</p>
+
+<h3>Простым языком</h3>
+<p><strong>Отодвинуть вправо:</strong> <code>margin-left: auto</code> — съест свободное место слева.</p>
+<p><strong>Идеальное центрирование:</strong> <code>display: flex</code> + <code>justify-content: center</code> + <code>align-items: center</code> + <code>min-height: 100vh</code>.</p>
+<p><strong>Кнопка по низу карточки:</strong> <code>margin-top: auto</code> у кнопки при <code>flex-direction: column</code>. Самый полезный трюк.</p>
+<p><strong>Вертикальное меню:</strong> <code>flex-direction: column</code> + <code>gap</code>.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Auto margins</dt><dd>margin: auto — распределение свободного пространства.</dd>
+<dt>Min-height</dt><dd>Минимальная высота, не обрезает контент.</dd>
+<dt>Push-паттерн</dt><dd>margin-top: auto для прижатия к низу.</dd>
+<dt>Perfect centering</dt><dd>Центрирование по двум осям через flex.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему margin: auto? Оно поглощает свободное пространство в своём направлении, толкая элемент в противоположную сторону. Почему min-height, а не height? height обрежет контент, если он не влезет, а min-height нет. Почему margin-top: auto работает только при column? Потому что auto поглощает пространство вдоль главной оси, а при row это горизонталь.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>margin-left: auto — как человек в очереди, который отодвигается к стене, оставляя место между собой и остальными. margin-top: auto — как книга на полке, которая падает вниз, оставляя пустое место над собой. min-height: 100vh — как шкаф до потолка: если вещей больше, шкаф не давит их, а просто растянется.</p></div>
+
+<h3>Пример кода</h3>
+<pre>/* Отодвинуть элемент вправо */
+.push-right { margin-left: auto; }
+
+/* Идеальное центрирование */
+.center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Карточки равной высоты, кнопки по низу */
+.cards { display: flex; gap: 24px; }
+.card { flex: 1; display: flex; flex-direction: column; }
+.card .btn { margin-top: auto; }
+
+/* Вертикальное меню */
+.mobile-menu { display: flex; flex-direction: column; gap: 12px; }</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>margin: auto везде</strong> — работает, но неочевидно, лучше justify-content. <strong>Забыл flex-direction: column</strong> — margin-top: auto не сработает. <strong>height вместо min-height</strong> — контент обрежется. <strong>position: absolute для центрирования</strong> — ломает адаптив.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать четыре задачи в одном проекте</div>
+<div class="task-why">Зачем: отработать все четыре приёма на реальных блоках.</div>
+<ol class="steps">
+<li>Сделай шапку, где кнопка прижата вправо через margin-left: auto.</li>
+<li>Сделай 3 карточки с текстом разной длины и кнопками по низу.</li>
+<li>Сделай мобильное меню столбиком.</li>
+<li>Сделай блок, отцентрованный по двум осям на весь экран.</li>
+<li>Проверь всё на 320 px.</li>
+</ol>
+<div class="task-r">Результат: четыре рабочих паттерна в арсенале.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>margin: auto везде.</strong> Неочевидно.</li>
+<li><strong>Забыл column.</strong> auto не сработает.</li>
+<li><strong>height вместо min-height.</strong> Обрежет.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Как прижать элемент вправо?</li>
+<li>Зачем margin-top: auto и при каком условии?</li>
+<li>Как отцентровать блок по двум осям?</li>
+<li>Чем min-height отличается от height?</li></ol></div>
+`},
+
+{t:"CSS Grid: основа",g:"Строить двумерные сетки.",c:`
+<h3>Зачем этот урок</h3>
+<p>Flexbox — одна ось. <strong>Grid — две сразу</strong>: строки и колонки одновременно. Идеален для макетов страниц, галерей, каталогов. Там, где Flexbox требует вложенных контейнеров, Grid решает задачу одним блоком.</p>
+
+<h3>Простым языком</h3>
+<p><code>grid-template-columns: repeat(3, 1fr)</code> — три равные доли свободного пространства. <code>gap</code> — расстояние между строками и колонками.</p>
+<p>Разные пропорции: <code>2fr 1fr</code> — контент + сайдбар. Адаптив без медиазапросов: <code>repeat(auto-fit, minmax(280px, 1fr))</code>.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Grid-контейнер</dt><dd>Элемент с display: grid.</dd>
+<dt>Fr</dt><dd>Доля свободного пространства.</dd>
+<dt>Grid-column</dt><dd>Размещение по колонкам.</dd>
+<dt>Grid-row</dt><dd>Размещение по строкам.</dd>
+<dt>Auto-fit</dt><dd>Создание колонок по содержимому.</dd>
+<dt>Minmax</dt><dd>Минимальный и максимальный размер.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему Grid для макета страницы? Он управляет двумя измерениями сразу, и не нужны вложенные flex-контейнеры для строк и колонок. Почему 1fr, а не проценты? fr распределяет оставшееся пространство после учёта gap, а проценты могут дать переполнение. Почему auto-fit для каталога? Он сам создаёт нужное число колонок под ширину экрана.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Grid — как шахматная доска: сразу видно, сколько клеток по горизонтали и вертикали. Flexbox — как очередь людей: выстраиваешь в ряд, но чтобы сделать шахматную доску, нужны отдельные очереди. fr — как деление пирога на равные доли: кому сколько достанется, зависит от того, сколько просителей.</p></div>
+
+<h3>Пример кода</h3>
+<pre>.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Разные пропорции: контент + сайдбар */
+.layout { grid-template-columns: 2fr 1fr; }
+
+/* Адаптив без медиазапросов */
+.catalog { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+/* Элемент на две колонки */
+.wide { grid-column: span 2; }
+
+/* Макет через areas */
+.page {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 240px 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+}</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Grid для простой строки</strong> — избыточно. <strong>Забыл gap</strong> — элементы слипаются. <strong>Фиксированные px вместо fr</strong> — сетка не адаптируется. <strong>Слишком маленький minmax</strong> — на 320 px контент не влезет.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Пройти Grid Garden</div>
+<div class="task-why">Зачем: Grid — визуальная тема, текст объясняет плохо.</div>
+<ol class="steps">
+<li>Открой cssgridgarden.com.</li>
+<li>Пройди первые 10 уровней.</li>
+<li>Обрати внимание на grid-column и grid-row.</li>
+<li>Вернись к сложным уровням повторно.</li>
+</ol>
+<div class="task-r">Результат: практическое понимание Grid.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Grid для простой строки.</strong> Избыточно.</li>
+<li><strong>Забыл gap.</strong> Слипаются.</li>
+<li><strong>px вместо fr.</strong> Не адаптируется.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем Grid отличается от Flexbox?</li>
+<li>Что значит 1fr?</li>
+<li>Как сделать элемент на две колонки?</li>
+<li>Когда Grid избыточен?</li></ol></div>
+`},
+
+{t:"Grid: сложные сетки",g:"Строить сетки, которые адаптируются сами.",c:`
+<h3>Зачем этот урок</h3>
+<p><code>grid-template-areas</code> — самый читаемый способ задать макет. Ты рисуешь сетку словами, и сразу видно, что где лежит. Через полгода вернёшься к коду и поймёшь его с первого взгляда.</p>
+<p><code>auto-fit</code> создаёт адаптивный каталог без единого медиазапроса.</p>
+
+<h3>Простым языком</h3>
+<p>Areas — макет словами: <code>"header header" "sidebar main" "footer footer"</code>. Каждому слову соответствует <code>grid-area</code> у элемента.</p>
+<p>auto-fit vs auto-fill: auto-fill создаёт колонки, даже пустые; auto-fit сворачивает пустые. В 95% случаев нужен auto-fit.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Template-areas</dt><dd>Задание макета именами областей.</dd>
+<dt>Grid-area</dt><dd>Привязка элемента к именованной области.</dd>
+<dt>Auto-fill</dt><dd>Создание колонок, включая пустые.</dd>
+<dt>Auto-fit</dt><dd>Создание колонок со свёрткой пустых.</dd>
+<dt>Span</dt><dd>Занятие нескольких дорожек.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему areas лучше цифр? Слова читаются как план, а цифры надо каждый раз пересчитывать. Почему auto-fit? Он удаляет пустые колонки, не оставляя лишних отступов. Почему не слишком маленький minmax? На узких экранах контент не влезет и появится горизонтальная прокрутка.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Template-areas — как план квартиры с подписями: «кухня», «гостиная», «спальня». Видно расположение без измерений. Auto-fit — как раскладка книг на полке по ширине: положил сколько влезло, осталось место — следующий ряд сам образуется.</p></div>
+
+<h3>Пример кода</h3>
+<pre>.page {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+}
+.site-header { grid-area: header; }
+.sidebar     { grid-area: sidebar; }
+.main        { grid-area: main; }
+.site-footer { grid-area: footer; }
+
+/* Каталог без медиазапросов */
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Первый элемент на две колонки */
+.catalog > *:first-child { grid-column: span 2; }</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>auto-fill вместо auto-fit</strong> — появляются пустые колонки и лишние отступы. <strong>Слишком маленький minmax</strong> — на 320 px контент не влезет. <strong>areas без кавычек</strong> — синтаксическая ошибка. <strong>Нет grid-area у элемента</strong> — он не попадёт в область.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Сделать макет через areas</div>
+<div class="task-why">Зачем: получить читаемый код, который поймёшь через полгода.</div>
+<ol class="steps">
+<li>Сверстай макет: шапка, сайдбар + контент, подвал.</li>
+<li>Используй grid-template-areas.</li>
+<li>Проверь на 768 px — сайдбар должен переехать.</li>
+<li>Сравни читаемость с вариантом на flexbox.</li>
+</ol>
+<div class="task-r">Результат: макет, код которого читается как схема.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>auto-fill вместо auto-fit.</strong> Пустые колонки.</li>
+<li><strong>Маленький minmax.</strong> Не влезет на 320.</li>
+<li><strong>areas без кавычек.</strong> Ошибка.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Как задать макет через areas?</li>
+<li>Чем auto-fit отличается от auto-fill?</li>
+<li>Как сделать каталог без медиазапросов?</li>
+<li>Как сделать первый элемент на две колонки?</li></ol></div>
+`},
+
+{t:"Позиционирование",g:"Управлять расположением элементов поверх остальных.",c:`
+<h3>Зачем этот урок</h3>
+<p>Пять режимов позиционирования. Без них невозможны липкая шапка, бейдж на карточке, выпадающее меню, модальное окно и кнопка «наверх».</p>
+
+<h3>Простым языком</h3>
+<p><strong>static</strong> — обычный поток. <strong>relative</strong> — сдвинут, но место осталось. <strong>absolute</strong> — выпал из потока, от ближайшего relative-родителя. <strong>fixed</strong> — прибит к окну. <strong>sticky</strong> — скроллится, потом прилипает.</p>
+<p>z-index работает только с position, не равным static, и сравнивается в пределах одного контекста наложения.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Позиционирование</dt><dd>Способ размещения элемента на странице.</dd>
+<dt>Точка отсчёта</dt><dd>Элемент, относительно которого positioned-потомок.</dd>
+<dt>Контекст наложения</dt><dd>Область, в которой сравниваются z-index.</dd>
+<dt>Sticky</dt><dd>Гибрид relative и fixed.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему relative родителю absolute? Без точки отсчёта абсолютный элемент позиционируется от всей страницы и уезжает. Почему z-index не всегда работает? Он действует только у positioned-элементов и в своём контексте наложения. Почему шкала 10–300, а не 9999? Иначе начинается война z-index, и код ломается.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>relative родитель — как комната, в которой ты расставляешь мебель. Без неё мебель ставят относительно улицы, и диван оказывается у соседей. z-index — как слои в фотошопе: верхний перекрывает нижний, но только в пределах одного документа. Sticky — как стикер на мониторе: едет вместе с ним, пока не упрётся в край.</p></div>
+
+<h3>Пример кода</h3>
+<pre>/* Липкая шапка */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+}
+
+/* Бейдж на карточке */
+.card   { position: relative; }
+.badge  {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: #E04F4F; color: #fff;
+  padding: 4px 8px; border-radius: 4px;
+}
+
+/* Модалка поверх всего */
+.overlay { z-index: 200; }
+.modal   { z-index: 300; }</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>absolute без relative у родителя</strong> — элемент уезжает в угол страницы. <strong>z-index: 9999 «чтобы точно было сверху»</strong> — начинается война z-index. <strong>fixed без проверки на мобиле</strong> — может перекрывать контент. <strong>Нет z-index у sticky-шапки</strong> — контент проезжает поверх.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать четыре паттерна</div>
+<div class="task-why">Зачем: элементы, без которых не обходится почти ни один сайт.</div>
+<ol class="steps">
+<li>Липкая шапка: position: sticky, top: 0, фон + тень.</li>
+<li>Бейдж -20% в углу карточки (relative родителю).</li>
+<li>Выпадающее меню, раскрывающееся поверх контента.</li>
+<li>Кнопка «Наверх» с position: fixed.</li>
+<li>Проверь z-index: модалка выше всего.</li>
+</ol>
+<div class="task-r">Результат: четыре рабочих блока позиционирования.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>absolute без relative.</strong> Уезжает в угол.</li>
+<li><strong>z-index: 9999.</strong> Война z-index.</li>
+<li><strong>fixed без проверки.</strong> Перекрывает.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем relative родителю absolute?</li>
+<li>Чем fixed отличается от sticky?</li>
+<li>При каком условии z-index работает?</li>
+<li>Почему не стоит z-index: 9999?</li></ol></div>
+`},
+
+{t:"Псевдоклассы и псевдоэлементы",g:"Добавлять интерактив и детали без лишней разметки.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Псевдокласс</strong> — состояние элемента: hover, focus, first-child. <strong>Псевдоэлемент</strong> — виртуальный элемент внутри: before, after. Не существует в HTML, но стилизуется как настоящий.</p>
+
+<h3>Простым языком</h3>
+<p>Полезные: <code>:hover</code> (наведение), <code>:focus-visible</code> (фокус с клавиатуры — обязательно для доступности), <code>:nth-child(even)</code> (зебра), <code>:last-child</code> (последний без отступа), <code>:not()</code> (исключение), <code>::before</code>/<code>::after</code> (иконки, декоративные элементы).</p>
+<p>Эффект «растущего» подчёркивания: <code>transform: scaleX(0) → scaleX(1)</code>.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Псевдокласс</dt><dd>Состояние элемента: hover, focus, active.</dd>
+<dt>Псевдоэлемент</dt><dd>Виртуальный элемент: before, after.</dd>
+<dt>Content</dt><dd>Свойство, обязательное для before/after.</dd>
+<dt>Transform-origin</dt><dd>Точка отсчёта трансформации.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему :focus-visible, а не :focus? focus срабатывает и при клике мышью, создавая лишнюю подсветку, а focus-visible — только при навигации с клавиатурой. Почему анимируют transform, а не width? transform не вызывает пересчёт layout и работает на 60 fps. Почему content обязателен? Без него псевдоэлемент не отрисуется.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Псевдокласс — как лампочка, которая меняет цвет при наведении руки. Псевдоэлемент — как наклейка на стекле: она часть окна, но отдельный слой, и её можно стереть, не трогая стекло. Transform — как раздвижная дверь: двигается сама дверь, а не стена вокруг неё.</p></div>
+
+<h3>Пример кода</h3>
+<pre>/* Наведение */
+.btn:hover { background: #4338CA; }
+
+/* Фокус с клавиатуры */
+.btn:focus-visible { outline: 3px solid #A5B4FC; outline-offset: 2px; }
+
+/* Зебра */
+.list-item:nth-child(even) { background: #F8FAFC; }
+
+/* Последний без отступа */
+.list-item:last-child { margin-bottom: 0; }
+
+/* Исключение */
+.nav li:not(:last-child) { margin-right: 24px; }
+
+/* Иконка-галочка */
+.checklist li::before { content: "✓"; color: var(--color-accent); margin-right: 8px; }
+
+/* Подчёркивание, растущее при наведении */
+.link { position: relative; text-decoration: none; }
+.link::after {
+  content: ""; position: absolute; left: 0; bottom: -2px;
+  width: 100%; height: 2px; background: var(--color-accent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .25s ease;
+}
+.link:hover::after { transform: scaleX(1); }</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Убрали outline у :focus «чтобы красиво»</strong> — сломали навигацию с клавиатуры. <strong>content забыт у ::before</strong> — элемент не отрисуется. <strong>Анимация width вместо transform</strong> — тормозит. <strong>transform-origin не указан</strong> — линия растёт из центра, а не слева.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Добавить состояния всем интерактивным элементам</div>
+<div class="task-why">Зачем: сайт без hover и focus ощущается мёртвым.</div>
+<ol class="steps">
+<li>Добавь :hover и :focus-visible всем кнопкам.</li>
+<li>Сделай «зебру» в списке через nth-child(even).</li>
+<li>Сделай подчёркивание, растущее при наведении.</li>
+<li>Добавь иконки к чек-листу через ::before.</li>
+<li>Проверь всё с клавиатуры — виден ли фокус?</li>
+</ol>
+<div class="task-r">Результат: интерфейс, который реагирует на действия.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Убрали outline.</strong> Сломали клавиатуру.</li>
+<li><strong>content забыт.</strong> Не отрисуется.</li>
+<li><strong>Анимация width.</strong> Тормозит.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем псевдокласс отличается от псевдоэлемента?</li>
+<li>Зачем :focus-visible?</li>
+<li>Что будет без content у ::before?</li>
+<li>Почему анимируют transform?</li></ol></div>
+`},
+
+{t:"Адаптив: media queries и mobile-first",g:"Заставить макет работать на всех экранах.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Медиазапрос</strong> — условие: «если экран такой-то, примени такие-то стили». <strong>Mobile-first</strong> — сначала базовые стили для телефона, потом дополняем для больших экранов через min-width.</p>
+
+<h3>Простым языком</h3>
+<p>Стили <strong>накапливаются</strong>, а не заменяются. min-width: 768px = «начиная с 768 и шире» → дополняет базовые. max-width = «до 768 включительно» → переопределяет, нужны «отменяющие» правила.</p>
+<p>Ширины для проверки: 320, 390, 768, 1024, 1440.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Медиазапрос</dt><dd>Условие применения стилей по параметрам экрана.</dd>
+<dt>Брейкпоинт</dt><dd>Ширина, на которой происходит перестроение.</dd>
+<dt>Min-width</dt><dd>Применять от указанной ширины и шире.</dd>
+<dt>Max-width</dt><dd>Применять до указанной ширины.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему mobile-first даёт меньше кода? Базовые стили пишутся для самого частого случая, а для десктопа добавляются исключения. При десктоп-first наоборот. Почему брейкпоинты по контенту, а не по устройствам? Устройств много, а контент один — ломается он в предсказуемых местах.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Медиазапрос — как правила поведения в разных помещениях: «в библиотеке тихо», «на концерте громко». Не нужны отдельные люди для каждого места, нужны правила. min-width — «с 18 лет можно»: чем старше, тем больше прав добавляется, старые не отменяются.</p></div>
+
+<h3>Пример кода</h3>
+<pre>/* 1. База: телефон */
+.container { width: 100%; padding: 0 16px; }
+.grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+
+/* 2. Планшет: от 768px */
+@media (min-width: 768px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .container { padding: 0 32px; }
+}
+
+/* 3. Десктоп: от 1024px */
+@media (min-width: 1024px) {
+  .grid { grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .container { max-width: 1280px; margin: 0 auto; }
+}</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>max-width вместо min-width</strong> — код растёт и конфликтует. <strong>Брейкпоинты по устройствам</strong> — ломается на нестандартных экранах. <strong>Забыли 320 px</strong> — дешёвые Android. <strong>Блок ломается на 375 px</strong> — не проверили реальные ширины.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Сверстать адаптив по методу mobile-first</div>
+<div class="task-why">Зачем: получить навык, применяемый в каждом проекте.</div>
+<ol class="steps">
+<li>Напиши базовые стили для 390 px без медиазапросов.</li>
+<li>Добавь @media (min-width: 768px) — две колонки.</li>
+<li>Добавь @media (min-width: 1024px) — четыре.</li>
+<li>Открой DevTools, проверь 320, 390, 768, 1024, 1440.</li>
+<li>Убедись: нет горизонтальной прокрутки ни на одной ширине.</li>
+<li>Посчитай: сколько медиазапросов понадобилось?</li>
+</ol>
+<div class="task-r">Результат: адаптивная страница на всех экранах.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>max-width вместо min-width.</strong> Код растёт.</li>
+<li><strong>Брейкпоинты по устройствам.</strong> Ломается.</li>
+<li><strong>Забыли 320 px.</strong> Дешёвые Android.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Почему mobile-first лучше?</li>
+<li>Чем min-width отличается от max-width?</li>
+<li>Какие ширины проверять?</li>
+<li>Что делать, если блок ломается на 375?</li></ol></div>
+`},
+
+{t:"Современные адаптивные приёмы",g:"Писать меньше медиазапросов.",c:`
+<h3>Зачем этот урок</h3>
+<p>Современный CSS умеет адаптироваться сам. Чем меньше медиазапросов — тем меньше кода и меньше мест, где что-то ломается.</p>
+<p><code>clamp()</code> заменяет 3–4 медиазапроса одной строкой. Контейнерные запросы — будущее.</p>
+
+<h3>Простым языком</h3>
+<p><code>clamp(32px, 5vw, 64px)</code> — размер плавно меняется, но остаётся в пределах 32–64 px. <code>min()</code>, <code>max()</code> — когда нужен только один предел.</p>
+<p><code>@container</code> реагирует на ширину родителя, а не экрана. Нужен <code>container-type: inline-size</code>.</p>
+<p><code>@media (prefers-reduced-motion: reduce)</code> — отключить анимации для пользователей, которым они вредят.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Clamp</dt><dd>Функция ограничения значения между мин и макс.</dd>
+<dt>Min / max</dt><dd>Функции выбора минимального или максимального значения.</dd>
+<dt>Container query</dt><dd>Условие по размеру родителя.</dd>
+<dt>Prefers-reduced-motion</dt><dd>Настройка уменьшения анимаций.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему clamp? Он даёт плавный переход без разрывов на брейкпоинтах. Почему @container? Один компонент работает и в сайдбаре, и в широком блоке, без отдельных классов. Почему prefers-reduced-motion? У некоторых людей анимации вызывают головокружение и тошноту — это медицинская необходимость.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Clamp — как термостат: температура плавно держится между минимумом и максимумом, без резких переключений. Контейнерный запрос — как человек, который одевается по погоде на улице, а не по сезону в календаре. Prefers-reduced-motion — как отказ от американских горок: человеку физически плохо, и его просьбу нужно уважать.</p></div>
+
+<h3>Пример кода</h3>
+<pre>/* Плавный размер */
+h1 { font-size: clamp(32px, 5vw, 64px); }
+
+/* Минимум и максимум */
+.card    { width: min(100%, 320px); }
+.sidebar { width: max(200px, 20%); }
+
+/* Контейнерный запрос */
+.card-wrapper { container-type: inline-size; }
+@container (max-width: 400px) {
+  .card { flex-direction: column; }
+}
+
+/* Уважение к настройкам пользователя */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>clamp без единицы vw</strong> — среднее значение фиксировано, нет плавности. <strong>container-type не поставлен</strong> — @container не сработает. <strong>Забыли prefers-reduced-motion</strong> — часть пользователей физически не может смотреть сайт.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Сократить медиазапросы</div>
+<div class="task-why">Зачем: меньше кода — меньше багов.</div>
+<ol class="steps">
+<li>Переведи размеры заголовков на clamp().</li>
+<li>Ширины карточек — на min(100%, Npx).</li>
+<li>Сделай компонент с @container.</li>
+<li>Добавь prefers-reduced-motion.</li>
+<li>Посчитай: сколько медиазапросов удалось убрать?</li>
+</ol>
+<div class="task-r">Результат: код стал короче и устойчивее.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>clamp без vw.</strong> Нет плавности.</li>
+<li><strong>container-type не стоит.</strong> Не сработает.</li>
+<li><strong>Забыли reduced-motion.</strong> Тошнота.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что делает clamp(32px, 5vw, 64px)?</li>
+<li>Чем @container отличается от @media?</li>
+<li>Зачем prefers-reduced-motion?</li>
+<li>Когда min() полезнее clamp()?</li></ol></div>
+`},
+
+{t:"Анимации: transitions",g:"Делать плавные, «дорогие» интерфейсы.",c:`
+<h3>Зачем этот урок</h3>
+<p><code>transition</code> — плавный переход при изменении состояния. Сайт без переходов кажется сломанным: навёл курсор — ничего не произошло, кликнул — мгновенно прыгнуло.</p>
+<div class="note">Золотое правило: <strong>анимируй только <code>transform</code> и <code>opacity</code></strong>. Они не заставляют браузер пересчитывать layout. Анимация width, height, margin визуально «дешёвая» и тормозит.</div>
+
+<h3>Простым языком</h3>
+<p>Оптимальная длительность hover: 0.15–0.3 с. Нажатие делают быстрее наведения — отклик должен быть мгновенным.</p>
+<p>Функции плавности: <code>ease</code> и <code>ease-out</code> — рабочие лошадки. <code>linear</code> выглядит механически.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Transition</dt><dd>Плавный переход между двумя состояниями.</dd>
+<dt>Easing</dt><dd>Функция плавности анимации.</dd>
+<dt>Duration</dt><dd>Длительность перехода.</dd>
+<dt>Transform</dt><dd>Трансформация элемента: сдвиг, масштаб, поворот.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему только transform и opacity? Они обрабатываются на GPU и не вызывают пересчёт layout, поэтому работают плавно. Почему не transition: all? Оно анимирует лишнее, создавая неожиданные эффекты и тормоза. Почему duration 0.2s, а не 0.5s? Слишком долгий переход кажется вязким и раздражает.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Transition — как доводчик двери: дверь не хлопает, а плавно закрывается. Без него дверь захлопывается — резко и неприятно. Transform — как выдвижной ящик: двигается сам ящик, а не вся тумба перестраивается вокруг него.</p></div>
+
+<h3>Пример кода</h3>
+<pre>.btn {
+  background: var(--color-accent);
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(79,70,229,.2);
+  transition:
+    background-color .2s ease,
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+.btn:hover {
+  background: #4338CA;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79,70,229,.35);
+}
+.btn:active {
+  transform: translateY(0);
+  transition-duration: .05s;
+}</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>transition: all</strong> — анимирует лишнее и тормозит. <strong>Анимация width/height/margin</strong> — пересчитывает layout, подвисает. <strong>Длительность 0.5s+</strong> — интерфейс кажется вязким. <strong>Нет transition у активного состояния</strong> — обратный переход резкий.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Добавить переходы всем интерактивным элементам</div>
+<div class="task-why">Зачем: превратить «сломанный» интерфейс в живой.</div>
+<ol class="steps">
+<li>Добавь transition к кнопкам, ссылкам, карточкам.</li>
+<li>Карточка должна приподниматься при наведении.</li>
+<li>Поле ввода — «растущая» рамка при фокусе.</li>
+<li>Кнопка — нажатие быстрое (.05s), наведение медленное (.2s).</li>
+<li>Проверь в DevTools → Performance: 60 fps?</li>
+</ol>
+<div class="task-r">Результат: интерфейс, который приятно трогать.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>transition: all.</strong> Тормозит.</li>
+<li><strong>Анимация layout.</strong> Подвисает.</li>
+<li><strong>Долгий duration.</strong> Вязкий интерфейс.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Какие свойства безопасно анимировать?</li>
+<li>Почему transition: all — плохо?</li>
+<li>Какая оптимальная длительность?</li>
+<li>Зачем нажатие быстрее наведения?</li></ol></div>
+`},
+
+{t:"Анимации: keyframes и transform",g:"Создавать сложные многошаговые анимации.",c:`
+<h3>Зачем этот урок</h3>
+<p><code>@keyframes</code> — сценарий анимации: «на 0% такой, на 50% сякой, на 100% другой». Браузер проигрывает его. Нужен, когда переходов между двумя состояниями недостаточно.</p>
+
+<h3>Простым языком</h3>
+<p><code>animation-fill-mode: both</code> — держать первый и последний кадр, иначе элемент мигает.</p>
+<p>Каскад появления: разные <code>animation-delay</code>. Элементы появляются один за другим.</p>
+<p>Shimmer-скелетон — анимированная заглушка во время загрузки.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Keyframes</dt><dd>Сценарий анимации с ключевыми кадрами.</dd>
+<dt>Fill-mode</dt><dd>Поведение анимации до и после проигрывания.</dd>
+<dt>Stagger</dt><dd>Задержка между анимациями однотипных элементов.</dd>
+<dt>Shimmer</dt><dd>Эффект бегущего блеска для заглушек.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему fill-mode: both? Без него элемент возвращается в исходное состояние до и после анимации, что выглядит как мигание. Почему задержки по 0.1s? Создают ощущение «сборки» страницы — приём, который сразу делает сайт дороже. Почему infinite осторожно? Бесконечная анимация отвлекает от контента.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Keyframes — как хореография танца: указано, где танцор в начале, в середине и в конце. Fill-mode — как свет в театре: остаётся включённым, пока сцена не закончится. Stagger — как зал оваций: люди встают не одновременно, а волной с задних рядов.</p></div>
+
+<h3>Пример кода</h3>
+<pre>@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-title { animation: fadeInUp .6s ease-out both; }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}
+.btn-pulse { animation: pulse 2s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0%   { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg,#EEF1F6 25%,#F8FAFC 50%,#EEF1F6 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Каскад */
+.hero-title   { animation: fadeInUp .6s ease-out .1s both; }
+.hero-text    { animation: fadeInUp .6s ease-out .2s both; }
+.hero-btn     { animation: fadeInUp .6s ease-out .3s both; }
+.hero-image   { animation: fadeInUp .6s ease-out .4s both; }</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Забыли fill-mode: both</strong> — элемент мигает в начальном положении. <strong>infinite там, где не нужно</strong> — отвлекает от контента. <strong>Анимация layout-свойств</strong> — тормозит. <strong>Слишком долгий duration</strong> — посетитель ждёт.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать три анимации</div>
+<div class="task-why">Зачем: три типовых случая, покрывающие большинство задач.</div>
+<ol class="steps">
+<li>Каскад появления героя с тремя задержками.</li>
+<li>Shimmer-скелетон для карточки товара.</li>
+<li>Мягкая пульсация CTA-кнопки.</li>
+<li>Добавь prefers-reduced-motion для отключения.</li>
+<li>Проверь: fill-mode: both, иначе элементы мигают.</li>
+</ol>
+<div class="task-r">Результат: три рабочие анимации в арсенале.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Забыли fill-mode.</strong> Мигает.</li>
+<li><strong>infinite зря.</strong> Отвлекает.</li>
+<li><strong>Анимация layout.</strong> Тормозит.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем @keyframes отличается от transition?</li>
+<li>Зачем fill-mode: both?</li>
+<li>Как сделать каскад?</li>
+<li>Что такое shimmer?</li></ol></div>
+`},
+
+{t:"CSS-переменные, БЭМ, организация файлов",g:"Писать CSS, который не превратится в свалку через месяц.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>CSS-переменные</strong> — константы: задал один раз, используешь везде. <strong>БЭМ</strong> — система имён: Блок, Элемент, Модификатор. Вместе они избавляют от главной боли CSS — «войны специфичностей».</p>
+
+<h3>Простым языком</h3>
+<p>Имя по БЭМ: <code>.card</code> (блок), <code>.card__title</code> (элемент, два подчёркивания), <code>.card--featured</code> (модификатор, два дефиса).</p>
+<p>Структура файлов (7-1): <code>base/</code> (сброс, переменные, типографика), <code>layout/</code> (контейнер, шапка, подвал), <code>components/</code> (кнопка, карточка, форма), <code>utilities.css</code>.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>БЭМ</dt><dd>Методология именования: Блок, Элемент, Модификатор.</dd>
+<dt>CSS-переменная</dt><dd>Пользовательское свойство в :root.</dd>
+<dt>Война специфичности</dt><dd>Ситуация, когда стили конфликтуют из-за высокой специфичности.</dd>
+<dt>Слои</dt><dd>Разделение CSS по функциональному назначению.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему нельзя стилизовать .card h3? Это создаёт войну специфичности и ломает переиспользуемость. Почему токены называются по роли? «red-block» через месяц станет синим, а имя останется. Почему слои? Чтобы общие правила шли первыми, а точечные могли их переопределить.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>БЭМ — как адресная система: «дом 5, квартал 3, комната 2». Понятно, что где, и если переставишь мебель в комнате, это не заделет другие квартиры. CSS-переменные — как стандартные размеры в строительстве: высота потолка 2.7 м забита в проект, и все дома получаются одинаковыми.</p></div>
+
+<h3>Пример кода</h3>
+<pre>.card                { border: 1px solid #E4E8F0; border-radius: 12px; padding: 24px; }
+.card--featured      { border-color: var(--color-accent); }
+.card__title         { font-family: var(--font-head); font-size: 20px; }
+.card__btn           { background: var(--color-accent); color: #fff; }
+
+&lt;article class="card card--featured"&gt;
+  &lt;h3 class="card__title"&gt;Стрижка&lt;/h3&gt;
+  &lt;p class="card__text"&gt;40 минут&lt;/p&gt;
+  &lt;button class="card__btn"&gt;Записаться&lt;/button&gt;
+&lt;/article&gt;</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Вложенные селекторы .a .b .c</strong> — война специфичности. <strong>!important чтобы починить</strong> — чинит одно, ломает десять. <strong>Имена вида .red-block</strong> — через месяц цвет станет синим. <strong>Всё в одном файле</strong> — через месяц не найдёшь нужное правило.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Перевести проект на переменные и БЭМ</div>
+<div class="task-why">Зачем: получить CSS, который не развалится через месяц.</div>
+<ol class="steps">
+<li>Вынеси все цвета, отступы, шрифты в :root.</li>
+<li>Замени хардкод на var() во всех правилах.</li>
+<li>Переименуй классы по БЭМ.</li>
+<li>Убери вложенные селекторы вида .card h3.</li>
+<li>Разбей CSS на 4 файла по слоям.</li>
+<li>Проверка: удали компонент из HTML — CSS не должен глобально сломаться.</li>
+</ol>
+<div class="task-r">Результат: масштабируемый CSS. Это разница между «помидорами» и профессионалом.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Вложенные селекторы.</strong> Война специфичности.</li>
+<li><strong>!important чтобы починить.</strong> Ломает десять.</li>
+<li><strong>Имена .red-block.</strong> Цвет станет другим.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Из чего состоит имя по БЭМ?</li>
+<li>Почему нельзя стилизовать .card h3?</li>
+<li>Что хранят в :root?</li>
+<li>Назови четыре слоя файлов CSS.</li></ol></div>
+`},
+
+{t:"Sass/SCSS",g:"Ускорить написание CSS и избавиться от повторов.",c:`
+<h3>Зачем этот урок</h3>
+<p>SCSS — «CSS с суперспособностями»: переменные, вложенность, миксины, циклы. Браузер не понимает SCSS — он компилируется в обычный CSS. Для больших проектов и WordPress-тем экономит часы.</p>
+
+<h3>Простым языком</h3>
+<p>Символ <code>&</code> ссылается на родительский селектор. Миксин — переиспользуемый блок свойств. Цикл <code>@for</code> — генерация утилит.</p>
+<p>Когда SCSS избыточен: маленькие проекты (хватит CSS-переменных) и проекты на Tailwind.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>SCSS</dt><dd>Препроцессорный язык, компилируется в CSS.</dd>
+<dt>Миксин</dt><dd>Переиспользуемый блок CSS-свойств.</dd>
+<dt>Вложенность</dt><dd>Возможность вкладывать селекторы друг в друга.</dd>
+<dt>Компиляция</dt><dd>Преобразование SCSS в CSS.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему браузер не понимает SCSS? Это язык разработчика, а не браузера; в продакшен всегда идёт обычный CSS. Почему & полезен? Избавляет от повторения имени родителя. Почему не глубокая вложенность? Компилируется в длинные селекторы, ломает специфичность.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>SCSS — как шаблон документа с автозаполнением: ввёл одну переменную — подставилась везде. Миксин — как стандартный блок в договоре: вставил в пять договоров, при изменении шаблона поменялось везде. Компилятор — как переводчик: говоришь на своём языке, а партнёр получает понятный ему.</p></div>
+
+<h3>Пример кода</h3>
+<pre>$color-accent: #4F46E5;
+$space: 8px;
+$gap: $space * 3;               // 24px
+
+.card {
+  padding: $space * 3;
+  border-radius: 8px;
+
+  &__title { font-size: 20px; }   // → .card__title
+  &:hover  { box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+}
+
+@mixin button($bg, $color: #fff) {
+  background: $bg;
+  color: $color;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+}
+.btn-primary   { @include button($color-accent); }
+.btn-secondary { @include button(#E4E8F0, #101828); }
+
+@for $i from 1 through 8 {
+  .mt-#{$i} { margin-top: $space * $i; }
+}</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Глубокая вложенность (4+ уровня)</strong> — компилируется в длинные селекторы. <strong>Миксин вместо простого правила</strong> — избыточно. <strong>Забыл скомпилировать</strong> — сайт показывает старый CSS.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Перевести проект на SCSS</div>
+<div class="task-why">Зачем: освоить инструмент, ускоряющий работу на 20–30%.</div>
+<ol class="steps">
+<li>Установи Sass глобально.</li>
+<li>Переименуй style.css в style.scss.</li>
+<li>Вынеси цвета и отступы в переменные.</li>
+<li>Сделай миксин button($bg), примени к двум кнопкам.</li>
+<li>Сгенерируй утилиты .mt-1 … .mt-8 через @for.</li>
+<li>Скомпилируй и проверь в браузере.</li>
+</ol>
+<div class="task-r">Результат: работающая сборка SCSS и три приёма в арсенале.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Глубокая вложенность.</strong> Ломает специфичность.</li>
+<li><strong>Миксин вместо правила.</strong> Избыточно.</li>
+<li><strong>Забыл скомпилировать.</strong> Старый CSS.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Почему браузер не понимает SCSS?</li>
+<li>Что делает символ &?</li>
+<li>Когда миксин уместен?</li>
+<li>Зачем @for в примере с отступами?</li></ol></div>
+`},
+
+{t:"Сборка, оптимизация, pixel perfect",g:"Выдать быстрый, оптимизированный, совпадающий с макетом сайт.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Vite</strong> — сборщик: берёт проект с SCSS, ES-модулями и кучей файлов, выдаёт оптимизированный <code>dist/</code> для заливки. <strong>Pixel perfect</strong> — когда свёрстанный сайт совпадает с макетом, и проверяется это инструментами, а не «на глаз».</p>
+
+<h3>Простым языком</h3>
+<p>WebP — на 25–35% легче JPEG при том же качестве. AVIF — ещё легче, но поддержка чуть хуже. SVG — для иконок и логотипов.</p>
+<p><code>npm run build</code> собирает оптимизированный проект в <code>dist/</code>.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Сборщик</dt><dd>Инструмент, подготавливающий проект к продакшену.</dd>
+<dt>Vite</dt><dd>Современный сборщик фронтенда.</dd>
+<dt>Pixel perfect</dt><dd>Точное соответствие свёрстанного сайта макету.</dd>
+<dt>WebP / AVIF</dt><dd>Современные форматы изображений.</dd>
+<dt>CLS</dt><dd>Метрика стабильности макета.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему WebP лучше JPEG? Меньший размер при том же качестве = быстрее загрузка = лучше конверсия и SEO. Почему width и height у картинок? Без них браузер не резервирует место, и макет прыгает при загрузке — это CLS. Почему проверять в Safari? Там чаще всего ломается вёрстка из-за особенностей движка.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Сборщик — как упаковка товара перед отправкой: всё аккуратно сложено, лишнее убрано, размеры оптимальны. Pixel perfect — как примерка костюма: сидит идеально, ни одна складка не торчит. CLS — как полка, на которой книги падают, когда добавляешь новую: покупатель уходит, не дождавшись порядка.</p></div>
+
+<h3>Чек-лист приёмки</h3>
+<ul>
+<li>Lighthouse Performance &gt; 90</li>
+<li>Lighthouse Accessibility = 100</li>
+<li>Нет ошибок в консоли</li>
+<li>Работает в Chrome, Safari, Firefox, iOS, Android</li>
+<li>Нет горизонтальной прокрутки на 320px</li>
+<li>Все картинки сжаты, с width/height</li>
+<li>Шрифты с кириллицей, loading="lazy" ниже первого экрана</li>
+<li>Favicon, Title и description заполнены</li>
+</ul>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>JPEG вместо WebP</strong> — теряете 25–35% веса бесплатно. <strong>Нет width/height у картинок</strong> — макет прыгает (CLS). <strong>Не проверяли в Safari</strong> — часто ломается именно там. <strong>Не сжали картинки</strong> — сайт грузится дольше.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать и оптимизировать проект</div>
+<div class="task-why">Зачем: получить измеримый результат, а не ощущения.</div>
+<ol class="steps">
+<li>Собери проект через Vite (npm run build).</li>
+<li>Прогони dist/ через Lighthouse, запиши результат.</li>
+<li>Конвертируй фото в WebP через Squoosh, подключи через picture.</li>
+<li>Добавь width/height всем картинкам.</li>
+<li>Сверь с макетом: отступы, кегли, цвета.</li>
+<li>Проверь на 320 px — нет горизонтальной прокрутки?</li>
+<li>Доведи Performance до 90+.</li>
+</ol>
+<div class="task-r">Результат: сайт, который проходит объективную проверку.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>JPEG вместо WebP.</strong> Теряете вес.</li>
+<li><strong>Нет width/height.</strong> CLS.</li>
+<li><strong>Не проверили Safari.</strong> Ломается.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что делает npm run build?</li>
+<li>Почему WebP лучше JPEG?</li>
+<li>Зачем width/height у картинок?</li>
+<li>Назови пять пунктов чек-листа приёмки.</li></ol></div>
+`}
+];
+var cur=1;
+function render(){
+  var t=document.getElementById("tabs"); t.innerHTML="";
+  L.forEach(function(l,i){ var b=document.createElement("button");
+    b.className="tab"+(i+1===cur?" on":""); b.textContent=(i+17);
+    b.onclick=function(){cur=i+1;render();}; t.appendChild(b); });
+  var d=L[cur-1];
+  var g = cur<=4?2:(cur<=11?3:4);
+  document.getElementById("out").innerHTML='<div class="lesson"><div class="lh"><div class="num">Урок '+(cur+16)+' · Глава '+g+' · Расширенная версия</div><h2>'+d.t+'</h2><div class="goal">🎯 '+d.g+'</div></div><div class="lb">'+d.c+'</div></div>';
+  document.getElementById("cnt").textContent="Урок "+cur+" из "+L.length;
+  window.scrollTo(0,0);
+}
+document.getElementById("prev").onclick=function(){ if(cur>1){cur--;render();} };
+document.getElementById("next").onclick=function(){ if(cur<L.length){cur++;render();} };
+render();
+</script>
+</body>
+</html>

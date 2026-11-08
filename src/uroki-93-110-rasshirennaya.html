@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Уроки 92–118 · Расширенная теория</title>
+<style>
+:root{--bg:#eef1f6;--card:#fff;--line:#e4e8f0;--txt:#182031;--muted:#6d7789;--acc:#4f46e5;--ok:#15a34a;--proc:#e08c00;--code:#101828}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);font-size:14.5px;line-height:1.6}
+header{background:#101828;color:#fff;padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+header h1{margin:0;font-size:16px}header .sub{color:#98a2b3;font-size:12px}
+header .cnt{margin-left:auto;font-size:12px;color:#cbd5e1;font-weight:600}
+.wrap{max-width:900px;margin:0 auto;padding:20px 16px 70px}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:#fff;border-radius:7px;padding:5px 9px;font-size:12px;cursor:pointer;font-weight:600;color:var(--muted)}
+.tab:hover{border-color:#c7cfdd}.tab.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.lesson{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.lh{padding:20px 24px 14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fbfcfe,#fff)}
+.lh .num{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);font-weight:700}
+.lh h2{margin:4px 0 0;font-size:23px;letter-spacing:-.02em;line-height:1.25}
+.lh .goal{margin-top:6px;font-size:13px;color:var(--muted)}
+.lb{padding:4px 24px 24px}
+.lb h3{font-size:12.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);margin:24px 0 9px;font-weight:700;padding-bottom:5px;border-bottom:2px solid #eef2ff}
+.lb h4{font-size:15.5px;margin:18px 0 6px}
+.lb p{margin:0 0 12px;line-height:1.75}
+.lb ul,.lb ol{margin:0 0 13px;padding-left:21px}
+.lb li{margin-bottom:6px;line-height:1.68}
+.lb strong{color:#0f172a}
+.lb code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.87em;background:#f1f5f9;padding:1px 5px;border-radius:4px;color:#3730a3}
+.lb pre{background:var(--code);color:#e6edf7;padding:13px 15px;border-radius:9px;overflow-x:auto;font-size:12.2px;line-height:1.5;font-family:"SF Mono",Menlo,Consolas,monospace;margin:0 0 13px}
+.lb pre code{background:none;padding:0;color:inherit}
+.lb table{width:100%;border-collapse:collapse;margin:0 0 13px;font-size:12.8px}
+.lb th{background:#f8fafc;text-align:left;padding:8px 10px;border:1px solid var(--line);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.lb td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;line-height:1.5}
+figure{margin:0 0 16px}
+figure svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#fff}
+figcaption{margin-top:6px;font-size:12.2px;color:var(--muted);line-height:1.5}
+figcaption b{color:#475467}
+.term{background:#f5f3ff;border-left:4px solid #8b5cf6;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px}
+.term-t{font-weight:700;font-size:12.5px;color:#6d28d9;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.term dl{margin:0}
+.term dt{font-weight:700;color:#4c1d95;font-size:13.5px;margin-top:6px}
+.term dd{margin:2px 0 0 0;font-size:13.5px;line-height:1.6;color:#5b21b6}
+.why{background:#eef2ff;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.why-t{font-weight:700;font-size:12.5px;color:#3730a3;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.life{background:#f0fdf4;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.life-t{font-weight:700;font-size:12.5px;color:#15803d;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.risk{background:#fef2f2;border-left:4px solid #b42318;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7}
+.risk-t{font-weight:700;font-size:12.5px;color:#b42318;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.task{background:#f8fafc;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:0 11px 11px 0;padding:13px 15px;margin:0 0 13px}
+.task-h{font-weight:700;font-size:14.5px;margin-bottom:4px}
+.task-why{font-size:12.8px;color:var(--muted);margin-bottom:9px;line-height:1.55}
+.steps{margin:0;padding-left:0;list-style:none;counter-reset:st}
+.steps li{position:relative;padding-left:32px;margin-bottom:8px;line-height:1.6;font-size:13.2px;counter-increment:st}
+.steps li::before{content:counter(st);position:absolute;left:0;top:0;width:21px;height:21px;background:var(--acc);color:#fff;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.task-r{margin-top:10px;padding-top:9px;border-top:1px dashed #d7dde6;font-size:12.8px;color:var(--ok);font-weight:600}
+.warn{background:#fffbeb;border-left:4px solid var(--proc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.warn-t{font-weight:700;font-size:12.5px;color:#b45309;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.warn ul{margin:0;padding-left:19px}.warn li{font-size:13.2px;margin-bottom:4px}
+.check{background:#f0fdf4;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.check-t{font-weight:700;font-size:12.5px;color:#15803d;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.check ol{margin:0;padding-left:19px}.check li{font-size:13.2px;margin-bottom:4px}
+.note{background:#eef2ff;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px;font-size:13.5px}
+.navb{display:flex;gap:9px;margin-top:16px}.navb .sp{flex:1}
+.btn{border:1px solid var(--line);background:#fff;padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600;font-family:inherit}
+.btn:hover{border-color:#c7cfdd}.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+@media(max-width:700px){.lh,.lb{padding-left:15px;padding-right:15px}.lh h2{font-size:20px}}
+</style>
+</head>
+<body>
+<header><h1>📚 Уроки 92–118 · Расширенная теория</h1><span class="sub">как · зачем · почему · терминология · примеры из жизни</span><span class="cnt" id="cnt"></span></header>
+<div class="wrap"><div class="tabs" id="tabs"></div><div id="out"></div>
+<div class="navb"><button class="btn" id="prev">← Предыдущий</button><span class="sp"></span><button class="btn pri" id="next">Следующий →</button></div></div>
+<script>
+var L=[
+{t:"Выбор хостинга и перенос сайта",g:"Перенести готовый сайт на боевой сервер без потери данных.",c:`
+<h3>Зачем этот урок</h3>
+<p>Перенос = три вещи: <strong>файлы</strong> (тема, плагины, загрузки), <strong>база данных</strong> (записи, товары, настройки) и <strong>домен</strong>. Пропустишь один — сайт сломается.</p>
+<p>Никогда не переноси «вживую» без бэкапа. Локальную копию держи минимум 2 недели после запуска.</p>
+
+<h3>Простым языком</h3>
+<p>Зачем заменять URL в базе? Иначе сайт будет искать картинки по адресу localhost.</p>
+<p>После импорта БД сохрани постоянные ссылки — иначе 404 на всех страницах.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Миграция</dt><dd>Перенос сайта между серверами.</dd>
+<dt>Better Search Replace</dt><dd>Плагин замены URL в базе.</dd>
+<dt>wp-config.php</dt><dd>Файл настроек подключения к БД.</dd>
+<dt>Дамп БД</dt><dd>Экспорт базы в файл.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему заменять URL? В базе хранятся абсолютные пути к картинкам; после переноса они ведут на старый домен. Почему сохранять ЧПУ? Правила перезаписи URL хранятся отдельно. Почему бэкап? Ошибка переноса без копии = потеря сайта.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Перенос — как переезд квартиры: вещи (файлы), документы (база), адрес (домен). Забыл документы — не докажешь владение. Забыл поменять адрес в документах — письма пойдут на старый адрес. Бэкап — как фото квартиры до переезда: если что-то потерялось, можно восстановить.</p></div>
+
+<h3>План переноса</h3>
+<ol>
+<li>Бэкап локального сайта (файлы + БД)</li>
+<li>Создать сайт и БД на хостинге</li>
+<li>Залить файлы по FTP</li>
+<li>Импортировать БД через phpMyAdmin</li>
+<li>Прописать доступы к БД в wp-config.php</li>
+<li>Заменить URL в БД</li>
+<li>Настроить постоянные ссылки</li>
+<li>Включить SSL</li>
+<li>Проверить: админка, страницы, формы, корзина</li>
+</ol>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Забыли заменить URL</strong> — картинки по localhost. <strong>Не сохранили ЧПУ</strong> — 404 везде. <strong>Нет бэкапа</strong> — ошибка переноса = потеря.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Перенести сайт на хостинг</div>
+<div class="task-why">Зачем: запуск — финальный этап любого проекта.</div>
+<ol class="steps">
+<li>Подними тестовый сайт на бесплатном хостинге.</li>
+<li>Перенеси локальный сайт по плану выше.</li>
+<li>Замени URL в базе.</li>
+<li>Включи SSL.</li>
+<li>Составь чек-лист проверки после переноса.</li>
+<li>Проверь: формы, корзина, картинки, админка?</li>
+</ol>
+<div class="task-r">Результат: навык запуска сайта.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Забыли заменить URL.</strong> Картинки по localhost.</li>
+<li><strong>Не сохранили ЧПУ.</strong> 404.</li>
+<li><strong>Нет бэкапа.</strong> Потеря.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови три компонента переноса.</li>
+<li>Зачем заменять URL в базе?</li>
+<li>Что делать после импорта БД?</li>
+<li>Сколько держать локальную копию?</li></ol></div>
+`},
+
+{t:"Домен, DNS, Cloudflare, SSL",g:"Подключить домен, защитить и ускорить сайт.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>DNS-записи</strong> говорят интернету, где искать сайт и почту. <strong>SSL</strong> шифрует трафик. <strong>Cloudflare</strong> — бесплатный CDN + защита + кэш.</p>
+<p><code>Full (strict)</code> — единственный полностью безопасный режим SSL; режим <code>Full</code> без strict тоже работает, но не проверяет сертификат origin.</p>
+
+<h3>Простым языком</h3>
+<p>Распространение DNS-записей занимает от 15 минут до 24 часов.</p>
+<p>MX-запись указывает, куда доставлять почту домена.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>DNS-запись</dt><dd>Правило направления трафика.</dd>
+<dt>SSL/TLS</dt><dd>Протокол шифрования.</dd>
+<dt>Full (strict)</dt><dd>Безопасный режим Cloudflare.</dd>
+<dt>Always Use HTTPS</dt><dd>Принудительный редирект на HTTPS.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему Full (strict)? При Flexible данные идут открыто от Cloudflare до сервера — уязвимость. Почему ждать распространения DNS? Записи кэшируются на тысячах серверов мира. Почему MX отдельно? Почта и сайт — разные сервисы с разными настройками.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>DNS — как телефонная станция: знает, куда соединить. SSL — как конверт с сургучной печатью: содержимое защищено. Cloudflare — как сеть филиалов: ближайший отвечает, а центральный не перегружен. Full (strict) — как проверка подписи на каждой станции.</p></div>
+
+<h3>Подключение Cloudflare</h3>
+<ol>
+<li>Регистрация → Add a site → сканирование DNS</li>
+<li>Меняешь NS-серверы домена на Cloudflare</li>
+<li>Включаешь: Full (strict), Always Use HTTPS, авто-минификацию</li>
+</ol>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Flexible вместо Full (strict)</strong> — уязвимость. <strong>Ждать мгновенного DNS</strong> — до суток. <strong>Путаница A и CNAME</strong> — сайт не открывается.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Подключить домен, SSL и Cloudflare</div>
+<div class="task-why">Зачем: база безопасности и скорости.</div>
+<ol class="steps">
+<li>Привяжи домен к сайту, настрой A и CNAME.</li>
+<li>Включи Let's Encrypt (SSL).</li>
+<li>Подключи Cloudflare, включи Full (strict) и Always Use HTTPS.</li>
+<li>Настрой редирект с www на без-www.</li>
+<li>Проверь: сайт открывается по https без предупреждений?</li>
+</ol>
+<div class="task-r">Результат: защищённый и ускоренный сайт.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Flexible.</strong> Уязвимость.</li>
+<li><strong>Ждать мгновенно.</strong> До суток.</li>
+<li><strong>Путаница A/CNAME.</strong> Не открывается.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Какой режим SSL безопасен?</li>
+<li>Сколько ждать применения DNS?</li>
+<li>Что даёт Cloudflare?</li>
+<li>Зачем MX-запись?</li></ol></div>
+`},
+
+{t:"Чек-лист приёмки сайта (50 пунктов)",g:"Не сдать клиенту сломанный сайт.",c:`
+<h3>Зачем этот урок</h3>
+<p>Чек-лист защищает тебя: если что-то сломалось через месяц, вы сверяетесь с документом. И экономит репутацию — «работает» vs «вроде работает».</p>
+<p>Шесть категорий: контент, формы, мобильная версия, скорость, SEO, кроссбраузерность.</p>
+
+<h3>Шесть категорий</h3>
+<ul>
+<li><strong>Контент:</strong> нет lorem ipsum, нет орфографических ошибок, все ссылки работают, все картинки грузятся, контакты актуальны, favicon</li>
+<li><strong>Формы:</strong> все формы отправляются, письма приходят не в спаме, уведомления в CRM/Telegram, валидация, чекбокс согласия, «Спасибо»</li>
+<li><strong>Мобильная версия:</strong> нет горизонтальной прокрутки на 320+, меню работает, кнопки ≥ 44px, текст читаем без зума, формы удобны</li>
+<li><strong>Скорость:</strong> Lighthouse Performance 85+, Accessibility 95+, нет ошибок в консоли, нет битых 404, картинки сжаты</li>
+<li><strong>SEO:</strong> уникальные title/description, sitemap.xml, robots.txt, HTTPS, закрыта индексация админки, обновления, автобэкап, 2FA</li>
+<li><strong>Кроссбраузерность:</strong> Chrome, Safari, Firefox, iOS, Android, печать</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Чек-лист приёмки</dt><dd>Список проверок перед сдачей.</dd>
+<dt>Кроссбраузерность</dt><dd>Работа в разных браузерах.</dd>
+<dt>Регрессия</dt><dd>Повторная поломка после правки.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему чек-лист? Защищает от «работает вроде» и споров с клиентом. Почему проверять Safari? Там чаще всего ломается вёрстка. Почему 320 px? Самые дешёвые Android ещё живы.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Чек-лист — как предполётная проверка самолёта: пилот проходит список, даже если «всё в порядке». Пропустил пункт — можешь не долететь. Safari — как другая погода: то, что работает в ясный день, ломается в туман.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Сдавать без чек-листа</strong> — клиент найдёт то, что вы пропустили. <strong>Не проверять Safari</strong> — ломается именно там. <strong>Забыть 320 px</strong> — дешёвые телефоны.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Создать и применить чек-лист</div>
+<div class="task-why">Зачем: объективная оценка готовности.</div>
+<ol class="steps">
+<li>Создай чек-лист в Google Docs / Notion.</li>
+<li>Прогони по нему свой последний сайт.</li>
+<li>Найди минимум 5 недостатков.</li>
+<li>Исправь всё найденное.</li>
+<li>Прогони повторно — должно быть чисто.</li>
+</ol>
+<div class="task-r">Результат: личный инструмент контроля качества.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Сдавать без чек-листа.</strong> Клиент найдёт.</li>
+<li><strong>Не проверять Safari.</strong> Ломается.</li>
+<li><strong>Забыть 320 px.</strong> Дешёвые телефоны.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови шесть категорий чек-листа.</li>
+<li>Зачем чек-лист при сдаче?</li>
+<li>Какие браузеры проверять?</li>
+<li>Что делать, если найден недостаток?</li></ol></div>
+`},
+
+{t:"SEO-база",g:"Настроить сайт так, чтобы его находили в поиске.",c:`
+<h3>Зачем этот урок</h3>
+<p>SEO — не «магия», а три вещи: <strong>техническая исправность</strong>, <strong>релевантный контент</strong>, <strong>внешние сигналы</strong>. Первые две — полностью на тебе.</p>
+<p>Техническое SEO — быстрые очки и видимый результат.</p>
+
+<h3>Что на тебе</h3>
+<ul>
+<li>title — уникальный, до 60, ключ в начале</li>
+<li>description — уникальный, до 160, с выгодой</li>
+<li>H1 — один на страницу, с главным ключом</li>
+<li>H2–H6 — структура без перескоков</li>
+<li>URL — короткий, с ключом</li>
+<li>Alt картинок — описание с ключом где уместно</li>
+<li>Скорость — Core Web Vitals в зелёной зоне</li>
+<li>Мобильная версия — адаптив, не m.сайт</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>SEO</dt><dd>Оптимизация под поисковые системы.</dd>
+<dt>Title</dt><dd>Заголовок страницы в поиске.</dd>
+<dt>Meta description</dt><dd>Описание страницы в поиске.</dd>
+<dt>Sitemap</dt><dd>Карта сайта для роботов.</dd>
+<dt>Robots.txt</dt><dd>Файл запретов для роботов.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему ключ в начале title? Обрезается примерно 60 символов. Почему description? Влияет на CTR — пользователь читает и решает, заходить или нет. Почему H1 один? Два главных заголовка путают поисковика.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>SEO — как вывеска магазина: чтобы зашли, нужно чтобы нашли и чтобы было понятно, что внутри. Title — сама вывеска. Description — объявление рядом. Sitemap — как план района для курьера: по нему быстрее найти все адреса.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Нет sitemap.xml</strong> — дольше индексация. <strong>Закрыта индексация в robots.txt</strong> — сайт не в поиске. <strong>Дубли title на разных страницах</strong> — каннибализация позиций. <strong>Нет 301-редиректа при смене URL</strong> — потеря трафика и 404 в индексе.</p></div>
+
+<h3>Яндекс: ИКС и коммерческие факторы</h3>
+<p>В Яндексе главное — не только ссылки (как в Google), а <strong>ИКС</strong> (индекс качества сайта) и <strong>коммерческие факторы</strong>. Без них сайт не покажется даже по идеальному контенту.</p>
+
+<h4>ИКС — индекс качества сайта</h4>
+<p>ИКС — это числовой показатель Яндекса, отражающий полезность сайта для пользователя. Введён в 2018 году вместо ТИЦ. У популярных сайтов (vk.com, яндекс.ру) ИКС измеряется тысячами и десятками тысяч — верхней границы нет. Зависит от поведения: вернулись ли пользователи в поиск, сколько времени провели, дошли ли до конца. Проверить — в <strong>Яндекс.Вебмастере</strong>.</p>
+<ul>
+<li><strong>Чем выше ИКС</strong> — тем больше шансов попасть в топ-10</li>
+<li><strong>Низкий ИКС</strong> — сайт почти не виден в выдаче</li>
+<li><strong>ИКС растёт</strong>, когда пользователи остаются на сайте и не возвращаются в поиск</li>
+</ul>
+
+<h4>Коммерческие факторы (для бизнеса)</h4>
+<p>Для магазинов и услуг Яндекс проверяет признаки «надёжного бизнеса». Если их нет — сайт падает в выдаче.</p>
+<table><tr><th>Фактор</th><th>Что нужно</th></tr>
+<tr><td>Контакты</td><td>Телефон, email, адрес с картой, юр. лицо, ИНН</td></tr>
+<tr><td>Страница «О компании»</td><td>История, команда, фото, реквизиты</td></tr>
+<tr><td>Доставка и оплата</td><td>Отдельная страница, способы, сроки, цены</td></tr>
+<tr><td>Гарантии и возврат</td><td>Политика возврата, гарантии, условия</td></tr>
+<tr><td>Отзывы</td><td>Реальные отзывы с фото, ответы компании</td></tr>
+<tr><td>Цены</td><td>Актуальные, без «от» и «уточняйте»</td></tr>
+<tr><td>Каталог товаров</td><td>Структурированный, с фильтрами, фото, описаниями</td></tr>
+<tr><td>Корзина и оформление</td><td>Рабочая корзина, оплата онлайн, без регистрации</td></tr>
+</table>
+
+<h4>Региональное SEO</h4>
+<p>Для локального бизнеса (парикмахерская, пиццерия) — добавьте <strong>Яндекс.Бизнес</strong> (бывший Яндекс.Справочник). Карточка с фото, отзывами, часами работы показывается в Яндекс.Картах и в поиске по городу.</p>
+<ul>
+<li>Зарегистрируйтесь на business.yandex.ru</li>
+<li>Заполните все поля: услуги, цены, фото, часы</li>
+<li>Просите клиентов оставлять отзывы (важно!)</li>
+<li>Отвечайте на все отзывы — и хорошие, и плохие</li>
+</ul>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Настроить SEO на все страницы</div>
+<div class="task-why">Зачем: техническое SEO — быстрые очки.</div>
+<ol class="steps">
+<li>Заполни title и description на всех страницах.</li>
+<li>Сгенерируй sitemap.xml и robots.txt.</li>
+<li>Добавь в Яндекс.Вебмастер и Search Console.</li>
+<li>Добавь Schema «Organization» или «Product».</li>
+<li>Настрой Open Graph для всех страниц.</li>
+<li>Проверь: сайт не закрыт от индексации?</li>
+</ol>
+<div class="task-r">Результат: сайт с базовым техническим SEO.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Одинаковые title.</strong> Дубли.</li>
+<li><strong>Закрыта индексация.</strong> Классика.</li>
+<li><strong>Нет sitemap.</strong> Дольше.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови 5 элементов SEO на странице.</li>
+<li>Зачем sitemap.xml?</li>
+<li>Что делать при смене URL?</li>
+<li>Как проверить индексацию?</li></ol></div>
+`},
+
+{t:"Аналитика: Яндекс.Метрика и GA4",g:"Понимать, что делают посетители на сайте.",c:`
+<h3>Зачем этот урок</h3>
+<p>Счётчик показывает не только «сколько зашли», но <strong>что делали</strong>: куда скроллили, по чему кликали, где ушли. Без этого вы оптимизируете вслепую.</p>
+<p>Цели превращают счётчик из «счётчика посетителей» в инструмент денег.</p>
+
+<h3>Что настроить</h3>
+<ul>
+<li>Вебвизор — записи сессий</li>
+<li>Карта кликов — что нажимают</li>
+<li>Карта скролла — до какого % дочитывают</li>
+<li>Электронная коммерция — покупки</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Метрика</dt><dd>Измеримый показатель.</dd>
+<dt>Цель</dt><dd>Событие, которое считается успехом.</dd>
+<dt>Вебвизор</dt><dd>Запись действий пользователя.</dd>
+<dt>Конверсия</dt><dd>Доля выполнивших цель.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему цели? Без них счётчик показывает только трафик, а не результат. Почему вебвизор? Видно записи сессий: что нажимал пользователь. Почему карта скролла? Показывает, до какого процента дочитывают — где теряется внимание.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Метрика — как камера наблюдения в магазине: видно, куда люди идут и где застревают. Цель — как отметка «купил»: без неё не понять, сколько покупок. Вебвизор — как запись с камеры: можно пересмотреть, что делал конкретный посетитель.</p></div>
+
+<h3>Примеры целей</h3>
+<pre>ЦЕЛЬ 1: отправка формы
+  URL содержит ?success=1
+
+ЦЕЛЬ 2: клик по телефону
+  ссылка с href="tel:..."
+
+ЦЕЛЬ 3: добавление в корзину
+  JS-событие add_to_cart</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Счётчик без целей</strong> — только трафик. <strong>Два счётчика конфликтуют</strong> — данные двоятся. <strong>Не смотрите отчёты</strong> — установили и забыли.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Установить счётчики и цели</div>
+<div class="task-why">Зачем: данные для оптимизации.</div>
+<ol class="steps">
+<li>Установи счётчики Метрики и GA4.</li>
+<li>Настрой 3 цели: форма, клик по телефону, добавление в корзину.</li>
+<li>Включи вебвизор.</li>
+<li>Через неделю посмотри: на каком % уходит большинство?</li>
+<li>Найди одну проблему по данным и исправь её.</li>
+</ol>
+<div class="task-r">Результат: решения на основе данных, а не догадок.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Без целей.</strong> Только трафик.</li>
+<li><strong>Два счётчика.</strong> Двоятся.</li>
+<li><strong>Не смотрите.</strong> Забыли.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что показывает карта скролла?</li>
+<li>Зачем цели?</li>
+<li>Чем вебвизор полезен?</li>
+<li>Как найти проблему по данным?</li></ol></div>
+`},
+
+{t:"Core Web Vitals и производительность",g:"Разогнать сайт до зелёной зоны Google.",c:`
+<h3>Зачем этот урок</h3>
+<p>Google измеряет три вещи и учитывает их в ранжировании: <strong>LCP</strong> (скорость появления контента), <strong>CLS</strong> (прыжки макета), <strong>INP</strong> (отклик интерфейса).</p>
+<p>Самые быстрые победы: width/height картинкам и кэш страниц.</p>
+
+<h3>Как улучшить</h3>
+<ul>
+<li><strong>LCP:</strong> сжать главное изображение, убрать блокирующий CSS/JS, включить кэш, использовать CDN</li>
+<li><strong>CLS:</strong> указать width/height всем картинкам, не вставлять контент над существующим, резервировать место под рекламу</li>
+<li><strong>INP:</strong> убрать тяжёлые скрипты с главной, разбить JS на chunks, пассивные слушатели скролла</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>LCP</dt><dd>Largest Contentful Paint.</dd>
+<dt>CLS</dt><dd>Cumulative Layout Shift.</dd>
+<dt>INP</dt><dd>Interaction to Next Paint.</dd>
+<dt>Core Web Vitals</dt><dd>Набор метрик качества страницы.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему width/height? Браузер не знает размер картинки и сдвигает контент после загрузки — это CLS. Почему font-display: swap? Текст невидим при загрузке — пользователь видит пустое место. Почему кэш? Собирается один раз и отдаётся как HTML.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>LCP — как скорость открытия двери магазина: чем быстрее, тем лучше. CLS — как полка, на которой книги падают при добавлении новой: покупатель уходит, не дождавшись порядка. INP — как скорость реакции продавца на вопрос: молчит — уйдёшь.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Нет width/height</strong> — CLS «прыгает». <strong>Шрифты без swap</strong> — текст невидим. <strong>Тяжёлый JS на главной</strong> — INP страдает.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Довести метрики до зелёной зоны</div>
+<div class="task-why">Зачем: скорость — фактор ранжирования и конверсии.</div>
+<ol class="steps">
+<li>Прогони сайт через PageSpeed Insights, запиши LCP/CLS/INP.</li>
+<li>Добавь width/height всем картинкам.</li>
+<li>Включи font-display: swap и preload главного шрифта.</li>
+<li>Включи кэш страниц.</li>
+<li>Повтори тест — доведи все три до зелёной зоны.</li>
+</ol>
+<div class="task-r">Результат: измеримое ускорение и рост в поиске.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Нет width/height.</strong> CLS.</li>
+<li><strong>Шрифты без swap.</strong> Прыжок.</li>
+<li><strong>Тяжёлый JS.</strong> INP.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что измеряет LCP?</li>
+<li>Как чинят CLS?</li>
+<li>Что такое INP?</li>
+<li>Назови самый быстрый способ улучшить метрики.</li></ol></div>
+`},
+
+{t:"Право РФ: 152-ФЗ, оферта, политика",g:"Не нарушить закон и не получить штраф.",c:`
+<h3>Зачем этот урок</h3>
+<p>Если вы собираете <strong>любые</strong> персональные данные (имя, телефон, email) — вы оператор и обязаны по 152-ФЗ: получить согласие, защищать данные, хранить и удалять по правилам.</p>
+<p>Тексты должен проверять юрист — шаблон из интернета только отправная точка.</p>
+
+<h3>Три обязательных документа</h3>
+<ul>
+<li><strong>Политика конфиденциальности</strong> — какие данные, зачем, сколько храним, как защищаем</li>
+<li><strong>Согласие на обработку ПД</strong> — чёткий чекбокс (не предзаполненный!)</li>
+<li><strong>Публичная оферта</strong> — цена, доставка, возврат, оплата</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>152-ФЗ</dt><dd>Закон о персональных данных.</dd>
+<dt>Оператор ПД</dt><dd>Тот, кто обрабатывает данные.</dd>
+<dt>Оферта</dt><dd>Предложение заключить договор.</dd>
+<dt>Cookie-баннер</dt><dd>Уведомление об использовании cookie.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему чекбокс не предзаполняют? Без активного действия человека согласие не считается. Почему cookie-баннер? Нужно уведомить об использовании аналитики. Почему юрист? Шаблон может не подходить под конкретный бизнес.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Политика — как правила хранения документов в офисе: что храним, зачем, кто имеет доступ. Согласие — как подпись на заявлении: без неё документ не действителен. Cookie-баннер — как табличка «мы используем cookie»: предупреждение, а не штраф.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Предзаполненный чекбокс</strong> — согласие не считается. <strong>Нет политики</strong> — прямое нарушение. <strong>Шаблон без юриста</strong> — может не подходить.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Составить legal-страницы</div>
+<div class="task-why">Зачем: штрафы за нарушения — от сотен тысяч.</div>
+<ol class="steps">
+<li>Составь политику конфиденциальности для магазина.</li>
+<li>Составь оферту (цена, доставка, возврат).</li>
+<li>Проверь чекбоксы на всех формах сайта.</li>
+<li>Отметь места, которые должен проверить юрист.</li>
+<li>Проверь: политика доступна со всех страниц?</li>
+</ol>
+<div class="task-r">Результат: сайт, соответствующий 152-ФЗ.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Предзаполненный чекбокс.</strong> Не считается.</li>
+<li><strong>Нет политики.</strong> Нарушение.</li>
+<li><strong>Шаблон без юриста.</strong> Может не подходить.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови три обязательных документа.</li>
+<li>Почему чекбокс не предзаполняют?</li>
+<li>Зачем cookie-баннер?</li>
+<li>Кто должен проверять тексты?</li></ol></div>
+`},
+
+{t:"Передача проекта и поддержка",g:"Сдать сайт так, чтобы клиент был доволен и вернулся.",c:`
+<h3>Зачем этот урок</h3>
+<p>Сдача — не «вот пароль». Это: <strong>инструкция</strong>, <strong>обучение</strong>, <strong>доступы</strong>, <strong>гарантия</strong> и <strong>предложение поддержки</strong>. Клиент, который не разобрался, будет звонить вам бесплатно ещё полгода.</p>
+<p>Поддержка — не «дополнение», а основной источник повторного дохода.</p>
+
+<h3>Что входит в передачу</h3>
+<ul>
+<li>Доступы — один документ, все пароли (хостинг, FTP, админка, домен, Cloudflare, метрика)</li>
+<li>Инструкция — PDF + видео 5 минут</li>
+<li>Обучение — созвон 30–60 минут, запись</li>
+<li>Акт приёмки-передачи — список сделанного, дата, гарантийный срок 30–90 дней</li>
+<li>Предложение поддержки — абонплата или почасовая ставка</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Акт приёмки</dt><dd>Документ о сдаче работы.</dd>
+<dt>Гарантийный срок</dt><dd>Период бесплатных исправлений.</dd>
+<dt>Абонплата</dt><dd>Ежемесячная оплата поддержки.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему инструкция? Клиент не разберётся и будет звонить. Почему акт? Подтвердить, что работа сдана и на каких условиях. Почему поддержка? Обновления, бэкапы и правки требуются постоянно — это повторный доход.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Передача — как сдача квартиры: ключи (доступы), инструкция по технике, залог (акт), договор на обслуживание. Без инструкции жильцы звонят каждый месяц. Без договора на обслуживание — сантехник ломается, и никто не чинит.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Сдать «вот пароль»</strong> — клиент будет звонить полгода. <strong>Нет акта</strong> — не докажете, что сдали. <strong>Нет предложения поддержки</strong> — теряете повторный доход.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Подготовить пакет передачи</div>
+<div class="task-why">Зачем: правильная сдача = повторные заказы.</div>
+<ol class="steps">
+<li>Составь шаблон документа с доступами.</li>
+<li>Составь шаблон инструкции для клиента.</li>
+<li>Составь шаблон акта приёмки-передачи.</li>
+<li>Подготовь договор на поддержку (месяц / час).</li>
+<li>Запиши видео-инструкцию на 5 минут.</li>
+</ol>
+<div class="task-r">Результат: профессиональная сдача и канал повторного дохода.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Сдать «вот пароль».</strong> Звонки полгода.</li>
+<li><strong>Нет акта.</strong> Не докажете.</li>
+<li><strong>Нет поддержки.</strong> Теряете доход.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови пять элементов передачи.</li>
+<li>Зачем акт приёмки-передачи?</li>
+<li>Что должно быть в инструкции?</li>
+<li>Почему поддержка — источник дохода?</li></ol></div>
+`},
+
+{t:"API, ключи и webhook — как это работает",g:"Подключать внешние сервисы к сайту.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>API</strong> — способ попросить другой сервис что-то сделать: «отправь SMS», «оформи доставку», «прими платёж». <strong>Webhook</strong> — обратная связь: сервис сам стучится к вам, когда что-то произошло.</p>
+<p>Это база для всех интеграций.</p>
+
+<h3>Простым языком</h3>
+<p>POST создаёт данные, GET получает.</p>
+<p>Код 401 — нет или неверен ключ. Код 429 — исчерпан лимит.</p>
+<p>Webhook обязан отвечать 200 — иначе сервис будет повторять запрос.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>API</dt><dd>Программный интерфейс приложения.</dd>
+<dt>Endpoint</dt><dd>Адрес метода API.</dd>
+<dt>Webhook</dt><dd>Обратный вызов при событии.</dd>
+<dt>API-ключ</dt><dd>Секретный токен доступа.</dd>
+<dt>Idempotency</dt><dd>Повторный запрос не меняет результат.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему webhook, а не опрос? Опрос каждые 30 секунд — нагрузка; webhook — мгновенно и дёшево. Почему отвечать 200? Иначе сервис будет повторять запрос снова и снова. Почему проверять подпись? Иначе кто угодно отправит фейковое «оплачено».</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>API — как окно в банке: подошёл, предъявил документ, получил справку. Webhook — как обратный звонок: банк сам звонит, когда операция прошла. Ключ — как пропуск: без него на окно не пустят. Подпись — как печать на документе: без неё не верят.</p></div>
+
+<h3>Пример кода: webhook на PHP</h3>
+<pre>$input = file_get_contents('php://input');
+$event = json_decode($input, true);
+
+// TODO: проверить подпись webhook (hash_equals)
+
+if ($event['event'] === 'payment.succeeded') {
+  $orderId = $event['object']['metadata']['order_id'];
+  $order = wc_get_order($orderId);
+  $order->update_status('processing', 'Оплата подтверждена');
+}
+
+http_response_code(200);   // всегда отвечать 200, иначе сервис будет повторять</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Webhook без проверки подписи</strong> — фейковое «оплачено». <strong>Нет ответа 200</strong> — сервис повторяет. <strong>Ключи в коде</strong> — утечка.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="API и webhook">
+<rect width="840" height="300" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="12" font-weight="700" font-family="Arial">API-запрос (ты спрашиваешь) vs Webhook (сервис сообщает)</text>
+<rect x="40" y="60" width="160" height="50" rx="8" fill="#4f46e5"/>
+<text x="120" y="86" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Arial">Твой сайт</text>
+<text x="120" y="102" text-anchor="middle" fill="#c7d2fe" font-size="10.5" font-family="Arial">магазин</text>
+<rect x="640" y="60" width="160" height="50" rx="8" fill="#15a34a"/>
+<text x="720" y="86" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Arial">Платёжный</text>
+<text x="720" y="102" text-anchor="middle" fill="#c7d2fe" font-size="10.5" font-family="Arial">сервис</text>
+<text x="30" y="135" fill="#4f46e5" font-size="11.5" font-weight="700" font-family="Arial">API-запрос:</text>
+<line x1="200" y1="150" x2="640" y2="150" stroke="#4f46e5" stroke-width="2.5" marker-end="url(#arr1)"/>
+<text x="420" y="143" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="monospace">POST /payments (с ключом)</text>
+<line x1="640" y1="170" x2="200" y2="170" stroke="#4f46e5" stroke-width="2.5" stroke-dasharray="6 3" marker-end="url(#arr1)"/>
+<text x="420" y="186" text-anchor="middle" fill="#101828" font-size="11" font-family="monospace">← ответ: платёж создан</text>
+<text x="30" y="215" fill="#b42318" font-size="11.5" font-weight="700" font-family="Arial">Webhook:</text>
+<line x1="640" y1="230" x2="200" y2="230" stroke="#b42318" stroke-width="2.5" marker-end="url(#arr1)"/>
+<text x="420" y="223" text-anchor="middle" fill="#101828" font-size="11" font-weight="700" font-family="monospace">POST /webhook (payment.succeeded)</text>
+<text x="420" y="252" text-anchor="middle" fill="#475467" font-size="10.5" font-family="Arial">сервис сам звонит, когда оплата прошла</text>
+<defs><marker id="arr1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0,0 8,4 0,8" fill="currentColor"/></marker></defs>
+<text x="30" y="285" fill="#475467" font-size="10.5" font-family="Arial">Ключ — в заголовке Authorization. Webhook — всегда с проверкой подписи и ответом 200.</text>
+</svg><figcaption><b>Рис. 100.1.</b> API — ты спрашиваешь, webhook — тебе сообщают. Для смены статуса заказа надёжнее webhook.</figcaption></figure>
+
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Протестировать API и webhook</div>
+<div class="task-why">Зачем: база для всех интеграций.</div>
+<ol class="steps">
+<li>Протестируй API погоды в Postman (GET с ключом).</li>
+<li>Создай webhook-endpoint, который принимает JSON и пишет в лог.</li>
+<li>Настрой один реальный webhook (ЮKassa или CRM).</li>
+<li>Проверь: эндпоинт отвечает 200 и данные приходят?</li>
+</ol>
+<div class="task-r">Результат: понимание механики интеграций.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Без проверки подписи.</strong> Фейковое «оплачено».</li>
+<li><strong>Нет ответа 200.</strong> Повторы.</li>
+<li><strong>Ключи в коде.</strong> Утечка.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем POST отличается от GET?</li>
+<li>Зачем webhook?</li>
+<li>Что означает код 401?</li>
+<li>Почему webhook должен отвечать 200?</li></ol></div>
+`},
+
+{t:"Платёжные системы: ЮKassa",g:"Подключить приём онлайн-платежей.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>ЮKassa</strong> — основной платёжный шлюз для России. Работает с картами, СБП, кошельками. Подключение = магазин в личном кабинете + интеграция на сайте.</p>
+<p>Статус заказа меняется по <strong>webhook</strong>, а не по return_url.</p>
+
+<h3>Простым языком</h3>
+<p>Stripe не работает с российскими бизнесами.</p>
+<p>shopId — идентификатор магазина в платёжной системе.</p>
+<p>Секретный ключ — в переменных окружения, не в коде.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Платёжный шлюз</dt><dd>Сервис приёма платежей.</dd>
+<dt>shopId</dt><dd>Идентификатор магазина.</dd>
+<dt>Return URL</dt><dd>Адрес возврата после оплаты.</dd>
+<dt>Capture</dt><dd>Подтверждение списания.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему webhook, а не return_url? Пользователь может закрыть страницу до возврата, и заказ не будет отмечен оплаченным. Почему ключ не в коде? Репозиторий может стать публичным. Почему тестовый режим? Проверить оплату до реальных денег.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>ЮKassa — как касса в магазине: принимает деньги и бьёт чек. Webhook — как сигнал кассы «оплата прошла»: по нему продавец отмечает заказ. Return URL — как просьба «вернитесь на кассу»: покупатель может не вернуться. Тестовый режим — как тренировка кассы: без настоящих денег.</p></div>
+
+<h3>Схема оплаты</h3>
+<ol>
+<li>Покупатель жмёт «Оплатить»</li>
+<li>Сайт создаёт платёж (POST /v3/payments)</li>
+<li>ЮKassa возвращает страницу оплаты</li>
+<li>Покупатель платит</li>
+<li>Webhook: payment.succeeded → сайт меняет статус заказа</li>
+</ol>
+
+<h3>Пример кода</h3>
+<pre>POST https://api.yookassa.ru/v3/payments
+Authorization: Basic &lt;base64(shopId:secretKey)&gt;
+Idempotence-Key: &lt;UUID&gt;
+
+{
+  "amount": { "value": "4990.00", "currency": "RUB" },
+  "confirmation": {
+    "type": "redirect",
+    "return_url": "https://my-site.ru/thanks"
+  },
+  "metadata": { "order_id": 123 },
+  "capture": true
+}</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Статус по return_url</strong> — пользователь закрыл страницу, заказ не оплачен. <strong>Секретный ключ в коде</strong> — утечка. <strong>Не протестировали возвраты</strong> — деньги ушли, заказ не отмечен.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Подключить ЮKassa</div>
+<div class="task-why">Зачем: без оплаты магазин не работает.</div>
+<ol class="steps">
+<li>Зарегистрируй магазин в ЮKassa (тестовый режим).</li>
+<li>Подключи к WooCommerce через плагин.</li>
+<li>Настрой URL уведомлений (webhook).</li>
+<li>Сделай тестовый заказ и оплату.</li>
+<li>Проверь: статус заказа меняется автоматически?</li>
+<li>Выключи тестовый режим, проверь боевой платёж на 10 ₽.</li>
+</ol>
+<div class="task-r">Результат: работающий приём платежей.</div></div>
+
+<h3>Важно в 2025 году: СБП и СБП Pay</h3>
+<p><strong>СБП (Система быстрых платежей)</strong> — оплата по QR-коду или ссылкой, без карты. Доля СБП в e-commerce РФ в 2025 году — более 40% и растёт. Подключить обязательно, иначе теряете клиентов.</p>
+<p><strong>СБП Pay</strong> — кнопка оплаты через СБП прямо на сайте (как Apple Pay, только для российских банков). Появилась в 2024 — стандарт для всех магазинов.</p>
+<ul>
+<li><strong>Комиссия СБП:</strong> 0.4–0.7% (дешевле карт 2–3%)</li>
+<li><strong>Лимит:</strong> до 1 млн ₽ в месяц на покупателя</li>
+<li><strong>Подключение:</strong> через банк-эквайер или ЮKassa (как отдельный способ оплаты)</li>
+<li><strong>Преимущества:</strong> мгновенно, без ввода карты, возврат за 1 день</li>
+</ul>
+
+<h3>Пример: проверка оплаты СБП через webhook</h3>
+<pre>// После оплаты через СБП ЮKassa присылает webhook
+// с тем же событием payment.succeeded, но с другим методом
+{
+  "event": "payment.succeeded",
+  "object": {
+    "id": "23d93cac-000f-5000-800000-12c082f26af6",
+    "status": "succeeded",
+    "payment_method": {
+      "type": "sbp"   // оплата через СБП
+    },
+    "amount": { "value": "1990.00", "currency": "RUB" },
+    "metadata": { "order_id": 123 }
+  }
+}</pre>
+
+<p>Обработка в вашем коде остаётся той же, что и для карт — достаточно проверить <code>payment_method.type</code> для статистики и отчётов.</p>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Статус по return_url.</strong> Потеря заказов.</li>
+<li><strong>Ключ в коде.</strong> Утечка.</li>
+<li><strong>Не тестировали возвраты.</strong> Деньги ушли.</li>
+<li><strong>Только карты, без СБП.</strong> Теряете 30–40% клиентов.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Почему Stripe недоступен?</li>
+<li>Зачем webhook при оплате?</li>
+<li>Что такое shopId?</li>
+<li>Как проверить оплату перед боем?</li></ol></div>
+`},
+
+{t:"Robokassa, CloudPayments, эквайринг",g:"Выбрать резервный способ приёма платежей.",c:`
+<h3>Зачем этот урок</h3>
+<p>Один платёжный шлюз — точка отказа. Профессионал всегда подключает <strong>второй</strong> как резерв.</p>
+<p>Экваринг дешевле агрегатора, но нужны документы и время.</p>
+
+<h3>Четыре способа</h3>
+<table><tr><th>Способ</th><th>Комиссия</th><th>Фискализация</th><th>Срок</th></tr>
+<tr><td>ЮKassa</td><td>~3.5%</td><td>встроена</td><td>1–3 дня</td></tr>
+<tr><td>Robokassa</td><td>~3–5%</td><td>есть</td><td>1–3 дня</td></tr>
+<tr><td>CloudPayments</td><td>~2.9%</td><td>встроена</td><td>1–3 дня</td></tr>
+<tr><td>Экваринг банка</td><td>~1.5–2.8%</td><td>нужна касса</td><td>3 дня – 3 нед</td></tr></table>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Рекуррентный платёж</dt><dd>Автоматическое повторное списание.</dd>
+<dt>Экваринг</dt><dd>Приём карт напрямую через банк.</dd>
+<dt>Холдирование</dt><dd>Задержка списания.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему резервный шлюз? Если основной ляжет, магазин продолжит продавать. Почему эквайринг дешевле? Комиссия ниже, но нужны документы и время. Почему согласие для автоплатежей? Без сохранённого согласия повторное списание незаконно.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Резервный шлюз — как второй план на концерт: если первый сорвётся, есть запасной. Экваринг — как своя касса: дороже в обустройстве, но дешевле в работе. Автоплатёж — как подписка на журнал: согласие дали один раз, списывают автоматически.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Один шлюз без резерва</strong> — сбой = простой магазина. <strong>Рекуррент без согласия</strong> — нарушение. <strong>Не сравнили комиссии</strong> — переплата годами.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Подключить резервный шлюз</div>
+<div class="task-why">Зачем: если основной ляжет, магазин продолжит продавать.</div>
+<ol class="steps">
+<li>Подключи второй платёжный шлюз как резервный.</li>
+<li>Сравни комиссии и способы выплат.</li>
+<li>Настрой переключение: если ЮKassa недоступна — работает Robokassa.</li>
+<li>Сделай тестовый платёж через оба.</li>
+</ol>
+<div class="task-r">Результат: устойчивая платёжная система.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Один шлюз.</strong> Простой при сбое.</li>
+<li><strong>Рекуррент без согласия.</strong> Нарушение.</li>
+<li><strong>Не сравнили комиссии.</strong> Переплата.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем резервный шлюз?</li>
+<li>Чем эквайринг дешевле агрегатора?</li>
+<li>Что нужно для автоплатежей?</li>
+<li>Какой шлюз выбрать как основной?</li></ol></div>
+`},
+
+{t:"Доставка: СДЭК, Почта России, Boxberry",g:"Интегрировать расчёт и трекинг доставки.",c:`
+<h3>Зачем этот урок</h3>
+<p>Покупатель хочет знать <strong>стоимость и срок</strong> до оформления заказа. Это делается через API службы доставки — сайт запрашивает расчёт по весу, габаритам и городу.</p>
+<p>Без веса и габаритов в карточках товаров расчёт невозможен — самая частая причина «не работает доставка».</p>
+
+<h3>Шаги интеграции</h3>
+<ol>
+<li>Чекаут → Город → Вес товаров → API СДЭК: расчёт стоимости и срока</li>
+<li>ПВЗ: выпадающий список из API</li>
+<li>Создание заказа в СДЭК через API → трек-номер</li>
+<li>Письмо клиенту с треком + статус «Отправлен»</li>
+</ol>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>ПВЗ</dt><dd>Пункт выдачи заказов.</dd>
+<dt>Трек-номер</dt><dd>Номер для отслеживания.</dd>
+<dt>API доставки</dt><dd>Сервис расчёта стоимости.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему показывать заранее? Скрытая стоимость в чекауте вызывает отказы. Почему вес критичен? Без него расчёт невозможен. Почему трек в письмо? Клиент пишет «где заказ?», если не получил трек.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>API доставки — как калькулятор на почте: вводишь вес и город — получаешь цену. ПВЗ — как пункт выдачи: выбираешь удобный. Трек — как номер посылки: по нему следишь, где едет.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Нет веса товаров</strong> — расчёт не работает. <strong>Стоимость видна в чекауте</strong> — отказы. <strong>Трек не отправляется</strong> — «где заказ?»</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Вывести выбор ПВЗ в чекаут</div>
+<div class="task-why">Зачем: прозрачная доставка снижает отказы.</div>
+<ol class="steps">
+<li>Получи тестовый доступ к API СДЭК.</li>
+<li>Выведи выбор города и ПВЗ в чекаут.</li>
+<li>Настрой автоматический расчёт стоимости по весу.</li>
+<li>Настрой создание заказа и получение трек-номера.</li>
+<li>Проверь: трек приходит клиенту на email?</li>
+</ol>
+<div class="task-r">Результат: автоматическая доставка с трекингом.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Нет веса.</strong> Расчёт не работает.</li>
+<li><strong>Стоимость в чекауте.</strong> Отказы.</li>
+<li><strong>Трек не шлётся.</strong> «Где заказ?»</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что нужно для расчёта доставки?</li>
+<li>Зачем показывать стоимость заранее?</li>
+<li>Как получить трек-номер?</li>
+<li>Почему вес важен?</li></ol></div>
+`},
+
+{t:"CRM: Битрикс24, AmoCRM",g:"Передавать заявки с сайта в продажи.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>CRM</strong> — система, где живут клиенты и сделки. Задача — чтобы заявка с сайта <strong>сама</strong> попадала в CRM с ответственным менеджером, а не терялась в почте.</p>
+<p>Минимум три канала: email, мессенджер, CRM.</p>
+
+<h3>Поток заявки</h3>
+<ol>
+<li>Email менеджеру (архив)</li>
+<li>Telegram-бот (быстро)</li>
+<li>Google Sheets (резерв)</li>
+<li>Сделка в CRM (основной)</li>
+</ol>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Сделка</dt><dd>Потенциальная продажа с этапами в воронке.</dd>
+<dt>Воронка</dt><dd>Этапы сделки.</dd>
+<dt>Ответственный</dt><dd>Менеджер, ведущий сделку.</dd>
+<dt>Авто-задача</dt><dd>Задача, созданная автоматически.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему три канала? Если один отвалится, остальные сохранят заявку. Почему авто-задача? Менеджер не забудет позвонить. Почему REST API для сложной формы? Готовый плагин не покроет нестандартные поля.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>CRM — как журнал регистрации в клинике: записал, назначил врача, отслеживаешь этапы. Три канала — как запись на ресепшене, по телефону и онлайн: если одна линия занята, запишут через другую. Авто-задача — как напоминание врачу «перезвонить через день».</p></div>
+
+<h3>Способы интеграции</h3>
+<table><tr><th>Способ</th><th>Когда</th></tr>
+<tr><td>Готовый плагин</td><td>простая форма, быстро</td></tr>
+<tr><td>Вебхук формы CRM + iframe</td><td>нужна их форма</td></tr>
+<tr><td>REST API + свой код</td><td>сложная логика, свои поля</td></tr>
+<tr><td>Посредник (Zapier, Albato)</td><td>без разработки</td></tr></table>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Один канал</strong> — отказ = потеря. <strong>Нет ответственного</strong> — заявка висит. <strong>Нет авто-задачи</strong> — менеджер забывает.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Настроить приём заявок в CRM</div>
+<div class="task-why">Зачем: потерянная заявка = потерянные деньги.</div>
+<ol class="steps">
+<li>Создай воронку: «Новая» → «В работе» → «Оплачена».</li>
+<li>Настрой приём заявки с сайта в сделку.</li>
+<li>Настрой авто-задачу «Позвонить в течение 15 минут».</li>
+<li>Добавь резервные каналы: email + Telegram + Sheets.</li>
+<li>Сделай тестовую заявку — проверьте все каналы.</li>
+</ol>
+<div class="task-r">Результат: ни одна заявка не теряется.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Один канал.</strong> Потеря при отказе.</li>
+<li><strong>Нет ответственного.</strong> Заявка висит.</li>
+<li><strong>Нет авто-задачи.</strong> Забывают.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем CRM?</li>
+<li>Сколько каналов минимум?</li>
+<li>Что такое воронка?</li>
+<li>Какой способ интеграции выбрать для сложной формы?</li></ol></div>
+`},
+
+{t:"Email, Telegram-боты, Google Sheets",g:"Настроить все каналы уведомлений.",c:`
+<h3>Зачем этот урок</h3>
+<p>У заявки должно быть <strong>минимум три канала</strong>: почта (архив), мессенджер (быстро), CRM (контроль). Если один отвалится — остальные работают.</p>
+<p>Токен бота — секрет. Храни в переменных окружения, не в коде.</p>
+
+<h3>Простым языком</h3>
+<p>Бот создаётся через @BotFather — получаешь токен.</p>
+<p><code>parse_mode: "HTML"</code> включает форматирование в сообщении.</p>
+<p>Google Sheets — резерв: заявки видны всем и их можно посчитать вручную.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Токен бота</dt><dd>Ключ доступа к Telegram-боту.</dd>
+<dt>Chat ID</dt><dd>Идентификатор получателя.</dd>
+<dt>Apps Script</dt><dd>Скрипты Google Sheets.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему три канала? Надёжность доставки. Почему токен не в коде? Любой сможет слать от вашего имени. Почему Sheets как резерв? Заявки видны всем и их можно посчитать вручную.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Три канала — как три способа сообщить другу: письмо, SMS, звонок. Если одно не дойдёт, другие дойдут. Токен бота — как ключ от вашего ящика: кто угодно с ним получит, читает вашу почту. Sheets — как общий блокнот на холодильнике: все видят.</p></div>
+
+<h3>Пример кода</h3>
+<pre>const TOKEN = process.env.TELEGRAM_BOT_TOKEN;  // не храни в коде!
+const CHAT  = "-1001234567890";
+
+async function notify(text) {
+  await fetch("https://api.telegram.org/bot" + TOKEN + "/sendMessage", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: CHAT, text: text, parse_mode: "HTML" })
+  });
+}
+
+notify("🔔 &lt;b&gt;Новая заявка!&lt;/b&gt;\nИмя: " + name +
+       "\nТелефон: " + phone);</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Один канал</strong> — отказ = потеря. <strong>Токен в коде</strong> — утечка. <strong>Нет parse_mode</strong> — форматирование не работает.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Настроить три канала</div>
+<div class="task-why">Зачем: надёжность доставки заявок.</div>
+<ol class="steps">
+<li>Создай бота у @BotFather.</li>
+<li>Настрой уведомление о каждой заявке в Telegram.</li>
+<li>Настрой запись заявок в Google Sheets через Apps Script.</li>
+<li>Проверь: заявка появилась во всех трёх каналах?</li>
+<li>Сымитируй сбой email — заявка сохранилась?</li>
+</ol>
+<div class="task-r">Результат: отказоустойчивая система заявок.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Токен в коде.</strong> Утечка.</li>
+<li><strong>Один канал.</strong> Потеря.</li>
+<li><strong>Нет parse_mode.</strong> Не форматирует.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем три канала?</li>
+<li>Как создать Telegram-бота?</li>
+<li>Где хранить токен?</li>
+<li>Зачем Google Sheets как резерв?</li></ol></div>
+`},
+
+{t:"Обмен с 1С и облачное хранение",g:"Синхронизировать товары и заказы с учётной системой.",c:`
+<h3>Зачем этот урок</h3>
+<p>Если клиент ведёт учёт в <strong>1С</strong>, ручное дублирование товаров и заказов — часы работы и ошибки. Обмен автоматизируется: сайт ↔ 1С ↔ CRM.</p>
+<p>Формат обмена — CommerceML/XML.</p>
+
+<h3>Что синхронизируется</h3>
+<ul>
+<li>1С → Сайт: товары, цены, остатки, категории</li>
+<li>Сайт → 1С: заказы, статусы оплаты</li>
+<li>1С → Сайт: статусы доставки</li>
+</ul>
+
+<h3>Пример: скелет CommerceML</h3>
+<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;КоммерческаяИнформация&gt;
+  &lt;Каталог&gt;
+    &lt;Товары&gt;
+      &lt;Товар&gt;
+        &lt;Ид&gt;SKU-001&lt;/Ид&gt;
+        &lt;Наименование&gt;Футболка белая&lt;/Наименование&gt;
+        &lt;Цены&gt;
+          &lt;Цена&gt;
+            &lt;ЦенаЗаЕдиницу&gt;1990.00&lt;/ЦенаЗаЕдиницу&gt;
+            &lt;Валюта&gt;RUB&lt;/Валюта&gt;
+          &lt;/Цена&gt;
+        &lt;/Цены&gt;
+        &lt;Количество&gt;42&lt;/Количество&gt;
+      &lt;/Товар&gt;
+    &lt;/Товары&gt;
+  &lt;/Каталог&gt;
+&lt;/КоммерческаяИнформация&gt;</pre>
+
+<p>В WordPress/WooCommerce обмен с 1С настраивают через плагины: <strong>1С-Битрикс</strong> умеет из коробки, для WP используют плагины вроде <em>XML for Yandex Market & 1C</em> или <em>WC1C</em>.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>CommerceML</dt><dd>Формат обмена с 1С.</dd>
+<dt>Облачное хранение</dt><dd>Сервис хранения файлов.</dd>
+<dt>CDN</dt><dd>Доставка контента по миру.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему обмен с 1С? Убрать ручное дублирование данных. Почему облачное хранение картинок? Автооптимизация, трансформации и CDN. Почему CommerceML? Стандартный формат, понятный 1С и 1С-Битрикс; для WordPress нужны плагины.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Обмен с 1С — как общая база склада и магазина: продал — на складе уменьшилось. Облачное хранение — как склад с доставкой: не хранишь всё дома, а берёшь с ближайшего филиала.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Ручное дублирование</strong> — ошибки и часы. <strong>Нет обратной выгрузки</strong> — бухгалтерия ведёт вручную. <strong>Картинки на том же сервере</strong> — тормозит.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Настроить обмен и хранилище</div>
+<div class="task-why">Зачем: убрать ручное дублирование данных.</div>
+<ol class="steps">
+<li>Изучи формат CommerceML для обмена с 1С.</li>
+<li>Настрой выгрузку товаров из 1С в магазин.</li>
+<li>Настрой обратную выгрузку заказов.</li>
+<li>Подключи Cloudinary для картинок.</li>
+<li>Проверь: обновление цены в 1С появляется на сайте?</li>
+</ol>
+<div class="task-r">Результат: автоматический обмен данными.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Ручное дублирование.</strong> Ошибки.</li>
+<li><strong>Нет обратной выгрузки.</strong> Вручную.</li>
+<li><strong>Картинки на сервере.</strong> Тормозит.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем обмен с 1С?</li>
+<li>Какой формат обмена?</li>
+<li>Что синхронизируется из 1С?</li>
+<li>Зачем облачное хранение?</li></ol></div>
+`},
+
+{t:"React: база для современных сайтов",g:"Понять компонентный подход к интерфейсам.",c:`
+<h3>Зачем этот урок</h3>
+<p>Обычный сайт: HTML-страница, которую JS меняет. <strong>React</strong> — наоборот: весь интерфейс состоит из <strong>компонентов</strong> (функций, возвращающих разметку). Когда данные меняются, React сам перерисовывает только нужные части.</p>
+<p>Компонентный подход масштабируется.</p>
+
+<h3>Простым языком</h3>
+<p>Функция, возвращающая разметку — компонент. <code>useState</code> хранит состояние. <code>props</code> — входные данные.</p>
+<p>Ключ <code>key</code> при map обязателен — без него React не может отследить элементы.</p>
+<p>Состояние не мутируют — иначе React не заметит изменение.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Компонент</dt><dd>Функция, возвращающая JSX.</dd>
+<dt>JSX</dt><dd>Синтаксис разметки внутри JS.</dd>
+<dt>Хук</dt><dd>Функция для использования возможностей React.</dd>
+<dt>Пропсы</dt><dd>Данные, передаваемые в компонент.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему компоненты? Разделение интерфейса на независимые части. Почему key? React по нему понимает, какой элемент изменился. Почему не мутировать? Мутация не вызывает перерисовку — данные не обновятся.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Компонент — как деталь конструктора: сделал один раз, собираешь сколько хочешь. useState — как память у детали: запомнила, нажали или нет. key — как серийный номер: по нему находишь конкретную деталь среди одинаковых.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="React-компонент и состояние">
+<rect width="840" height="300" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="12" font-weight="700" font-family="Arial">React: компонент = функция, state = «память» компонента</text>
+<rect x="40" y="50" width="170" height="44" rx="8" fill="#4f46e5"/>
+<text x="125" y="70" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="monospace">&lt;App /&gt;</text>
+<text x="125" y="86" text-anchor="middle" fill="#c7d2fe" font-size="10" font-family="Arial">корневой компонент</text>
+<line x1="125" y1="94" x2="125" y2="120" stroke="#4f46e5" stroke-width="2"/>
+<line x1="125" y1="120" x2="65" y2="120" stroke="#4f46e5" stroke-width="2"/>
+<line x1="125" y1="120" x2="185" y2="120" stroke="#4f46e5" stroke-width="2"/>
+<line x1="65" y1="120" x2="65" y2="140" stroke="#4f46e5" stroke-width="2"/>
+<line x1="185" y1="120" x2="185" y2="140" stroke="#4f46e5" stroke-width="2"/>
+<rect x="20" y="140" width="90" height="36" rx="6" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+<text x="65" y="163" text-anchor="middle" fill="#101828" font-size="11.5" font-family="monospace">&lt;Header /&gt;</text>
+<rect x="140" y="140" width="90" height="36" rx="6" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+<text x="185" y="163" text-anchor="middle" fill="#101828" font-size="11.5" font-family="monospace">&lt;Cart /&gt;</text>
+<rect x="500" y="50" width="320" height="220" rx="10" fill="#101828"/>
+<text x="520" y="76" fill="#a5b4fc" font-size="11.5" font-weight="700" font-family="monospace">function Cart() {</text>
+<text x="540" y="98" fill="#e6edf7" font-size="11.5" font-family="monospace">const [count, setCount] = useState(0);</text>
+<text x="540" y="120" fill="#86efac" font-size="10.5" font-family="Arial">↑ state: «память» компонента</text>
+<text x="540" y="148" fill="#e6edf7" font-size="11.5" font-family="monospace">return (</text>
+<text x="560" y="168" fill="#e6edf7" font-size="11.5" font-family="monospace">&lt;div&gt;</text>
+<text x="580" y="186" fill="#e6edf7" font-size="11.5" font-family="monospace">&lt;p&gt;Товаров: {count}&lt;/p&gt;</text>
+<text x="580" y="204" fill="#e6edf7" font-size="11.5" font-family="monospace">&lt;button onClick={() =&gt;</text>
+<text x="600" y="220" fill="#e6edf7" font-size="11.5" font-family="monospace">setCount(count + 1)}&gt;+&lt;/button&gt;</text>
+<text x="560" y="238" fill="#e6edf7" font-size="11.5" font-family="monospace">&lt;/div&gt;</text>
+<text x="540" y="256" fill="#e6edf7" font-size="11.5" font-family="monospace">);</text>
+<text x="520" y="276" fill="#a5b4fc" font-size="11.5" font-weight="700" font-family="monospace">}</text>
+<text x="240" y="220" fill="#475467" font-size="10.5" font-family="Arial">setCount() меняет state →</text>
+<text x="240" y="236" fill="#475467" font-size="10.5" font-family="Arial">React перерисовывает UI</text>
+</svg><figcaption><b>Рис. 107.1.</b> Компонент — функция, которая возвращает JSX. useState даёт «память»; при вызове setCount React перерисовывает UI.</figcaption></figure>
+
+
+<h3>Пример кода</h3>
+<pre>import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);   // состояние
+
+  return (
+    <div className="counter">
+      <p>Счёт: {count}</p>
+      <button onClick={() => setCount(count + 1)}>+1</button>
+    </div>
+  );
+}
+
+function ProductList({ products }) {      // props = входные данные
+  return (
+    <div className="grid">
+      {products.map(p => (
+        <ProductCard key={p.id} product={p} />
+      ))}
+    </div>
+  );
+}</pre>
+
+<h3>Важно в 2025 году: Server Components</h3>
+<p>Server Components появились в Next.js 13 (2022, на React 18 experimental) и стали стабильными в React 19 (2024). Они <strong>выполняются на сервере</strong> и присылают в браузер готовый HTML, без JS-кода. Это ускоряет первую отрисовку и уменьшает размер бандла.</p>
+<p>Простое правило: если компоненту не нужны <code>useState</code>, <code>onClick</code> и обработчики событий — делайте его серверным. По умолчанию в Next.js (App Router) все компоненты серверные, а <strong>"use client"</strong> превращает в клиентский.</p>
+
+<pre>// app/products/page.tsx — серверный (по умолчанию)
+import { getProducts } from "@/lib/api";
+
+export default async function ProductsPage() {
+  const products = await getProducts();  // можно await прямо в компоненте
+  return &lt;ProductList products={products} /&gt;;
+}
+
+// app/components/CartButton.tsx — клиентский
+"use client";   // эта строка делает компонент клиентским
+import { useState } from "react";
+
+export default function CartButton() {
+  const [count, setCount] = useState(0);
+  return &lt;button onClick={() =&gt; setCount(count + 1)}&gt;В корзине: {count}&lt;/button&gt;;
+}</pre>
+
+<p><strong>Когда что использовать:</strong></p>
+<ul>
+<li><strong>Server Components</strong> — вывод данных, списки, статьи, страницы. Не могут иметь onClick, useState.</li>
+<li><strong>Client Components ("use client")</strong> — формы, кнопки, интерактив, анимации. Могут всё, как в старом React.</li>
+<li>Серверные компоненты могут импортировать клиентские, но не наоборот.</li>
+</ul>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Нет key при map</strong> — React не отследит элементы. <strong>Мутация состояния</strong> — не перерисует. <strong>Забыли useState</strong> — данные не обновятся. <strong>"use client" везде</strong> — теряете выгоды Server Components, бандл растёт. <strong>useState в серверном компоненте</strong> — ошибка компиляции.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Переверстать лендинг на React</div>
+<div class="task-why">Зачем: компонентный подход масштабируется.</div>
+<ol class="steps">
+<li>Создай проект (Vite + React).</li>
+<li>Разбей лендинг на компоненты: Header, Hero, Features, Footer.</li>
+<li>Сделай счётчик и список с фильтром на useState.</li>
+<li>Вынеси данные в массив, отрисуй через map.</li>
+<li>Проверь: key у элементов списка обязателен.</li>
+</ol>
+<div class="task-r">Результат: первый React-проект.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Нет key.</strong> Не отследит.</li>
+<li><strong>Мутация.</strong> Не перерисует.</li>
+<li><strong>Забыли useState.</strong> Не обновится.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем React отличается от обычной вёрстки?</li>
+<li>Что делает useState?</li>
+<li>Зачем key при map?</li>
+<li>Почему состояние не мутируют?</li></ol></div>
+`},
+
+{t:"Next.js и серверный рендеринг (SSR)",g:"Делать быстрые сайты, которые индексируются поиском.",c:`
+<h3>Зачем этот урок</h3>
+<p>React рисует страницу в браузере. Для SEO это плохо: робот видит пустую страницу. <strong>Next.js</strong> рендерит страницу <strong>на сервере</strong> и отдаёт готовый HTML — быстро и индексируемо.</p>
+<p>Для блога лучше всего SSG.</p>
+
+<h3>Четыре режима</h3>
+<table><tr><th>Режим</th><th>Когда рендерится</th><th>Когда использовать</th></tr>
+<tr><td>SSG</td><td>на этапе сборки</td><td>лендинги, блоги, документация</td></tr>
+<tr><td>SSR</td><td>на каждый запрос</td><td>персонализированные страницы</td></tr>
+<tr><td>ISR</td><td>сборка + обновление по таймеру</td><td>каталоги с частым обновлением</td></tr>
+<tr><td>CSR</td><td>в браузере</td><td>личный кабинет, дашборды</td></tr></table>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>SSR</dt><dd>Рендеринг на сервере.</dd>
+<dt>SSG</dt><dd>Статическая генерация.</dd>
+<dt>Hydration</dt><dd>Оживление страницы в браузере.</dd>
+<dt>generateMetadata</dt><dd>Генерация мета-тегов.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему серверный рендеринг? Робот видит контент, пользователь видит страницу мгновенно. Почему SSG для блога? Страницы собираются на этапе сборки — максимально быстро. Почему generateMetadata? Чтобы у каждой страницы были уникальные title и OG.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>SSR — как еда, которую готовят и приносят на стол. SSG/CSR — как полуфабрикат: разогреешь сам. SSG — как конвейер: всё приготовлено заранее, приносится мгновенно. Hydration — как официант, который оживляет стол: приносит приборы после подачи.</p></div>
+
+<h3>Пример кода</h3>
+<pre>export async function generateStaticParams() {
+  const products = await getProducts();
+  return products.map(p => ({ id: String(p.id) }));
+}
+
+export async function generateMetadata({ params }) {
+  const product = await getProduct(params.id);
+  return {
+    title: product.name + " — купить от " + product.price + " ₽",
+    openGraph: { images: [product.image] }
+  };
+}
+
+export default async function ProductPage({ params }) {
+  const product = await getProduct(params.id);   // на сервере
+  return &lt;article&gt;&lt;h1&gt;{product.name}&lt;/h1&gt;&lt;/article&gt;;
+}</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>CSR для контентного сайта</strong> — SEO страдает. <strong>SSR для статики</strong> — избыточная нагрузка. <strong>Забыли generateMetadata</strong> — одинаковые title.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Перенести лендинг на Next.js</div>
+<div class="task-why">Зачем: SEO + скорость — требования любого коммерческого сайта.</div>
+<ol class="steps">
+<li>Создай проект Next.js, перенеси лендинг.</li>
+<li>Настрой generateMetadata для уникальных title.</li>
+<li>Сделай страницы товаров через SSG.</li>
+<li>Задеплой на Vercel.</li>
+<li>Сравни LCP с обычным React (CSR).</li>
+</ol>
+<div class="task-r">Результат: быстрый и индексируемый сайт.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>CSR для контента.</strong> SEO страдает.</li>
+<li><strong>SSR для статики.</strong> Нагрузка.</li>
+<li><strong>Забыли generateMetadata.</strong> Дубли title.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем Next.js, а не чистый React?</li>
+<li>Назови четыре режима рендеринга.</li>
+<li>Что такое hydration?</li>
+<li>Какой режим выбрать для блога?</li></ol></div>
+`},
+
+{t:"Tailwind CSS",g:"Верстать быстро, не покидая разметку.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Tailwind</strong> — набор готовых CSS-классов-утилит: <code>flex</code>, <code>p-4</code>, <code>text-lg</code>, <code>bg-indigo-600</code>. Ты описываешь внешний вид прямо в HTML, не переключаясь на CSS-файл.</p>
+<p>Утилитарный CSS — подход, где стили задаются готовыми классами в разметке.</p>
+
+<h3>Простым языком</h3>
+<p>Адаптив через префиксы: <code>sm: md: lg:</code>.</p>
+<p>Состояния: <code>hover: focus: disabled:</code>.</p>
+<p>Тема — через <code>tailwind.config.js</code> (в Tailwind 3) или через CSS-директиву <code>@theme</code> (в Tailwind 4): цвета, шрифты, отступы.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Утилитарный CSS</dt><dd>Стили через готовые классы.</dd>
+<dt>Префикс</dt><dd>Условие адаптива или состояния.</dd>
+<dt>Конфиг</dt><dd>Файл настройки темы.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему Tailwind? Быстро собрать прототип, много однотипных компонентов, единый стиль в команде. Почему неуместен для сложной дизайн-системы? Уникальные эффекты требуют кастомного CSS. Почему не [13px]? Ломает единую систему отступов.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Tailwind — как набор стандартных деталей: берёшь нужную, не вырезаешь сам. Префикс — как условие «если дождь, зонт»: применяется по ситуации. Конфиг — как настройка инструмента: один раз настроил, работает везде.</p></div>
+
+<h3>Пример кода</h3>
+<pre><button class="rounded-lg bg-indigo-600 px-4 py-2 text-white
+               transition hover:bg-indigo-700 active:translate-y-px">
+  Купить
+</button>
+
+<!-- Адаптив: префиксы -->
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+
+<!-- Состояния -->
+<input class="border focus:ring-2 focus:ring-indigo-500 disabled:bg-gray-100"></pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Длинные строки классов</strong> — выноси в компоненты. <strong>Произвольные значения [13px]</strong> — ломают систему. <strong>Tailwind в WordPress без сборщика</strong> — неудобно.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Переверстать компоненты на Tailwind</div>
+<div class="task-why">Зачем: освоить самый популярный утилитарный фреймворк.</div>
+<ol class="steps">
+<li>Установи Tailwind, настрой тему.</li>
+<li>Переверстай 5 компонентов проекта.</li>
+<li>Сделай адаптив через префиксы.</li>
+<li>Сравни скорость разработки с обычным CSS.</li>
+</ol>
+<div class="task-r">Результат: навык быстрой вёрстки.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Длинные строки.</strong> Выноси.</li>
+<li><strong>[13px].</strong> Ломает систему.</li>
+<li><strong>Без сборщика.</strong> Неудобно.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что такое утилитарный CSS?</li>
+<li>Как сделать адаптив?</li>
+<li>Когда Tailwind неуместен?</li>
+<li>Как настроить тему?</li></ol></div>
+`},
+
+{t:"GSAP: таймлайны и анимации",g:"Создавать кинематографичные анимации.",c:`
+<h3>Зачем этот урок</h3>
+<p>CSS-анимации хороши для простых эффектов. <strong>GSAP</strong> нужен, когда анимаций много, они должны идти <strong>последовательно</strong> и синхронно со скроллом.</p>
+<p>Наложение через <code>"-=0.6"</code> создаёт ощущение «сборки» страницы.</p>
+
+<h3>Простым языком</h3>
+<p><code>"-=0.6"</code> — начать на 0.6с ДО конца предыдущей анимации.</p>
+<p><code>stagger</code> — запуск анимации элементов один за другим.</p>
+<p>Анимируй только <code>transform</code> и <code>opacity</code>.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Таймлайн</dt><dd>Последовательность анимаций.</dd>
+<dt>Наложение</dt><dd>Перекрытие анимаций по времени.</dd>
+<dt>Stagger</dt><dd>Задержка между однотипными элементами.</dd>
+<dt>Easing</dt><dd>Функция плавности.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему GSAP? Когда анимаций много и они должны идти последовательно. Почему наложение? Движение выглядит живым, а не механическим. Почему только transform/opacity? Не вызывают пересчёт layout, работают на 60 fps.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Таймлайн — как хореография: указано, где танцор в начале, середине и конце. Наложение — как когда два танцора двигаются одновременно, а не по очереди. Stagger — как зал оваций: люди встают волной, а не разом.</p></div>
+
+<figure><svg viewBox="0 0 840 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GSAP timeline и stagger">
+<rect width="840" height="300" fill="#f8fafc"/>
+<text x="30" y="24" fill="#101828" font-size="12" font-weight="700" font-family="Arial">GSAP timeline: анимации идут последовательно, stagger — со сдвигом</text>
+<line x1="40" y1="50" x2="800" y2="50" stroke="#4f46e5" stroke-width="2"/>
+<text x="40" y="42" fill="#475467" font-size="10.5" font-family="Arial">0s</text>
+<text x="240" y="42" fill="#475467" font-size="10.5" font-family="Arial">0.4s</text>
+<text x="500" y="42" fill="#475467" font-size="10.5" font-family="Arial">0.8s</text>
+<text x="780" y="42" fill="#475467" font-size="10.5" font-family="Arial">1.2s</text>
+<rect x="40" y="70" width="180" height="34" rx="6" fill="#4f46e5"/>
+<text x="130" y="92" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="700" font-family="monospace">.from(".hero-title")</text>
+<rect x="220" y="110" width="180" height="34" rx="6" fill="#4f46e5"/>
+<text x="310" y="132" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="700" font-family="monospace">.from(".hero-text")</text>
+<text x="410" y="132" fill="#e08c00" font-size="10" font-family="Arial">-=0.6 (наложение)</text>
+<rect x="400" y="150" width="180" height="34" rx="6" fill="#4f46e5"/>
+<text x="490" y="172" text-anchor="middle" fill="#fff" font-size="11.5" font-weight="700" font-family="monospace">.from(".hero-btn")</text>
+<text x="30" y="220" fill="#15a34a" font-size="11.5" font-weight="700" font-family="Arial">stagger — карточки появляются одна за другой:</text>
+<rect x="40" y="240" width="80" height="34" rx="6" fill="#15a34a" opacity="1"/>
+<text x="80" y="262" text-anchor="middle" fill="#fff" font-size="11" font-family="monospace">.card 1</text>
+<rect x="130" y="240" width="80" height="34" rx="6" fill="#15a34a" opacity="0.75"/>
+<text x="170" y="262" text-anchor="middle" fill="#fff" font-size="11" font-family="monospace">.card 2</text>
+<rect x="220" y="240" width="80" height="34" rx="6" fill="#15a34a" opacity="0.5"/>
+<text x="260" y="262" text-anchor="middle" fill="#fff" font-size="11" font-family="monospace">.card 3</text>
+<rect x="310" y="240" width="80" height="34" rx="6" fill="#15a34a" opacity="0.25"/>
+<text x="350" y="262" text-anchor="middle" fill="#fff" font-size="11" font-family="monospace">.card 4</text>
+<text x="410" y="262" fill="#475467" font-size="10.5" font-family="Arial">← каждая следующая через 0.15s</text>
+</svg><figcaption><b>Рис. 110.1.</b> Timeline — последовательность анимаций с управлением. stagger — элементы появляются со сдвигом, создавая «лестницу».</figcaption></figure>
+
+
+<h3>Пример кода</h3>
+<pre>const tl = gsap.timeline({ defaults: { duration: 0.8, ease: "power3.out" } });
+
+tl.from(".hero-title",  { y: 60, opacity: 0 })
+  .from(".hero-text",   { y: 40, opacity: 0 }, "-=0.6")   // наложение
+  .from(".hero-btn",    { y: 20, opacity: 0 }, "-=0.4");
+
+// stagger — элементы один за другим
+gsap.from(".card", { y: 40, opacity: 0, stagger: 0.1 });</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Анимации без наложения</strong> — выглядят механически. <strong>Слишком долгий duration</strong> — посетитель ждёт. <strong>Анимация layout-свойств</strong> — тормозит.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Анимировать лендинг</div>
+<div class="task-why">Зачем: анимации — то, что отличает «вау»-сайт от обычного.</div>
+<ol class="steps">
+<li>Анимируй появление всех секций лендинга.</li>
+<li>Сделай «лестницу» карточек через stagger.</li>
+<li>Сделай hover-эффект с back.out.</li>
+<li>Используй наложение минимум в двух местах.</li>
+<li>Проверь: анимации не блокируют взаимодействие?</li>
+</ol>
+<div class="task-r">Результат: сайт с кинематографичными анимациями.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Без наложения.</strong> Механически.</li>
+<li><strong>Долгий duration.</strong> Ждёт.</li>
+<li><strong>Анимация layout.</strong> Тормозит.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем GSAP?</li>
+<li>Что делает "-=0.6"?</li>
+<li>Что такое stagger?</li>
+<li>Какие свойства анимировать?</li></ol></div>
+`},
+
+{t:"GSAP ScrollTrigger и пиннинг",g:"Привязывать анимации к прокрутке.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>ScrollTrigger</strong> — анимация, управляемая скроллом. <strong>Pin</strong> — закрепление секции, пока пользователь её прокручивает. Это основа «вау»-сайтов (Awwwards-уровня).</p>
+<p>Пиннинг часто ломает мобильный скролл — тестируй обязательно.</p>
+
+<h3>Простым языком</h3>
+<p><code>pin: true</code> закрепляет секцию. <code>scrub: 1</code> привязывает анимацию к позиции скролла (1 сек «догоняет»).</p>
+<p><code>start: "top 80%"</code> — начать, когда верх секции достигнет 80% высоты экрана.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>ScrollTrigger</dt><dd>Плагин скролл-анимаций GSAP.</dd>
+<dt>Пиннинг</dt><dd>Закрепление элемента при скролле.</dd>
+<dt>Scrub</dt><dd>Связь анимации с позицией скролла.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему pin? Секция остаётся на экране, пока пользователь прокручивает контент внутри. Почему scrub? Анимация следует за скроллом, а не проигрывается сама. Почему тестировать на телефоне? Пиннинг часто ломает мобильный скролл.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Пиннинг — как закреплённая страница в брошюре: листаешь дальше, а она остаётся на виду. Scrub — как проектор: картинка меняется по мере прокрутки плёнки.</p></div>
+
+<h3>Пример кода</h3>
+<pre>gsap.registerPlugin(ScrollTrigger);
+
+// Закреплённая секция с горизонтальной прокруткой
+gsap.to(".panels", {
+  x: () => -(document.querySelector(".panels").scrollWidth - window.innerWidth),
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".panels-container",
+    pin: true,
+    scrub: 1,
+    start: "top top",
+    end: () => "+=" + document.querySelector(".panels").scrollWidth
+  }
+});</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Не протестировали на телефоне</strong> — пиннинг ломает скролл. <strong>scrub без значения</strong> — резкие скачки. <strong>Много pinned-секций</strong> — страница неуправляемая.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Три scroll-эффекта</div>
+<div class="task-why">Зачем: база «вау»-сайтов.</div>
+<ol class="steps">
+<li>Сделай закреплённую секцию с горизонтальной прокруткой.</li>
+<li>Сделай параллакс-фон (двигается медленнее контента).</li>
+<li>Сделай прогресс-бар чтения статьи.</li>
+<li>Обязательно протестируй на телефоне.</li>
+<li>Добавь prefers-reduced-motion.</li>
+</ol>
+<div class="task-r">Результат: три эффекта уровня Awwwards.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Не тестировали на телефоне.</strong> Ломает скролл.</li>
+<li><strong>scrub без значения.</strong> Скачки.</li>
+<li><strong>Много pinned.</strong> Неуправляемо.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что делает pin: true?</li>
+<li>Зачем scrub?</li>
+<li>Что означает start: "top 80%"?</li>
+<li>Почему надо тестировать на телефоне?</li></ol></div>
+`},
+
+{t:"Lenis: плавный скролл и параллакс",g:"Сделать скролл «дорогим» и плавным.",c:`
+<h3>Зачем этот урок</h3>
+<p>Обычный скролл — «дёрганый», ступенчатый. <strong>Lenis</strong> сглаживает его инерцией: страница продолжает движение, как будто на лету. Это мгновенно делает сайт «дороже».</p>
+<p>Обязательно проверяй prefers-reduced-motion — у некоторых пользователей плавный скролл вызывает тошноту.</p>
+
+<h3>Простым языком</h3>
+<p>Синхронизация с GSAP обязательна — иначе ScrollTrigger будет отставать.</p>
+<p><code>lenis.scrollTo(селектор)</code> — плавный скролл к секции по клику.</p>
+<p>Слишком большой duration — скролл станет вязким.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Lenis</dt><dd>Библиотека плавного скролла.</dd>
+<dt>Инерция</dt><dd>Продолжение движения после остановки.</dd>
+<dt>Раф-цикл</dt><dd>Цикл синхронизации анимаций.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему синхронизация? Без неё ScrollTrigger отстаёт от плавного скролла. Почему prefers-reduced-motion? Плавный скролл вызывает тошноту у части людей. Почему не большой duration? Скролл кажется вязким.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Обычный скролл — как рывок лифта. Lenis — как лифт с плавным торможением. Инерция — как продолжение движения после того, как отпустил канат.</p></div>
+
+<h3>Пример кода</h3>
+<pre>import Lenis from "lenis";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
+const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
+
+lenis.on("scroll", ScrollTrigger.update);
+gsap.ticker.add((time) => lenis.raf(time * 1000));
+gsap.ticker.lagSmoothing(0);
+
+// Плавный скролл по анкору
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    lenis.scrollTo(link.getAttribute("href"), { offset: -80 });
+  });
+});</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Не синхронизировали с GSAP</strong> — ScrollTrigger отстаёт. <strong>Нет prefers-reduced-motion</strong> — тошнота. <strong>Слишком большой duration</strong> — вязкий скролл.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Подключить Lenis и параллакс</div>
+<div class="task-why">Зачем: самый заметный эффект «дорогого» сайта.</div>
+<ol class="steps">
+<li>Подключи Lenis, настрой duration: 1.2.</li>
+<li>Синхронизируй с GSAP ScrollTrigger.</li>
+<li>Сделай параллакс на двух слоях.</li>
+<li>Настрой плавный скролл по анкорам.</li>
+<li>Отключи при prefers-reduced-motion.</li>
+</ol>
+<div class="task-r">Результат: плавный скролл и параллакс.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Не синхронизировали.</strong> Отстаёт.</li>
+<li><strong>Нет reduced-motion.</strong> Тошнота.</li>
+<li><strong>Большой duration.</strong> Вязко.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что делает Lenis?</li>
+<li>Зачем синхронизация с GSAP?</li>
+<li>Как сделать плавный скролл к секции?</li>
+<li>Почему важен prefers-reduced-motion?</li></ol></div>
+`},
+
+{t:"Framer Motion",g:"Анимировать React-компоненты декларативно.",c:`
+<h3>Зачем этот урок</h3>
+<p>В React проще описывать анимацию как часть компонента. <strong>Framer Motion</strong> даёт компоненты <code>motion.*</code> и <code>AnimatePresence</code> для анимации появления/исчезновения.</p>
+<p><code>AnimatePresence</code> даёт доиграть exit-анимации до удаления из DOM.</p>
+
+<h3>Простым языком</h3>
+<p><code>initial</code> — стартовое состояние, <code>animate</code> — конечное.</p>
+<p>«Лестница» — через <code>transition: { delay: i * 0.1 }</code>.</p>
+<p><code>drag</code> — возможность перетаскивать элемент.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>motion</dt><dd>Компонент с анимацией.</dd>
+<dt>AnimatePresence</dt><dd>Обёртка для exit-анимаций.</dd>
+<dt>Variant</dt><dd>Именованное состояние анимации.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему AnimatePresence? Без него элемент исчезает мгновенно, без анимации закрытия. Почему delay i*0.1? Создаёт эффект «лестницы» — элементы появляются один за другим. Почему декларативно? Анимация описывается как часть компонента, а не отдельным кодом.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>AnimatePresence — как занавес в театре: даёт доиграть сцене до конца. initial/animate — как «в начале и в конце»: указано, откуда и куда. Лестница — как очередь: каждый ждёт своей очереди.</p></div>
+
+<h3>Пример кода</h3>
+<pre>import { motion, AnimatePresence } from "motion/react";  // с версии Motion 11+ (пакет framer-motion ещё работает)
+
+// Появление
+<motion.div
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+>Контент</motion.div>
+
+// Появление/исчезновение (модалка)
+<AnimatePresence>
+  {isOpen && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    />
+  )}
+</AnimatePresence>
+
+// «Лестница»
+{items.map((item, i) => (
+  <motion.li
+    key={item.id}
+    initial={{ opacity: 0, x: -20 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: i * 0.1 }}
+  />
+))}</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Модалка без AnimatePresence</strong> — нет анимации закрытия. <strong>key не уникален</strong> — анимации путаются. <strong>Анимация layout-свойств</strong> — тормозит.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Анимировать React-сайт</div>
+<div class="task-why">Зачем: декларативные анимации в React-проектах.</div>
+<ol class="steps">
+<li>Анимируй появление секций через motion.div.</li>
+<li>Сделай модалку с AnimatePresence.</li>
+<li>Сделай анимированные переходы между страницами.</li>
+<li>Сделай «лестницу» списка через delay: i * 0.1.</li>
+</ol>
+<div class="task-r">Результат: плавный React-интерфейс.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Модалка без AnimatePresence.</strong> Нет закрытия.</li>
+<li><strong>key не уникален.</strong> Путается.</li>
+<li><strong>Анимация layout.</strong> Тормозит.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что делает AnimatePresence?</li>
+<li>Чем initial отличается от animate?</li>
+<li>Как сделать «лестницу»?</li>
+<li>Что такое drag?</li></ol></div>
+`},
+
+{t:"SVG-анимации, Lottie, Rive",g:"Оживить графику без видео.",c:`
+<h3>Зачем этот урок</h3>
+<p>Видео тяжёлое. Векторные анимации — лёгкие и чёткие на любом экране. Три инструмента: чистый SVG, Lottie (из After Effects), Rive (интерактивная).</p>
+<p>Эффект рисования линии: <code>stroke-dashoffset</code> от длины пути до нуля.</p>
+
+<h3>Простым языком</h3>
+<p><code>stroke-dasharray: 200</code> — длина «пунктира» = длина пути. <code>stroke-dashoffset: 200 → 0</code> — линия «рисуется».</p>
+<p>Lottie — анимация из After Effects в JSON. Rive — интерактивная, реагирует на ввод.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Stroke-dasharray</dt><dd>Длина штрихов обводки.</dd>
+<dt>Stroke-dashoffset</dt><dd>Сдвиг пунктира.</dd>
+<dt>Lottie</dt><dd>Формат векторной анимации.</dd>
+<dt>Rive</dt><dd>Интерактивная анимация.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему SVG лучше видео? Вектор весит кБ и чёткий на любом экране. Почему dashoffset? Он сдвигает пунктир, создавая эффект рисования. Почему оптимизировать SVG? Убрать лишние точки в path и уменьшить вес.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Stroke-dashoffset — как невидимые чернила, которые проявляются по мере рисования. Lottie — как записанный танец: проигрывается по кнопке. Rive — как танец, который реагирует на зрителя.</p></div>
+
+<h3>Пример кода</h3>
+<pre><svg viewBox="0 0 200 200" class="checkmark">
+  <path d="M40 100 L80 140 L160 60" fill="none"
+        stroke="#15a34a" stroke-width="8" stroke-linecap="round" />
+</svg>
+
+.checkmark path {
+  stroke-dasharray: 200;      /* длина пути */
+  stroke-dashoffset: 200;     /* спрятать линию */
+  animation: draw 1s ease-out forwards;
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }   /* «рисуем» линию */
+}</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Видео вместо SVG</strong> — весит в 100 раз больше. <strong>Сложный SVG без оптимизации</strong> — лишние точки. <strong>Lottie без fallback</strong> — не все браузеры.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Три анимации</div>
+<div class="task-why">Зачем: оживить интерфейс без видео.</div>
+<ol class="steps">
+<li>Сделай анимированную обводку галочки на SVG.</li>
+<li>Подключи Lottie-анимацию с lottiefiles.com.</li>
+<li>Сделай морфинг двух SVG-путей.</li>
+<li>Сравни вес SVG-анимации и видео.</li>
+</ol>
+<div class="task-r">Результат: лёгкие векторные анимации.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Видео вместо SVG.</strong> В 100 раз тяжелее.</li>
+<li><strong>Без оптимизации.</strong> Лишние точки.</li>
+<li><strong>Без fallback.</strong> Не все браузеры.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Как работает stroke-dashoffset?</li>
+<li>Чем Lottie отличается от SVG?</li>
+<li>Что умеет Rive?</li>
+<li>Почему SVG лучше видео?</li></ol></div>
+`},
+
+{t:"Three.js и WebGL: база",g:"Разместить 3D-объект на сайте.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Three.js</strong> — библиотека для 3D в браузере (WebGL). Нужны три вещи: <strong>сцена</strong> (что показывать), <strong>камера</strong> (откуда смотреть), <strong>рендерер</strong> (как рисовать).</p>
+<p>Производительность: не больше одного тяжёлого 3D-объекта, уменьшай pixelRatio на мобильных, останавливай цикл вне экрана, давай fallback.</p>
+
+<h3>Простым языком</h3>
+<p><code>requestAnimationFrame</code> вызывает render 60 раз в секунду для плавности.</p>
+<p><code>pixelRatio</code> — соотношение логических и физических пикселей экрана.</p>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Сцена</dt><dd>3D-пространство с объектами.</dd>
+<dt>Камера</dt><dd>Точка обзора сцены.</dd>
+<dt>Рендерер</dt><dd>Отрисовка сцены в canvas.</dd>
+<dt>WebGL</dt><dd>API для 3D в браузере.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему три опоры? Без сцены нечего показывать, без камеры неоткуда смотреть, без рендерера нечем рисовать. Почему requestAnimationFrame? Плавность 60 fps. Почему оптимизация? 3D требует много ресурсов.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Сцена — как декорация в театре. Камера — как место зрителя. Рендерер — как свет и проекция: без них декорация не видна. requestAnimationFrame — как проектор: 24 кадра в секунду создают иллюзию движения.</p></div>
+
+<h3>Пример кода</h3>
+<pre>import * as THREE from "three";
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(
+  75, window.innerWidth / window.innerHeight, 0.1, 1000
+);
+camera.position.z = 5;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.querySelector("#hero").appendChild(renderer.domElement);
+
+const geometry = new THREE.IcosahedronGeometry(1, 1);
+const material = new THREE.MeshStandardMaterial({
+  color: 0x4f46e5, flatShading: true, metalness: 0.4, roughness: 0.5
+});
+const mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
+
+scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+dirLight.position.set(2, 3, 4);
+scene.add(dirLight);   // без него MeshStandardMaterial будет плоским пятном
+
+function animate() {
+  requestAnimationFrame(animate);
+  mesh.rotation.x += 0.005;
+  mesh.rotation.y += 0.01;
+  renderer.render(scene, camera);
+}
+animate();</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Несколько тяжёлых сцен</strong> — сайт ляжет. <strong>Нет fallback для слабых устройств</strong> — белый экран. <strong>Высокий pixelRatio на мобиле</strong> — батарея утекает.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. 3D-объект в герое</div>
+<div class="task-why">Зачем: «вау»-сайты часто используют 3D.</div>
+<ol class="steps">
+<li>Размести вращающийся объект в герое лендинга.</li>
+<li>Сделай реакцию на движение мыши.</li>
+<li>Оптимизируй под мобильные (pixelRatio).</li>
+<li>Останови цикл, когда объект вне экрана.</li>
+<li>Проверь на слабом устройстве.</li>
+</ol>
+<div class="task-r">Результат: 3D-элемент в продакшене.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Несколько сцен.</strong> Ляжет.</li>
+<li><strong>Нет fallback.</strong> Белый экран.</li>
+<li><strong>Высокий pixelRatio.</strong> Батарея.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови три опоры Three.js.</li>
+<li>Зачем requestAnimationFrame?</li>
+<li>Как оптимизировать 3D на мобиле?</li>
+<li>Что такое pixelRatio?</li></ol></div>
+`},
+
+{t:"Шейдеры, прелоадеры, переходы, курсор",g:"Собрать фишки «вау»-сайтов воедино.",c:`
+<h3>Зачем этот урок</h3>
+<p>Четыре фишки, которые моментально поднимают восприятие сайта: шейдерный фон, прелоадер, плавные переходы между страницами и кастомный курсор.</p>
+<p>Отключай всё это на телефоне и при prefers-reduced-motion — иначе тошнота и зависания.</p>
+
+<h3>Четыре фишки</h3>
+<ul>
+<li><strong>Прелоадер</strong> — показать прогресс и стартовать главную анимацию после</li>
+<li><strong>Переход между страницами</strong> — затемнение при переходе</li>
+<li><strong>Кастомный курсор</strong> — круг «догоняет» позицию мыши</li>
+<li><strong>Шейдерный фон</strong> — программа на GPU, рассчитывающая цвет пикселя</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Шейдер</dt><dd>Программа на GPU.</dd>
+<dt>Прелоадер</dt><dd>Экран загрузки.</dd>
+<dt>Кастомный курсор</dt><dd>Свой дизайн курсора.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему прелоадер? Показать прогресс и стартовать анимацию после загрузки. Почему отключать на телефоне? Эффекты могут вызывать тошноту и зависания. Почему не больше 2 секунд? Пользователь уходит.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Шейдер — как фоновый свет в театре: меняется незаметно, но создаёт настроение. Прелоадер — как занавес перед спектаклем. Кастомный курсор — как лазерная указка: выделяет, на что смотришь.</p></div>
+
+<h3>Пример кода</h3>
+<pre>// Прелоадер
+window.addEventListener("load", () => {
+  const tl = gsap.timeline();
+  tl.to(".preloader__bar", { scaleX: 1, duration: 1, ease: "power2.inOut" })
+    .to(".preloader", {
+      yPercent: -100, duration: 0.8, ease: "power4.inOut",
+      onComplete: () => startHeroAnimation()
+    });
+});
+
+// Переход между страницами (только внутренние ссылки)
+document.querySelectorAll('a[href^="/"], a[href^="' + location.origin + '"]').forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    gsap.to(".transition", {
+      opacity: 1, duration: 0.4,
+      onComplete: () => location.href = link.href
+    });
+  });
+});
+
+// Кастомный курсор
+const cursor = document.querySelector(".cursor");
+let mx = 0, my = 0, cx = 0, cy = 0;
+window.addEventListener("mousemove", (e) => { mx = e.clientX; my = e.clientY; });
+function loop() {
+  cx += (mx - cx) * 0.15;
+  cy += (my - cy) * 0.15;
+  cursor.style.transform = "translate(" + cx + "px, " + cy + "px)";
+  requestAnimationFrame(loop);
+}
+loop();</pre>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Прелоадер дольше 2 секунд</strong> — пользователь уходит. <strong>Кастомный курсор на телефоне</strong> — бессмысленно и мешает. <strong>Шейдер без оптимизации</strong> — сайт тормозит.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать четыре фишки</div>
+<div class="task-why">Зачем: это то, что отличает «апал»-сайт.</div>
+<ol class="steps">
+<li>Сделай прелоадер с прогресс-баром (максимум 1.5с).</li>
+<li>Сделай затемнение при переходе между страницами.</li>
+<li>Сделай кастомный курсор с эффектом «догоняния».</li>
+<li>Добавь шейдерный фон в герой.</li>
+<li>Отключи всё на телефоне и при prefers-reduced-motion.</li>
+</ol>
+<div class="task-r">Результат: набор фишек «апал»-сайта.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Прелоадер дольше 2с.</strong> Уходят.</li>
+<li><strong>Курсор на телефоне.</strong> Мешает.</li>
+<li><strong>Шейдер без оптимизации.</strong> Тормозит.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Зачем прелоадер?</li>
+<li>Как работает кастомный курсор?</li>
+<li>Что такое шейдер?</li>
+<li>Где обязательно отключать эффекты?</li></ol></div>
+`},
+
+{t:"Webflow для сложных анимаций",g:"Делать анимированные сайты без написания кода.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Webflow</strong> — визуальный конструктор, который генерирует чистый HTML/CSS/JS. Умеет сложные анимации, Interactions и CMS. Позволяет дизайнеру сделать «апал»-сайт без разработчика.</p>
+<p>Для анимированного лендинга с CMS за короткий срок выигрывает. Для сложной бэкенд-логики — нет.</p>
+
+<h3>Когда выигрывает</h3>
+<ul>
+<li>Анимированный лендинг за 2 недели с CMS</li>
+<li>Клиент сам правит контент</li>
+<li>Interactions: scroll-based, hover, click</li>
+<li>Чистый экспорт кода</li>
+</ul>
+
+<h3>Когда не подходит</h3>
+<ul>
+<li>Уникальная нестандартная механика</li>
+<li>Сложная бэкенд-логика</li>
+<li>Нулевая стоимость владения</li>
+<li>Работа в РФ (оплата подписки)</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Webflow</dt><dd>Визуальный конструктор.</dd>
+<dt>Interaction</dt><dd>Анимация по событию.</dd>
+<dt>Component</dt><dd>Аналог компонента (раньше назывался Symbol).</dd>
+<dt>CMS</dt><dd>Коллекции контента.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему выигрывает для лендинга? Собрать анимации за короткий срок без кода. Почему не подходит для магазина с 1С? Ограничения интеграций. Почему минус подписки? Через год без оплаты сайт отключится.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Webflow — как набор для сборки модели: красиво и быстро, но если нужна уникальная деталь — проще заказать у мастера. Symbol — как стандартный узел: поменял один — поменялись все. CMS — как база данных для контента: клиент сам наполняет.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Webflow для магазина с 1С</strong> — ограничения. <strong>Забыли про подписку</strong> — через год отключится. <strong>Не сравнили с ручной вёрсткой</strong> — переплата.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать лендинг в Webflow</div>
+<div class="task-why">Зачем: понять, когда конструктор экономит время.</div>
+<ol class="steps">
+<li>Собери анимированный лендинг в Webflow.</li>
+<li>Настрой scroll-based появление секций.</li>
+<li>Сделай hover-эффект на кнопках.</li>
+<li>Сравни по времени с ручной вёрсткой.</li>
+<li>Выпиши: для каких клиентов выбирали бы Webflow.</li>
+</ol>
+<div class="task-r">Результат: понимание места Webflow в арсенале.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Для магазина с 1С.</strong> Ограничения.</li>
+<li><strong>Забыли подписку.</strong> Отключится.</li>
+<li><strong>Не сравнили.</strong> Переплата.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что умеет Webflow?</li>
+<li>Когда Webflow выигрывает?</li>
+<li>В чём минус подписки?</li>
+<li>Для какого проекта не подходит?</li></ol></div>
+`},
+
+{t:"Проект: «вау»-лендинг и портфолио",g:"Создать два проекта, от которых захватывает дух.",c:`
+<h3>Зачем этот урок</h3>
+<p>Финальные проекты продвинутого уровня. Они демонстрируют все навыки: анимации, 3D, скролл-эффекты, типографику, производительность.</p>
+<p>Это витрина вашего мастерства.</p>
+
+<h3>Задача 1: «вау»-лендинг</h3>
+<ul>
+<li>Прелоадер с прогрессом</li>
+<li>Плавный скролл (Lenis)</li>
+<li>ScrollTrigger-анимации во всех секциях</li>
+<li>Одна закреплённая секция с горизонтальной прокруткой</li>
+<li>WebGL-фон или 3D-объект</li>
+<li>Кастомный курсор</li>
+<li>Нестандартная типографика</li>
+<li>Затемнение при переходе</li>
+<li>prefers-reduced-motion</li>
+<li>Работает на телефоне (60 fps)</li>
+</ul>
+
+<h3>Задача 2: портфолио-шоурум</h3>
+<ul>
+<li>Герой: имя, специализация, CTA</li>
+<li>Сетка проектов с hover-превью и фильтром</li>
+<li>Страница кейса: задача → решение → результат</li>
+<li>«О себе», контакты</li>
+<li>Lighthouse 90+, выложено на домен</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Витрина</dt><dd>Проект, демонстрирующий навыки.</dd>
+<dt>Кейс</dt><dd>История проекта с результатом.</dd>
+<dt>Портфолио</dt><dd>Набор лучших работ.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему два проекта? Один показывает креатив, другой — умение рассказывать о работе. Почему кейс с цифрами? «Заявок +180%» доказывает ценность. Почему Lighthouse 90+? Скорость — часть качества.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>«Вау»-проект — как шоу-рум: впечатляет, но не каждый день туда ходят. Портфолио — как витрина салона: показывает, что ты умеешь. Кейс — как отзыв клиента: «было плохо, стало хорошо».</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Красиво, но ломается на телефоне</strong> — 80% аудитории уходит. <strong>Кейсы без цифр</strong> — «сделал сайт» ни о чём. <strong>Проекты не на GitHub</strong> — нет доказательства.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Собрать два проекта</div>
+<div class="task-why">Зачем: это витрина вашего мастерства.</div>
+<ol class="steps">
+<li>Собери «вау»-лендинг по чек-листу из 10 пунктов.</li>
+<li>Собери портфолио: сетка проектов + страница кейса + «О себе» + контакты.</li>
+<li>Оформи 3 кейса: задача → решение → результат в цифрах.</li>
+<li>Проверь оба проекта на телефоне (60 fps).</li>
+<li>Выложи на свой домен, прогони Lighthouse (90+).</li>
+<li>Запушь код на GitHub.</li>
+</ol>
+<div class="task-r">Результат: два проекта уровня «апал» — ваша витрина для клиентов.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Красиво, но ломается.</strong> 80% уходит.</li>
+<li><strong>Кейсы без цифр.</strong> Ни о чём.</li>
+<li><strong>Не на GitHub.</strong> Нет доказательства.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови 10 элементов «вау»-лендинга.</li>
+<li>Что должно быть в портфолио?</li>
+<li>Как оформить кейс?</li>
+<li>Какие критерии приёмки?</li></ol></div>
+`}
+];
+var cur=1;
+function render(){
+  var t=document.getElementById("tabs"); t.innerHTML="";
+  L.forEach(function(l,i){ var b=document.createElement("button");
+    b.className="tab"+(i+1===cur?" on":""); b.textContent=(i+92);
+    b.onclick=function(){cur=i+1;render();}; t.appendChild(b); });
+  var d=L[cur-1];
+  var g = cur<=8?8:(cur<=15?9:10);
+  document.getElementById("out").innerHTML='<div class="lesson"><div class="lh"><div class="num">Урок '+(cur+91)+' · Глава '+g+' · Расширенная версия</div><h2>'+d.t+'</h2><div class="goal">🎯 '+d.g+'</div></div><div class="lb">'+d.c+'</div></div>';
+  document.getElementById("cnt").textContent="Урок "+cur+" из "+L.length;
+  window.scrollTo(0,0);
+}
+document.getElementById("prev").onclick=function(){ if(cur>1){cur--;render();} };
+document.getElementById("next").onclick=function(){ if(cur<L.length){cur++;render();} };
+render();
+</script>
+</body>
+</html>

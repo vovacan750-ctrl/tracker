@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Нет интернета — Сайт с 0</title>
+<style>
+:root{--bg:#1a1d23;--card:#2a2f3a;--line:#3a4150;--txt:#e6e8ec;--muted:#9aa4b4;--acc:#6b73e8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt)}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;min-height:100vh}
+.icon{width:120px;height:120px;border-radius:24px;background:linear-gradient(158deg,#1d2939,#101828);display:flex;align-items:center;justify-content:center;font-size:48px;color:var(--acc);font-weight:800;font-family:monospace;border:1px solid rgba(255,255,255,.09);margin-bottom:32px}
+h1{font-size:22px;margin-bottom:12px;color:#fff}
+p{color:var(--muted);font-size:15px;line-height:1.6;max-width:400px;margin-bottom:24px}
+.btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:14px 28px;border-radius:10px;font-weight:600;font-size:15px;border:none;cursor:pointer;min-height:48px}
+.btn:hover{background:#5563d6}
+.offline-icon{font-size:60px;margin-bottom:16px;opacity:.3}
+.subtle{margin-top:32px;font-size:12px;color:var(--muted);opacity:.6}
+</style>
+</head>
+<body>
+<div class="icon">&lt;/&gt;</div>
+<div class="offline-icon">📶</div>
+<h1>Нет подключения к интернету</h1>
+<p>Но это не проблема — вы можете продолжить обучение офлайн. Все уроки, тесты и ваш прогресс уже сохранены в этом приложении.</p>
+<button class="btn" onclick="location.href='./'">Открыть курс</button>
+<p class="subtle">Сайт с 0 по созданию сайтов · работает офлайн</p>
+</body>
+</html>
