@@ -1,7 +1,7 @@
 // Service Worker для PWA "Сайт с 0 по созданию сайтов"
 // Кэширует все файлы для офлайн-работы
 
-const CACHE_VERSION = "v7-cache-v1";
+const CACHE_VERSION = "v8-cache-v2";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -46,7 +46,7 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// === ЗАПРОСЫ: стратегия cache-first, потом network с кэшированием ===
+// === ЗАПРОСЫ: стратегия зависит от типа файла ===
 self.addEventListener("fetch", (event) => {
   const req = event.request;
 
@@ -72,7 +72,24 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Для остальных (CSS, JS, JSON, иконки) — cache first, потом network с обновлением кэша
+  // Для JSON-файлов (data/) — network first, fallback на кэш
+  // Это гарантирует, что всегда свежие данные, а офлайн работает
+  if (url.pathname.includes("/data/")) {
+    event.respondWith(
+      fetch(req)
+        .then((res) => {
+          if (res && res.status === 200) {
+            const clone = res.clone();
+            caches.open(CACHE_VERSION).then((c) => c.put(req, clone));
+          }
+          return res;
+        })
+        .catch(() => caches.match(req))
+    );
+    return;
+  }
+
+  // Для остальных (CSS, JS, иконки) — cache first, потом network с обновлением кэша
   event.respondWith(
     caches.match(req).then((cached) => {
       if (cached) {
