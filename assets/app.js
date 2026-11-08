@@ -86,9 +86,15 @@ async function boot() {
     };
     render();
   } catch (e) {
-    document.getElementById("list").innerHTML =
-      '<div class="panel">Не удалось загрузить данные. Запустите build-site.py.</div>';
-    console.error(e);
+    console.error("Boot error:", e);
+    const list = document.getElementById("list");
+    if (list) {
+      list.innerHTML = '<div class="panel">Не удалось загрузить данные: ' + (e.message || e) + '</div>';
+    } else {
+      document.body.insertAdjacentHTML("beforeend",
+        '<div class="panel" style="margin:20px;padding:16px;background:#2a2f3a;color:#e6e8ec">Не удалось загрузить данные: ' + (e.message || e) + '</div>'
+      );
+    }
   }
 }
 
@@ -332,24 +338,34 @@ function renderStats() {
   });
   const total = DATA.lessons.length;
   const pct = Math.round((done / total) * 1000) / 10;
-  document.getElementById("cards").innerHTML =
-    '<div class="card ok"><div class="k">Пройдено</div><div class="v">' + done + '</div></div>' +
-    '<div class="card proc"><div class="k">В процессе</div><div class="v">' + proc + '</div></div>' +
-    '<div class="card"><div class="k">Не начато</div><div class="v">' + (total - done - proc) + '</div></div>' +
-    '<div class="card acc"><div class="k">Прогресс</div><div class="v">' + pct + '%</div></div>' +
-    '<div class="card"><div class="k">Осталось</div><div class="v">' + (total - done) + '</div></div>';
-  document.getElementById("mainBar").style.width = pct + "%";
-  document.getElementById("pctTxt").textContent = done + " из " + total + " · " + pct + "%";
 
-  document.getElementById("chMini").innerHTML = DATA.chapters.map((ch, ci) => {
-    const d = chapterDone(ci);
-    const pr = Math.round((d / ch.size) * 100);
-    const num = ch.name.split(".")[0];
-    return '<div><div class="rowline" style="margin-bottom:5px">' +
-      '<span style="font-size:12.5px;font-weight:600">' + num + '</span>' +
-      '<span style="font-size:12px;color:var(--muted);font-weight:700">' + d + "/" + ch.size + '</span>' +
-      '</div><div class="bar sm"><i style="width:' + pr + '%"></i></div></div>';
-  }).join("");
+  // Старые элементы статистики — могут отсутствовать в новом UI
+  const cards = document.getElementById("cards");
+  if (cards) {
+    cards.innerHTML =
+      '<div class="card ok"><div class="k">Пройдено</div><div class="v">' + done + '</div></div>' +
+      '<div class="card proc"><div class="k">В процессе</div><div class="v">' + proc + '</div></div>' +
+      '<div class="card"><div class="k">Не начато</div><div class="v">' + (total - done - proc) + '</div></div>' +
+      '<div class="card acc"><div class="k">Прогресс</div><div class="v">' + pct + '%</div></div>' +
+      '<div class="card"><div class="k">Осталось</div><div class="v">' + (total - done) + '</div></div>';
+  }
+  const mainBar = document.getElementById("mainBar");
+  if (mainBar) mainBar.style.width = pct + "%";
+  const pctTxt = document.getElementById("pctTxt");
+  if (pctTxt) pctTxt.textContent = done + " из " + total + " · " + pct + "%";
+
+  const chMini = document.getElementById("chMini");
+  if (chMini) {
+    chMini.innerHTML = DATA.chapters.map((ch, ci) => {
+      const d = chapterDone(ci);
+      const pr = Math.round((d / ch.size) * 100);
+      const num = ch.name.split(".")[0];
+      return '<div><div class="rowline" style="margin-bottom:5px">' +
+        '<span style="font-size:12.5px;font-weight:600">' + num + '</span>' +
+        '<span style="font-size:12px;color:var(--muted);font-weight:700">' + d + "/" + ch.size + '</span>' +
+        '</div><div class="bar sm"><i style="width:' + pr + '%"></i></div></div>';
+    }).join("");
+  }
 }
 
 function renderChapters() {
@@ -797,4 +813,9 @@ function startBlockQuiz(ci) {
   renderQuestion("bWrap");
 }
 
-boot();
+// Ждём полной загрузки DOM, потом запускаем приложение
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", boot);
+} else {
+  boot();
+}
