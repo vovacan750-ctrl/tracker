@@ -6,6 +6,72 @@
 <title>От нуля до профи — трекер обучения созданию сайтов</title>
 <meta name="description" content="124 урока по созданию сайтов: дизайн, HTML, CSS, JavaScript, WordPress, WooCommerce. Тесты по каждому уроку и большие тесты по главам.">
 <link rel="stylesheet" href="assets/styles.css">
+<style>
+:root{
+  --bg:#1a1d23 !important;
+  --card:#2a2f3a !important;
+  --line:#3a4150 !important;
+  --txt:#e6e8ec !important;
+  --muted:#9aa4b4 !important;
+  --acc:#6b73e8 !important;
+  --ok:#22c55e !important;
+  --proc:#f59e0b !important;
+  --code:#0d1117 !important;
+}
+body{background:#1a1d23 !important;color:#e6e8ec !important}
+.card,.panel{background:#2a2f3a !important;border-color:#3a4150 !important;color:#e6e8ec !important}
+.card .v,.rowline b{color:#fff !important}
+.bar{background:#3a4150 !important}
+.btn{background:#2a2f3a !important;border-color:#3a4150 !important;color:#e6e8ec !important}
+.btn:hover{background:#323845 !important}
+.btn.on,.btn.pri{background:#6b73e8 !important;border-color:#6b73e8 !important;color:#fff !important}
+input[type=text],select{background:#3a4150 !important;color:#e6e8ec !important;border-color:#3a4150 !important}
+input::placeholder{color:#9aa4b4 !important}
+.hint,.bottom{color:#9aa4b4 !important}
+.qz-bar{background:#3a4150 !important}
+.modal{background:#1a1d23 !important;border:1px solid #3a4150 !important;box-shadow:0 24px 70px rgba(0,0,0,.6) !important}
+.modal-h{background:linear-gradient(180deg,#252a35,#1a1d23) !important;border-bottom-color:#3a4150 !important}
+.modal-h h2{color:#fff !important}
+.modal-x{background:#2a2f3a !important;border-color:#3a4150 !important;color:#9aa4b4 !important}
+.modal-x:hover{background:#3a4150 !important;color:#fff !important}
+.modal-b{color:#e6e8ec !important}
+.modal-b h3{color:#6b73e8 !important;border-bottom-color:#2d3140 !important}
+.modal-b h4,.modal-b strong{color:#fff !important}
+.modal-b code{background:#3a4150 !important;color:#a5b4fc !important}
+.modal-b pre{background:#0d1117 !important;border:1px solid #1a1d23 !important;color:#e6edf7 !important}
+.modal-b th{background:#252a35 !important;border-color:#3a4150 !important;color:#9aa4b4 !important}
+.modal-b td{border-color:#3a4150 !important;color:#e6e8ec !important}
+.modal-b figure svg{background:#252a35 !important;border-color:#3a4150 !important}
+.modal-b figcaption b{color:#cbd5e1 !important}
+.modal-b blockquote{background:#2d2615 !important;color:#e6e8ec !important}
+.modal-b .term{background:#2d2540 !important}
+.modal-b .term-t{color:#a78bfa !important}
+.modal-b .term dt{color:#c4b5fd !important}
+.modal-b .term dd{color:#d8b4fe !important}
+.modal-b .why{background:#252a40 !important}
+.modal-b .why-t{color:#a5b4fc !important}
+.modal-b .life{background:#1e2d25 !important}
+.modal-b .life-t{color:#4ade80 !important}
+.modal-b .risk{background:#2d2020 !important}
+.modal-b .risk-t{color:#f87171 !important}
+.modal-b .task{background:#252a35 !important;border-color:#3a4150 !important}
+.modal-b .task-h{color:#fff !important}
+.modal-b .task-why{color:#9aa4b4 !important}
+.modal-b .task-r{border-top-color:#4a5160 !important;color:#22c55e !important}
+.modal-b .warn{background:#2d2615 !important}
+.modal-b .warn-t{color:#fbbf24 !important}
+.modal-b .check{background:#1e2d25 !important}
+.modal-b .check-t{color:#4ade80 !important}
+.modal-b .note{background:#252a40 !important;color:#e6e8ec !important}
+.qz-opt{background:#2a2f3a !important;border-color:#3a4150 !important;color:#e6e8ec !important}
+.qz-opt:hover:not(:disabled){background:#323845 !important;border-color:#818cf8 !important}
+.qz-opt.ok{background:#1e2d25 !important;border-color:#22c55e !important;color:#4ade80 !important}
+.qz-opt.bad{background:#2d2020 !important;border-color:#ef4444 !important;color:#f87171 !important}
+.qz-q{color:#fff !important}
+.modal-f{background:#252a35 !important;border-top-color:#3a4150 !important}
+.qz-ok-badge{background:#1e2d25 !important;border-color:#22c55e !important;color:#22c55e !important}
+.qz-launch{border-top-color:#3a4150 !important}
+</style>  
 </head>
 <body>
 <header class="top">
