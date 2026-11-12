@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Уроки 125–129 · AI в разработке</title>
+<style>
+:root{--bg:#1a1d23;--card:#2a2f3a;--line:#3a4150;--txt:#e6e8ec;--muted:#9aa4b4;--acc:#6b73e8;--ok:#22c55e;--proc:#f59e0b;--code:#0d1117;--dark:#101828;--dark2:#1d2939;--edge:rgba(255,255,255,.09)}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);font-size:14.5px;line-height:1.6}
+header{background:#101828;color:#fff;padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+header h1{margin:0;font-size:16px}header .sub{color:#98a2b3;font-size:12px}
+header .cnt{margin-left:auto;font-size:12px;color:#cbd5e1;font-weight:600}
+.wrap{max-width:900px;margin:0 auto;padding:20px 16px 70px}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:var(--card);border-radius:7px;padding:5px 9px;font-size:12px;cursor:pointer;font-weight:600;color:var(--muted)}
+.tab:hover{border-color:#5a6170}.tab.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.lesson{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.lh{padding:20px 24px 14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#252a35,#1a1d23)}
+.lh .num{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);font-weight:700}
+.lh h2{margin:4px 0 0;font-size:23px;letter-spacing:-.02em;line-height:1.25;color:#fff}
+.lh .goal{margin-top:6px;font-size:13px;color:var(--muted)}
+.lb{padding:4px 24px 24px}
+.lb h3{font-size:12.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);margin:24px 0 9px;font-weight:700;padding-bottom:5px;border-bottom:2px solid #2d3140}
+.lb h4{font-size:15.5px;margin:18px 0 6px;color:#fff}
+.lb p{margin:0 0 12px;line-height:1.75}
+.lb ul,.lb ol{margin:0 0 13px;padding-left:21px}
+.lb li{margin-bottom:6px;line-height:1.68}
+.lb strong{color:#fff}
+.lb code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.87em;background:#3a4150;padding:1px 5px;border-radius:4px;color:#a5b4fc}
+.lb pre{background:var(--code);color:#e6edf7;padding:13px 15px;border-radius:9px;border:1px solid #1a1d23;overflow-x:auto;font-size:12.2px;line-height:1.5;font-family:"SF Mono",Menlo,Consolas,monospace;margin:0 0 13px}
+.lb pre code{background:none;padding:0;color:inherit}
+.lb table{width:100%;border-collapse:collapse;margin:0 0 13px;font-size:12.8px}
+.lb th{background:#252a35;text-align:left;padding:8px 10px;border:1px solid var(--line);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.lb td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;line-height:1.5}
+.lb figure{margin:0 0 16px}
+.lb figure svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#252a35}
+.lb figcaption{margin-top:6px;font-size:12.2px;color:var(--muted);line-height:1.5}
+.lb figcaption b{color:#cbd5e1}
+.term{background:#2d2540;border-left:4px solid #8b5cf6;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px}
+.term-t{font-weight:700;font-size:12.5px;color:#a78bfa;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.term dl{margin:0}
+.term dt{font-weight:700;color:#c4b5fd;font-size:13.5px;margin-top:6px}
+.term dd{margin:2px 0 0 0;font-size:13.5px;line-height:1.6;color:#d8b4fe}
+.why{background:#252a40;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7;color:var(--txt)}
+.why-t{font-weight:700;font-size:12.5px;color:#a5b4fc;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.life{background:#1e2d25;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7;color:var(--txt)}
+.life-t{font-weight:700;font-size:12.5px;color:#4ade80;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.risk{background:#2d2020;border-left:4px solid #ef4444;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7;color:var(--txt)}
+.risk-t{font-weight:700;font-size:12.5px;color:#f87171;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.task{background:#252a35;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:0 11px 11px 0;padding:13px 15px;margin:0 0 13px}
+.task-h{font-weight:700;font-size:14.5px;margin-bottom:4px;color:#fff}
+.task-why{font-size:12.8px;color:var(--muted);margin-bottom:9px;line-height:1.55}
+.steps{margin:0;padding-left:0;list-style:none;counter-reset:st}
+.steps li{position:relative;padding-left:32px;margin-bottom:8px;line-height:1.6;font-size:13.2px;counter-increment:st;color:var(--txt)}
+.steps li::before{content:counter(st);position:absolute;left:0;top:0;width:21px;height:21px;background:var(--acc);color:#fff;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.task-r{margin-top:10px;padding-top:9px;border-top:1px dashed #4a5160;font-size:12.8px;color:var(--ok);font-weight:600}
+.warn{background:#2d2615;border-left:4px solid var(--proc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.warn-t{font-weight:700;font-size:12.5px;color:#fbbf24;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.warn ul{margin:0;padding-left:19px}.warn li{font-size:13.2px;margin-bottom:4px;color:var(--txt)}
+.check{background:#1e2d25;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.check-t{font-weight:700;font-size:12.5px;color:#4ade80;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.check ol{margin:0;padding-left:19px}.check li{font-size:13.2px;margin-bottom:4px;color:var(--txt)}
+.note{background:#252a40;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px;font-size:13.5px;color:var(--txt)}
+.navb{display:flex;gap:9px;margin-top:16px}.navb .sp{flex:1}
+.btn{border:1px solid var(--line);background:var(--card);padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600;font-family:inherit;color:var(--txt)}
+.btn:hover{background:#323845}.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+@media(max-width:700px){.lh,.lb{padding-left:15px;padding-right:15px}.lh h2{font-size:20px}}
+</style>
+</head>
+<body>
+<header><h1>🤖 Уроки 125–129 · AI в разработке</h1><span class="sub">как · зачем · почему · терминология · примеры из жизни</span><span class="cnt" id="cnt"></span></header>
+<div class="wrap"><div class="tabs" id="tabs"></div><div id="out"></div>
+<div class="navb"><button class="btn" id="prev">← Предыдущий</button><span class="sp"></span><button class="btn pri" id="next">Следующий →</button></div></div>
+<script>
+var L=[
+{t:"AI-ассистенты: ChatGPT, Claude, Cursor",g:"Использовать AI как напарника для написания и отладки кода.",c:`
+<h3>Зачем этот урок</h3>
+<p>AI-ассистенты — это не «волшебная кнопка сделай за меня», а <strong>партнёр</strong>, который пишет рутину за секунды, объясняет незнакомый код и ловит баги. AI может ускорить отдельные этапы работы, но эффект зависит от задачи, уровня подготовки, инструмента и качества проверки. Измеряйте его на своём проекте: сравнивайте время, число исправлений и дефектов.</p>
+<p>В 2025 году неумение работать с AI — как неумение гуглить в 2010-м. Это базовый навык.</p>
+
+<h3>Простым языком</h3>
+<p><strong>ChatGPT и Claude</strong> — сервисы с моделями, которые могут работать с кодом и текстом; состав моделей, лимиты и функции меняются. <strong>Cursor</strong> — редактор с AI-функциями, где доступный контекст выбирается настройками и индексацией, а не гарантированно включает весь проект. Для версионных возможностей проверьте документацию версии на дату публикации.</p>
+<p>Принцип работы простой: вы описываете задачу достаточным и проверяемым контекстом → AI предлагает ответ → вы проверяете код, зависимости и безопасность → запускаете проверки и только затем принимаете изменения.</p>
+
+<h3>Что умеет AI</h3>
+<ul>
+<li><strong>Писать функции</strong> по описанию: «напиши функцию, которая форматирует номер телефона».</li>
+<li><strong>Объяснять код</strong>: вставили кусок — «что тут происходит?».</li>
+<li><strong>Отлаживать</strong>: «выдаёт TypeError на строке 42, вот код и ошибка — что не так?».</li>
+<li><strong>Рефакторить</strong>: «перепиши это на TypeScript, добавь типы».</li>
+<li><strong>Писать тесты</strong>: «напиши unit-тесты для этой функции».</li>
+<li><strong>Объяснять ошибки</strong>: вставили ошибку из консоли — получите решение.</li>
+</ul>
+
+<h3>Пример: правильный промпт</h3>
+<pre>✗ Плохой промпт:
+   «помоги с JS»
+   → AI не понимает, что именно нужно
+
+✓ Хороший промпт:
+   «У меня есть массив объектов товаров вида
+   { id, name, price, category }. Напиши функцию
+   groupByCategory(products), которая вернёт объект
+   { "Книги": [...], "Электроника": [...] }.
+   Используй Array.prototype.reduce. На входе —
+   пустой массив не должен падать, верни {}»
+   → AI даёт готовую функцию с обработкой краев</pre>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Промпт</dt><dd>Текстовая инструкция для AI.</dd>
+<dt>Контекст</dt><dd>Что AI знает о задаче: код, ошибки, требования.</dd>
+<dt>Галлюцинация</dt><dd>Когда AI выдумывает несуществующую функцию или библиотеку.</dd>
+<dt>Токен</dt><dd>Единица обработки текста; соотношение с символами зависит от языка, кода и токенизатора.</dd>
+<dt>Copilot</dt><dd>AI-ассистент GitHub, доступный в редакторах и других интерфейсах.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Сравнивать ChatGPT, Claude и Cursor по одному рейтингу не стоит: возможности зависят от модели, плана, лимитов, настроек контекста и интеграции. Выбирайте инструмент под задачу и проверяйте документацию версии на дату публикации; результат проверяйте в своём проекте. Почему описывать задачу подробно? «Сделай форму» — это 100 разных вариантов. «Форма с 3 полями, имя/телефон/комментарий, валидация телефона, отправка на /api/order» — это однозначный ответ.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>AI — как стажёр, который знает всё, но не видит контекста. Дайте ему чёткую задачу с деталями — сделает отлично. Дайте размытое «сделай красиво» — сделает что-то, но не то. Проверять его работу обязательно: он не знает вашего бизнеса и может предложить красивое, но неверное решение.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Слепо копировать код AI</strong> — он может выдумать функцию, которой нет в библиотеке. <strong>Не проверять ответы</strong> — AI уверен в себе даже когда ошибается. <strong>Загружать секреты в чат</strong> — ключи API, пароли утекут. <strong>Делегировать AI архитектуру</strong> — он не знает ваших требований и ограничений.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Решить задачу с помощью AI</div>
+<div class="task-why">Зачем: первый реальный опыт работы с AI-ассистентом.</div>
+<ol class="steps">
+<li>Возьми функцию из урока 49 (массивы) — любую.</li>
+<li>Опиши её ChatGPT или Claude: что делает, какие входные данные.</li>
+<li>Попроси переписать на TypeScript с типами.</li>
+<li>Попроси написать 3 unit-теста для неё.</li>
+<li>Запусти тесты, проверь — работает ли код AI?</li>
+<li>Попроси AI объяснить каждую строку его решения.</li>
+</ol>
+<div class="task-r">Результат: понимание, как ставить задачи AI.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>«Сделай за меня».</strong> AI не знает вашей задачи.</li>
+<li><strong>Копировать без чтения.</strong> Внутри может быть чепуха.</li>
+<li><strong>Загружать .env.</strong> Утечка ключей.</li>
+<li><strong>Один промпт на всё.</strong> Разбивайте задачу на части.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем отличается ChatGPT от Cursor?</li>
+<li>Что такое галлюцинация AI?</li>
+<li>Что обязательно делать с кодом, который дал AI?</li>
+<li>Почему промпт «сделай форму» — плохой?</li>
+<li>Что нельзя загружать в AI-чат?</li></ol></div>
+`},
+
+{t:"GitHub Copilot и автодополнение кода",g:"Ускорять отдельные этапы разработки с AI-напарником и проверять результат.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>GitHub Copilot</strong> — это AI, который живёт прямо в вашем редакторе кода (VS Code, WebStorm). Вы начинаете писать функцию — он угадывает продолжение и предлагает серым текстом. Нажали Tab — приняли, Esc — отказались.</p>
+<p>Главное отличие от ChatGPT: Copilot <strong>видит ваш код</strong> в реальном времени и подсказывает в контексте. Не нужно никуда копировать.</p>
+
+<h3>Простым языком</h3>
+<p>Copilot — как опытный напарник, который смотрит через плечо и подсказывает: «сюда, наверное, нужен map», «я вижу ты пишешь fetch, давай сразу добавлю try/catch». Иногда он угадывает мысль, иногда нет — пользу оценивайте по своей задаче и числу исправлений.</p>
+
+<h3>Что умеет Copilot</h3>
+<ul>
+<li><strong>Автодополнение</strong> — пишет за вас рутину: циклы, маппинги, обработку ошибок.</li>
+<li><strong>Комментарий → код</strong> — пишете <code>// функция валидации email</code> → он пишет функцию.</li>
+<li><strong>Chat в редакторе</strong> — выделили код, нажали Ctrl+I → «объясни» или «отрефактори».</li>
+<li><strong>Тесты</strong> — выделили функцию → «напиши тесты».</li>
+<li><strong>Коммиты</strong> — Copilot пишет сообщение коммита по вашим изменениям.</li>
+</ul>
+
+<h3>Пример: комментарий превращается в код</h3>
+<pre>// Валидация телефона: +7 (XXX) XXX-XX-XX
+// Возвращает true, если валиден, и false иначе; это только формат РФ +7XXXXXXXXXX
+function isValidPhone(phone) {
+  // Copilot автоматически допишет:
+  const cleaned = phone.replace(/&#92;D/g, "");
+  return /^7&#92;d{10}$/.test(cleaned);
+}
+
+// Получить товары из API с пагинацией
+async function getProducts(page = 1) {
+  // Copilot предложит:
+  const res = await fetch(\`/api/products?page=\${page}\`);
+  if (!res.ok) throw new Error("Не удалось загрузить");
+  const data = await res.json();
+  if (!data || !Array.isArray(data.items)) throw new Error("Неверный формат ответа");
+  return data.items;
+}
+// Вызов getProducts должен быть обёрнут в try/catch; тип и схему ответа проверьте на сервере.
+</pre>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Inline-подсказка</dt><dd>Серый текст прямо в редакторе, принимается Tab.</dd>
+<dt>Copilot Chat</dt><dd>Чат с AI в боковой панели VS Code.</dd>
+<dt>Ghost text</dt><dd>Приглушённый текст предложения — то же, что inline.</dd>
+<dt>Copilot CLI</dt><dd>AI в терминале — объясняет команды и пишет их.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Планы, цены и доступные функции Copilot зависят от даты, региона, типа аккаунта и организации; проверьте актуальную страницу планов и документацию версии на дату публикации. Окупаемость измеряйте на своей задаче. Почему не заменить им ChatGPT? Они могут дополнять друг друга: Copilot работает в контексте IDE, а чат — в отдельном интерфейсе; конкретные возможности нужно проверить. Почему принимать подсказку — Tab, а не Enter? В стандартных сочетаниях IDE Tab принимает подсказку, но keybindings можно изменить.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Copilot — как T9 в телефоне: иногда угадывает слово идеально, иногда предлагает чепуху. С опытом вы учитесь писать «намёками»: начинаете строку так, чтобы AI понял контекст. Через месяц без него кажется, что печатаете одной рукой.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Принимать всё подряд</strong> — Copilot может предложить устаревший API. <strong>Не читать предложенный код</strong> — там может быть баг или дыра в безопасности. <strong>Делегировать ему архитектуру</strong> — он оптимизирует локально, ломает глобально. <strong>Забыть про приватность</strong> — на корпоративном проекте Copilot может обрабатывать контекст через инфраструктуру провайдера; условия зависят от плана, content exclusion и политики организации. Business или Enterprise не заменяют проверку требований к данным.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Установить Copilot и попробовать</div>
+<div class="task-why">Зачем: первый опыт работы с AI внутри редактора.</div>
+<ol class="steps">
+<li>Установи VS Code, если ещё не стоит.</li>
+<li>Установи расширение GitHub Copilot (доступный бесплатный план или пробный период; условия проверьте на актуальной странице планов).</li>
+<li>Открой любой свой проект, начни писать функцию.</li>
+<li>Поставь курсор в начало, напиши комментарий: «// сложить два числа».</li>
+<li>Перейди на новую строку — Copilot предложит функцию. Tab = принять.</li>
+<li>Попробуй Ctrl+I на выделенной функции → «объясни».</li>
+</ol>
+<div class="task-r">Результат: понимание, как Copilot работает в реальном проекте.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Принимать всё.</strong> Читайте код перед Tab.</li>
+<li><strong>Не использовать чат.</strong> Ctrl+I — мощная штука, не только автодополнение.</li>
+<li><strong>Включать Copilot без согласования.</strong> Проверьте план, content exclusion, политику организации и требования к данным.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Какая клавиша принимает подсказку Copilot?</li>
+<li>Чем Copilot отличается от ChatGPT?</li>
+<li>Что такое ghost text?</li>
+<li>Почему нельзя слепо принимать все подсказки?</li></ol></div>
+`},
+
+{t:"AI для генерации UI: v0, Bolt, Lovable",g:"Превращать текстовое описание в готовый интерфейс.",c:`
+<h3>Зачем этот урок</h3>
+<p>Раньше разработка интерфейса начиналась с дизайна в Figma, потом вёрстка, потом логика. Сейчас AI-инструменты <strong>v0 от Vercel</strong>, <strong>Bolt.new</strong>, <strong>Lovable</strong> могут по текстовому описанию выдать черновик интерфейса; стек и структуру нужно проверить в конкретной выдаче за время, зависящее от сложности задачи и текущих ограничений сервиса.</p>
+<p>Это не заменяет разработчика — но убивает рутину. Вы не верстаете карточку товара руками, вы её «генерируете» и дорабатываете.</p>
+
+<h3>Простым языком</h3>
+<p><strong>v0.dev</strong> — пишете «карточка товара с фото, названием, ценой и кнопкой в корзину» → получаете React-код с Tailwind-классами. <strong>Bolt.new</strong> — то же самое, но может сразу развернуть проект на StackBlitz. <strong>Lovable</strong> — может сделать полноценное приложение: с бэкендом, базой, аутентификацией.</p>
+<p>Главное: AI делает <strong>черновик</strong>. Дорабатываете вы — под дизайн-систему, реальные данные, доступность.</p>
+
+<h3>Пример: промпт для v0</h3>
+<pre>Сделай карточку товара для интернет-магазина.
+Внутри:
+- Фото товара слева (плейсхолдер)
+- Название крупно, под ним категория мелко серым
+- Цена крупная, старая цена зачёркнута рядом
+- Кнопка «В корзину» фиолетовая, на всю ширину
+- Под кнопкой — рейтинг звёздами и количество отзывов
+
+Стиль: современный, минималистичный, скруглённые углы,
+тени. Адаптивно: на мобильном экране — колонкой, на десктопе —
+фото слева, контент справа.</pre>
+
+<p>v0 может вернуть код и структуру, но стек, зависимости и качество выдачи нужно проверить перед вставкой в Next.js-проект.</p>
+
+<h3>Когда какой инструмент</h3>
+<table><tr><th>Инструмент</th><th>Для чего</th><th>Что выдаёт</th></tr>
+<tr><td>v0.dev</td><td>Компоненты и страницы</td><td>React + Tailwind код</td></tr>
+<tr><td>Bolt.new</td><td>Прототипы с запуском</td><td>Готовый проект в браузере</td></tr>
+<tr><td>Lovable</td><td>Полные приложения</td><td>Frontend + backend + БД</td></tr>
+<tr><td>Cursor + v0</td><td>Доработка после генерации</td><td>Правки прямо в редакторе</td></tr>
+</table>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Generative UI</dt><dd>Генерация интерфейса из текста.</dd>
+<dt>Промпт-инжиниринг UI</dt><dd>Умение описать интерфейс словами так, чтобы AI сделал с первого раза.</dd>
+<dt>Плейсхолдер</dt><dd>Заглушка вместо реального контента (фото, текст).</dd>
+<dt>Дизайн-токен</dt><dd>Переменная стиля (цвет, отступ) — AI должен использовать ваши токены, а не выдумывать.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему v0, а не «просто ChatGPT»? v0 заточен под UI и Tailwind — даёт готовый компонент, а не общие рассуждения. Почему AI-черновик, а не готовое? У AI нет вашей дизайн-системы, шрифтов, контекста. Он даёт заготовку — вы доводите до ума. Почему Tailwind, а не обычный CSS? AI лучше всего генерирует Tailwind-классы — это его «родной» язык.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>v0 — как шаблоны в канцелярском магазине: выбираете «резюме», «презентацию», «отчёт» — получаете заготовку. Дорабатываете под себя: меняете текст, цвета, фото. AI-генерация UI — то же самое, только шаблон создаётся под ваш запрос за время, зависящее от сложности задачи и текущих ограничений сервиса.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Использовать код AI без доработки</strong> — нет доступности, нет ваших токенов, нет адаптива под ваши данные. <strong>Загружать реальный дизайн-код в Lovable</strong> — может утечь. <strong>Делать прототип без понимания React</strong> — не сможете доработать. <strong>Доверять AI валидацию форм</strong> — он часто забывает крайние случаи.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Сгенерировать страницу через v0</div>
+<div class="task-why">Зачем: первый реальный опыт генеративного UI.</div>
+<ol class="steps">
+<li>Зайди на v0.dev (нужен аккаунт Vercel — бесплатно).</li>
+<li>Опиши промптом страницу «Контакты»: карта, форма, адрес, телефон.</li>
+<li>Получи готовый React-код, скопируй.</li>
+<li>Создай новый Next.js проект локально, вставь компонент.</li>
+<li>Подставь свои цвета (заменой Tailwind-классов на ваши).</li>
+<li>Замени плейсхолдеры на реальные данные.</li>
+</ol>
+<div class="task-r">Результат: готовая страница контактов за 15 минут вместо 2 часов.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Ждать готового продукта.</strong> AI даёт заготовку, не продукт.</li>
+<li><strong>Не проверять доступность.</strong> AI часто забывает alt, aria-label.</li>
+<li><strong>Копировать стили как есть.</strong> Замените на свои дизайн-токены.</li>
+<li><strong>Не тестировать на мобильном экране.</strong> AI не всегда угадывает адаптив.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем v0 отличается от ChatGPT?</li>
+<li>Почему AI-код — это черновик, а не готовый продукт?</li>
+<li>Что такое generative UI?</li>
+<li>Что обязательно доработать после генерации?</li></ol></div>
+`},
+
+{t:"AI для изображений: ChatGPT Images, Midjourney, Stable Diffusion",g:"Создавать визуал для сайтов и проверять его происхождение, качество и права.",c:`
+<h3>Зачем этот урок</h3>
+<p>Раньше для сайта нужны были фото (сток или фотограф) и иллюстрации (дизайнер). Сейчас AI может генерировать изображения по текстовому описанию, но время, стоимость, лимиты и качество зависят от модели, плана, региона и способа запуска. Смету для проекта считайте по актуальному прайсу и своим исходникам, не используя фиксированные суммы как обещание.</p>
+<p>Главное — знать, когда AI подходит, а когда нет. И как правильно ставить задачу.</p>
+
+<h3>Простым языком</h3>
+<p>Есть 3 главных инструмента:</p>
+<ul>
+<li><strong>Midjourney</strong> — сервис генерации изображений; функции, планы и цены меняются, проверьте прайс и документацию версии на дату публикации.</li>
+<li><strong>ChatGPT Images</strong> — актуальное наименование функции OpenAI следует проверять по документации версии на дату публикации; прежние названия режимов могут быть выведены из эксплуатации.</li>
+<li><strong>Stable Diffusion</strong> и совместимые модели доступны в локальных и облачных вариантах; учитывайте оборудование, энергию, лицензии, кредиты, rate limits и ключи API.</li>
+</ul>
+<p>Для веб-разработчика выбор зависит от задачи, доступности, лицензии, приватности, качества и бюджета; перед публикацией сравните актуальные условия провайдера.</p>
+
+<h3>Пример: промпт для изображения</h3>
+<pre>✗ Плохой промпт:
+   «красивый фон для сайта»
+   → AI не понимает, что именно нужно
+
+✓ Хороший промпт:
+   «Minimalist abstract background for tech website,
+   dark gradient from #1a1d23 to #2a2f3a, subtle
+   geometric pattern, soft glow, 4K, no text,
+   suitable as full-screen hero background»
+   → AI выдаст именно то, что нужно</pre>
+
+<div class="note"><strong>Правовая оговорка:</strong> это не юридическая консультация. Перед коммерческим использованием проверьте актуальные Terms of Service, лицензии, права третьих лиц и требования юрисдикции у провайдера и юриста.</div>
+
+<h3>Что генерировать для сайта</h3>
+<table><tr><th>Элемент</th><th>Промпт</th><th>Зачем</th></tr>
+<tr><td>Hero-фон</td><td>«абстрактный градиент, тёмный, без текста»</td><td>Главный экран лендинга</td></tr>
+<tr><td>Иконки</td><td>«минималистичная иконка дома, вектор»</td><td>Простые иконки в едином стиле</td></tr>
+<tr><td>Иллюстрации</td><td>«плоская иллюстрация, человек за ноутбуком»</td><td>Блог, раздел «О нас»</td></tr>
+<tr><td>Фото товаров</td><td>«футболка белая на манекене, белом фоне, студийный свет»</td><td>Каталог без фотосессии</td></tr>
+<tr><td>OG-изображения</td><td>«обложка для соцсетей 1200×630, тема статьи»</td><td>Превью в соцсетях</td></tr>
+</table>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Промпт</dt><dd>Текстовое описание желаемого изображения.</dd>
+<dt>Negative prompt</dt><dd>Инструкция о нежелательных признаках, если инструмент её поддерживает; синтаксис различается (например, у Midjourney используется <code>--no</code>).</dd>
+<dt>Seed</dt><dd>Начальное случайное состояние, которое может облегчить воспроизведение при той же модели, версии, sampler/параметрах, размере и реализации; между версиями и сервисами результат не гарантируется.</dd>
+<dt>Upscale</dt><dd>Увеличение размера с попыткой сохранить или синтезировать детали; апскейл не восстанавливает достоверную информацию автоматически, результат нужно проверять.</dd>
+<dt>Aspect ratio</dt><dd>Соотношение сторон (16:9, 1:1, 9:16) — задаётся в промпте.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему Midjourney лучше для арт-изображений? Он обучен на художественных работах, выдаёт «дорогой» вид. Почему DALL-E для блога? Он лучше понимает русский и составляет текст на картинках. Почему Stable Diffusion для больших объёмов? Бесплатно на своём железе, без лимитов. Почему нужен negative prompt? Без него AI добавит лишнее — водяные знаки, людей, текст.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>AI-генерация фото — как готовая еда из ресторана: быстро, красиво, но не «ваше». Для прототипа, лендинга, блога — идеально. Для бренда, где важна узнаваемость и единство стиля — нужен дизайнер. Для продающего товара — лучше реальная фотосессия: AI не покажет реальную ткань и посадку.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Генерировать фото товаров для магазина</strong> — клиент вернёт, потому что товар не совпадает. <strong>Использовать AI-фото без проверки</strong> — у людей бывает 6 пальцев, текст ломаный. <strong>Не уточнять авторские права</strong> — права на коммерческое использование зависят от актуальных Terms of Service, плана, статуса пользователя/компании, режима приватности и прав на исходные материалы; для конкретного использования проверьте условия провайдера и юриста. <strong>Забывать про alt</strong> — для доступности изображения нужно описать словами.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Сгенерировать визуал для лендинга</div>
+<div class="task-why">Зачем: реальный кейс, который экономит деньги на стоках.</div>
+<ol class="steps">
+<li>Возьми свой проект лендинга из урока 62.</li>
+<li>Сгенерируй через DALL-E (в ChatGPT) или Midjourney 3 изображения: hero-фон, иконку преимущества, иллюстрацию для блока «О нас».</li>
+<li>Оптимизируй через Squoosh или TinyPNG (сжатие).</li>
+<li>Сравни WebP, AVIF, JPEG, PNG или SVG там, где формат уместен; выбери вариант по размеру, качеству, прозрачности, назначению и поддержке браузеров.</li>
+<li>Вставь в проект, проверь на мобильном экране.</li>
+<li>Добавь осмысленный alt к каждому изображению.</li>
+</ol>
+<div class="task-r">Результат: лендинг с уникальным визуалом без стоковых фото.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Не сжимать изображения.</strong> AI-фото весят 2–5 МБ, это убивает скорость.</li>
+<li><strong>Выбирать формат по привычке.</strong> WebP не всегда легче PNG или лучше AVIF/JPEG; сравните размер и визуальное качество на конкретных исходниках.</li>
+<li><strong>Использовать AI-фото для реальных товаров.</strong> Обманете покупателя.</li>
+<li><strong>Не проверять руки и текст.</strong> AI часто ошибается.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Какой AI лучше для арт-изображений?</li>
+<li>Что такое negative prompt?</li>
+<li>Как выбрать формат изображения и что сравнить перед публикацией?</li>
+<li>Почему нельзя генерировать фото реальных товаров?</li></ol></div>
+`},
+
+{t:"Промпт-инжиниринг для разработчика",g:"Ставить проверяемые задачи AI и безопасно оценивать результат.",c:`
+<h3>Зачем этот урок</h3>
+<p>Разница между полезным и бесполезным ответом AI часто связана с постановкой задачи, контекстом и качеством проверки; результат не гарантируется с первого раза. Промпт-инжиниринг — это <strong>навык формулировать мысли так, чтобы AI выдал полезный ответ</strong>. Это не магия — это техника, которую можно освоить за неделю.</p>
+
+<h3>Простым языком</h3>
+<p>AI — как стажёр-гений с амнезией: знает многое, но не знает вашего контекста. Давайте достаточный, релевантный и непротиворечивый контекст и формулируйте проверяемые критерии; лишние детали сами по себе не гарантируют точность. Хороший промпт содержит 4 элемента: <strong>роль</strong>, <strong>контекст</strong>, <strong>задачу</strong>, <strong>ограничения</strong>.</p>
+
+<h3>Формула хорошего промпта</h3>
+<pre>1. РОЛЬ:         «Ты senior React-разработчик»
+2. КОНТЕКСТ:     «У меня проект на Next.js 14 (App Router),
+                 TypeScript, Tailwind. Есть компонент
+                 ProductCard (см. код ниже)»
+3. ЗАДАЧА:       «Добавь в него кнопку "В корзину",
+                 которая вызывает addToCart(id) из
+                 хука useCart()»
+4. ОГРАНИЧЕНИЯ:  «Не меняй существующий JSX, только
+                 добавь кнопку. Используй className
+                 из Tailwind. Покажи полный код
+                 компонента»</pre>
+
+<h3>Примеры: плохой vs хороший промпт</h3>
+<pre>✗ Плохой:
+   «код не работает, помоги»
+   → AI не знает, какой код, какая ошибка
+
+✓ Хороший:
+   «Запускаю этот код:
+   [код]
+   Получаю ошибку:
+   "TypeError: Cannot read properties of
+   undefined (reading 'map')"
+   на строке 12. Что не так и как исправить?»
+
+✗ Плохой:
+   «сделай красивую кнопку»
+
+✓ Хороший:
+   «Сделай React-компонент Button с вариантами:
+   - variant: "primary" | "secondary" | "ghost"
+   - size: "sm" | "md" | "lg"
+   - loading: boolean (показывает спиннер)
+   Стилизация через Tailwind. Primary — фиолетовый
+   (#4f46e5), secondary — белый с рамкой, ghost —
+   прозрачный. Дай TypeScript-типы.»</pre>
+
+<h3>Техники для сложных задач</h3>
+<ul>
+<li><strong>Проверяемый план</strong> — попросите кратко перечислить шаги, допущения, риски, критерии приёмки и тесты. Не требуйте раскрывать скрытые внутренние рассуждения: разные продукты могут их не показывать.</li>
+<li><strong>Few-shot</strong> — дайте 2–3 примера вход→выход, AI поймёт паттерн.</li>
+<li><strong>Разбивка на шаги</strong> — «Шаг 1: проанализируй. Шаг 2: предложи 3 варианта. Шаг 3: выбери лучший и объясни почему».</li>
+<li><strong>Рефакторинг поэтапно</strong> — «Сначала добавь типы, потом тесты, потом оптимизацию».</li>
+<li><strong>Reviewer mode</strong> — «Ты code reviewer, найди 5 проблем в этом коде».</li>
+</ul>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Промпт-инжиниринг</dt><dd>Навык составления эффективных инструкций для AI.</dd>
+<dt>System prompt</dt><dd>Слой инструкций с приоритетом, доступность и поведение которого зависят от API или продукта; это не только фраза «ты эксперт по...».</dd>
+<dt>Few-shot</dt><dd>Подача примеров в промпте для обучения паттерну.</dd>
+<dt>Chain of thought</dt><dd>Термин для внутренних пошаговых рассуждений модели; вместо требования раскрытия просите краткий план, допущения и проверяемые результаты.</dd>
+<dt>Temperature</dt><dd>Параметр некоторых API; диапазон и эффект зависят от модели и версии, а нулевая температура не гарантирует фактическую корректность или полную детерминированность.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему задавать роль? AI в роли senior-разработчика даёт другой код, чем «в режиме новичка». Почему описывать контекст? AI не видит ваш проект — он угадает стандартное решение, которое может не подойти. Почему ограничения важнее задачи? Без них AI добавит лишние библиотеки, перепишет то, что не нужно, переусложнит. Почему просить «думай пошагово»? Это заставляет AI не угадывать, а рассуждать — иногда помогает структурировать ответ, но не гарантирует точность.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Промпт — как ТЗ для подрядчика. «Сделай красиво» — подрядчик сделает по-своему, вам не понравится. «Покрась стену в RAL 9010, два слоя, кистью, до пятницы» — получите то, что нужно. AI работает так же: точная спецификация = точный результат. Разница лишь в том, что AI отвечает за 5 секунд, а подрядчик — за 5 дней.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Один промпт на большую задачу</strong> — AI запутается, выдаст половину. <strong>Не давать контекст</strong> — получите универсальный код, который не впишется. <strong>Принимать первый ответ</strong> — часто второй и третий вариант лучше. <strong>Просить «оптимизируй» без критериев</strong> — AI перепишет всё, что не ломалось.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Решить сложную задачу через AI</div>
+<div class="task-why">Зачем: отработка техники промпт-инжиниринга.</div>
+<ol class="steps">
+<li>Возьми свой компонент ProductCard из урока 107.</li>
+<li>Составь промпт по формуле (роль + контекст + задача + ограничения): «перепиши на TypeScript, добавь props, не меняй JSX».</li>
+<li>Отправь в ChatGPT или Claude.</li>
+<li>Если ответ неполный — попроси уточнить: «покажи полностью, с типами».</li>
+<li>Попроси добавить тесты: «напиши 3 unit-теста на Vitest».</li>
+<li>Попроси review: «найди 3 потенциальных проблемы».</li>
+</ol>
+<div class="task-r">Результат: умение получать от AI точные ответы.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Нерелевантный или противоречивый контекст.</strong> Давайте достаточные детали, ограничения и критерии приёмки, а не максимальный объём.</li>
+<li><strong>Не итерировать.</strong> Первый ответ — не финальный.</li>
+<li><strong>Просить всё сразу.</strong> Разбивайте на шаги.</li>
+<li><strong>Не задавать роль.</strong> AI без роли = случайный ответ.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Production-чек-лист перед публикацией результата AI</div>
+<ol><li>Зафиксируй критерии приёмки и проверь документацию версии на дату публикации.</li><li>Запусти lint, typecheck, тесты и негативные сценарии; добавь runtime-валидацию данных.</li><li>Проведи security review: секреты только на сервере, escaping/XSS/SQL-инъекции, prompt injection, зависимости, права и rate limiting.</li><li>Проверь лицензии, происхождение кода/изображений и права третьих лиц; юридические выводы сверяй с актуальным провайдером и юристом.</li><li>Проверь доступность, производительность, наблюдаемость, rollback и ручной review.</li></ol></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Назови 4 элемента хорошего промпта.</li>
+<li>Почему вместо запроса скрытых рассуждений полезно просить краткий план, допущения, тесты и критерии приёмки?</li>
+<li>Почему важна роль в промпте?</li>
+<li>Что делать, если первый ответ AI — не то?</li>
+<li>Зачем нужны ограничения в промпте?</li></ol></div>
+`}
+];
+var cur=1;
+function render(){
+  var t=document.getElementById("tabs"); t.innerHTML="";
+  L.forEach(function(l,i){ var b=document.createElement("button");
+    b.className="tab"+(i+1===cur?" on":""); b.textContent=(i+1);
+    b.onclick=function(){cur=i+1;render();}; t.appendChild(b); });
+  var d=L[cur-1];
+  document.getElementById("out").innerHTML='<div class="lesson"><div class="lh"><div class="num">Урок ' + (124+cur)+' · Глава 10.5 · AI в разработке · Расширенная версия</div><h2>'+d.t+'</h2><div class="goal">🎯 '+d.g+'</div></div><div class="lb">'+d.c+'</div></div>';
+  document.getElementById("cnt").textContent="Урок "+cur+" из "+L.length;
+  window.scrollTo(0,0);
+}
+document.getElementById("prev").onclick=function(){ if(cur>1){cur--;render();} };
+document.getElementById("next").onclick=function(){ if(cur<L.length){cur++;render();} };
+render();
+</script>
+</body>
+</html>

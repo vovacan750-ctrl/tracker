@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Уроки 130–135 · Современные практики</title>
+<style>
+:root{--bg:#1a1d23;--card:#2a2f3a;--line:#3a4150;--txt:#e6e8ec;--muted:#9aa4b4;--acc:#6b73e8;--ok:#22c55e;--proc:#f59e0b;--code:#0d1117;--dark:#101828;--dark2:#1d2939;--edge:rgba(255,255,255,.09)}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--txt);font-size:14.5px;line-height:1.6}
+header{background:#101828;color:#fff;padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:sticky;top:0;z-index:50}
+header h1{margin:0;font-size:16px}header .sub{color:#98a2b3;font-size:12px}
+header .cnt{margin-left:auto;font-size:12px;color:#cbd5e1;font-weight:600}
+.wrap{max-width:900px;margin:0 auto;padding:20px 16px 70px}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:var(--card);border-radius:7px;padding:5px 9px;font-size:12px;cursor:pointer;font-weight:600;color:var(--muted)}
+.tab:hover{border-color:#5a6170}.tab.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.lesson{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.lh{padding:20px 24px 14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#252a35,#1a1d23)}
+.lh .num{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--acc);font-weight:700}
+.lh h2{margin:4px 0 0;font-size:23px;letter-spacing:-.02em;line-height:1.25;color:#fff}
+.lh .goal{margin-top:6px;font-size:13px;color:var(--muted)}
+.lb{padding:4px 24px 24px}
+.lb h3{font-size:12.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--acc);margin:24px 0 9px;font-weight:700;padding-bottom:5px;border-bottom:2px solid #2d3140}
+.lb h4{font-size:15.5px;margin:18px 0 6px;color:#fff}
+.lb p{margin:0 0 12px;line-height:1.75}
+.lb ul,.lb ol{margin:0 0 13px;padding-left:21px}
+.lb li{margin-bottom:6px;line-height:1.68}
+.lb strong{color:#fff}
+.lb code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.87em;background:#3a4150;padding:1px 5px;border-radius:4px;color:#a5b4fc}
+.lb pre{background:var(--code);color:#e6edf7;padding:13px 15px;border-radius:9px;border:1px solid #1a1d23;overflow-x:auto;font-size:12.2px;line-height:1.5;font-family:"SF Mono",Menlo,Consolas,monospace;margin:0 0 13px}
+.lb pre code{background:none;padding:0;color:inherit}
+.lb table{width:100%;border-collapse:collapse;margin:0 0 13px;font-size:12.8px}
+.lb th{background:#252a35;text-align:left;padding:8px 10px;border:1px solid var(--line);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.lb td{padding:8px 10px;border:1px solid var(--line);vertical-align:top;line-height:1.5}
+.lb figure{margin:0 0 16px}
+.lb figure svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:#252a35}
+.lb figcaption{margin-top:6px;font-size:12.2px;color:var(--muted);line-height:1.5}
+.lb figcaption b{color:#cbd5e1}
+.term{background:#2d2540;border-left:4px solid #8b5cf6;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px}
+.term-t{font-weight:700;font-size:12.5px;color:#a78bfa;margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.term dl{margin:0}
+.term dt{font-weight:700;color:#c4b5fd;font-size:13.5px;margin-top:6px}
+.term dd{margin:2px 0 0 0;font-size:13.5px;line-height:1.6;color:#d8b4fe}
+.why{background:#252a40;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7;color:var(--txt)}
+.why-t{font-weight:700;font-size:12.5px;color:#a5b4fc;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.life{background:#1e2d25;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7;color:var(--txt)}
+.life-t{font-weight:700;font-size:12.5px;color:#4ade80;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.risk{background:#2d2020;border-left:4px solid #ef4444;border-radius:0 10px 10px 0;padding:12px 15px;margin:0 0 14px;font-size:13.5px;line-height:1.7;color:var(--txt)}
+.risk-t{font-weight:700;font-size:12.5px;color:#f87171;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.task{background:#252a35;border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:0 11px 11px 0;padding:13px 15px;margin:0 0 13px}
+.task-h{font-weight:700;font-size:14.5px;margin-bottom:4px;color:#fff}
+.task-why{font-size:12.8px;color:var(--muted);margin-bottom:9px;line-height:1.55}
+.steps{margin:0;padding-left:0;list-style:none;counter-reset:st}
+.steps li{position:relative;padding-left:32px;margin-bottom:8px;line-height:1.6;font-size:13.2px;counter-increment:st;color:var(--txt)}
+.steps li::before{content:counter(st);position:absolute;left:0;top:0;width:21px;height:21px;background:var(--acc);color:#fff;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.task-r{margin-top:10px;padding-top:9px;border-top:1px dashed #4a5160;font-size:12.8px;color:var(--ok);font-weight:600}
+.warn{background:#2d2615;border-left:4px solid var(--proc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.warn-t{font-weight:700;font-size:12.5px;color:#fbbf24;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.warn ul{margin:0;padding-left:19px}.warn li{font-size:13.2px;margin-bottom:4px;color:var(--txt)}
+.check{background:#1e2d25;border-left:4px solid var(--ok);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px}
+.check-t{font-weight:700;font-size:12.5px;color:#4ade80;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.check ol{margin:0;padding-left:19px}.check li{font-size:13.2px;margin-bottom:4px;color:var(--txt)}
+.note{background:#252a40;border-left:4px solid var(--acc);border-radius:0 10px 10px 0;padding:11px 14px;margin:0 0 13px;font-size:13.5px;color:var(--txt)}
+.navb{display:flex;gap:9px;margin-top:16px}.navb .sp{flex:1}
+.btn{border:1px solid var(--line);background:var(--card);padding:8px 14px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600;font-family:inherit;color:var(--txt)}
+.btn:hover{background:#323845}.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+@media(max-width:700px){.lh,.lb{padding-left:15px;padding-right:15px}.lh h2{font-size:20px}}
+</style>
+</head>
+<body>
+<header><h1>🚀 Уроки 130–135 · Современные практики</h1><span class="sub">TypeScript · тесты · Telegram Mini Apps · PWA</span><span class="cnt" id="cnt"></span></header>
+<div class="wrap"><div class="tabs" id="tabs"></div><div id="out"></div>
+<div class="navb"><button class="btn" id="prev">← Предыдущий</button><span class="sp"></span><button class="btn pri" id="next">Следующий →</button></div></div>
+<script>
+var L=[
+{t:"TypeScript: основы",g:"Писать JavaScript так, чтобы ошибки ловились до запуска.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>TypeScript</strong> — это JavaScript с типами. Вы заранее описываете, какие данные бывают, и компилятор ловит ошибки <strong>до запуска</strong> кода. TypeScript часто выбирают в крупных или типизированных проектах; React, Next.js, Vue и Node.js поддерживают TS, но не требуют его. Решение зависит от команды, кода и ограничений проекта. Проверь документацию версии на дату публикации.</p>
+<p>Главная выгода: редактор подсказывает методы, ругается на опечатки в именах свойств, не даёт передать строку туда, где ждём число. Типы могут сократить часть ошибок на этапе разработки, но не ловят все ошибки времени выполнения и не заменяют проверку внешних данных, например JSON/API.</p>
+
+<h3>Простым языком</h3>
+<p>TypeScript — как договор на работе: вы заранее договорились, что функция принимает <code>number</code> и возвращает <code>string</code>. Если кто-то передаст строку — компилятор скажет «нет, по договору число». Это и есть типизация.</p>
+<p>TS компилируется в обычный JS — браузер и Node.js не понимают TS напрямую. Компилятор (<code>tsc</code>) переводит TS → JS, попутно проверяя типы. На выходе — чистый JS, который работает везде.</p>
+
+<h3>Базовые типы</h3>
+<pre>// Переменные
+const name: string = "Анна";
+const age: number = 30;
+const isActive: boolean = true;
+const ids: number[] = [1, 2, 3];
+const tuple: [string, number] = ["Анна", 30];
+
+// Функция — типы аргументов и возвращаемого значения
+function greet(name: string): string {
+  return "Привет, " + name;
+}
+
+// Стрелочная функция
+const add = (a: number, b: number): number => a + b;
+
+// void — функция ничего не возвращает
+function log(message: string): void {
+  console.log(message);
+}</pre>
+
+<h3>Объекты и интерфейсы</h3>
+<pre>// Описываем форму объекта
+interface User {
+  id: number;
+  name: string;
+  email?: string;        // ? — необязательное поле
+  readonly createdAt: Date;  // readonly — нельзя менять
+}
+
+// Используем
+const user: User = {
+  id: 1,
+  name: "Анна",
+  createdAt: new Date()
+};
+
+// user.id = 2;  ← ошибка: readonly
+// user.email → undefined (необязательное)</pre>
+
+<h3>Полезные типы</h3>
+<pre>// Union — один из вариантов
+type Status = "active" | "inactive" | "banned";
+const s: Status = "active";   // только эти 3 значения
+
+// Type и interface пересекаются, но не идентичны: interface поддерживает declaration merging и удобно расширяется,
+// а type выражает union/conditional-типы; выбор зависит от модели данных
+type Point = { x: number; y: number };
+
+// Generic — обобщение
+function first&lt;T&gt;(arr: T[]): T | undefined {
+  return arr[0];
+}
+first([1, 2, 3]);        // number
+first(["a", "b"]);       // string
+
+// Record — словарь
+const prices: Record&lt;string, number&gt; = {
+  apple: 50,
+  banana: 30
+};
+
+// Pick / Omit — выбрать или убрать поля
+type UserPreview = Pick&lt;User, "id" | "name"&gt;;
+type UserWithoutEmail = Omit&lt;User, "email"&gt;;</pre>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Тип (type)</dt><dd>Описание формы данных: string, number, User.</dd>
+<dt>Интерфейс (interface)</dt><dd>Описание формы объекта, можно расширять.</dd>
+<dt>Generic</dt><dd>Обобщение: функция работает с любым типом, но согласованно.</dd>
+<dt>Union</dt><dd>Объединение типов: <code>"a" | "b" | "c"</code>.</dd>
+<dt>Аннотация типа</dt><dd>Явное указание: <code>let x: number</code>.</dd>
+<dt>Выведение (inference)</dt><dd>TS сам понял тип из значения: <code>let x = 5</code> → number.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему TS, а не только JSDoc? Оба подхода могут устареть; TypeScript обычно даёт более системную проверку и tooling, а выбор зависит от проекта. Почему <code>interface</code>, а не <code>type</code>? Interface расширяется (<code>extends</code>) и отображается в подсказках красивее. Почему не указывать типы везде? TS сам выведет многие — пишите типы там, где неоднозначно (аргументы функций, возвращаемые значения).</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>TypeScript — как паспортный контроль в аэропорту: проверяет всё заранее, не пускает с проблемными документами. Дольше на старте — зато внутри страны (в продакшене) нет сюрпризов. JavaScript — как переход границы по удостоверению: быстро, но если ошиблись — выяснится уже в пути.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>any везде</strong> — теряете всю пользу TS. <strong>Не запускать tsc в CI</strong> — типы есть в коде, но никто не проверяет. <strong>Сложные generic ради красоты</strong> — код невозможно читать. <strong>Забыли tsconfig.json</strong> — строгий режим (strict) не включён, типы работают вполсилы.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Перевести функцию на TypeScript</div>
+<div class="task-why">Зачем: первый реальный опыт типизации.</div>
+<ol class="steps">
+<li>Возьми функцию groupByCategory из урока 49 (массивы).</li>
+<li>Создай тип Product: { id: number; name: string; price: number; category: string }.</li>
+<li>Типизируй функцию: аргумент <code>Product[]</code>, возврат <code>Record&lt;string, Product[]&gt;</code>.</li>
+<li>Запусти <code>npx tsc --noEmit</code> — должны быть 0 ошибок.</li>
+<li>Попробуй передать строку вместо массива — убедись, что TS ругается.</li>
+<li>Включи strict в tsconfig.json, исправь ошибки.</li>
+</ol>
+<div class="task-r">Результат: первая типизированная функция.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>any как «не знаю тип».</strong> Лучше unknown или правильно типизировать.</li>
+<li><strong>Не включать strict.</strong> Половина проверок отключена.</li>
+<li><strong>Игнорировать ошибки tsc.</strong> Их можно подавить, но не нужно.</li>
+<li><strong>Типы ради типов.</strong> Если тип очевиден — не пишите его.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем TypeScript отличается от JavaScript?</li>
+<li>Что такое interface и чем он отличается от type?</li>
+<li>Зачем generic?</li>
+<li>Что такое union-тип?</li>
+<li>Почему any — плохая практика?</li></ol></div>
+`},
+
+{t:"TypeScript в React",g:"Типизировать компоненты, props и хуки.",c:`
+<h3>Зачем этот урок</h3>
+<p>TypeScript популярен и хорошо поддерживается в React, но не обязателен. Он помогает проверять props и состояние на этапе разработки, однако не проверяет данные API во время выполнения. IDE автоматически дополняет типы, если проект настроен соответствующим образом. Проверь документацию версии на дату публикации.</p>
+
+<h3>Простым языком</h3>
+<p>Когда вы пишете компонент <code>&lt;Button /&gt;</code>, вы договариваетесь, какие props он принимает: <code>label: string</code>, <code>onClick: () =&gt; void</code>, <code>variant?: "primary" | "ghost"</code>. Если кто-то передаст <code>variant="purple"</code> — TS скажет «такого варианта нет». Это и есть типизация React-компонентов.</p>
+
+<h3>Типизация функционального компонента</h3>
+<pre>// Самый частый способ — типизировать props напрямую
+function Button({ label, onClick, variant }: ButtonProps) {
+  return (
+    &lt;button className={variant} onClick={onClick}&gt;
+      {label}
+    &lt;/button&gt;
+  );
+}
+
+// Описание props
+type ButtonProps = {
+  label: string;
+  onClick: () =&gt; void;
+  variant?: "primary" | "secondary" | "ghost";  // optional
+  disabled?: boolean;
+};
+
+// Использование
+&lt;Button label="Отправить" onClick={handleClick} variant="primary" /&gt;
+&lt;Button label="Отмена" onClick={handleCancel} /&gt;  // variant = undefined</pre>
+
+<h3>Children и события</h3>
+<pre>import type { ReactNode, MouseEvent } from "react";
+
+type CardProps = {
+  children: ReactNode;          // любой JSX-контент
+  onClick?: (e: MouseEvent&lt;HTMLDivElement&gt;) =&gt; void;
+};
+
+function Card({ children, onClick }: CardProps) {
+  return &lt;div onClick={onClick}&gt;{children}&lt;/div&gt;;
+}</pre>
+
+<h3>Хуки с типами</h3>
+<pre>// useState — тип выводится из начального значения
+const [count, setCount] = useState(0);           // number
+const [name, setName] = useState("");            // string
+
+// Явно, если начальное значение null/undefined
+const [user, setUser] = useState&lt;User | null&gt;(null);
+
+// useReducer — типизируем state и action
+type State = { count: number };
+type Action = { type: "inc" } | { type: "dec" };
+
+function reducer(state: State, action: Action): State {
+  switch (action.type) {
+    case "inc": return { count: state.count + 1 };
+    case "dec": return { count: state.count - 1 };
+    default: throw new Error("Неизвестное действие reducer");
+  }
+}</pre>
+
+<h3>Server Components + типы</h3>
+<pre>// app/products/page.tsx — серверный компонент
+import { Product } from "@/types";
+
+export default async function ProductsPage(): Promise&lt;JSX.Element&gt; {
+  const products: Product[] = await getProducts();
+  return &lt;ProductList items={products} /&gt;;
+}
+
+// types/index.ts — общие типы на проект
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+  category: string;
+}</pre>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Props-тип</dt><dd>Описание props компонента: type или interface.</dd>
+<dt>ReactNode</dt><dd>Любой контент, который можно отрендерить: строка, число, JSX, массив.</dd>
+<dt>FC (FunctionComponent)</dt><dd>Допустимый тип React; часто предпочитают обычную функцию, потому что она не добавляет неявные props и проще читается. Проверь документацию версии на дату публикации.</dd>
+<dt>Generic-компонент</dt><dd>Компонент, тип которого зависит от prop: &lt;T,&gt;.</dd>
+<dt>Utility-типы React</dt><dd>ComponentProps, PropsWithChildren, FC — встроенные помощники.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему <code>type</code>, а не <code>interface</code> для props? Type компактнее, можно использовать Union. Почему <code>ReactNode</code>, а не <code>any</code> для children? ReactNode даёт автодополнение и проверку. Почему часто не используют <code>React.FC</code>? Обычная функция явно описывает props и проще читается; <code>React.FC</code> всё ещё поддерживается. Выбор зависит от соглашений проекта. Почему общие типы в <code>types/index.ts</code>? Переиспользование между компонентами и API.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Типизированный компонент — как товар на полке с ценником и составом: видно, что внутри, сколько стоит, кому подходит. Нетипизированный — как товар без упаковки: попробуй разберись, что это и как использовать. Стоимость ошибок и пользу типов оценивайте по своему проекту; универсального процента экономии нет.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Props без типа</strong> — нет автодополнения, опечатки не ловятся. <strong>any в props</strong> — теряете всю пользу TS. <strong>Не типизировать useState с null</strong> — потом <code>user.name</code> ругается, что user может быть null. <strong>Event без типа</strong> — <code>e.target.value</code> не подсказывается. <strong>Смешивать type и interface хаотично</strong> — команда путается.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Типизировать ProductCard</div>
+<div class="task-why">Зачем: реальный кейс, который вы будете делать в каждом проекте.</div>
+<ol class="steps">
+<li>Создай тип Product: id, name, price, oldPrice?, image, category.</li>
+<li>Создай компонент ProductCard с props: product: Product, onAddToCart: (id: number) =&gt; void.</li>
+<li>Добавь скидку: если oldPrice есть, показывай зачёркнутым.</li>
+<li>Создай массив продуктов, отрисуй через map.</li>
+<li>Проверь: передай product без image — TS должен ругаться.</li>
+<li>Попробуй вызвать onAddToCart("строка") — TS не даст.</li>
+</ol>
+<div class="task-r">Результат: типизированный каталог на React.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>useState без типа с null.</strong> Всегда указывайте useState&lt;T | null&gt;.</li>
+<li><strong>Event без типа.</strong> Используйте MouseEvent, ChangeEvent.</li>
+<li><strong>Props без детей.</strong> Если children — типизируйте как ReactNode.</li>
+<li><strong>API-ответ без типа.</strong> Создайте тип под ответ сервера.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем type отличается от interface для props?</li>
+<li>Что такое ReactNode и зачем?</li>
+<li>Как типизировать useState с null?</li>
+<li>Почему часто предпочитают обычную функцию вместо React.FC?</li>
+<li>Где хранить общие типы на проекте?</li></ol></div>
+`},
+
+{t:"Vitest: unit-тесты для JS и React",g:"Проверять функции и компоненты автоматически, без ручной работы.",c:`
+<h3>Зачем этот урок</h3>
+<p>Тесты — это страховка. Каждый раз, когда вы меняете код, тесты прогоняются и говорят: «ты сломал вот это». Без тестов вы ловите баги в продакшене, с тестами — за 5 секунд на своём компьютере. Объём тестов зависит от риска, продукта и команды; во многих проектах тесты повышают уверенность, но не гарантируют отсутствие production-багов.</p>
+<p><strong>Vitest</strong> — современный фреймворк тестов от создателей Vite. Часто удобно в проектах на Vite; совместимость, скорость и настройка зависят от версий. Проверь документацию версии на дату публикации.</p>
+
+<h3>Простым языком</h3>
+<p>Unit-тест — это маленькая проверка одной функции. «Если передать 2 и 3 в <code>add</code>, должно получиться 5». Если получилось — тест зелёный, нет — красный. Когда вы меняете <code>add</code>, тест прогоняется автоматически и сразу показывает, не сломали ли вы.</p>
+
+<h3>Базовый пример</h3>
+<pre>// math.ts — функция, которую тестируем
+export function add(a: number, b: number): number {
+  return a + b;
+}
+
+// math.test.ts — тест
+import { describe, it, expect } from "vitest";
+import { add } from "./math";
+
+describe("add", () =&gt; {
+  it("складывает два числа", () =&gt; {
+    expect(add(2, 3)).toBe(5);
+  });
+
+  it("работает с отрицательными", () =&gt; {
+    expect(add(-1, -1)).toBe(-2);
+  });
+
+  it("возвращает 0 для 0+0", () =&gt; {
+    expect(add(0, 0)).toBe(0);
+  });
+});</pre>
+
+<h3>Запуск</h3>
+<pre># Установка (версии проверь по документации проекта на дату публикации)
+npm install -D vitest @testing-library/react @testing-library/user-event @testing-library/jest-dom jsdom
+
+# Запуск всех тестов
+npx vitest
+
+# Запуск в режиме watch (перезапуск при изменениях)
+npx vitest --watch</pre>
+
+<h3>Тестирование React-компонентов</h3>
+<pre>// Button.test.tsx
+import { vi } from "vitest";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { Button } from "./Button";
+
+it("вызывает onClick при клике", async () =&gt; {
+  const onClick = vi.fn();   // mock-функция
+  render(&lt;Button label="Отправить" onClick={onClick} /&gt;);
+
+  await userEvent.click(screen.getByText("Отправить"));
+
+  expect(onClick).toHaveBeenCalledTimes(1);
+});
+
+it("показывает label", () =&gt; {
+  render(&lt;Button label="Сохранить" onClick={() =&gt; {}} /&gt;);
+  expect(screen.getByText("Сохранить")).toBeInTheDocument();
+});</pre>
+
+<h3>Что проверять тестами</h3>
+<table><tr><th>Что</th><th>Пример</th><th>Зачем</th></tr>
+<tr><td>Чистые функции</td><td>add, formatPrice, validateEmail</td><td>Просто и быстро</td></tr>
+<tr><td>Краевые случаи</td><td>Пустой массив, null, деление на 0</td><td>Где бывают баги</td></tr>
+<tr><td>UI компоненты</td><td>Клик по кнопке вызывает callback</td><td>Контракт компонента</td></tr>
+<tr><td>Валидацию форм</td><td>Неверный email → ошибка</td><td>Критично для бизнеса</td></tr>
+</table>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Unit-тест</dt><dd>Проверка одной функции или компонента изолированно.</dd>
+<dt>Integration-тест</dt><dd>Проверка нескольких функций вместе.</dd>
+<dt>Mock</dt><dd>Подмена функции фейком для изоляции.</dd>
+<dt>Coverage</dt><dd>Покрытие — процент кода, покрытого тестами.</dd>
+<dt>Snapshot-тест</dt><dd>Запоминает JSX/HTML и сравнивает при изменениях.</dd>
+<dt>describe/it/expect</dt><dd>Блоки организации тестов в Vitest/Jest.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему Vitest, а не Jest? Vitest быстрее, работает с Vite/ESM без настройки, API совместим с Jest. Почему тестируем через <code>screen.getByText</code>, а не через DOM напрямую? Это имитирует поведение пользователя — он ищет по тексту, не по классам. Почему мокаем колбэк, а не вызываем реальный? Изоляция: тестируем только кнопку, а не то, что произойдёт в обработчике.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>Тесты — как ремень безопасности: не помогают ехать быстрее, но спасают при аварии. Сначала кажется лишним — потом, когда одна правка ломает 5 мест и тест ловит это за секунду, понимаешь ценность. Набор тестов выбирают по риску: для критичных сценариев автоматические проверки особенно полезны, но тесты требуют поддержки и не заменяют ручную проверку.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Тесты ради coverage</strong> — покрывают 90%, но не проверяют важное. <strong>Тесты с реальным API</strong> — медленные и ломаются, когда сервер недоступен. <strong>Тестируют реализацию, а не поведение</strong> — при рефакторинге все тесты падают. <strong>Один тест на 200 строк</strong> — сложно понять, что сломалось.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Написать 5 тестов для готовой функции</div>
+<div class="task-why">Зачем: первый реальный опыт unit-тестирования.</div>
+<ol class="steps">
+<li>Возьми функцию isValidPhone из урока 53.</li>
+<li>Установи Vitest: npm install -D vitest.</li>
+<li>Создай isValidPhone.test.ts.</li>
+<li>Напиши 5 тестов: корректный номер, без 7 в начале, слишком короткий, с пробелами, пустой.</li>
+<li>Запусти npx vitest — все зелёные?</li>
+<li>Сломай функцию (измени regex) — убедись, что тесты падают.</li>
+</ol>
+<div class="task-r">Результат: первая функция с автотестами.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Тесты ради галочки.</strong> Покрытие ≠ качество.</li>
+<li><strong>Реальные API в тестах.</strong> Мокайте всё внешнее.</li>
+<li><strong>Слишком умные тесты.</strong> Один тест — одно поведение.</li>
+<li><strong>Не запускать в CI.</strong> Тесты должны идти автоматически.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем Vitest лучше Jest?</li>
+<li>Что такое mock и зачем?</li>
+<li>Чем unit отличается от integration-теста?</li>
+<li>Почему не стоит вызывать реальный API в тестах?</li>
+<li>Что показывает coverage?</li></ol></div>
+`},
+
+{t:"Playwright: e2e-тесты для сайта",g:"Проверять ключевые сценарии пользователя автоматически.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>End-to-end (e2e) тесты</strong> — это симуляция реального пользователя. Браузер открывается, «кликает» по кнопкам, заполняет формы, переходит между страницами. Если что-то сломалось — вы узнаёте до того, как клиент позвонит с жалобой.</p>
+<p><strong>Playwright</strong> — современный фреймворк от Microsoft. Запускает движки Chromium, Firefox и WebKit (приближение Safari на уровне движка), поддерживает параллельные тесты и понятные ошибки. Проверь документацию версии на дату публикации. Vitest проверяет функции, Playwright — весь сайт целиком.</p>
+
+<h3>Простым языком</h3>
+<p>Unit-тест проверяет: «функция add(2,3) вернёт 5». E2e-тест проверяет: «пользователь открыл корзину, нажал "Оформить заказ", заполнил форму, нажал "Оплатить" — увидел "Спасибо за заказ"». Это полный сценарий, как делает живой человек.</p>
+
+<h3>Установка и первый тест</h3>
+<pre># Установка
+npm init playwright@latest
+
+# Создаст playwright.config.ts, tests/, примеры
+
+# Запуск всех тестов
+npx playwright test
+
+# Запуск с UI (визуально)
+npx playwright test --ui
+
+# Запуск конкретного файла
+npx playwright test tests/checkout.spec.ts</pre>
+
+<h3>Пример: тест формы заявки</h3>
+<pre>// tests/contact.spec.ts
+import { test, expect } from "@playwright/test";
+
+test("пользователь отправляет заявку", async ({ page }) =&gt; {
+  // 1. Открываем страницу
+  await page.goto("http://localhost:3000/contacts");
+
+  // 2. Заполняем форму
+  await page.fill("[name=name]", "Анна");
+  await page.fill("[name=phone]", "+79991234567");
+  await page.fill("[name=message]", "Хочу заказать сайт");
+
+  // 3. Нажимаем «Отправить»
+  await page.click("button[type=submit]");
+
+  // 4. Проверяем, что появился успех
+  await expect(page.locator(".success")).toHaveText("Заявка отправлена");
+});</pre>
+
+<h3>Пример: тест оформления заказа</h3>
+<pre>test("полный цикл покупки", async ({ page }) =&gt; {
+  await page.goto("/");
+
+  // Добавляем товар в корзину
+  await page.click(".product:first-child .add-to-cart");
+
+  // Переходим в корзину
+  await page.click(".go-to-cart");
+  await expect(page).toHaveURL(/\/cart/);
+
+  // Оформляем
+  await page.click(".checkout-button");
+
+  // Заполняем данные
+  await page.fill("[name=email]", "test@example.com");
+  await page.fill("[name=address]", "Москва, ул. Тверская, 1");
+
+  // Подтверждаем
+  await page.click(".place-order");
+
+  // Проверяем страницу успеха
+  await expect(page.locator("h1")).toHaveText("Заказ оформлен");
+});</pre>
+
+<h3>Что тестировать e2e</h3>
+<table><tr><th>Сценарий</th><th>Зачем</th></tr>
+<tr><td>Регистрация и вход</td><td>Без этого ничего не работает</td></tr>
+<tr><td>Поиск товара и покупка</td><td>Главный путь пользователя</td></tr>
+<tr><td>Оформление заявки с формы</td><td>Лиды — деньги бизнеса</td></tr>
+<tr><td>Оплата тестовой картой</td><td>Критичный сценарий</td></tr>
+<tr><td>Адаптив на мобильных</td><td>Проверяйте по аналитике конкретного сайта и целевым устройствам</td></tr>
+</table>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>E2e-тест</dt><dd>End-to-end — проверка всего сценария от начала до конца.</dd>
+<dt>Selector</dt><dd>Селектор — как найти элемент: по тексту, role, data-testid.</dd>
+<dt>Locator</dt><dd>Playwright-объект для поиска элемента, ленивый.</dd>
+<dt>Fixture</dt><dd>Подготовленное окружение: страница, контекст, моки.</dd>
+<dt>Trace</dt><dd>Запись всех действий для отладки упавшего теста.</dd>
+<dt>Visual regression</dt><dd>Сравнение скриншотов: изменился ли UI.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему Playwright, а не Cypress? Возможности, скорость и поддержка браузеров зависят от версии и конфигурации; сравнивайте их по требованиям проекта и документации на дату публикации. Почему пользовательские локаторы предпочтительнее классов? <code>getByRole</code> и <code>getByLabel</code> ближе к поведению пользователя, а <code>data-testid</code> — явный стабильный контракт, когда он нужен. Locator и assertions имеют auto-wait/retry, но JavaScript-промисы нужно явно ожидать: <code>await page.getByRole(...).click()</code>. Проверь рекомендации по локаторам в документации версии на дату публикации.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>E2e-тесты — как охранник, который раз в час обходит здание и проверяет все двери. Не заменяет программиста, но если кто-то оставил открытой дверь — сообщит. Unit-тесты проверяют замки на дверях, e2e — что вся система безопасности работает вместе.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Тестировать каждый чих</strong> — тесты идут 30 минут, никто не запускает. <strong>CSS-селекторы вместо data-testid</strong> — сломалось при ребрендинге. <strong>Реальная база данных в тестах</strong> — тесты мутируют продакшен. <strong>Не закрывать браузеры</strong> — утечка памяти, тесты падают. <strong>Один тест = много шагов</strong> — непонятно, где упало.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Написать e2e-тест для формы</div>
+<div class="task-why">Зачем: первый реальный опыт e2e-тестирования.</div>
+<ol class="steps">
+<li>Установи Playwright: npm init playwright@latest.</li>
+<li>Открой свой проект лендинга из урока 62 локально.</li>
+<li>Создай tests/contact.spec.ts.</li>
+<li>Напиши тест: открытие → заполнение формы → отправка → проверка успеха.</li>
+<li>Запусти npx playwright test --ui — посмотри визуально.</li>
+<li>Сломай форму (удали поле) — убедись, что тест падает.</li>
+</ol>
+<div class="task-r">Результат: первый e2e-тест на реальном проекте.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Хрупкие CSS-селекторы.</strong> Сначала используйте <code>getByRole</code>, <code>getByLabel</code> и другие пользовательские локаторы; <code>getByTestId</code> — явный контракт, когда роль или имя недоступны.</li>
+<li><strong>Тесты без await.</strong> Playwright требует await.</li>
+<li><strong>Реальные данные.</strong> Используйте тестовую базу.</li>
+<li><strong>Длинные тесты.</strong> Разделяйте независимые результаты, но критический checkout smoke-тест может быть сквозным; изолируйте данные.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Чем e2e отличается от unit-теста?</li>
+<li>Почему Playwright, а не Cypress?</li>
+<li>Зачем data-testid вместо классов?</li>
+<li>Что такое trace и когда использовать?</li>
+<li>Какие сценарии обязательно покрывать e2e?</li></ol></div>
+`},
+
+{t:"Telegram Mini Apps: веб-приложения в Telegram",g:"Создавать полноценные веб-приложения внутри Telegram.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>Telegram Mini Apps (TMA)</strong> — это веб-страницы, которые открываются прямо внутри Telegram. Пользователь не уходит из мессенджера, не устанавливает приложение. Один клик по кнопке бота — открылся ваш сайт в виде «приложения».</p>
+<p>В 2025 году TMA — огромный тренд в РФ: после блокировок западных сервисов аудитория и доступность сервисов меняются; не используйте неподтверждённые числовые оценки без даты, методики и независимого источника. Мини-аппы делают магазины, каталоги, CRM, игры, сервисы записи.</p>
+
+<h3>Простым языком</h3>
+<p>TMA — это обычный ваш сайт, который Telegram открывает в WebView (встроенном браузере). Сайту доступны данные пользователя (имя, username), тема Telegram (тёмная/светлая), кнопка «Назад», оплата. Похоже на PWA, но внутри Telegram.</p>
+
+<h3>Что нужно для TMA</h3>
+<ol>
+<li><strong>Бот в BotFather</strong> — создаёте бота, получаете токен.</li>
+<li><strong>Веб-приложение</strong> — обычный сайт (React/Vue/vanilla JS), где-то хостится.</li>
+<li><strong>Web App URL</strong> — в BotFather указываете URL вашего сайта.</li>
+<li><strong>Кнопка запуска</strong> — пользователь жмёт кнопку в боте → открывается ваш сайт.</li>
+</ol>
+
+<h3>Доступ к данным пользователя</h3>
+<pre>// Подключаем SDK
+&lt;script src="https://telegram.org/js/telegram-web-app.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+const tg = window.Telegram.WebApp;
+
+// Данные пользователя (после init)
+const user = tg.initDataUnsafe?.user; // только для UI, не для авторизации
+console.log(user?.first_name);
+
+// Передавайте сырую строку на backend по HTTPS; backend проверяет HMAC/auth_date.
+const initData = tg.initData;
+fetch("/api/session", {
+  method: "POST", headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ initData })
+}).then(res =&gt; {
+  if (!res.ok) throw new Error("Не удалось проверить сессию");
+  return res.json();
+});
+
+// Тема Telegram — подстраиваемся автоматически
+console.log(tg.colorScheme);     // "light" | "dark"
+
+// Главная кнопка внизу экрана
+tg.MainButton.setText("Отправить заявку");
+tg.MainButton.show();
+tg.MainButton.onClick(() =&gt; {
+  tg.sendData(JSON.stringify({ name: "Анна", phone: "+79991234567" }));
+});
+
+// Кнопка «Назад» (мобильные)
+tg.BackButton.show();
+tg.BackButton.onClick(() =&gt; history.back());
+
+// Закрыть приложение
+tg.close();
+&lt;/script&gt;</pre>
+
+<h3>Проверка initData на backend (Node.js, схематично)</h3>
+<pre>import crypto from "node:crypto";
+
+function validateInitData(initData: string, botToken: string, maxAge = 86400) {
+  const params = new URLSearchParams(initData);
+  const hash = params.get("hash");
+  const authDate = Number(params.get("auth_date"));
+  if (!hash || !Number.isFinite(authDate) || Date.now()/1000 - authDate &gt; maxAge) throw new Error("Недействительные данные");
+  params.delete("hash");
+  const dataCheckString = [...params.entries()].sort(([a], [b]) =&gt; a.localeCompare(b)).map(([k,v]) =&gt; `\${k}=\${v}`).join("\n");
+  const secret = crypto.createHmac("sha256", "WebAppData").update(botToken).digest();
+  const expected = crypto.createHmac("sha256", secret).update(dataCheckString).digest("hex");
+  if (expected.length !== hash.length || !crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(hash))) throw new Error("HMAC не совпал");
+  return Object.fromEntries(new URLSearchParams(initData));
+}
+// botToken — только секрет backend. Добавьте nonce/idempotency для операций заказа.</pre>
+
+<h3>Пример: мини-апп каталога товаров</h3>
+<pre>// React-компонент
+import { useEffect } from "react";
+import WebApp from "@twa-dev/sdk";
+
+export default function Catalog() {
+  useEffect(() =&gt; {
+    WebApp.MainButton.setText("Купить");
+    WebApp.MainButton.show();
+    WebApp.MainButton.onClick(() =&gt; {
+      const res = await fetch("/api/orders", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ initData: WebApp.initData, productId: 42 })
+      });
+      if (!res.ok) throw new Error("Заказ не создан");
+      // productId, цена, пользователь и права проверяются только на backend.
+    });
+  }, []);
+
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Каталог&lt;/h1&gt;
+      &lt;ProductCard /&gt;
+    &lt;/div&gt;
+  );
+}</pre>
+
+<h3>Когда TMA подходит, а когда нет</h3>
+<table><tr><th>Подходит</th><th>Не подходит</th></tr>
+<tr><td>Каталоги, заказы, запись</td><td>Сложные приложения с heavy-графикой</td></tr>
+<tr><td>CRM и формы для менеджеров</td><td>Сайты с большим контентом для чтения</td></tr>
+<tr><td>Промо-акции, игры</td><td>Когда нужна SEO-видимость</td></tr>
+<tr><td>Допродажа внутри Telegram-канала</td><td>Когда важна аутентификация вне Telegram</td></tr>
+</table>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Mini App / TMA</dt><dd>Telegram Mini App — веб-приложение внутри Telegram.</dd>
+<dt>BotFather</dt><dd>Официальный бот Telegram для создания других ботов.</dd>
+<dt>WebApp</dt><dd>Объект window.Telegram.WebApp — мост между сайтом и Telegram.</dd>
+<dt>initData</dt><dd>Сырая строка данных запуска, которую сервер должен проверить по HMAC и свежести; до проверки ей нельзя доверять.</dd>
+<dt>MainButton</dt><dd>Главная кнопка внизу экрана — главная CTA.</dd>
+<dt>BackButton</dt><dd>Кнопка «Назад» в шапке Telegram на мобильных.</dd>
+<dt>TMA SDK</dt><dd>Библиотека @twa-dev/sdk для удобной работы с WebApp.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>TMA удобен, когда сценарий связан с Telegram, но права и авторизацию приложение определяет после серверной проверки <code>initData</code>. <code>sendData</code> передаёт строку боту в поддерживаемом сценарии запуска, но не заменяет HMAC-проверку и не делает произвольный payload доверенным. Bot token хранится только на backend. Почему MainButton, а не своя кнопка на странице? MainButton — нативная, всегда видна, нажимается удобно на мобиле.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>TMA — как киоск в торговом центре: не нужно вести клиента в свой магазин через весь город. Клиент уже в Telegram — открыл ваш мини-апп в 2 клика, сделал заказ, закрыл. Без установки, без обязательной установки отдельного приложения; согласие, регистрация и права зависят от сервиса. Для оплаты и персональных данных правила нужно сверить с юристом и актуальным провайдером.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Не проверять initData на сервере</strong> — кто угодно подделает запрос. <strong>Долгая загрузка</strong> — пользователь закроет, не дождавшись. <strong>Не тестировать на iOS и Android</strong> — WebView разные, баги разные. <strong>Игнорировать тему Telegram</strong> — в тёмной теме ваш светлый сайт слепит. <strong>Забыть про MainButton.onClick</strong> — кнопка показана, но ничего не делает. <strong>Рассчитывать на sendData в любом сценарии</strong> — метод предназначен для Mini App, открытого через web_app-кнопку клавиатуры; для других способов запуска используй предусмотренный Telegram механизм и серверную проверку initData.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Сделать мини-апп формы заявки</div>
+<div class="task-why">Зачем: первый реальный TMA, который можно показать клиенту.</div>
+<ol class="steps">
+<li>Создай бота через @BotFather, получи токен.</li>
+<li>В BotFather: /newapp → укажи URL своего сайта (можно ngrok для локального).</li>
+<li>На сайте подключи telegram-web-app.js.</li>
+<li>Показывай имя из <code>initDataUnsafe</code> только как недоверенные UI-данные; для авторизации передавай сырую <code>initData</code> на backend, где проверяются HMAC, <code>auth_date</code>, пользователь и права.</li>
+<li>Сделай форму заявки, на отправку — tg.MainButton + sendData.</li>
+<li>Бот принимает данные, отправляет в CRM или Google Sheets.</li>
+<li>Протестируй на телефоне — должно открываться из Telegram.</li>
+</ol>
+<div class="task-r">Результат: рабочий Telegram Mini App.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Не проверять подпись initData.</strong> Любой подделает.</li>
+<li><strong>Тяжёлый сайт.</strong> Должен грузиться за 2 секунды.</li>
+<li><strong>Не подстраивать тему.</strong> Слепит в тёмной.</li>
+<li><strong>Забыть MainButton.</strong> Без неё CTA непонятен.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что такое Telegram Mini App?</li>
+<li>Как получить имя пользователя в TMA?</li>
+<li>Зачем проверять initData на сервере?</li>
+<li>Чем MainButton лучше обычной кнопки?</li>
+<li>Когда TMA НЕ подходит?</li></ol></div>
+`},
+
+{t:"PWA: установка сайта как приложение",g:"Сделать сайт устанавливаемым на телефон и компьютер.",c:`
+<h3>Зачем этот урок</h3>
+<p><strong>PWA (Progressive Web App)</strong> — сайт с progressive enhancement: при поддержке браузера и выполнении критериев его можно установить. Офлайн-режим, отдельное окно и push зависят от manifest, Service Worker, разрешений, платформы и выбранной стратегии; это не гарантируется одинаково везде. Условия магазинов и провайдеров меняются — проверь документацию версии на дату публикации.</p>
+<p>PWA может быть полезен для лендинга, магазина или CRM, если установка и offline-прогрессивное улучшение действительно нужны. Возможности и критерии различаются по браузерам и платформам; проверь документацию версии на дату публикации. Особенно актуально для РФ: после блокировок Google Play многие российские приложения уходят в PWA.</p>
+
+<h3>Простым языком</h3>
+<p>PWA — это сайт с manifest и, при необходимости, Service Worker для выбранных offline/cache-сценариев. Манифест необходим для части installability-критериев, но сам по себе не гарантирует установку или офлайн-работу. При успешной установке может открываться в standalone-режиме с иконкой; конкретное поведение зависит от платформы и браузера.</p>
+
+<h3>manifest.json — описание приложения</h3>
+<pre>{
+  "name": "Школа веб-разработки",
+  "short_name": "Школа",
+  "description": "Обучение созданию сайтов с нуля",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1d23",
+  "theme_color": "#6b73e8",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}</pre>
+
+<h3>Подключение в HTML</h3>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;link rel="manifest" href="/manifest.json"&gt;
+  &lt;meta name="theme-color" content="#6b73e8"&gt;
+  &lt;link rel="apple-touch-icon" href="/icons/icon-192.png"&gt;
+  &lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;
+  &lt;meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"&gt;
+&lt;/head&gt;
+&lt;body&gt;...&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<h3>Service Worker — офлайн-кэш</h3>
+<pre>// sw.js — отдельные стратегии; не кэшируйте персональные API-ответы
+const CACHE = "static-v2";
+const OFFLINE = "/offline.html";
+const ASSETS = ["/", "/index.html", OFFLINE, "/assets/styles.css", "/assets/app.js", "/icons/icon-192.png"];
+
+self.addEventListener("install", event =&gt; {
+  event.waitUntil(caches.open(CACHE).then(cache =&gt; cache.addAll(ASSETS)));
+  // skipWaiting() включайте только если UI совместим между версиями.
+});
+
+self.addEventListener("activate", event =&gt; {
+  event.waitUntil(caches.keys().then(keys =&gt; Promise.all(
+    keys.filter(key =&gt; key !== CACHE).map(key =&gt; caches.delete(key))
+  )).then(() =&gt; self.clients.claim()));
+});
+
+self.addEventListener("fetch", event =&gt; {
+  const req = event.request;
+  if (req.method !== "GET" || new URL(req.url).origin !== self.location.origin) return;
+  if (req.mode === "navigate") {
+    event.respondWith(fetch(req).catch(() =&gt; caches.match(OFFLINE)));
+    return;
+  }
+  event.respondWith(caches.match(req).then(cached =&gt; cached || fetch(req).then(res =&gt; {
+    if (!res.ok) return res;
+    const copy = res.clone();
+    caches.open(CACHE).then(cache =&gt; cache.put(req, copy));
+    return res;
+  })));
+});
+// Для API выберите отдельную network-first стратегию с TTL и без приватных данных.</pre>
+
+<h3>Регистрация SW в основном JS</h3>
+<pre>// app.js
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () =&gt; {
+    navigator.serviceWorker.register("/sw.js")
+      .then(reg =&gt; console.log("SW зарегистрирован", reg))
+      .catch(err =&gt; console.error("SW не зарегистрирован", err));
+  });
+}</pre>
+
+<h3>Что даёт PWA пользователю</h3>
+<table><tr><th>Фича</th><th>Без PWA</th><th>С PWA</th></tr>
+<tr><td>Иконка на рабочем столе</td><td>Не гарантируется</td><td>Возможна после установки</td></tr>
+<tr><td>Запуск без браузера</td><td>Зависит от платформы</td><td>Возможен в standalone при поддержке</td></tr>
+<tr><td>Работа офлайн</td><td>Зависит от приложения</td><td>Возможна для закэшированных ресурсов и выбранной стратегии</td></tr>
+<tr><td>Push-уведомления</td><td>Нет</td><td>Да</td></tr>
+<tr><td>Установка без App Store</td><td>Зависит от платформы</td><td>Возможна, правила различаются</td></tr>
+</table>
+
+<div class="term"><div class="term-t">Как это называется правильно</div>
+<dl>
+<dt>Manifest</dt><dd>JSON-файл с описанием приложения: иконки, имя, цвет.</dd>
+<dt>Service Worker</dt><dd>JS-файл, который работает в фоне, управляет кэшем и push.</dd>
+<dt>Installable</dt><dd>Сайт, который браузер предлагает установить.</dd>
+<dt>Standalone</dt><dd>Режим без адресной строки — выглядит как приложение.</dd>
+<dt>Maskable icon</dt><dd>Иконка, которую Android обрезает под любую форму.</dd>
+<dt>Installability audit</dt><dd>Проверка манифеста, secure context и условий установки в актуальных DevTools; критерии различаются по браузерам. Lighthouse PWA-аудит может быть недоступен или deprecated — проверь документацию версии.</dd>
+</dl></div>
+
+<div class="why"><div class="why-t">Почему именно так, а не иначе</div>
+<p>Почему PWA, а не нативное приложение? Оно может уменьшить трение установки, но поддержка, разрешения, offline и публикация зависят от платформы; комиссии и правила провайдеров нужно проверять по актуальной документации. Почему <code>display: standalone</code>? Без адресной строки сайт выглядит как приложение. Почему кэш «сначала кэш, потом сеть»? Для офлайн — мгновенная отдача. Версия кэша помогает явно инвалидировать ресурсы, но очистка происходит в lifecycle нового worker, который может ждать закрытия старых клиентов. <code>skipWaiting</code>/<code>clientsClaim</code> применяйте только понимая риск смешивания версий.</p></div>
+
+<div class="life"><div class="life-t">Пример из жизни</div>
+<p>PWA — как визитка, которую можно превратить в бейдж: одна сторона — сайт в браузере, перевернули — приложение на рабочем столе. Для пользователя — меньше возни с установкой. Для бизнеса — меньше барьер: не нужно идти в App Store, платить 30%, ждать проверку.</p></div>
+
+<div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
+<p><strong>Забыть maskable icon</strong> — на Android иконка обрезается непредсказуемо. <strong>Не обновлять версию кэша</strong> — пользователи видят старую версию после деплоя. <strong>Кэшировать всё подряд</strong> — раздувается размер, нет места. <strong>Не делать offline.html</strong> — при офлайме белая страница. <strong>SW вне secure context</strong> — в продакшене нужен HTTPS; для локальной разработки обычно разрешён <code>http://localhost</code>.</p></div>
+
+<h3>Что делать на практике</h3>
+<div class="task"><div class="task-h">Задание 1. Превратить свой сайт в PWA</div>
+<div class="task-why">Зачем: реальный кейс, который можно показать в портфолио.</div>
+<ol class="steps">
+<li>Возьми свой сайт-портфолио или лендинг.</li>
+<li>Создай manifest.json с именем, иконками, цветом.</li>
+<li>Подключи &lt;link rel="manifest"&gt; в index.html.</li>
+<li>Создай sw.js с кэшированием базовых файлов.</li>
+<li>Зарегистрируй SW в основном JS.</li>
+<li>Сделай иконки 192 и 512 px (через Figma или realfavicongenerator.net).</li>
+<li>Протестируй в Chrome DevTools → Application → Manifest.</li>
+<li>Открой на телефоне, нажми «Установить».</li>
+</ol>
+<div class="task-r">Результат: устанавливаемое веб-приложение.</div></div>
+
+<div class="warn"><div class="warn-t">Частые ошибки</div><ul>
+<li><strong>Без maskable icon.</strong> На Android иконка кривая.</li>
+<li><strong>Не повышать версию кэша.</strong> Старая версия у пользователей.</li>
+<li><strong>SW без secure context.</strong> Используйте HTTPS в продакшене; <code>http://localhost</code> обычно разрешён для разработки.</li>
+<li><strong>Кэшировать API-ответы.</strong> Данные станут устаревшими.</li>
+</ul></div>
+
+<div class="check"><div class="check-t">Проверь себя</div>
+<ol><li>Что такое PWA?</li>
+<li>Зачем нужен manifest.json?</li>
+<li>Что делает Service Worker?</li>
+<li>Почему нужно повышать версию кэша?</li>
+<li>Чем PWA лучше нативного приложения?</li></ol></div>
+`}
+];
+var cur=1;
+function render(){
+  var t=document.getElementById("tabs"); t.innerHTML="";
+  L.forEach(function(l,i){ var b=document.createElement("button");
+    b.className="tab"+(i+1===cur?" on":""); b.textContent=(i+130);
+    b.onclick=function(){cur=i+1;render();}; t.appendChild(b); });
+  var d=L[cur-1];
+  document.getElementById("out").innerHTML='<div class="lesson"><div class="lh"><div class="num">Урок '+(cur+129)+' · Глава 13 · Современные практики · Расширенная версия</div><h2>'+d.t+'</h2><div class="goal">🎯 '+d.g+'</div></div><div class="lb">'+d.c+'</div></div>';
+  document.getElementById("cnt").textContent="Урок "+cur+" из "+L.length;
+  window.scrollTo(0,0);
+}
+document.getElementById("prev").onclick=function(){ if(cur>1){cur--;render();} };
+document.getElementById("next").onclick=function(){ if(cur<L.length){cur++;render();} };
+render();
+</script>
+</body>
+</html>

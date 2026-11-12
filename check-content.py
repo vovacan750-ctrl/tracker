@@ -24,7 +24,9 @@ import re
 import sys
 from collections import Counter
 
-DATA = "site/data/lessons.json"
+DATA = "data/lessons.json"
+if not os.path.isfile(DATA) and os.path.isfile("site/data/lessons.json"):
+    DATA = "site/data/lessons.json"
 
 ISSUES = Counter()
 
@@ -39,6 +41,9 @@ def add(kind, where, detail):
 def check_text(idx, title, text):
     where = "урок " + str(idx) + " «" + title[:40] + "»"
 
+    # Проверяем только обычный текст; код и SVG не должны давать орфографические срабатывания.
+    text = re.sub(r"<pre\b.*?</pre>|<svg\b.*?</svg>|<code\b.*?</code>", " ", text, flags=re.I|re.S)
+    text = re.sub(r"\s+", " ", text)
     # 1. пробел перед знаком препинания
     for m in re.finditer(r"\s+[,.;:!?]", text):
         ctx = text[max(0, m.start() - 35):m.start() + 15].replace("\n", " ")

@@ -1,0 +1,5 @@
+
+Revision package generated after chapter-by-chapter editorial repair.
+Build: 135 lessons, 135 lesson quizzes, 13 block quizzes
+Source files: 8 lesson HTML files, synchronized root/src copies
+Remaining: manual version/legal/browser/accessibility verification required
