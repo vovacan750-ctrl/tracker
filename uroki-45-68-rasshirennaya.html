@@ -1115,8 +1115,6 @@ const back = JSON.parse(json);        // текст → объект
 async function getWeather(city) {
   // Секретный ключ не помещаем в браузерный bundle.
   const url = "/api/weather?city=" + encodeURIComponent(city);
-  const url = "https://api.openweathermap.org/data/2.5/weather"
-            + "?q=" + encodeURIComponent(city) + "&appid=" + key + "&units=metric&lang=ru";
 
   const res = await fetch(url);
   if (!res.ok) throw new Error("Город не найден");
@@ -1432,7 +1430,7 @@ new Swiper(".swiper", {
 
 <h3>Что делать на практике</h3>
 <div class="task"><div class="task-h">Задание 1. Добавить три библиотеки в лендинг</div>
-<div class="task-why">Зачем: получить готовые качественные компоненты за час.</div>
+<div class="task-why">Зачем: получить проверяемый компонент за ограниченное время.</div>
 <ol class="steps">
 <li>Подключи Swiper, сделай слайдер отзывов с адаптивом.</li>
 <li>Подключи Lenis, проверь плавность.</li>

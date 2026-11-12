@@ -605,7 +605,7 @@ console.log(tg.colorScheme);     // "light" | "dark"
 // Главная кнопка внизу экрана
 tg.MainButton.setText("Отправить заявку");
 tg.MainButton.show();
-tg.MainButton.onClick(() =&gt; {
+tg.MainButton.onClick(async () =&gt; {
   tg.sendData(JSON.stringify({ name: "Анна", phone: "+79991234567" }));
 });
 
@@ -624,9 +624,10 @@ function validateInitData(initData: string, botToken: string, maxAge = 86400) {
   const params = new URLSearchParams(initData);
   const hash = params.get("hash");
   const authDate = Number(params.get("auth_date"));
-  if (!hash || !Number.isFinite(authDate) || Date.now()/1000 - authDate &gt; maxAge) throw new Error("Недействительные данные");
+  const now = Math.floor(Date.now() / 1000);
+  if (!hash || !Number.isFinite(authDate) || authDate - now &gt; 60 || now - authDate &gt; maxAge) throw new Error("Недействительные данные");
   params.delete("hash");
-  const dataCheckString = [...params.entries()].sort(([a], [b]) =&gt; a.localeCompare(b)).map(([k,v]) =&gt; `\${k}=\${v}`).join("\n");
+  const dataCheckString = [...params.entries()].sort(([a], [b]) =&gt; a.localeCompare(b)).map(([k,v]) =&gt; \`\${k}=\${v}\`).join("\n");
   const secret = crypto.createHmac("sha256", "WebAppData").update(botToken).digest();
   const expected = crypto.createHmac("sha256", secret).update(dataCheckString).digest("hex");
   if (expected.length !== hash.length || !crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(hash))) throw new Error("HMAC не совпал");
@@ -643,7 +644,7 @@ export default function Catalog() {
   useEffect(() =&gt; {
     WebApp.MainButton.setText("Купить");
     WebApp.MainButton.show();
-    WebApp.MainButton.onClick(() =&gt; {
+    WebApp.MainButton.onClick(async () =&gt; {
       const res = await fetch("/api/orders", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ initData: WebApp.initData, productId: 42 })
@@ -830,7 +831,7 @@ if ("serviceWorker" in navigator) {
 <p>Почему PWA, а не нативное приложение? Оно может уменьшить трение установки, но поддержка, разрешения, offline и публикация зависят от платформы; комиссии и правила провайдеров нужно проверять по актуальной документации. Почему <code>display: standalone</code>? Без адресной строки сайт выглядит как приложение. Почему кэш «сначала кэш, потом сеть»? Для офлайн — мгновенная отдача. Версия кэша помогает явно инвалидировать ресурсы, но очистка происходит в lifecycle нового worker, который может ждать закрытия старых клиентов. <code>skipWaiting</code>/<code>clientsClaim</code> применяйте только понимая риск смешивания версий.</p></div>
 
 <div class="life"><div class="life-t">Пример из жизни</div>
-<p>PWA — как визитка, которую можно превратить в бейдж: одна сторона — сайт в браузере, перевернули — приложение на рабочем столе. Для пользователя — меньше возни с установкой. Для бизнеса — меньше барьер: не нужно идти в App Store, платить 30%, ждать проверку.</p></div>
+<p>PWA — как визитка, которую можно превратить в бейдж: одна сторона — сайт в браузере, перевернули — приложение на рабочем столе. Для пользователя — меньше возни с установкой в поддерживаемых сценариях; доступность, комиссии и правила зависят от платформы и региона.</p></div>
 
 <div class="risk"><div class="risk-t">Что пойдёт не так, если нарушить</div>
 <p><strong>Забыть maskable icon</strong> — на Android иконка обрезается непредсказуемо. <strong>Не обновлять версию кэша</strong> — пользователи видят старую версию после деплоя. <strong>Кэшировать всё подряд</strong> — раздувается размер, нет места. <strong>Не делать offline.html</strong> — при офлайме белая страница. <strong>SW вне secure context</strong> — в продакшене нужен HTTPS; для локальной разработки обычно разрешён <code>http://localhost</code>.</p></div>
