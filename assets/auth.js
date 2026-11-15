@@ -4,10 +4,12 @@
 // (tracker.state.v1 и tracker.quiz.v1) и те же глобальные объекты state / quizResults.
 //
 // Что делает этот файл:
-//   1. Добавляет кнопку «Войти в аккаунт» в начало бокового меню (drawer).
-//   2. Показывает модальное окно регистрации/входа.
+//   1. При первом заходе на сайт (если пользователь не вошёл) — автоматически
+//      показывает окно входа/регистрации.
+//   2. Добавляет кнопку «Войти в аккаунт» в начало бокового меню (drawer).
 //   3. После входа подтягивает прогресс из Firestore и объединяет его с локальным.
-//   4. Каждый раз, когда app.js сохраняет прогресс локально, — выгружает его в облако.
+//   4. Каждый раз, когда app.js сохраняет прогресс локально, — выгружает его в облако
+//      именно на аккаунт пользователя (users/{uid}).
 
 (function () {
   'use strict';
@@ -19,6 +21,9 @@
   // Локальные ключи — должны совпадать с теми, что в app.js
   var STATE_KEY = 'tracker.state.v1';
   var QUIZ_KEY  = 'tracker.quiz.v1';
+
+  // Ключ в localStorage для флага "окно уже показывалось"
+  var MODAL_SHOWN_KEY = 'auth.modalAutoShown';
 
   // ============================================================
   // 1. Чтение/запись прогресса (работаем через localStorage,
@@ -40,6 +45,8 @@
   // ============================================================
   var overlay = null;
   var isRegister = false;
+  // По умолчанию показываем вкладку "Регистрация" при автопоказе первого входа
+  var defaultMode = 'register';
 
   function buildModal() {
     overlay = document.createElement('div');
@@ -57,47 +64,73 @@
     ].join(';');
 
     modal.innerHTML =
-      '<h2 id="auth-title" style="margin:0 0 16px;font-size:20px;">Вход в аккаунт</h2>' +
+      '<h2 id="auth-title" style="margin:0 0 6px;font-size:20px;">Создать аккаунт</h2>' +
+      '<p id="auth-sub" style="margin:0 0 14px;font-size:13px;color:#666;line-height:1.4;">' +
+        'Аккаунт нужен, чтобы сохранять прогресс обучения и продолжать с любого устройства.' +
+      '</p>' +
       '<div id="auth-error" style="color:#d32f2f;font-size:13px;min-height:18px;margin-bottom:8px;"></div>' +
-      '<input id="auth-email" type="email" placeholder="Email" ' +
+      '<input id="auth-email" type="email" placeholder="Email" autocomplete="email" ' +
         'style="width:100%;padding:11px;margin-bottom:8px;border:1px solid #ccc;border-radius:8px;box-sizing:border-box;font-size:14px;" />' +
-      '<input id="auth-pass" type="password" placeholder="Пароль (6+ символов)" ' +
+      '<input id="auth-pass" type="password" placeholder="Пароль (6+ символов)" autocomplete="new-password" ' +
         'style="width:100%;padding:11px;margin-bottom:12px;border:1px solid #ccc;border-radius:8px;box-sizing:border-box;font-size:14px;" />' +
       '<button id="auth-submit" ' +
-        'style="width:100%;padding:12px;background:#ff8c00;color:#fff;border:0;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;">Войти</button>' +
+        'style="width:100%;padding:12px;background:#ff8c00;color:#fff;border:0;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;">Зарегистрироваться</button>' +
       '<button id="auth-toggle" ' +
-        'style="width:100%;padding:10px;background:transparent;color:#555;border:0;font-size:13px;cursor:pointer;">Нет аккаунта? Зарегистрироваться</button>' +
+        'style="width:100%;padding:10px;background:transparent;color:#555;border:0;font-size:13px;cursor:pointer;">Уже есть аккаунт? Войти</button>' +
       '<button id="auth-reset" ' +
         'style="width:100%;padding:6px;background:transparent;color:#888;border:0;font-size:12px;cursor:pointer;">Забыли пароль?</button>' +
-      '<button id="auth-close" ' +
-        'style="width:100%;padding:6px;background:transparent;color:#aaa;border:0;font-size:12px;cursor:pointer;margin-top:4px;">Закрыть</button>';
+      '<button id="auth-skip" ' +
+        'style="width:100%;padding:6px;background:transparent;color:#aaa;border:0;font-size:12px;cursor:pointer;margin-top:4px;">Продолжить без аккаунта</button>';
 
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
 
-    document.getElementById('auth-close').onclick = closeModal;
+    document.getElementById('auth-skip').onclick = closeModal;
     document.getElementById('auth-toggle').onclick = toggleMode;
     document.getElementById('auth-reset').onclick = resetPassword;
     document.getElementById('auth-submit').onclick = submit;
     document.getElementById('auth-pass').addEventListener('keydown', function (e) {
       if (e.key === 'Enter') submit();
     });
+    document.getElementById('auth-email').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') document.getElementById('auth-pass').focus();
+    });
 
     overlay.addEventListener('click', function (e) {
       if (e.target === overlay) closeModal();
     });
+
+    // Устанавливаем начальный режим
+    setMode(defaultMode);
+  }
+
+  function setMode(register) {
+    isRegister = register;
+    document.getElementById('auth-title').textContent = isRegister ? 'Создать аккаунт' : 'Вход в аккаунт';
+    document.getElementById('auth-sub').textContent = isRegister
+      ? 'Аккаунт нужен, чтобы сохранять прогресс обучения и продолжать с любого устройства.'
+      : 'Введите почту и пароль от вашего аккаунта.';
+    document.getElementById('auth-submit').textContent = isRegister ? 'Зарегистрироваться' : 'Войти';
+    document.getElementById('auth-toggle').textContent = isRegister ? 'Уже есть аккаунт? Войти' : 'Нет аккаунта? Зарегистрироваться';
+    var emailInput = document.getElementById('auth-email');
+    if (emailInput) emailInput.setAttribute('autocomplete', isRegister ? 'email' : 'email');
+    var passInput = document.getElementById('auth-pass');
+    if (passInput) passInput.setAttribute('autocomplete', isRegister ? 'new-password' : 'current-password');
+    var err = document.getElementById('auth-error');
+    if (err) err.textContent = '';
   }
 
   function toggleMode() {
-    isRegister = !isRegister;
-    document.getElementById('auth-title').textContent = isRegister ? 'Регистрация' : 'Вход в аккаунт';
-    document.getElementById('auth-submit').textContent = isRegister ? 'Зарегистрироваться' : 'Войти';
-    document.getElementById('auth-toggle').textContent = isRegister ? 'Уже есть аккаунт? Войти' : 'Нет аккаунта? Зарегистрироваться';
-    document.getElementById('auth-error').textContent = '';
+    setMode(!isRegister);
   }
 
-  function openModal() {
+  function openModal(opts) {
+    opts = opts || {};
     if (!overlay) buildModal();
+    if (opts.mode) {
+      setMode(opts.mode === 'register');
+      defaultMode = opts.mode;
+    }
     overlay.style.display = 'flex';
     setTimeout(function () { document.getElementById('auth-email').focus(); }, 50);
   }
@@ -123,19 +156,35 @@
     if (pass.length < 6) { showError('Пароль минимум 6 символов'); return; }
 
     showError('');
+    var submitBtn = document.getElementById('auth-submit');
+    var originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Подождите...';
+
+    function done(err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+      if (err) showError(err);
+    }
+
     if (isRegister) {
       firebase.auth().createUserWithEmailAndPassword(email, pass)
         .then(function (uc) { return uc.user.sendEmailVerification(); })
         .then(function () {
           closeModal();
-          alert('Аккаунт создан. На почту отправлено письмо для подтверждения. ' +
-                'Перейдите по ссылке из письма и войдите снова.');
+          alert('Аккаунт создан! На почту отправлено письмо для подтверждения. ' +
+                'Перейдите по ссылке из письма, чтобы активировать аккаунт. ' +
+                'Прогресс уже сохраняется на ваш аккаунт.');
+          done();
         })
-        .catch(function (e) { showError(translateError(e.code)); });
+        .catch(function (e) { done(translateError(e.code)); });
     } else {
       firebase.auth().signInWithEmailAndPassword(email, pass)
-        .then(function () { closeModal(); })
-        .catch(function (e) { showError(translateError(e.code)); });
+        .then(function () {
+          closeModal();
+          done();
+        })
+        .catch(function (e) { done(translateError(e.code)); });
     }
   }
 
@@ -149,13 +198,13 @@
 
   function translateError(code) {
     var map = {
-      'auth/email-already-in-use':   'Пользователь с такой почтой уже существует',
+      'auth/email-already-in-use':   'Пользователь с такой почтой уже существует. Войдите вместо регистрации.',
       'auth/invalid-email':          'Некорректный email',
       'auth/weak-password':          'Пароль слишком слабый (минимум 6 символов)',
-      'auth/user-not-found':         'Пользователь не найден',
+      'auth/user-not-found':         'Пользователь не найден. Возможно, нужно зарегистрироваться.',
       'auth/wrong-password':         'Неверный пароль',
       'auth/invalid-credential':     'Неверный email или пароль',
-      'auth/too-many-requests':      'Слишком много попыток. Попробуйте позже',
+      'auth/too-many-requests':      'Слишком много попыток. Попробуйте позже или сбросьте пароль.',
       'auth/unauthorized-domain':    'Домен сайта не добавлен в Authorized domains в Firebase Console',
       'auth/operation-not-allowed':  'Вход по почте и паролю не включён в Firebase Console',
       'auth/network-request-failed': 'Нет соединения с интернетом'
@@ -165,6 +214,7 @@
 
   // ============================================================
   // 4. Синхронизация прогресса с Firestore
+  //    Прогресс сохраняется на аккаунт: users/{uid} -> { state, quiz, updatedAt, email }
   // ============================================================
 
   // Слияние статусов уроков: берём максимальный прогресс (s = 0/1/2 → 2 = пройден)
@@ -205,7 +255,7 @@
     return result;
   }
 
-  // Выгрузка локального прогресса в облако
+  // Выгрузка локального прогресса в облако — на аккаунт пользователя
   function uploadProgress() {
     var user = firebase.auth().currentUser;
     if (!user) return;
@@ -245,7 +295,6 @@
     localStorage.setItem(QUIZ_KEY,  JSON.stringify(newQuiz));
 
     // Обновляем in-memory объекты app.js (если они доступны)
-    // state и quizResults объявлены через let в app.js — мутируем in place
     try {
       if (typeof state !== 'undefined' && state) {
         for (var k in state) delete state[k];
@@ -270,7 +319,6 @@
       if (typeof renderStats === 'function') renderStats();
     } catch (e) {}
 
-    // Запоминаем, что мы синхронизировали это состояние, чтобы не выгружать сразу же обратно
     markSynced();
 
     // Если локальный прогресс был богаче облачного — выгружаем объединённую версию
@@ -292,7 +340,6 @@
   }
 
   // Патчим localStorage.setItem — чтобы ловить изменения из app.js
-  // (стандартный storage event не срабатывает в той же вкладке)
   function patchLocalStorage() {
     try {
       var proto = Object.getPrototypeOf(localStorage);
@@ -352,7 +399,7 @@
           firebase.auth().signOut().catch(function (e) { console.warn(e); });
         }
       } else {
-        openModal();
+        openModal({ mode: 'login' });
       }
     });
 
@@ -373,11 +420,36 @@
   }
 
   // ============================================================
-  // 7. Реакция на изменения состояния авторизации
+  // 7. АВТОПОКАЗ ОКНА ВХОДА ПРИ ПЕРВОМ ЗАХОДЕ
+  //    Показываем только если:
+  //    - пользователь не залогинен
+  //    - окно ещё ни разу не показывалось автоматически (флаг в localStorage)
+  // ============================================================
+  function maybeAutoShowModal(user) {
+    if (user) return; // Уже залогинен — не показываем
+    if (localStorage.getItem(MODAL_SHOWN_KEY) === '1') return; // Уже показывали — не показываем
+
+    // Помечаем, что показали
+    localStorage.setItem(MODAL_SHOWN_KEY, '1');
+
+    // Небольшая задержка, чтобы успел скрыться loader
+    setTimeout(function () {
+      openModal({ mode: 'register' });
+    }, 1200);
+  }
+
+  // Сбросить флаг "окно показывалось" — полезно, если хотите, чтобы окно снова
+  // появилось при следующем заходе (например, после выхода из аккаунта).
+  // По умолчанию НЕ сбрасываем — пользователь уже видел окно, не назойливим.
+  // Раскомментируйте строку в signOut ниже, если хотите всегда показывать окно
+  // при следующем заходе после выхода.
+
+  // ============================================================
+  // 8. Реакция на изменения состояния авторизации
   // ============================================================
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      // Вошёл — подтягиваем прогресс из облака
+      // Вошёл — подтягиваем прогресс из облака на аккаунт
       downloadProgress(user)
         .then(function (cloudData) { applyCloudProgress(cloudData); })
         .catch(function (e) { console.warn('Load progress error:', e); });
@@ -386,10 +458,12 @@
       lastSyncedHash = null;
     }
     updateAuthButton(user);
+    // Пытаемся показать автопоказ (только при первом заходе, без аккаунта)
+    maybeAutoShowModal(user);
   });
 
   // ============================================================
-  // 8. Инициализация
+  // 9. Инициализация
   // ============================================================
   function init() {
     patchLocalStorage();
@@ -400,7 +474,7 @@
         if (firebase.auth().currentUser) scheduleUpload();
       }
     });
-    // Перед закрытием вкладки — выгрузить прогресс
+    // Перед закрытием вкладки — выгрузить прогресс на аккаунт
     window.addEventListener('beforeunload', function () {
       if (firebase.auth().currentUser) uploadProgress();
     });
