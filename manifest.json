@@ -1,7 +1,7 @@
 {
   "name": "Сайт с 0 по созданию сайтов",
   "short_name": "Сайт с 0",
-  "description": "135 уроков по созданию сайтов: дизайн, HTML, CSS, JavaScript, WordPress, WooCommerce, AI. Тесты и большие тесты по главам. Работает офлайн.",
+  "description": "167 уроков по созданию сайтов и бэкенду: дизайн, HTML, CSS, JavaScript, React, WordPress, WooCommerce, Node.js, PostgreSQL, TypeScript, AI. Тесты и большие тесты по главам. Работает офлайн.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

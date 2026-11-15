@@ -435,3 +435,61 @@ input:focus,select:focus{outline:2px solid #c7d2fe;border-color:#818cf8}
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+
+/* =========================================================
+   РАСШИРЕННЫЕ БЛОКИ УРОКОВ (добавлены в версии 8)
+   Сайт всегда тёмный, поэтому цвета подобраны под тёмный фон.
+   ========================================================= */
+.modal-b .deep{background:#1c2a33;border-left:4px solid #22b8cf;border-radius:0 10px 10px 0;
+  padding:12px 15px;margin:0 0 14px;font-size:14px;line-height:1.72}
+.modal-b .deep-t{font-weight:700;font-size:12.5px;color:#66d9e8;margin-bottom:6px;
+  text-transform:uppercase;letter-spacing:.05em}
+.modal-b .deep p:last-child,.modal-b .tip p:last-child{margin-bottom:0}
+
+.modal-b .code-explain{background:#202532;border:1px solid #3a4150;border-radius:10px;
+  padding:12px 15px;margin:-4px 0 15px}
+.modal-b .code-explain-t{font-weight:700;font-size:12.5px;color:#fcc419;margin-bottom:8px;
+  text-transform:uppercase;letter-spacing:.05em}
+.modal-b .code-explain ol,.modal-b .code-explain ul{margin:0;padding-left:20px}
+.modal-b .code-explain li{font-size:13.4px;margin-bottom:7px;line-height:1.6}
+.modal-b .code-explain li code{white-space:pre-wrap}
+
+.modal-b .tip{background:#2a2433;border-left:4px solid #e599f7;border-radius:0 10px 10px 0;
+  padding:11px 14px;margin:0 0 13px;font-size:13.5px;line-height:1.68}
+.modal-b .tip-t{font-weight:700;font-size:12.5px;color:#e599f7;margin-bottom:5px;
+  text-transform:uppercase;letter-spacing:.05em}
+
+.modal-b details.solution{margin:10px 0 2px;border:1px dashed #4a5160;border-radius:9px;
+  background:#1d212b}
+.modal-b details.solution > summary{cursor:pointer;padding:9px 12px;font-weight:700;
+  font-size:13px;color:#a5b4fc;list-style:none;user-select:none}
+.modal-b details.solution > summary::-webkit-details-marker{display:none}
+.modal-b details.solution > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+.modal-b details.solution[open] > summary::before{transform:rotate(90deg)}
+.modal-b details.solution > div{padding:2px 12px 10px}
+.modal-b details.solution pre{margin-bottom:8px}
+
+.modal-b .task-level{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;padding:2px 8px;border-radius:20px;margin-left:6px;vertical-align:2px}
+.modal-b .lvl-1{background:#1e3a2a;color:#69db7c}
+.modal-b .lvl-2{background:#3a321e;color:#ffd43b}
+.modal-b .lvl-3{background:#3a1e24;color:#ff8787}
+
+.modal-b pre.out{background:#111a12 !important;color:#b2f2bb !important;border-color:#1e3a2a !important}
+.modal-b .file{display:inline-block;font-family:"SF Mono",Menlo,Consolas,monospace;font-size:11.5px;
+  background:#0d1117;color:#9aa4b4;border:1px solid #2d3140;border-bottom:none;
+  border-radius:7px 7px 0 0;padding:3px 10px;margin-top:4px}
+.modal-b .file + pre{border-top-left-radius:0 !important}
+
+/* тест: верный ответ и пояснение */
+.qz-opt.right{border-color:#22c55e !important;border-style:dashed !important}
+.qz-expl{margin-top:10px;padding:10px 13px;border-radius:9px;background:#252a40;
+  border-left:3px solid #6b73e8;font-size:13.5px;line-height:1.6;color:#e6e8ec}
+.qz-expl b{color:#a5b4fc}
+
+/* Широкие таблицы и код не должны растягивать окно урока шире экрана */
+.modal, .modal-b { min-width: 0; }
+.modal-b { overflow-wrap: break-word; }
+.modal-b table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.modal-b pre { max-width: 100%; }
+.modal-b td code, .modal-b li code, .modal-b p code { overflow-wrap: anywhere; }

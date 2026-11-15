@@ -4,6 +4,7 @@
 const STATE_KEY = "tracker.state.v1";
 const QUIZ_KEY = "tracker.quiz.v1";
 
+const BLOCK_SIZE = 60;   // сколько вопросов в одном прохождении большого теста
 const STATUS_TEXT = ["Не начат", "В процессе", "Пройден"];
 const CHEV = '<svg class="s-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
 
@@ -204,6 +205,13 @@ function initAppShell() {
   const sub = document.getElementById("appBarSub");
   if (sub && DATA) {
     sub.textContent = DATA.chapters.length + " глав · " + DATA.lessons.length + " уроков";
+  }
+  const aboutStats = document.getElementById("aboutStats");
+  if (aboutStats && DATA) {
+    const qn = Object.values(DATA.quizzes).reduce((s, v) => s + v.length, 0);
+    const bn = Object.values(DATA.blockQuizzes).reduce((s, v) => s + v.length, 0);
+    aboutStats.textContent = DATA.chapters.length + " глав · " + DATA.lessons.length +
+      " уроков · " + qn + " вопросов в тестах · " + bn + " вопросов в больших тестах.";
   }
 
   // Первичная отрисовка статистики в drawer
@@ -696,7 +704,8 @@ function shuffleQuestions(list) {
     return {
       q: q.q,
       a: order.map(i => q.a[i]),
-      c: order.indexOf(q.c)
+      c: order.indexOf(q.c),
+      e: q.e || ""
     };
   });
 }
@@ -737,11 +746,14 @@ function answer(i) {
   if (good) quiz.ok++; else quiz.bad++;
   document.querySelectorAll(".qz-opt").forEach(b => {
     b.disabled = true;
-    if (+b.dataset.i === i) b.classList.add(good ? "ok" : "bad");
+    const bi = +b.dataset.i;
+    if (bi === i) b.classList.add(good ? "ok" : "bad");
+    else if (bi === it.c) b.classList.add("right");
   });
-  document.getElementById("qzFb").innerHTML = good
+  const expl = it.e ? '<div class="qz-expl"><b>Почему так:</b> ' + it.e + '</div>' : "";
+  document.getElementById("qzFb").innerHTML = (good
     ? '<div class="qz-res ok">✓ Правильно!</div>'
-    : '<div class="qz-res bad">✗ Неправильно. Перечитайте материал урока и пройдите тест заново.</div>';
+    : '<div class="qz-res bad">✗ Неправильно. Верный ответ подсвечен зелёной рамкой — перечитайте этот момент в уроке.</div>') + expl;
   document.getElementById("qzNext").style.display = "inline-block";
 }
 
@@ -798,15 +810,21 @@ function startBlockQuiz(ci) {
   const list = DATA.blockQuizzes[ci + 1];
   if (!list || !list.length) { alert("Большой тест по этой главе пока не готов."); return; }
   resetQuiz();
-  quiz.list = shuffleQuestions(list);
+  // Собственные вопросы главы (b) идут всегда, остальное — случайно
+  // из вопросов уроков, всего не больше BLOCK_SIZE.
+  const own = list.filter(q => q.b);
+  const rest = shuffle(list.filter(q => !q.b));
+  const picked = own.concat(rest.slice(0, Math.max(0, BLOCK_SIZE - own.length)));
+  quiz.list = shuffleQuestions(shuffle(picked));
   quiz.kind = "block";
   quiz.id = ci + 1;
   quiz.onExit = closeBlockQuiz;
   quiz.restart = startBlockQuiz;
   document.getElementById("bCrumb").textContent = DATA.chapters[ci].name;
   document.getElementById("bTitle").textContent = "Большой тест по главе";
-  document.getElementById("bGoal").textContent =
-    list.length + " вопросов по ключевым моментам главы";
+  document.getElementById("bGoal").textContent = quiz.list.length +
+    " вопросов по всей главе" + (list.length > quiz.list.length
+      ? " (случайная выборка из " + list.length + ", при пересдаче вопросы будут другими)" : "");
   document.getElementById("blockBg").classList.add("show");
   document.getElementById("blockBg").scrollTop = 0;
   document.body.style.overflow = "hidden";
