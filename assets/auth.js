@@ -127,21 +127,58 @@
           'border:1.5px solid ' + C.inputBorder + ';border-radius:10px;' +
           'box-sizing:border-box;font-size:14px;font-family:inherit;outline:none;transition:border-color .15s ease;" />' +
 
+        // Поле «Пароль» — с кнопкой «показать/скрыть пароль» (глаз)
         '<label style="display:block;font-size:12px;color:' + C.muted + ';margin-bottom:6px;font-weight:600;">Пароль (6+ символов)</label>' +
-        '<input id="auth-pass" type="password" placeholder="••••••••" autocomplete="current-password" ' +
-          'style="width:100%;padding:12px 14px;margin-bottom:14px;' +
-          'background:' + C.inputBg + ';color:' + C.txt + ';' +
-          'border:1.5px solid ' + C.inputBorder + ';border-radius:10px;' +
-          'box-sizing:border-box;font-size:14px;font-family:inherit;outline:none;transition:border-color .15s ease;" />' +
+        '<div style="position:relative;margin-bottom:14px;">' +
+          '<input id="auth-pass" type="password" placeholder="••••••••" autocomplete="current-password" ' +
+            'style="width:100%;padding:12px 44px 12px 14px;' +
+            'background:' + C.inputBg + ';color:' + C.txt + ';' +
+            'border:1.5px solid ' + C.inputBorder + ';border-radius:10px;' +
+            'box-sizing:border-box;font-size:14px;font-family:inherit;outline:none;transition:border-color .15s ease;" />' +
+          '<button type="button" class="auth-toggle-pass" data-target="auth-pass" ' +
+            'aria-label="Показать пароль" title="Показать/скрыть пароль" ' +
+            'style="position:absolute;right:6px;top:50%;transform:translateY(-50%);' +
+            'width:34px;height:34px;display:grid;place-items:center;' +
+            'background:transparent;border:none;cursor:pointer;color:' + C.muted + ';' +
+            'padding:0;transition:color .15s ease;">' +
+            // Иконка «глаз» (показать)
+            '<svg class="eye-show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;">' +
+              '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>' +
+              '<circle cx="12" cy="12" r="3"/>' +
+            '</svg>' +
+            // Иконка «глаз зачёркнутый» (скрыть) — скрыта по умолчанию
+            '<svg class="eye-hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:none;">' +
+              '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>' +
+              '<line x1="1" y1="1" x2="23" y2="23"/>' +
+            '</svg>' +
+          '</button>' +
+        '</div>' +
 
         // Третье поле — повтор пароля (видно только в режиме регистрации)
         '<div id="auth-pass2-wrap" style="display:none;">' +
           '<label style="display:block;font-size:12px;color:' + C.muted + ';margin-bottom:6px;font-weight:600;">Повторите пароль</label>' +
-          '<input id="auth-pass2" type="password" placeholder="••••••••" autocomplete="new-password" ' +
-            'style="width:100%;padding:12px 14px;margin-bottom:14px;' +
-            'background:' + C.inputBg + ';color:' + C.txt + ';' +
-            'border:1.5px solid ' + C.inputBorder + ';border-radius:10px;' +
-            'box-sizing:border-box;font-size:14px;font-family:inherit;outline:none;transition:border-color .15s ease;" />' +
+          '<div style="position:relative;margin-bottom:14px;">' +
+            '<input id="auth-pass2" type="password" placeholder="••••••••" autocomplete="new-password" ' +
+              'style="width:100%;padding:12px 44px 12px 14px;' +
+              'background:' + C.inputBg + ';color:' + C.txt + ';' +
+              'border:1.5px solid ' + C.inputBorder + ';border-radius:10px;' +
+              'box-sizing:border-box;font-size:14px;font-family:inherit;outline:none;transition:border-color .15s ease;" />' +
+            '<button type="button" class="auth-toggle-pass" data-target="auth-pass2" ' +
+              'aria-label="Показать пароль" title="Показать/скрыть пароль" ' +
+              'style="position:absolute;right:6px;top:50%;transform:translateY(-50%);' +
+              'width:34px;height:34px;display:grid;place-items:center;' +
+              'background:transparent;border:none;cursor:pointer;color:' + C.muted + ';' +
+              'padding:0;transition:color .15s ease;">' +
+              '<svg class="eye-show" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;">' +
+                '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>' +
+                '<circle cx="12" cy="12" r="3"/>' +
+              '</svg>' +
+              '<svg class="eye-hide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:none;">' +
+                '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>' +
+                '<line x1="1" y1="1" x2="23" y2="23"/>' +
+              '</svg>' +
+            '</button>' +
+          '</div>' +
         '</div>' +
 
         '<button id="auth-submit" type="button" ' +
@@ -183,6 +220,42 @@
       });
     });
 
+    // Кнопки «показать/скрыть пароль» (глаз) — для обоих полей пароля
+    document.querySelectorAll('.auth-toggle-pass').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var targetId = btn.getAttribute('data-target');
+        var input = document.getElementById(targetId);
+        if (!input) return;
+        var eyeShow = btn.querySelector('.eye-show');
+        var eyeHide = btn.querySelector('.eye-hide');
+        if (input.type === 'password') {
+          // Показываем пароль
+          input.type = 'text';
+          btn.setAttribute('aria-label', 'Скрыть пароль');
+          if (eyeShow) eyeShow.style.display = 'none';
+          if (eyeHide) eyeHide.style.display = 'block';
+          btn.style.color = C.acc;
+        } else {
+          // Скрываем пароль
+          input.type = 'password';
+          btn.setAttribute('aria-label', 'Показать пароль');
+          if (eyeShow) eyeShow.style.display = 'block';
+          if (eyeHide) eyeHide.style.display = 'none';
+          btn.style.color = C.muted;
+        }
+        // Возвращаем фокус в поле (удобно для пользователя)
+        input.focus();
+      });
+      // Hover-эффект на кнопке
+      btn.addEventListener('mouseenter', function () { btn.style.color = C.acc; });
+      btn.addEventListener('mouseleave', function () {
+        // Возвращаем серый цвет только если пароль сейчас скрыт
+        var targetId = btn.getAttribute('data-target');
+        var input = document.getElementById(targetId);
+        if (input && input.type === 'password') btn.style.color = C.muted;
+      });
+    });
+
     // Клик по overlay — НЕ закрываем (пользователь обязан войти)
     // overlay.addEventListener('click', function (e) {
     //   if (e.target === overlay) closeModal();
@@ -214,6 +287,22 @@
     if (pass2Wrap) pass2Wrap.style.display = isLogin ? 'none' : 'block';
     if (resetBtn)  resetBtn.style.display  = isLogin ? 'block' : 'none';
     if (passInput) passInput.setAttribute('autocomplete', isLogin ? 'current-password' : 'new-password');
+
+    // При переключении вкладок — сбрасываем показ пароля обратно в скрытый режим
+    // (чтобы пользователь не забыл скрыть пароль перед входом/регистрацией)
+    document.querySelectorAll('.auth-toggle-pass').forEach(function (btn) {
+      var targetId = btn.getAttribute('data-target');
+      var input = document.getElementById(targetId);
+      if (input && input.type === 'text') {
+        input.type = 'password';
+      }
+      var eyeShow = btn.querySelector('.eye-show');
+      var eyeHide = btn.querySelector('.eye-hide');
+      if (eyeShow) eyeShow.style.display = 'block';
+      if (eyeHide) eyeHide.style.display = 'none';
+      btn.style.color = C.muted;
+      btn.setAttribute('aria-label', 'Показать пароль');
+    });
 
     // Стили вкладок
     var tabLogin = document.getElementById('auth-tab-login');
