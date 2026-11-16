@@ -44,6 +44,42 @@ function quizPassed(n) {
   return !!(r && r.perfect);
 }
 
+// Проверка — сдан ли большой тест по главе (сохраняем с префиксом 'block-',
+// чтобы не конфликтовать с номерами уроков и автоматически синхронизироваться через облако)
+function blockQuizPassed(ci) {
+  const r = quizResults['block-' + (ci + 1)];
+  return !!(r && r.perfect);
+}
+
+// Сохранение результата теста — сохраняем ЛУЧШИЙ результат,
+// чтобы при пересдаче с худшим результатом не потерять статус "пройден"
+function saveQuizResult(key, ok, total) {
+  const prev = quizResults[key];
+  const newPerfect = (ok === total);
+  // Если ещё нет результата — сохраняем
+  if (!prev) {
+    quizResults[key] = { ok: ok, total: total, perfect: newPerfect };
+    save();
+    return;
+  }
+  // Если уже было perfect — не понижаем статус (но обновляем ok если стало лучше)
+  if (prev.perfect && !newPerfect) {
+    // Ничего не делаем — сохраняем прежний perfect=true
+    return;
+  }
+  // Если новый результат perfect, а старый нет — обновляем
+  if (newPerfect && !prev.perfect) {
+    quizResults[key] = { ok: ok, total: total, perfect: true };
+    save();
+    return;
+  }
+  // Иначе — сохраняем если ok стало больше
+  if (ok > (prev.ok || 0)) {
+    quizResults[key] = { ok: ok, total: total, perfect: newPerfect };
+    save();
+  }
+}
+
 function chapterDone(ci) {
   const ch = DATA.chapters[ci];
   let d = 0;
@@ -458,6 +494,7 @@ function updateChapterCard(ci) {
   const d = chapterDone(ci);
   const pct = Math.round((d / ch.size) * 100);
   const unlocked = chapterUnlocked(ci);
+  const blockPassed = blockQuizPassed(ci);
 
   const bar = card.querySelector(".cc-bar > i");
   if (bar) bar.style.width = pct + "%";
@@ -469,9 +506,16 @@ function updateChapterCard(ci) {
   const btn = card.querySelector(".cc-test");
   if (btn) {
     btn.disabled = !unlocked;
-    btn.textContent = unlocked
-      ? "Большой тест по главе →"
-      : "Пройдите все уроки и их тесты на 100%";
+    // Если большой тест по главе сдан на 100% — кнопка зелёная, но её всё равно можно нажать
+    // (можно пересдавать неограниченное количество раз)
+    btn.classList.toggle("passed", unlocked && blockPassed);
+    if (!unlocked) {
+      btn.textContent = "Пройдите все уроки и их тесты на 100%";
+    } else if (blockPassed) {
+      btn.textContent = "✓ Тест по главе сдан — пройти заново";
+    } else {
+      btn.textContent = "Большой тест по главе →";
+    }
   }
 }
 
@@ -559,6 +603,26 @@ function exportCsv() {
 }
 
 /* ---------- окно урока ---------- */
+
+// Рендерит секцию запуска теста в уроке.
+// Если тест сдан на 100% — кнопка зелёная, но её всё равно можно нажать
+// (можно пересдавать неограниченное количество раз).
+function renderQuizLaunchHTML(n) {
+  const q = DATA.quizzes[n];
+  const passed = quizPassed(n);
+  if (!q || !q.length) {
+    return '<span class="qz-launch-hint">Тест по этому уроку пока не подготовлен</span>';
+  }
+  if (passed) {
+    return '<button class="btn pri passed" id="btnQuiz">✓ Сдано на 100% — пройти заново (' +
+      q.length + ' вопросов)</button>' +
+      '<span class="qz-launch-hint">Можно проходить сколько угодно раз — вопросы перемешаются</span>';
+  }
+  return '<button class="btn pri" id="btnQuiz">Пройти тест по уроку (' +
+    q.length + ' вопросов)</button>' +
+    '<span class="qz-launch-hint">проверьте, как усвоили материал</span>';
+}
+
 function openLesson(n) {
   const d = DATA.lessons[n - 1];
   if (!d) return;
@@ -572,20 +636,8 @@ function openLesson(n) {
   const body = document.getElementById("mBody");
   body.innerHTML = d.c;
 
-  const q = DATA.quizzes[n];
-  const passed = quizPassed(n);
-  let html = '<div class="qz-launch">';
-  if (!q || !q.length) {
-    html += '<span class="qz-launch-hint">Тест по этому уроку пока не подготовлен</span>';
-  } else if (passed) {
-    html += '<span class="qz-ok-badge">✓ Тест по уроку сдан на 100%</span>' +
-      '<span class="qz-launch-hint">Можно пройти заново — вопросы перемешаются</span>';
-  } else {
-    html += '<button class="btn pri" id="btnQuiz">Пройти тест по уроку (' + q.length +
-      ' вопросов)</button><span class="qz-launch-hint">проверьте, как усвоили материал</span>';
-  }
-  html += "</div>";
-  body.insertAdjacentHTML("beforeend", html);
+  // Кнопка запуска теста — всегда видна (зелёная если уже сдан на 100%)
+  body.insertAdjacentHTML("beforeend", '<div class="qz-launch">' + renderQuizLaunchHTML(n) + '</div>');
 
   document.getElementById("quizWrap").classList.remove("show");
   document.getElementById("quizWrap").innerHTML = "";
@@ -694,9 +746,13 @@ function renderResult(wrapId) {
     : pct >= 50 ? "Неплохо, но рекомендуется перечитать раздел."
     : "Стоит внимательно перечитать материал и пройти тест снова.";
 
+  // Сохраняем результат теста — сохраняем ЛУЧШИЙ результат
+  // (если уже было 100% — не понижаем статус при пересдаче с худшим результатом)
   if (quiz.kind === "lesson") {
-    quizResults[quiz.id] = { ok: quiz.ok, total: total, perfect: quiz.ok === total };
-    save();
+    saveQuizResult(quiz.id, quiz.ok, total);
+  } else if (quiz.kind === "block") {
+    // Для больших тестов по главе — ключ с префиксом 'block-'
+    saveQuizResult('block-' + quiz.id, quiz.ok, total);
   }
 
   document.getElementById(wrapId).innerHTML =
@@ -728,6 +784,14 @@ function startLessonQuiz(n) {
     document.getElementById("quizWrap").classList.remove("show");
     document.getElementById("quizWrap").innerHTML = "";
     document.getElementById("mBody").style.display = "block";
+    // Обновляем кнопку запуска теста в уроке — вдруг пользователь только что сдал тест на 100%
+    // и теперь кнопка должна стать зелёной
+    const qzLaunch = document.querySelector('#mBody .qz-launch');
+    if (qzLaunch) {
+      qzLaunch.innerHTML = renderQuizLaunchHTML(currentLesson);
+      const btn = document.getElementById("btnQuiz");
+      if (btn) btn.onclick = () => startLessonQuiz(currentLesson);
+    }
   };
   quiz.restart = startLessonQuiz;
   document.getElementById("mBody").style.display = "none";

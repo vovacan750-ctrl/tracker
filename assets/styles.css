@@ -45,6 +45,10 @@ body{
 .btn.danger{color:#b42318}
 .btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
 .btn.pri:hover{background:#4338ca}
+/* Кнопка теста в уроке — зелёная когда тест сдан на 100%,
+   но остаётся кликабельной (можно пересдавать неограниченно) */
+.btn.pri.passed{background:linear-gradient(135deg,#22c55e,#16a34a);border-color:#22c55e;color:#fff}
+.btn.pri.passed:hover{background:linear-gradient(135deg,#16a34a,#15803d);border-color:#16a34a}
 .btn[disabled]{opacity:.45;cursor:not-allowed}
 .btn[disabled]:hover{border-color:var(--line);background:var(--card)}
 input[type=text],select{border:1px solid var(--line);border-radius:8px;padding:6px 9px;
@@ -115,12 +119,19 @@ input:focus,select:focus{outline:2px solid #c7d2fe;border-color:#818cf8}
   width:100%;margin-top:14px;border:none;cursor:pointer;font-family:inherit;
   background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;
   border-radius:14px;padding:11px 14px;font-size:12.5px;font-weight:800;letter-spacing:.02em;
-  transition:transform .2s ease,opacity .2s ease,filter .2s ease;
+  transition:transform .2s ease,opacity .2s ease,filter .2s ease,background .2s ease;
 }
 .ch-card .cc-test:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.1)}
 .ch-card .cc-test:active:not(:disabled){transform:scale(.97)}
 .ch-card .cc-test:disabled{
   background:rgba(255,255,255,.08);color:rgba(255,255,255,.4);cursor:not-allowed;
+}
+/* Большой тест по главе сдан на 100% — кнопка зелёная, но кликабельная (можно пересдавать) */
+.ch-card .cc-test.passed{
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+}
+.ch-card .cc-test.passed:hover:not(:disabled){
+  background:linear-gradient(135deg,#16a34a,#15803d);filter:brightness(1.1);
 }
 
 /* --- раскрытие уроков с анимацией --- */
