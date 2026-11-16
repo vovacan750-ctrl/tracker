@@ -701,9 +701,17 @@ input::placeholder{color:#9aa4b4 !important}
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
+<!-- Telegram WebApp SDK — нужен только если курс открыт внутри Telegram (Mini App).
+     Если открыть в обычном браузере — скрипт загрузится, но window.Telegram.WebApp
+     будет присутствовать, telegram-integration.js просто промолчит. -->
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 <!-- Конфиг и логика Firebase (ваши файлы) -->
 <script src="assets/firebase-config.js"></script>
 <script src="assets/auth.js"></script>
+
+<!-- Интеграция с Telegram Mini App (распознёт Telegram, expand, BackButton и т.д.) -->
+<script src="assets/telegram-integration.js"></script>
 
 <!-- Ваши старые скрипты (остаются на месте) -->
 <script src="assets/icons.js"></script>
