@@ -1,7 +1,7 @@
 // Service Worker для PWA "Сайт с 0 по созданию сайтов"
 // Кэширует все файлы для офлайн-работы
 
-const CACHE_VERSION = "v13-course-2026-11-17";
+const CACHE_VERSION = "v14-course-2026-11-17";
 const APP_SHELL = [
   "./",
   "./index.html",

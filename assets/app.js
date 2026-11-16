@@ -583,18 +583,26 @@ function applyFilter() {
 }
 
 function exportCsv() {
-  let csv = "Номер,Глава,Урок,Статус,Тест сдан\n";
+  // 4 колонки: № Главы | № урока | Статус урока | Статус теста
+  // Используем точку с запятой как разделитель — это стандарт для русского Excel,
+  // в отличие от запятой, которая может восприниматься как часть текста
+  let csv = "№ Главы;№ урока;Статус урока;Статус теста\n";
   DATA.chapters.forEach(ch => {
-    const num = ch.name.replace(/^Глава\s*(\d+)\..*/, "$1");
+    // Извлекаем номер главы из названия вида "Глава 1. Фундамент..."
+    const chNum = ch.name.replace(/^Глава\s*(\d+)\..*/, "$1");
     for (let n = ch.start; n < ch.start + ch.size; n++) {
       const st = getLessonState(n);
-      const q = DATA.quizzes[n] && DATA.quizzes[n].length
-        ? (quizPassed(n) ? "да" : "нет") : "—";
-      const title = DATA.lessons[n - 1].t.replace(/"/g, '""');
-      csv += n + ',"Глава ' + num + '","' + title + '","' +
-        ["Не начат", "В процессе", "Пройден"][st.s] + '","' + q + '"\n';
+      const lessonStatus = ["Не начат", "В процессе", "Пройден"][st.s];
+      let testStatus;
+      if (DATA.quizzes[n] && DATA.quizzes[n].length) {
+        testStatus = quizPassed(n) ? "Сдан" : "Не сдан";
+      } else {
+        testStatus = "Нет теста";
+      }
+      csv += chNum + ";" + n + ";" + lessonStatus + ";" + testStatus + "\n";
     }
   });
+  // BOM (\ufeff) в начале — чтобы Excel корректно распознал UTF-8 (иначе русские буквы ломаются)
   const blob = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
