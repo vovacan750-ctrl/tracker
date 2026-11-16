@@ -128,31 +128,39 @@ input::placeholder{color:#9aa4b4 !important}
 .qz-bar{background:#3a4150 !important}
 
 /* ============ ANDROID APP LAYOUT ============ */
-/* App Bar — верхняя панель сайта */
+/* App Bar — верхняя панель сайта (адаптивная) */
 .app-bar{
   background:linear-gradient(180deg,#1d2939,#101828);
   color:#fff;
-  padding:max(14px,env(safe-area-inset-top)) 16px 14px;
-  display:flex;align-items:center;gap:14px;
+  padding:max(12px,env(safe-area-inset-top)) 12px 12px;
+  display:flex;align-items:center;gap:10px;
   position:sticky;top:0;z-index:100;
   box-shadow:0 2px 8px rgba(0,0,0,.3);
   border-bottom:1px solid rgba(255,255,255,.06);
+  min-height:56px;
+  flex-wrap:nowrap;
 }
 .app-bar .app-logo{
-  width:36px;height:36px;flex:0 0 36px;border-radius:9px;
+  width:34px;height:34px;flex:0 0 34px;border-radius:9px;
   background:linear-gradient(135deg,#1d2939,#101828);
   border:1px solid rgba(255,255,255,.12);
   display:grid;place-items:center;
-  color:#6b73e8;font-weight:800;font-family:monospace;font-size:14px;
+  color:#6b73e8;font-weight:800;font-family:monospace;font-size:13px;
 }
-.app-bar .title{flex:1;min-width:0}
-.app-bar .title h1{margin:0;font-size:18px;font-weight:700;letter-spacing:-.01em;line-height:1.2;color:#fff}
-.app-bar .title .sub{font-size:11.5px;color:rgba(255,255,255,.5);font-weight:500;margin-top:2px}
+.app-bar .title{flex:1 1 auto;min-width:0;overflow:hidden}
+.app-bar .title h1{
+  margin:0;font-size:16px;font-weight:700;letter-spacing:-.01em;line-height:1.2;color:#fff;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.app-bar .title .sub{
+  font-size:11px;color:rgba(255,255,255,.5);font-weight:500;margin-top:2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
 
 /* Кнопки действий в app-bar (справа) */
-.app-bar-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex:0 0 auto}
+.app-bar-actions{display:flex;align-items:center;gap:6px;margin-left:auto;flex:0 0 auto}
 .app-bar-icon-btn{
-  width:38px;height:38px;flex:0 0 38px;
+  width:36px;height:36px;flex:0 0 36px;
   display:grid;place-items:center;
   background:#2a2f3a;color:#e6e8ec;
   border:1px solid #3a4150;border-radius:9px;
@@ -163,6 +171,76 @@ input::placeholder{color:#9aa4b4 !important}
 .app-bar-icon-btn.danger{color:#f87171}
 .app-bar-icon-btn.danger:hover{background:#2d2020;border-color:#ef4444}
 .app-bar-icon-btn svg{width:18px;height:18px}
+
+/* Кнопка «Выйти» — стили вынесены сюда из auth.js, чтобы media queries могли переопределять */
+.auth-logout-btn{
+  display:none;align-items:center;gap:6px;
+  padding:8px 12px;background:#2a2f3a;color:#e6e8ec;
+  border:1px solid #3a4150;border-radius:9px;
+  cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;
+  transition:background .15s ease,border-color .15s ease;
+  max-width:160px;overflow:hidden;
+}
+.auth-logout-btn.visible{display:inline-flex}
+.auth-logout-btn:hover{background:#323845;border-color:#6b73e8}
+.auth-logout-btn svg{width:16px;height:16px;flex:0 0 16px}
+.auth-logout-btn #auth-logout-text{
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  max-width:120px;
+}
+
+/* === Адаптив app-bar для разных экранов === */
+
+/* Средние и большие экраны (≥600px) — полный заголовок + кнопка с текстом */
+@media(min-width:600px){
+  .app-bar{padding:max(14px,env(safe-area-inset-top)) 16px 14px;gap:14px}
+  .app-bar .app-logo{width:36px;height:36px;flex:0 0 36px;font-size:14px}
+  .app-bar .title h1{font-size:18px}
+  .app-bar .title .sub{font-size:11.5px}
+  .app-bar-actions{gap:8px}
+  .app-bar-icon-btn{width:38px;height:38px;flex:0 0 38px}
+  .auth-logout-btn{padding:9px 14px;gap:8px;max-width:200px}
+  .auth-logout-btn #auth-logout-text{max-width:160px}
+}
+
+/* Большие десктопы (≥1024px) */
+@media(min-width:1024px){
+  .app-bar{padding:max(14px,env(safe-area-inset-top)) 32px 14px}
+  .app-bar .title h1{font-size:20px}
+}
+
+/* === Мобильные телефоны (≤599px) — компактный режим === */
+@media(max-width:599px){
+  .app-bar{gap:8px;padding:max(10px,env(safe-area-inset-top)) 10px 10px}
+  .app-bar .app-logo{width:32px;height:32px;flex:0 0 32px;font-size:12px}
+  .app-bar .title h1{font-size:15px}
+  .app-bar .title .sub{display:none}  /* Скрываем подзаголовок «16 глав · 167 уроков» на мобильных */
+  .app-bar-actions{gap:4px}
+  .app-bar-icon-btn{width:34px;height:34px;flex:0 0 34px;border-radius:8px}
+  .app-bar-icon-btn svg{width:16px;height:16px}
+  /* На мобильных — кнопка «Выйти» только иконка (без текста) */
+  .auth-logout-btn{padding:0;width:34px;height:34px;justify-content:center;max-width:none}
+  .auth-logout-btn #auth-logout-text{display:none}
+  .auth-logout-btn svg{width:16px;height:16px}
+}
+
+/* Очень маленькие телефоны (≤380px) — ещё компактнее */
+@media(max-width:380px){
+  .app-bar{padding:max(8px,env(safe-area-inset-top)) 8px 8px;gap:6px}
+  .app-bar .app-logo{width:30px;height:30px;flex:0 0 30px;font-size:11px}
+  .app-bar .title h1{font-size:14px}
+  .app-bar-icon-btn{width:32px;height:32px;flex:0 0 32px}
+  .auth-logout-btn{width:32px;height:32px}
+}
+
+/* Landscape на мобильных — ещё компактнее по высоте */
+@media(orientation:landscape) and (max-height:500px){
+  .app-bar{padding:6px 12px;min-height:44px}
+  .app-bar .app-logo{width:28px;height:28px;flex:0 0 28px;font-size:10px}
+  .app-bar .title h1{font-size:14px}
+  .app-bar-icon-btn{width:32px;height:32px;flex:0 0 32px}
+  .auth-logout-btn{width:32px;height:32px}
+}
 
 /* Drawer — полностью убран */
 .drawer,.drawer-overlay{display:none !important}
@@ -390,32 +468,23 @@ input::placeholder{color:#9aa4b4 !important}
 @media(min-width:1024px){
   #list{grid-template-columns:repeat(2,1fr) !important;gap:24px !important}
   .home-screen{padding:24px 32px}
-  .app-bar{padding:max(14px,env(safe-area-inset-top)) 32px 14px}
-  .app-bar .title h1{font-size:20px}
 }
 
-/* Телефоны в landscape */
+/* Телефоны в landscape — компактнее только для #loader/code-window (app-bar уже адаптирован выше) */
 @media(orientation:landscape) and (max-height:500px){
-  .app-bar{padding:10px 16px}
-  .app-bar .title h1{font-size:16px}
-  .app-bar .title .sub{font-size:10.5px}
   #loader .title{font-size:24px;margin-top:20px}
   .code-window{width:min(420px,80vw)}
   .code-window-body{font-size:11px;padding:12px}
 }
 
-/* Маленькие телефоны (≤380px) */
+/* Маленькие телефоны (≤380px) — app-bar уже адаптирован выше, тут только остальное */
 @media(max-width:380px){
-  .app-bar{padding:max(10px,env(safe-area-inset-top)) 12px 10px;gap:10px}
-  .app-bar .app-logo{width:32px;height:32px;flex:0 0 32px;font-size:12px}
-  .app-bar .title h1{font-size:16px}
-  .app-bar .title .sub{font-size:10.5px}
   .home-screen{padding:12px 10px}
   .search-wrap input{padding:12px 12px 12px 38px !important;font-size:14px}
   .search-wrap .search-icon{width:18px;height:18px;left:12px}
   .chip{font-size:12px;padding:6px 12px;min-height:32px}
   .inline-stats{padding:14px 16px}
-  .inline-stats .is-pct{font-size:30px}
+  .inline-stats .is-pct{font-size:28px}
   .inline-stats .is-card .v{font-size:18px}
   #loader .title{font-size:26px}
   .code-window{width:92vw}
@@ -425,11 +494,6 @@ input::placeholder{color:#9aa4b4 !important}
 /* Очень большие экраны (≥1440px) — ограничиваем ширину контента */
 @media(min-width:1440px){
   .home-screen{max-width:1280px;margin:0 auto;width:100%}
-}
-@media(min-width:1024px){
-  .home-screen{padding:24px 32px}
-  .app-bar{padding:max(14px,env(safe-area-inset-top)) 32px 14px}
-  .app-bar .title h1{font-size:20px}
 }
 
 /* PWA standalone режим — особые отступы */

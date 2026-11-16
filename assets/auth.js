@@ -523,12 +523,13 @@
     actions.className = 'app-bar-actions';
     actions.style.cssText = 'display:flex;align-items:center;gap:8px;margin-left:auto;flex:0 0 auto;';
 
+    // Кнопка «Выйти» — стили вынесены в CSS-класс .auth-logout-btn в index.html
+    // чтобы media queries могли переопределять их на мобильных экранах.
+    // display:none по умолчанию задано в CSS (.auth-logout-btn без класса .visible),
+    // НЕ используем inline style для display — иначе media queries не сработают.
     actions.innerHTML =
-      '<button id="auth-logout-btn" type="button" ' +
-        'style="display:none;align-items:center;gap:8px;' +
-        'padding:9px 14px;background:#2a2f3a;color:#e6e8ec;border:1px solid #3a4150;' +
-        'border-radius:10px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;transition:all .15s ease;">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;">' +
+      '<button id="auth-logout-btn" class="auth-logout-btn" type="button">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
           '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>' +
           '<polyline points="16 17 21 12 16 7"/>' +
           '<line x1="21" y1="12" x2="9" y2="12"/>' +
@@ -557,12 +558,16 @@
     if (user) {
       var email = user.email || '';
       var short = email.split('@')[0] || 'аккаунт';
-      logoutButton.style.display = 'inline-flex';
+      // Показываем кнопку через класс (не инлайним display, чтобы media queries работали)
+      logoutButton.classList.add('visible');
       var txt = document.getElementById('auth-logout-text');
       if (txt) txt.textContent = 'Выйти (' + short + ')';
+      // Сохраняем короткое имя в data-атрибуте для CSS-варианта (иконка на мобильном)
+      logoutButton.setAttribute('title', 'Выйти (' + short + ')');
+      logoutButton.setAttribute('aria-label', 'Выйти (' + short + ')');
     } else {
-      // Не залогинен — кнопка скрыта, окно входа уже показано автоматически
-      logoutButton.style.display = 'none';
+      // Не залогинен — кнопка скрыта
+      logoutButton.classList.remove('visible');
     }
   }
 
