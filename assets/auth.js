@@ -5,11 +5,19 @@
 //
 // Что делает этот файл:
 //   1. При первом заходе на сайт (если пользователь не вошёл) — автоматически
-//      показывает окно входа/регистрации.
-//   2. Добавляет кнопку «Войти в аккаунт» в начало бокового меню (drawer).
+//      показывает окно входа/регистрации. Без входа дальше пройти нельзя.
+//   2. Добавляет кнопку «Выйти» в верхнюю панель (app-bar).
 //   3. После входа подтягивает прогресс из Firestore и объединяет его с локальным.
 //   4. Каждый раз, когда app.js сохраняет прогресс локально, — выгружает его в облако
 //      именно на аккаунт пользователя (users/{uid}).
+//
+// Окно входа/регистрации:
+//   - Тёмная тема в цветах рабочего пространства сайта (#1d2939 / #3a4150 / #6b73e8)
+//   - Полностью непрозрачный фон (курсы за окном не видны)
+//   - Две вкладки: «Вход» и «Регистрация»
+//   - В регистрации 3 поля: Email, Пароль, Повторите пароль
+//   - Нет кнопок «Продолжить без аккаунта» и «Нет аккаунта / Уже есть аккаунт»
+//   - Закрыть окно без успешной авторизации нельзя
 
 (function () {
   'use strict';
@@ -21,9 +29,6 @@
   // Локальные ключи — должны совпадать с теми, что в app.js
   var STATE_KEY = 'tracker.state.v1';
   var QUIZ_KEY  = 'tracker.quiz.v1';
-
-  // Ключ в localStorage для флага "окно уже показывалось"
-  var MODAL_SHOWN_KEY = 'auth.modalAutoShown';
 
   // ============================================================
   // 1. Чтение/запись прогресса (работаем через localStorage,
@@ -44,95 +49,203 @@
   // 2. Модальное окно входа/регистрации
   // ============================================================
   var overlay = null;
-  var isRegister = false;
-  // По умолчанию показываем вкладку "Регистрация" при автопоказе первого входа
-  var defaultMode = 'register';
+  var currentMode = 'login';     // 'login' или 'register'
+
+  // Цвета берём из CSS-переменных сайта
+  var C = {
+    bgOverlay: '#1a1d23',        // полностью непрозрачный фон — курсы не видны
+    cardBg:    '#1d2939',        // фон окна (как тёмная карточка на сайте)
+    cardBorder:'#3a4150',
+    txt:       '#e6e8ec',
+    muted:     '#9aa4b4',
+    acc:       '#6b73e8',        // акцентный цвет сайта
+    accHover:  '#5a61d4',
+    inputBg:   '#252a35',
+    inputBorder: '#3a4150',
+    inputFocus: '#6b73e8',
+    errColor:  '#f87171',
+    tabActiveBg: '#2a2f3a',
+    tabInactiveBg: 'transparent',
+    tabInactiveColor: '#9aa4b4'
+  };
 
   function buildModal() {
     overlay = document.createElement('div');
     overlay.id = 'auth-overlay';
     overlay.style.cssText = [
-      'position:fixed', 'inset:0', 'background:rgba(0,0,0,0.7)',
+      'position:fixed', 'inset:0',
+      'background:' + C.bgOverlay,                       // полностью непрозрачный фон
       'z-index:99999', 'display:flex', 'align-items:center', 'justify-content:center',
-      'font-family:system-ui,-apple-system,sans-serif'
+      'font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif',
+      'padding:20px'
     ].join(';');
 
+    // Контейнер окна — размер остаётся прежним (max-width:380px)
     var modal = document.createElement('div');
     modal.style.cssText = [
-      'background:#fff', 'color:#222', 'padding:28px', 'border-radius:14px',
-      'max-width:380px', 'width:90%', 'box-shadow:0 12px 40px rgba(0,0,0,0.4)'
+      'background:' + C.cardBg,
+      'color:' + C.txt,
+      'padding:0',
+      'border:1px solid ' + C.cardBorder,
+      'border-radius:16px',
+      'max-width:380px', 'width:100%',
+      'box-shadow:0 24px 70px rgba(0,0,0,0.6)',
+      'overflow:hidden'
     ].join(';');
 
     modal.innerHTML =
-      '<h2 id="auth-title" style="margin:0 0 6px;font-size:20px;">Создать аккаунт</h2>' +
-      '<p id="auth-sub" style="margin:0 0 14px;font-size:13px;color:#666;line-height:1.4;">' +
-        'Аккаунт нужен, чтобы сохранять прогресс обучения и продолжать с любого устройства.' +
-      '</p>' +
-      '<div id="auth-error" style="color:#d32f2f;font-size:13px;min-height:18px;margin-bottom:8px;"></div>' +
-      '<input id="auth-email" type="email" placeholder="Email" autocomplete="email" ' +
-        'style="width:100%;padding:11px;margin-bottom:8px;border:1px solid #ccc;border-radius:8px;box-sizing:border-box;font-size:14px;" />' +
-      '<input id="auth-pass" type="password" placeholder="Пароль (6+ символов)" autocomplete="new-password" ' +
-        'style="width:100%;padding:11px;margin-bottom:12px;border:1px solid #ccc;border-radius:8px;box-sizing:border-box;font-size:14px;" />' +
-      '<button id="auth-submit" ' +
-        'style="width:100%;padding:12px;background:#ff8c00;color:#fff;border:0;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;">Зарегистрироваться</button>' +
-      '<button id="auth-toggle" ' +
-        'style="width:100%;padding:10px;background:transparent;color:#555;border:0;font-size:13px;cursor:pointer;">Уже есть аккаунт? Войти</button>' +
-      '<button id="auth-reset" ' +
-        'style="width:100%;padding:6px;background:transparent;color:#888;border:0;font-size:12px;cursor:pointer;">Забыли пароль?</button>' +
-      '<button id="auth-skip" ' +
-        'style="width:100%;padding:6px;background:transparent;color:#aaa;border:0;font-size:12px;cursor:pointer;margin-top:4px;">Продолжить без аккаунта</button>';
+      // Логотип/заголовок окна
+      '<div style="padding:24px 28px 14px;text-align:center;">' +
+        '<div style="width:48px;height:48px;border-radius:12px;' +
+          'background:linear-gradient(135deg,#1d2939,#101828);' +
+          'border:1px solid rgba(255,255,255,0.12);' +
+          'display:inline-grid;place-items:center;' +
+          'color:' + C.acc + ';font-weight:800;font-family:monospace;font-size:18px;' +
+          'margin-bottom:10px;">&lt;/&gt;</div>' +
+        '<div id="auth-title" style="font-size:20px;font-weight:700;color:#fff;margin-bottom:4px;">Вход в аккаунт</div>' +
+        '<div id="auth-sub" style="font-size:13px;color:' + C.muted + ';line-height:1.45;">' +
+          'Введите почту и пароль от вашего аккаунта.' +
+        '</div>' +
+      '</div>' +
+
+      // Вкладки Вход / Регистрация
+      '<div style="display:flex;padding:0 28px 18px;gap:8px;">' +
+        '<button type="button" id="auth-tab-login" class="auth-tab" data-mode="login" ' +
+          'style="flex:1;padding:10px 12px;border-radius:10px;cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;transition:all .15s ease;">Вход</button>' +
+        '<button type="button" id="auth-tab-register" class="auth-tab" data-mode="register" ' +
+          'style="flex:1;padding:10px 12px;border-radius:10px;cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;transition:all .15s ease;">Регистрация</button>' +
+      '</div>' +
+
+      // Поля формы
+      '<div style="padding:0 28px 22px;">' +
+        '<div id="auth-error" style="color:' + C.errColor + ';font-size:13px;min-height:18px;margin-bottom:10px;"></div>' +
+
+        '<label style="display:block;font-size:12px;color:' + C.muted + ';margin-bottom:6px;font-weight:600;">Email</label>' +
+        '<input id="auth-email" type="email" placeholder="you@example.com" autocomplete="email" ' +
+          'style="width:100%;padding:12px 14px;margin-bottom:14px;' +
+          'background:' + C.inputBg + ';color:' + C.txt + ';' +
+          'border:1.5px solid ' + C.inputBorder + ';border-radius:10px;' +
+          'box-sizing:border-box;font-size:14px;font-family:inherit;outline:none;transition:border-color .15s ease;" />' +
+
+        '<label style="display:block;font-size:12px;color:' + C.muted + ';margin-bottom:6px;font-weight:600;">Пароль (6+ символов)</label>' +
+        '<input id="auth-pass" type="password" placeholder="••••••••" autocomplete="current-password" ' +
+          'style="width:100%;padding:12px 14px;margin-bottom:14px;' +
+          'background:' + C.inputBg + ';color:' + C.txt + ';' +
+          'border:1.5px solid ' + C.inputBorder + ';border-radius:10px;' +
+          'box-sizing:border-box;font-size:14px;font-family:inherit;outline:none;transition:border-color .15s ease;" />' +
+
+        // Третье поле — повтор пароля (видно только в режиме регистрации)
+        '<div id="auth-pass2-wrap" style="display:none;">' +
+          '<label style="display:block;font-size:12px;color:' + C.muted + ';margin-bottom:6px;font-weight:600;">Повторите пароль</label>' +
+          '<input id="auth-pass2" type="password" placeholder="••••••••" autocomplete="new-password" ' +
+            'style="width:100%;padding:12px 14px;margin-bottom:14px;' +
+            'background:' + C.inputBg + ';color:' + C.txt + ';' +
+            'border:1.5px solid ' + C.inputBorder + ';border-radius:10px;' +
+            'box-sizing:border-box;font-size:14px;font-family:inherit;outline:none;transition:border-color .15s ease;" />' +
+        '</div>' +
+
+        '<button id="auth-submit" type="button" ' +
+          'style="width:100%;padding:13px;background:' + C.acc + ';color:#fff;border:0;border-radius:10px;' +
+          'font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s ease;">Войти</button>' +
+
+        // Ссылка «Забыли пароль?» — только в режиме входа
+        '<button id="auth-reset" type="button" ' +
+          'style="width:100%;padding:10px;background:transparent;color:' + C.muted + ';border:0;font-size:12.5px;cursor:pointer;font-family:inherit;margin-top:6px;">Забыли пароль?</button>' +
+      '</div>';
 
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
 
-    document.getElementById('auth-skip').onclick = closeModal;
-    document.getElementById('auth-toggle').onclick = toggleMode;
-    document.getElementById('auth-reset').onclick = resetPassword;
-    document.getElementById('auth-submit').onclick = submit;
-    document.getElementById('auth-pass').addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') submit();
-    });
-    document.getElementById('auth-email').addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') document.getElementById('auth-pass').focus();
+    // Привязка событий
+    var tabLogin = document.getElementById('auth-tab-login');
+    var tabReg = document.getElementById('auth-tab-register');
+    if (tabLogin) tabLogin.addEventListener('click', function () { setMode('login'); });
+    if (tabReg)   tabReg.addEventListener('click',   function () { setMode('register'); });
+
+    document.getElementById('auth-submit').addEventListener('click', submit);
+    document.getElementById('auth-reset').addEventListener('click', resetPassword);
+
+    var emailInput = document.getElementById('auth-email');
+    var passInput  = document.getElementById('auth-pass');
+    var pass2Input = document.getElementById('auth-pass2');
+
+    // Focus-эффект — рамка становится акцентного цвета
+    [emailInput, passInput, pass2Input].forEach(function (inp) {
+      if (!inp) return;
+      inp.addEventListener('focus', function () { inp.style.borderColor = C.inputFocus; });
+      inp.addEventListener('blur',  function () { inp.style.borderColor = C.inputBorder; });
+      inp.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          if (inp === emailInput) { passInput.focus(); return; }
+          if (inp === passInput && currentMode === 'register') { pass2Input.focus(); return; }
+          submit();
+        }
+      });
     });
 
-    overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) closeModal();
-    });
+    // Клик по overlay — НЕ закрываем (пользователь обязан войти)
+    // overlay.addEventListener('click', function (e) {
+    //   if (e.target === overlay) closeModal();
+    // });
 
     // Устанавливаем начальный режим
-    setMode(defaultMode);
+    setMode('login');
   }
 
-  function setMode(register) {
-    isRegister = register;
-    document.getElementById('auth-title').textContent = isRegister ? 'Создать аккаунт' : 'Вход в аккаунт';
-    document.getElementById('auth-sub').textContent = isRegister
-      ? 'Аккаунт нужен, чтобы сохранять прогресс обучения и продолжать с любого устройства.'
-      : 'Введите почту и пароль от вашего аккаунта.';
-    document.getElementById('auth-submit').textContent = isRegister ? 'Зарегистрироваться' : 'Войти';
-    document.getElementById('auth-toggle').textContent = isRegister ? 'Уже есть аккаунт? Войти' : 'Нет аккаунта? Зарегистрироваться';
-    var emailInput = document.getElementById('auth-email');
-    if (emailInput) emailInput.setAttribute('autocomplete', isRegister ? 'email' : 'email');
+  // Переключение режима (вход/регистрация)
+  function setMode(mode) {
+    currentMode = mode;
+    var isLogin = (mode === 'login');
+
+    var title = document.getElementById('auth-title');
+    var sub   = document.getElementById('auth-sub');
+    var submitBtn = document.getElementById('auth-submit');
+    var pass2Wrap = document.getElementById('auth-pass2-wrap');
+    var resetBtn  = document.getElementById('auth-reset');
     var passInput = document.getElementById('auth-pass');
-    if (passInput) passInput.setAttribute('autocomplete', isRegister ? 'new-password' : 'current-password');
+
+    if (title)     title.textContent = isLogin ? 'Вход в аккаунт' : 'Создать аккаунт';
+    if (sub)       sub.textContent   = isLogin
+      ? 'Введите почту и пароль от вашего аккаунта.'
+      : 'Аккаунт нужен, чтобы сохранять прогресс и продолжать с любого устройства.';
+    if (submitBtn) {
+      submitBtn.textContent = isLogin ? 'Войти' : 'Зарегистрироваться';
+    }
+    if (pass2Wrap) pass2Wrap.style.display = isLogin ? 'none' : 'block';
+    if (resetBtn)  resetBtn.style.display  = isLogin ? 'block' : 'none';
+    if (passInput) passInput.setAttribute('autocomplete', isLogin ? 'current-password' : 'new-password');
+
+    // Стили вкладок
+    var tabLogin = document.getElementById('auth-tab-login');
+    var tabReg   = document.getElementById('auth-tab-register');
+    function styleTab(btn, active) {
+      if (!btn) return;
+      if (active) {
+        btn.style.background = C.acc;
+        btn.style.color = '#fff';
+        btn.style.border = '1.5px solid ' + C.acc;
+      } else {
+        btn.style.background = C.tabActiveBg;
+        btn.style.color = C.tabInactiveColor;
+        btn.style.border = '1.5px solid ' + C.inputBorder;
+      }
+    }
+    styleTab(tabLogin, isLogin);
+    styleTab(tabReg,   !isLogin);
+
     var err = document.getElementById('auth-error');
     if (err) err.textContent = '';
-  }
-
-  function toggleMode() {
-    setMode(!isRegister);
   }
 
   function openModal(opts) {
     opts = opts || {};
     if (!overlay) buildModal();
-    if (opts.mode) {
-      setMode(opts.mode === 'register');
-      defaultMode = opts.mode;
-    }
+    if (opts.mode) setMode(opts.mode);
     overlay.style.display = 'flex';
-    setTimeout(function () { document.getElementById('auth-email').focus(); }, 50);
+    setTimeout(function () {
+      var el = document.getElementById('auth-email');
+      if (el) el.focus();
+    }, 50);
   }
 
   function closeModal() {
@@ -152,8 +265,16 @@
   function submit() {
     var email = document.getElementById('auth-email').value.trim();
     var pass  = document.getElementById('auth-pass').value;
+    var pass2 = document.getElementById('auth-pass2') ? document.getElementById('auth-pass2').value : '';
+
     if (!email || !pass) { showError('Заполните все поля'); return; }
     if (pass.length < 6) { showError('Пароль минимум 6 символов'); return; }
+
+    if (currentMode === 'register') {
+      // В регистрации — проверяем что пароли совпадают
+      if (!pass2) { showError('Повторите пароль'); return; }
+      if (pass !== pass2) { showError('Пароли не совпадают — проверьте правильность ввода'); return; }
+    }
 
     showError('');
     var submitBtn = document.getElementById('auth-submit');
@@ -167,7 +288,15 @@
       if (err) showError(err);
     }
 
-    if (isRegister) {
+    // Проверяем что Firebase доступен
+    if (!isFirebaseReady()) {
+      done('Сервис авторизации недоступен (Firebase SDK не загрузился). ' +
+           'Проверьте интернет-соединение или попробуйте обновить страницу. ' +
+           'Если проблема повторяется — домен сайта не добавлен в Firebase Console → Authentication → Settings → Authorized domains.');
+      return;
+    }
+
+    if (currentMode === 'register') {
       firebase.auth().createUserWithEmailAndPassword(email, pass)
         .then(function (uc) { return uc.user.sendEmailVerification(); })
         .then(function () {
@@ -191,6 +320,10 @@
   function resetPassword() {
     var email = document.getElementById('auth-email').value.trim();
     if (!email) { showError('Введите email для сброса пароля'); return; }
+    if (!isFirebaseReady()) {
+      showError('Сервис авторизации недоступен. Проверьте интернет-соединение.');
+      return;
+    }
     firebase.auth().sendPasswordResetEmail(email)
       .then(function () { alert('Письмо для сброса пароля отправлено на ' + email); })
       .catch(function (e) { showError(translateError(e.code)); });
@@ -313,7 +446,8 @@
       if (typeof refreshAllCards === 'function') refreshAllCards();
     } catch (e) {}
     try {
-      if (typeof renderDrawerStats === 'function') renderDrawerStats();
+      if (typeof renderInlineStats === 'function') renderInlineStats();
+      else if (typeof renderDrawerStats === 'function') renderDrawerStats();
     } catch (e) {}
     try {
       if (typeof renderStats === 'function') renderStats();
@@ -374,110 +508,153 @@
   }
 
   // ============================================================
-  // 6. Кнопка «Войти / Выйти» в боковом меню (drawer)
+  // 6. Кнопка «Выйти» в верхней панели (app-bar)
   // ============================================================
-  var authButton = null;
+  var logoutButton = null;
 
-  function ensureAuthButton() {
-    if (authButton && document.body.contains(authButton)) return;
+  function ensureLogoutButton() {
+    if (logoutButton && document.body.contains(logoutButton)) return;
 
-    var drawer = document.getElementById('drawer');
-    if (!drawer) return;
+    var appBar = document.querySelector('.app-bar');
+    if (!appBar) return;
 
-    var container = document.createElement('div');
-    container.id = 'auth-drawer-block';
-    container.style.cssText = 'padding:16px;border-bottom:1px solid rgba(255,255,255,0.08);';
-    container.innerHTML =
-      '<button id="auth-menu-btn" ' +
-      'style="width:100%;padding:12px 16px;background:#ff8c00;color:#fff;border:0;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;">' +
-      'Войти в аккаунт</button>';
+    // Контейнер для действий справа в app-bar
+    var actions = document.createElement('div');
+    actions.className = 'app-bar-actions';
+    actions.style.cssText = 'display:flex;align-items:center;gap:8px;margin-left:auto;flex:0 0 auto;';
 
-    authButton = container.querySelector('#auth-menu-btn');
-    authButton.addEventListener('click', function () {
-      if (firebase.auth().currentUser) {
-        if (confirm('Выйти из аккаунта?')) {
-          firebase.auth().signOut().catch(function (e) { console.warn(e); });
+    actions.innerHTML =
+      '<button id="auth-logout-btn" type="button" ' +
+        'style="display:none;align-items:center;gap:8px;' +
+        'padding:9px 14px;background:#2a2f3a;color:#e6e8ec;border:1px solid #3a4150;' +
+        'border-radius:10px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;transition:all .15s ease;">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;">' +
+          '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>' +
+          '<polyline points="16 17 21 12 16 7"/>' +
+          '<line x1="21" y1="12" x2="9" y2="12"/>' +
+        '</svg>' +
+        '<span id="auth-logout-text">Выйти</span>' +
+      '</button>';
+
+    appBar.appendChild(actions);
+
+    logoutButton = document.getElementById('auth-logout-btn');
+    if (logoutButton) {
+      logoutButton.addEventListener('click', function () {
+        if (firebase.auth().currentUser) {
+          if (confirm('Выйти из аккаунта? Прогресс сохранён на сервере.')) {
+            firebase.auth().signOut().catch(function (e) { console.warn(e); });
+          }
+        } else {
+          openModal({ mode: 'login' });
         }
-      } else {
-        openModal({ mode: 'login' });
-      }
-    });
-
-    drawer.insertBefore(container, drawer.firstChild);
+      });
+    }
   }
 
-  function updateAuthButton(user) {
-    if (!authButton) return;
+  function updateLogoutButton(user) {
+    if (!logoutButton) return;
     if (user) {
       var email = user.email || '';
-      var short = email.split('@')[0];
-      authButton.textContent = 'Выйти (' + short + ')';
-      authButton.style.background = '#3a3f4a';
+      var short = email.split('@')[0] || 'аккаунт';
+      logoutButton.style.display = 'inline-flex';
+      var txt = document.getElementById('auth-logout-text');
+      if (txt) txt.textContent = 'Выйти (' + short + ')';
     } else {
-      authButton.textContent = 'Войти в аккаунт';
-      authButton.style.background = '#ff8c00';
+      // Не залогинен — кнопка скрыта, окно входа уже показано автоматически
+      logoutButton.style.display = 'none';
     }
   }
 
   // ============================================================
-  // 7. АВТОПОКАЗ ОКНА ВХОДА ПРИ ПЕРВОМ ЗАХОДЕ
-  //    Показываем только если:
-  //    - пользователь не залогинен
-  //    - окно ещё ни разу не показывалось автоматически (флаг в localStorage)
+  // 7. АВТОПОКАЗ ОКНА ВХОДА ПРИ ОТСУТСТВИИ АККАУНТА
+  //    Окно показывается всегда, пока пользователь не залогинен.
+  //    Закрыть без входа — нельзя.
   // ============================================================
   function maybeAutoShowModal(user) {
-    if (user) return; // Уже залогинен — не показываем
-    if (localStorage.getItem(MODAL_SHOWN_KEY) === '1') return; // Уже показывали — не показываем
-
-    // Помечаем, что показали
-    localStorage.setItem(MODAL_SHOWN_KEY, '1');
-
-    // Небольшая задержка, чтобы успел скрыться loader
+    if (user) {
+      // Залогинен — скрываем окно
+      closeModal();
+      return;
+    }
+    // Не залогинен — показываем окно входа
     setTimeout(function () {
-      openModal({ mode: 'register' });
-    }, 1200);
+      openModal({ mode: 'login' });
+    }, 800);
   }
-
-  // Сбросить флаг "окно показывалось" — полезно, если хотите, чтобы окно снова
-  // появилось при следующем заходе (например, после выхода из аккаунта).
-  // По умолчанию НЕ сбрасываем — пользователь уже видел окно, не назойливим.
-  // Раскомментируйте строку в signOut ниже, если хотите всегда показывать окно
-  // при следующем заходе после выхода.
 
   // ============================================================
   // 8. Реакция на изменения состояния авторизации
+  //    (с защитой от ошибок Firebase — если SDK не загрузился,
+  //    окно входа всё равно покажется)
   // ============================================================
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      // Вошёл — подтягиваем прогресс из облака на аккаунт
-      downloadProgress(user)
-        .then(function (cloudData) { applyCloudProgress(cloudData); })
-        .catch(function (e) { console.warn('Load progress error:', e); });
-    } else {
-      // Вышел — просто обновляем UI, локальный прогресс не трогаем
-      lastSyncedHash = null;
+  function isFirebaseReady() {
+    try {
+      return (typeof firebase !== 'undefined') &&
+             firebase.auth &&
+             (typeof firebase.auth === 'function');
+    } catch (e) {
+      return false;
     }
-    updateAuthButton(user);
-    // Пытаемся показать автопоказ (только при первом заходе, без аккаунта)
-    maybeAutoShowModal(user);
-  });
+  }
+
+  function setupAuthListener() {
+    if (!isFirebaseReady()) {
+      console.warn('[auth] Firebase SDK не загрузился — показываем окно входа в режиме заглушки.');
+      // Показываем окно входа всё равно, чтобы пользователь увидел проблему
+      setTimeout(function () { openModal({ mode: 'login' }); }, 1000);
+      return;
+    }
+    try {
+      firebase.auth().onAuthStateChanged(function (user) {
+        try {
+          if (user) {
+            // Вошёл — подтягиваем прогресс из облака на аккаунт
+            downloadProgress(user)
+              .then(function (cloudData) { applyCloudProgress(cloudData); })
+              .catch(function (e) { console.warn('Load progress error:', e); });
+          } else {
+            // Вышел — обновляем UI и показываем окно входа
+            lastSyncedHash = null;
+          }
+          updateLogoutButton(user);
+          // Показываем/скрываем окно входа в зависимости от состояния
+          maybeAutoShowModal(user);
+        } catch (innerErr) {
+          console.error('[auth] Ошибка в onAuthStateChanged callback:', innerErr);
+          // Показываем окно входа как fallback
+          setTimeout(function () { openModal({ mode: 'login' }); }, 1000);
+        }
+      });
+    } catch (e) {
+      console.error('[auth] Не удалось подписаться onAuthStateChanged:', e);
+      // Fallback — показываем окно входа через 1 сек
+      setTimeout(function () { openModal({ mode: 'login' }); }, 1000);
+    }
+  }
 
   // ============================================================
   // 9. Инициализация
   // ============================================================
   function init() {
-    patchLocalStorage();
-    ensureAuthButton();
+    try { patchLocalStorage(); } catch (e) { console.warn('[auth] patchLocalStorage failed:', e); }
+    try { ensureLogoutButton(); } catch (e) { console.warn('[auth] ensureLogoutButton failed:', e); }
     // Синхронизация между вкладками — стандартный storage event
     window.addEventListener('storage', function (e) {
       if (e.key === STATE_KEY || e.key === QUIZ_KEY) {
-        if (firebase.auth().currentUser) scheduleUpload();
+        try {
+          if (isFirebaseReady() && firebase.auth().currentUser) scheduleUpload();
+        } catch (e2) {}
       }
     });
     // Перед закрытием вкладки — выгрузить прогресс на аккаунт
     window.addEventListener('beforeunload', function () {
-      if (firebase.auth().currentUser) uploadProgress();
+      try {
+        if (isFirebaseReady() && firebase.auth().currentUser) uploadProgress();
+      } catch (e2) {}
     });
+    // Запускаем подписку на auth state
+    setupAuthListener();
   }
 
   if (document.readyState === 'loading') {
