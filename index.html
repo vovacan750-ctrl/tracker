@@ -39,6 +39,30 @@
   --edge:rgba(255,255,255,.09);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
+/* =========================================================
+   СВОЙ СКОЛЛБАР В ЦВЕТАХ И СТИЛЕ САЙТА
+   ========================================================= */
+*{scrollbar-width:thin;scrollbar-color:#3a4150 #1a1d23}
+::-webkit-scrollbar{width:14px;height:14px}
+::-webkit-scrollbar-track{
+  background:#1a1d23;
+  border-left:1px solid rgba(255,255,255,.04);
+}
+::-webkit-scrollbar-thumb{
+  background:#3a4150;
+  border-radius:8px;
+  border:3px solid #1a1d23;
+  transition:background .15s ease;
+}
+::-webkit-scrollbar-thumb:hover{background:#6b73e8}
+::-webkit-scrollbar-thumb:active{background:#5a61d4}
+::-webkit-scrollbar-button{
+  display:none;width:0;height:0;
+  background:transparent;
+}
+::-webkit-scrollbar-corner{background:#1a1d23}
+
 html,body{margin:0;padding:0;height:100%;overscroll-behavior-y:none}
 body{
   background:#2a2f3a !important;color:#e6e8ec !important;padding:0 !important;
@@ -104,7 +128,7 @@ input::placeholder{color:#9aa4b4 !important}
 .qz-bar{background:#3a4150 !important}
 
 /* ============ ANDROID APP LAYOUT ============ */
-/* App Bar */
+/* App Bar — верхняя панель сайта */
 .app-bar{
   background:linear-gradient(180deg,#1d2939,#101828);
   color:#fff;
@@ -114,14 +138,6 @@ input::placeholder{color:#9aa4b4 !important}
   box-shadow:0 2px 8px rgba(0,0,0,.3);
   border-bottom:1px solid rgba(255,255,255,.06);
 }
-.app-bar .hamburger{
-  width:44px;height:44px;flex:0 0 44px;
-  background:transparent;border:none;color:#fff;cursor:pointer;
-  display:grid;place-items:center;border-radius:10px;
-  transition:background .15s ease;
-}
-.app-bar .hamburger:hover,.app-bar .hamburger:active{background:rgba(255,255,255,.08)}
-.app-bar .hamburger svg{width:24px;height:24px}
 .app-bar .app-logo{
   width:36px;height:36px;flex:0 0 36px;border-radius:9px;
   background:linear-gradient(135deg,#1d2939,#101828);
@@ -133,105 +149,23 @@ input::placeholder{color:#9aa4b4 !important}
 .app-bar .title h1{margin:0;font-size:18px;font-weight:700;letter-spacing:-.01em;line-height:1.2;color:#fff}
 .app-bar .title .sub{font-size:11.5px;color:rgba(255,255,255,.5);font-weight:500;margin-top:2px}
 
-/* Drawer */
-.drawer-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;
-  opacity:0;pointer-events:none;transition:opacity .25s ease;
-}
-.drawer-overlay.open{opacity:1;pointer-events:auto}
-.drawer{
-  position:fixed;top:0;left:0;bottom:0;
-  width:min(320px,85vw);
-  background:#1a1d23;border-right:1px solid rgba(255,255,255,.09);
-  z-index:210;transform:translateX(-100%);
-  transition:transform .28s cubic-bezier(.2,.7,.3,1);
-  display:flex;flex-direction:column;
-  padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);
-  box-shadow:4px 0 24px rgba(0,0,0,.4);
-  overflow-y:auto;
-}
-.drawer.open{transform:translateX(0)}
-
-/* Шапка drawer */
-.drawer-header{
-  padding:24px 20px 20px;
-  background:linear-gradient(135deg,#1d2939,#101828);
-  border-bottom:1px solid rgba(255,255,255,.06);
-  position:relative;
-}
-.drawer-logo{
-  width:60px;height:60px;border-radius:14px;
-  background:linear-gradient(135deg,#1d2939,#101828);
-  border:1px solid rgba(255,255,255,.12);
+/* Кнопки действий в app-bar (справа) */
+.app-bar-actions{display:flex;align-items:center;gap:8px;margin-left:auto;flex:0 0 auto}
+.app-bar-icon-btn{
+  width:38px;height:38px;flex:0 0 38px;
   display:grid;place-items:center;
-  color:#6b73e8;font-weight:800;font-family:monospace;font-size:22px;
-  margin-bottom:14px;
-  box-shadow:0 8px 24px rgba(0,0,0,.3);
+  background:#2a2f3a;color:#e6e8ec;
+  border:1px solid #3a4150;border-radius:9px;
+  cursor:pointer;font-family:inherit;
+  transition:background .15s ease,border-color .15s ease;
 }
-.drawer-title{font-size:20px;font-weight:700;color:#fff;letter-spacing:-.01em}
-.drawer-subtitle{font-size:13px;color:rgba(255,255,255,.5);margin-top:3px}
+.app-bar-icon-btn:hover{background:#323845;border-color:#6b73e8}
+.app-bar-icon-btn.danger{color:#f87171}
+.app-bar-icon-btn.danger:hover{background:#2d2020;border-color:#ef4444}
+.app-bar-icon-btn svg{width:18px;height:18px}
 
-/* Кнопка закрытия — простой крестик ✕ в правом верхнем углу */
-.drawer-close{
-  position:absolute;top:20px;right:20px;
-  width:36px;height:36px;
-  background:transparent;border:none;cursor:pointer;
-  display:grid;place-items:center;
-  color:rgba(255,255,255,.7);
-  font-size:22px;line-height:1;font-family:inherit;
-  transition:color .15s ease;
-  padding:0;
-}
-.drawer-close:hover,.drawer-close:active{color:#fff}
-.drawer-close svg{width:18px;height:18px}
-
-/* Содержимое drawer — inline-статистика */
-.drawer-body{flex:1;overflow-y:auto;padding:20px}
-
-/* Hero-статистика */
-.drawer-hero{margin-bottom:20px}
-.drawer-hero .pct{font-size:44px;font-weight:800;color:#6b73e8;letter-spacing:-.03em;line-height:1}
-.drawer-hero .label{font-size:13px;color:#9aa4b4;margin-top:4px}
-.drawer-hero .bar{height:8px;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden;margin-top:14px}
-.drawer-hero .bar i{display:block;height:100%;background:linear-gradient(90deg,#6366f1,#a78bfa);border-radius:99px;transition:width .5s ease}
-
-/* 4 карточки статистики */
-.drawer-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
-.drawer-stat-card{
-  background:#2a2f3a;border:1px solid rgba(255,255,255,.09);border-radius:12px;
-  padding:12px 14px;
-}
-.drawer-stat-card .k{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#9aa4b4;font-weight:600}
-.drawer-stat-card .v{font-size:22px;font-weight:700;margin-top:4px;letter-spacing:-.02em;color:#fff}
-.drawer-stat-card.ok .v{color:#22c55e}
-.drawer-stat-card.proc .v{color:#f59e0b}
-.drawer-stat-card.acc .v{color:#6b73e8}
-
-/* Список глав в drawer */
-.drawer-section-title{font-size:11px;font-weight:700;color:#9aa4b4;text-transform:uppercase;letter-spacing:.06em;margin:0 0 10px}
-.drawer-chapter-row{
-  background:#2a2f3a;border:1px solid rgba(255,255,255,.09);border-radius:10px;
-  padding:10px 12px;margin-bottom:6px;
-}
-.drawer-chapter-row .rowline{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;font-size:12px}
-.drawer-chapter-row .name{font-weight:600;color:#e6e8ec;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
-.drawer-chapter-row .num{font-size:11px;color:#9aa4b4;font-weight:700;flex:0 0 auto;margin-left:8px}
-.drawer-chapter-row .bar{height:4px;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden}
-.drawer-chapter-row .bar i{display:block;height:100%;background:linear-gradient(90deg,#6366f1,#a78bfa);border-radius:99px;transition:width .5s ease}
-
-/* 3 кнопки внизу drawer */
-.drawer-actions{padding:16px 20px;border-top:1px solid rgba(255,255,255,.06)}
-.drawer-action-btn{
-  display:flex;align-items:center;gap:14px;
-  padding:14px 8px;color:#e6e8ec;font-size:15px;font-weight:500;
-  cursor:pointer;border:none;background:transparent;width:100%;text-align:left;
-  font-family:inherit;transition:background .15s ease;border-radius:10px;
-}
-.drawer-action-btn:hover,.drawer-action-btn:active{background:rgba(255,255,255,.06)}
-.drawer-action-btn.danger{color:#f87171}
-.drawer-action-btn svg{width:20px;height:20px;flex:0 0 20px;opacity:.85}
-
-.drawer-footer{padding:12px 20px;font-size:11px;color:#6d7789;border-top:1px solid rgba(255,255,255,.06)}
+/* Drawer — полностью убран */
+.drawer,.drawer-overlay{display:none !important}
 
 /* Main content */
 .main-content{flex:1;display:flex;flex-direction:column;min-height:0}
@@ -240,6 +174,109 @@ input::placeholder{color:#9aa4b4 !important}
 
 /* Home screen */
 .home-screen{padding:16px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+
+/* === Inline-статистика над строкой поиска === */
+.inline-stats{
+  margin-bottom:18px;
+  background:linear-gradient(135deg,#1d2939,#101828);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:18px;padding:20px 22px;
+}
+/* Hero — процент и подпись слева, прогресс-бар растягивается рядом на той же baseline */
+.inline-stats .is-hero{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.inline-stats .is-pct-wrap{flex:0 0 auto;display:flex;align-items:baseline;gap:14px}
+.inline-stats .is-pct{
+  font-size:36px;font-weight:800;color:#6b73e8;
+  letter-spacing:-.03em;line-height:1;
+}
+.inline-stats .is-pct-label{font-size:12.5px;color:#9aa4b4;font-weight:600;white-space:nowrap}
+.inline-stats .is-bar{
+  flex:1 1 240px;min-width:200px;
+  height:10px;background:rgba(255,255,255,.15);
+  border-radius:99px;overflow:hidden;
+}
+.inline-stats .is-bar i{
+  display:block;height:100%;width:0;
+  background:linear-gradient(90deg,#6366f1,#a78bfa);
+  border-radius:99px;transition:width .5s ease;
+}
+.inline-stats .is-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:10px;margin-top:16px;
+}
+.inline-stats .is-card{
+  background:#2a2f3a;border:1px solid rgba(255,255,255,.09);
+  border-radius:12px;padding:11px 13px;
+}
+.inline-stats .is-card .k{
+  font-size:10px;text-transform:uppercase;letter-spacing:.06em;
+  color:#9aa4b4;font-weight:600;
+}
+.inline-stats .is-card .v{
+  font-size:22px;font-weight:700;margin-top:5px;
+  letter-spacing:-.02em;color:#fff;line-height:1.1;
+}
+.inline-stats .is-card.ok .v{color:#22c55e}
+.inline-stats .is-card.proc .v{color:#f59e0b}
+.inline-stats .is-card.acc .v{color:#6b73e8}
+
+/* Кнопка раскрытия списка глав */
+.inline-stats .is-toggle{
+  margin-top:14px;width:100%;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 14px;background:#2a2f3a;
+  border:1px solid rgba(255,255,255,.09);border-radius:10px;
+  color:#e6e8ec;font-size:13px;font-weight:600;font-family:inherit;
+  cursor:pointer;transition:background .15s ease,border-color .15s ease;
+}
+.inline-stats .is-toggle:hover{background:#323845;border-color:#6b73e8}
+.inline-stats .is-toggle svg{
+  width:14px;height:14px;transition:transform .2s ease;
+}
+.inline-stats .is-toggle.open svg{transform:rotate(180deg)}
+
+/* Раскрывающийся список глав */
+.inline-stats .is-chapters{
+  display:none;margin-top:14px;
+  max-height:340px;overflow-y:auto;padding-right:4px;
+}
+.inline-stats .is-chapters.open{display:block}
+.inline-stats .is-chapter-row{
+  background:#2a2f3a;border:1px solid rgba(255,255,255,.09);
+  border-radius:10px;padding:10px 12px;margin-bottom:6px;
+}
+.inline-stats .is-chapter-row .rowline{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:5px;font-size:12px;
+}
+.inline-stats .is-chapter-row .name{
+  font-weight:600;color:#e6e8ec;flex:1;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;
+}
+.inline-stats .is-chapter-row .num{
+  font-size:11px;color:#9aa4b4;font-weight:700;flex:0 0 auto;margin-left:8px;
+}
+.inline-stats .is-chapter-row .bar{
+  height:4px;background:rgba(255,255,255,.15);
+  border-radius:99px;overflow:hidden;
+}
+.inline-stats .is-chapter-row .bar i{
+  display:block;height:100%;
+  background:linear-gradient(90deg,#6366f1,#a78bfa);
+  border-radius:99px;transition:width .5s ease;
+}
+
+@media(max-width:560px){
+  .inline-stats{padding:16px 18px}
+  .inline-stats .is-grid{grid-template-columns:repeat(2,1fr)}
+  .inline-stats .is-pct{font-size:28px}
+  .inline-stats .is-pct-wrap{flex:1 1 100%;justify-content:flex-start}
+  .inline-stats .is-bar{flex:1 1 100%;min-width:0}
+  .inline-stats .is-card .v{font-size:18px}
+}
+
 .search-wrap{position:relative;margin-bottom:18px}
 .search-wrap .search-icon{
   position:absolute;left:14px;top:50%;transform:translateY(-50%);
@@ -352,16 +389,9 @@ input::placeholder{color:#9aa4b4 !important}
 /* Большие планшеты (≥1024px) — показываем 2 колонки глав */
 @media(min-width:1024px){
   #list{grid-template-columns:repeat(2,1fr) !important;gap:24px !important}
-  .home-screen,.stats-screen{padding:24px 32px}
+  .home-screen{padding:24px 32px}
   .app-bar{padding:max(14px,env(safe-area-inset-top)) 32px 14px}
   .app-bar .title h1{font-size:20px}
-  .drawer{width:340px}
-}
-
-/* Средние планшеты (768–1023px) */
-@media(min-width:768px) and (max-width:1023px){
-  .home-screen,.stats-screen{padding:20px 24px}
-  .drawer{width:300px}
 }
 
 /* Телефоны в landscape */
@@ -377,31 +407,16 @@ input::placeholder{color:#9aa4b4 !important}
 /* Маленькие телефоны (≤380px) */
 @media(max-width:380px){
   .app-bar{padding:max(10px,env(safe-area-inset-top)) 12px 10px;gap:10px}
-  .app-bar .hamburger{width:40px;height:40px;flex:0 0 40px}
   .app-bar .app-logo{width:32px;height:32px;flex:0 0 32px;font-size:12px}
   .app-bar .title h1{font-size:16px}
   .app-bar .title .sub{font-size:10.5px}
-  .home-screen,.stats-screen{padding:12px 10px}
+  .home-screen{padding:12px 10px}
   .search-wrap input{padding:12px 12px 12px 38px !important;font-size:14px}
   .search-wrap .search-icon{width:18px;height:18px;left:12px}
   .chip{font-size:12px;padding:6px 12px;min-height:32px}
-  .stat-grid{grid-template-columns:1fr 1fr;gap:8px}
-  .stat-card{padding:12px}
-  .stat-card .v{font-size:24px}
-  .stat-hero{padding:18px 14px}
-  .stat-hero .pct{font-size:40px}
-  .drawer{width:90vw}
-  .drawer-header{padding:18px 16px}
-  .drawer-logo{width:52px;height:52px;font-size:18px}
-  .drawer-title{font-size:18px}
-  .drawer-body{padding:16px}
-  .drawer-hero .pct{font-size:36px}
-  .drawer-stats-grid{grid-template-columns:1fr 1fr;gap:8px}
-  .drawer-stat-card{padding:10px 12px}
-  .drawer-stat-card .v{font-size:18px}
-  .drawer-chapter-row{padding:8px 10px}
-  .drawer-chapter-row .name{font-size:11px}
-  .drawer-chapter-row .num{font-size:10px}
+  .inline-stats{padding:14px 16px}
+  .inline-stats .is-pct{font-size:30px}
+  .inline-stats .is-card .v{font-size:18px}
   #loader .title{font-size:26px}
   .code-window{width:92vw}
   .code-window-body{font-size:11px;padding:14px}
@@ -409,7 +424,12 @@ input::placeholder{color:#9aa4b4 !important}
 
 /* Очень большие экраны (≥1440px) — ограничиваем ширину контента */
 @media(min-width:1440px){
-  .home-screen,.stats-screen{max-width:1280px;margin:0 auto;width:100%}
+  .home-screen{max-width:1280px;margin:0 auto;width:100%}
+}
+@media(min-width:1024px){
+  .home-screen{padding:24px 32px}
+  .app-bar{padding:max(14px,env(safe-area-inset-top)) 32px 14px}
+  .app-bar .title h1{font-size:20px}
 }
 
 /* PWA standalone режим — особые отступы */
@@ -452,61 +472,74 @@ input::placeholder{color:#9aa4b4 !important}
   <div class="dots"><span></span><span></span><span></span></div>
 </div>
 
-<!-- App Bar -->
+<!-- App Bar — верхняя панель сайта -->
 <header class="app-bar">
-  <button class="hamburger" id="hamburger" aria-label="Меню">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 6h18M3 12h18M3 18h18"/>
-    </svg>
-  </button>
   <div class="app-logo">&lt;/&gt;</div>
   <div class="title">
     <h1>Сайт с 0</h1>
     <div class="sub" id="appBarSub">16 глав · 167 уроков</div>
   </div>
-</header>
-
-<!-- Drawer с inline-статистикой -->
-<div class="drawer-overlay" id="drawerOverlay"></div>
-<aside class="drawer" id="drawer">
-  <div class="drawer-header">
-    <button class="drawer-close" id="drawerClose" aria-label="Закрыть">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>
+  <!-- Кнопки действий справа (CSV, Reset, About). Кнопка «Выйти» добавляется из auth.js -->
+  <div class="app-bar-actions">
+    <button class="app-bar-icon-btn" id="btnCsvTop" title="Экспорт в CSV" aria-label="Экспорт в CSV">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
       </svg>
     </button>
-    <div class="drawer-logo">&lt;/&gt;</div>
-    <div class="drawer-title">Сайт с 0</div>
-    <div class="drawer-subtitle">по созданию сайтов</div>
-  </div>
-
-  <div class="drawer-body" id="drawerBody">
-    <!-- Заполняется из JS: hero-процент + 4 карточки + список глав -->
-  </div>
-
-  <div class="drawer-actions">
-    <button class="drawer-action-btn" data-action="csv">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      <span>Экспорт в CSV</span>
+    <button class="app-bar-icon-btn" id="btnAboutTop" title="О приложении" aria-label="О приложении">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="16" x2="12" y2="12"/>
+        <line x1="12" y1="8" x2="12.01" y2="8"/>
+      </svg>
     </button>
-    <button class="drawer-action-btn danger" data-action="reset">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-      <span>Сбросить прогресс</span>
+    <button class="app-bar-icon-btn danger" id="btnResetTop" title="Сбросить прогресс" aria-label="Сбросить прогресс">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="1 4 1 10 7 10"/>
+        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+      </svg>
     </button>
-    <button class="drawer-action-btn" data-action="about">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-      <span>О приложении</span>
-    </button>
+    <!-- Контейнер для кнопки «Выйти» (добавляется динамически из auth.js) -->
   </div>
-
-  <div class="drawer-footer">Сайт с 0 · v8.0 · работает офлайн</div>
-</aside>
+</header>
 
 <!-- Main content -->
 <main class="main-content">
 
   <section class="screen active" id="screen-home">
     <div class="home-screen">
+
+      <!-- Inline-статистика над строкой поиска (но не в самом верху сайта) -->
+      <div class="inline-stats" id="inlineStats">
+        <div class="is-hero">
+          <div class="is-pct-wrap">
+            <div class="is-pct" id="isPct">0%</div>
+            <div class="is-pct-label">Общий прогресс курса</div>
+          </div>
+          <div class="is-bar"><i id="isBar" style="width:0%"></i></div>
+        </div>
+
+        <div class="is-grid">
+          <div class="is-card ok"><div class="k">Пройдено</div><div class="v" id="isDone">0</div></div>
+          <div class="is-card proc"><div class="k">В процессе</div><div class="v" id="isProc">0</div></div>
+          <div class="is-card"><div class="k">Не начато</div><div class="v" id="isNotStarted">0</div></div>
+          <div class="is-card acc"><div class="k">Тестов сдано</div><div class="v" id="isTests">0</div></div>
+        </div>
+
+        <button class="is-toggle" id="isToggle" type="button">
+          <span>Прогресс по главам</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </button>
+
+        <div class="is-chapters" id="isChapters">
+          <!-- Заполняется из JS -->
+        </div>
+      </div>
+
       <div class="search-wrap">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -527,29 +560,9 @@ input::placeholder{color:#9aa4b4 !important}
     </div>
   </section>
 
-  <section class="screen" id="screen-stats">
-    <div class="stats-screen">
-      <div class="stat-hero">
-        <div class="pct" id="statHeroPct">0%</div>
-        <div class="label">Общий прогресс курса</div>
-        <div class="bar"><i id="statHeroBar" style="width:0%"></i></div>
-      </div>
-
-      <div class="stat-grid">
-        <div class="stat-card ok"><div class="k">Пройдено</div><div class="v" id="statDone">0</div></div>
-        <div class="stat-card proc"><div class="k">В процессе</div><div class="v" id="statProc">0</div></div>
-        <div class="stat-card"><div class="k">Не начато</div><div class="v" id="statNotStarted">0</div></div>
-        <div class="stat-card acc"><div class="k">Тестов сдано</div><div class="v" id="statTests">0</div></div>
-      </div>
-
-      <div class="stat-section-title">Прогресс по главам</div>
-      <div id="statChapters"></div>
-    </div>
-  </section>
-
 </main>
 
-<footer class="bottom">Прогресс сохраняется в этом браузере. Регулярно нажимайте «Экспорт в CSV».</footer>
+<footer class="bottom" style="display:none;"></footer>
 
 <!-- Окно урока -->
 <div class="modal-bg" id="lessonBg">
@@ -616,6 +629,16 @@ input::placeholder{color:#9aa4b4 !important}
   </div>
 </div>
 
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+<!-- Конфиг и логика Firebase (ваши файлы) -->
+<script src="assets/firebase-config.js"></script>
+<script src="assets/auth.js"></script>
+
+<!-- Ваши старые скрипты (остаются на месте) -->
 <script src="assets/icons.js"></script>
 <script src="assets/app.js"></script>
 

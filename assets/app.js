@@ -101,65 +101,21 @@ async function boot() {
 
 /* ---------- рендер ---------- */
 function render() {
-  renderStats();
+  renderInlineStats();
   renderChapters();
   bindToolbar();
   bindDropdowns();
-  initAppShell();   // drawer, screens, mobile UI
+  initAppShell();   // screens, mobile UI, app-bar actions
   // По умолчанию — все главы свёрнуты
   document.querySelectorAll(".ch-card").forEach(c => c.classList.add("closed"));
 }
 
-/* ============ APP SHELL: drawer, screens, mobile ============ */
-let drawerOpen = false;
+/* ============ APP SHELL: screens, app-bar actions ============ */
 let currentScreen = "home";
 
 function initAppShell() {
-  const hamburger = document.getElementById("hamburger");
-  const drawer = document.getElementById("drawer");
-  const overlay = document.getElementById("drawerOverlay");
-  const drawerClose = document.getElementById("drawerClose");
-
-  if (!hamburger || !drawer || !overlay) return;
-  if (hamburger.dataset.bound) return;
-  hamburger.dataset.bound = "1";
-
-  // Открыть/закрыть drawer
-  function openDrawer() {
-    drawer.classList.add("open");
-    overlay.classList.add("open");
-    drawerOpen = true;
-    renderDrawerStats();
-  }
-  function closeDrawer() {
-    drawer.classList.remove("open");
-    overlay.classList.remove("open");
-    drawerOpen = false;
-  }
-  function toggleDrawer() { drawerOpen ? closeDrawer() : openDrawer(); }
-
-  hamburger.addEventListener("click", toggleDrawer);
-  overlay.addEventListener("click", closeDrawer);
-  if (drawerClose) drawerClose.addEventListener("click", closeDrawer);
-
-  // Свайп вправо для открытия (с края экрана)
-  let touchStartX = 0, touchStartY = 0, swipeStarted = false;
-  document.addEventListener("touchstart", (e) => {
-    if (e.touches.length !== 1) return;
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-    swipeStarted = (touchStartX < 30 && !drawerOpen);
-  }, { passive: true });
-
-  document.addEventListener("touchend", (e) => {
-    if (!swipeStarted && !drawerOpen) return;
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
-    if (dy > 60) { swipeStarted = false; return; }
-    if (swipeStarted && dx > 80) openDrawer();
-    if (drawerOpen && dx < -80) closeDrawer();
-    swipeStarted = false;
-  }, { passive: true });
+  if (initAppShell._bound) return;
+  initAppShell._bound = true;
 
   // Чипы фильтров
   document.querySelectorAll(".chip[data-f]").forEach(chip => {
@@ -180,15 +136,23 @@ function initAppShell() {
     });
   }
 
-  // Кнопки в drawer-actions (3 нижние кнопки)
-  document.querySelectorAll(".drawer-action-btn[data-action]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const action = btn.dataset.action;
-      handleDrawerAction(action);
-    });
+  // Кнопки действий в app-bar (CSV, Reset, About)
+  const btnCsv = document.getElementById("btnCsvTop");
+  if (btnCsv) btnCsv.addEventListener("click", exportCsv);
+
+  const btnReset = document.getElementById("btnResetTop");
+  if (btnReset) btnReset.addEventListener("click", () => {
+    if (!confirm("Сбросить весь прогресс и результаты тестов?")) return;
+    state = {}; quizResults = {}; save(); render();
   });
 
-  // Кнопка "О приложении"
+  const btnAbout = document.getElementById("btnAboutTop");
+  if (btnAbout) btnAbout.addEventListener("click", () => {
+    const aboutBg = document.getElementById("aboutBg");
+    if (aboutBg) aboutBg.classList.add("show");
+  });
+
+  // Кнопка "О приложении" — закрытие
   const aboutClose = document.getElementById("aboutClose");
   const aboutBg = document.getElementById("aboutBg");
   if (aboutClose) aboutClose.addEventListener("click", () => aboutBg.classList.remove("show"));
@@ -196,9 +160,23 @@ function initAppShell() {
     if (e.target === aboutBg) aboutBg.classList.remove("show");
   });
 
+  // Раскрытие списка глав в inline-статистике
+  const isToggle = document.getElementById("isToggle");
+  const isChapters = document.getElementById("isChapters");
+  if (isToggle && isChapters) {
+    isToggle.addEventListener("click", () => {
+      const open = isChapters.classList.toggle("open");
+      isToggle.classList.toggle("open", open);
+    });
+  }
+
   // Escape закрывает всё
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeDrawer();
+    if (e.key === "Escape") {
+      // Закрываем список глав в статистике
+      if (isChapters) isChapters.classList.remove("open");
+      if (isToggle) isToggle.classList.remove("open");
+    }
   });
 
   // Подзаголовок в app-bar
@@ -214,19 +192,12 @@ function initAppShell() {
       " уроков · " + qn + " вопросов в тестах · " + bn + " вопросов в больших тестах.";
   }
 
-  // Первичная отрисовка статистики в drawer
-  renderDrawerStats();
-}
-
-function switchScreen(name) {
-  currentScreen = name;
-  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
-  const screen = document.getElementById("screen-" + name);
-  if (screen) screen.classList.add("active");
-  if (name === "stats") renderStatsScreen();
+  // Первичная отрисовка статистики
+  renderInlineStats();
 }
 
 function handleDrawerAction(action) {
+  // Старые действия из drawer — теперь доступны из app-bar
   if (action === "csv") {
     exportCsv();
   } else if (action === "reset") {
@@ -238,11 +209,9 @@ function handleDrawerAction(action) {
   }
 }
 
-/* ============ INLINE-СТАТИСТИКА В DRAWER ============ */
-function renderDrawerStats() {
+/* ============ INLINE-СТАТИСТИКА НА СТРАНИЦЕ (над поиском) ============ */
+function renderInlineStats() {
   if (!DATA) return;
-  const body = document.getElementById("drawerBody");
-  if (!body) return;
 
   let done = 0, proc = 0, tests = 0;
   DATA.lessons.forEach((_, i) => {
@@ -254,79 +223,30 @@ function renderDrawerStats() {
   const total = DATA.lessons.length;
   const pct = Math.round((done / total) * 1000) / 10;
 
-  // Собираем HTML
-  let html = '';
-
-  // Hero-процент
-  html += '<div class="drawer-hero">';
-  html += '<div class="pct">' + pct + '%</div>';
-  html += '<div class="label">Общий прогресс курса</div>';
-  html += '<div class="bar"><i style="width:' + pct + '%"></i></div>';
-  html += '</div>';
-
-  // 4 карточки
-  html += '<div class="drawer-stats-grid">';
-  html += '<div class="drawer-stat-card ok"><div class="k">Пройдено</div><div class="v">' + done + '</div></div>';
-  html += '<div class="drawer-stat-card proc"><div class="k">В процессе</div><div class="v">' + proc + '</div></div>';
-  html += '<div class="drawer-stat-card"><div class="k">Не начато</div><div class="v">' + (total - done - proc) + '</div></div>';
-  html += '<div class="drawer-stat-card acc"><div class="k">Тестов сдано</div><div class="v">' + tests + '</div></div>';
-  html += '</div>';
-
-  // Список глав
-  html += '<div class="drawer-section-title">Прогресс по главам</div>';
-  html += DATA.chapters.map((ch, ci) => {
-    const d = chapterDone(ci);
-    const pr = Math.round((d / ch.size) * 100);
-    const name = ch.name.replace(/^Глава\s*\d+\.\s*/, "");
-    return '<div class="drawer-chapter-row">' +
-      '<div class="rowline">' +
-        '<span class="name">' + name + '</span>' +
-        '<span class="num">' + d + '/' + ch.size + ' · ' + pr + '%</span>' +
-      '</div>' +
-      '<div class="bar"><i style="width:' + pr + '%"></i></div>' +
-    '</div>';
-  }).join("");
-
-  body.innerHTML = html;
-}
-
-/* ============ ЭКРАН СТАТИСТИКИ ============ */
-function renderStatsScreen() {
-  if (!DATA) return;
-  let done = 0, proc = 0, tests = 0;
-  DATA.lessons.forEach((_, i) => {
-    const s = getLessonState(i + 1).s;
-    if (s === 2) done++;
-    if (s === 1) proc++;
-    if (quizPassed(i + 1)) tests++;
-  });
-  const total = DATA.lessons.length;
-  const pct = Math.round((done / total) * 1000) / 10;
-
-  // Hero
-  const heroPct = document.getElementById("statHeroPct");
-  const heroBar = document.getElementById("statHeroBar");
-  if (heroPct) heroPct.textContent = pct + "%";
-  if (heroBar) heroBar.style.width = pct + "%";
+  // Hero процент
+  const pctEl = document.getElementById("isPct");
+  if (pctEl) pctEl.textContent = pct + "%";
+  const barEl = document.getElementById("isBar");
+  if (barEl) barEl.style.width = pct + "%";
 
   // Карточки
-  const elDone = document.getElementById("statDone");
-  const elProc = document.getElementById("statProc");
-  const elNot = document.getElementById("statNotStarted");
-  const elTests = document.getElementById("statTests");
+  const elDone = document.getElementById("isDone");
+  const elProc = document.getElementById("isProc");
+  const elNot  = document.getElementById("isNotStarted");
+  const elTests = document.getElementById("isTests");
   if (elDone) elDone.textContent = done;
   if (elProc) elProc.textContent = proc;
-  if (elNot) elNot.textContent = (total - done - proc);
+  if (elNot)  elNot.textContent  = (total - done - proc);
   if (elTests) elTests.textContent = tests;
 
-  // Главы
-  const chContainer = document.getElementById("statChapters");
+  // Список глав (раскрывается по клику)
+  const chContainer = document.getElementById("isChapters");
   if (chContainer) {
     chContainer.innerHTML = DATA.chapters.map((ch, ci) => {
       const d = chapterDone(ci);
       const pr = Math.round((d / ch.size) * 100);
       const name = ch.name.replace(/^Глава\s*\d+\.\s*/, "");
-      return '<div class="stat-chapter-row">' +
+      return '<div class="is-chapter-row">' +
         '<div class="rowline">' +
           '<span class="name">' + name + '</span>' +
           '<span class="num">' + d + '/' + ch.size + ' · ' + pr + '%</span>' +
@@ -336,6 +256,12 @@ function renderStatsScreen() {
     }).join("");
   }
 }
+
+// Обратная совместимость — старый вызов renderDrawerStats() из auth.js
+function renderDrawerStats() { renderInlineStats(); }
+
+/* ============ ЭКРАН СТАТИСТИКИ (legacy — отдельного экрана больше нет) ============ */
+function renderStatsScreen() { renderInlineStats(); }
 
 function renderStats() {
   let done = 0, proc = 0;
@@ -374,6 +300,9 @@ function renderStats() {
         '</div><div class="bar sm"><i style="width:' + pr + '%"></i></div></div>';
     }).join("");
   }
+
+  // Обновляем inline-статистику над строкой поиска
+  renderInlineStats();
 }
 
 function renderChapters() {
